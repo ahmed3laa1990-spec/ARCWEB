@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /portal
+Disallow: /portal/*
+Disallow: /admin
+Disallow: /admin/*
+
+Sitemap: https://byarcsa.com/sitemap.xml

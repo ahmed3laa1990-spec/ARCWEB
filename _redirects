@@ -1,0 +1,23 @@
+# Cloudflare Pages redirects
+# Format: source destination status
+
+# Old WordPress URLs -> Homepage (preserves SEO juice)
+/wp-admin/* / 301
+/wp-login.php / 301
+/?p=* / 301
+/category/* / 301
+/tag/* / 301
+
+# Friendly URLs to section anchors
+/about /#about 301
+/services /#services 301
+/projects /#projects 301
+/team /#team 301
+/contact /#contact 301
+/careers /#careers 301
+/blog /#blog 301
+
+# Employee Portal (currently placeholder — update when ready)
+/portal /portal 200
+/employees /portal 301
+/login /portal 301
