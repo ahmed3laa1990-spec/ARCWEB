@@ -7,7 +7,7 @@
 <meta name="description" content="ARC Construction is a leading contracting company in Saudi Arabia delivering exceptional construction, design, and infrastructure across Riyadh, Jeddah, and Dammam.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <meta property="og:title" content="ARC Construction | Premium Contracting in Saudi Arabia">
-<meta property="og:description" content="9+ years of excellence, 58+ delivered projects.">
+<meta property="og:description" content="Architectural, mechanical and electrical contracting in Saudi Arabia since 2019 — 15+ projects delivered with leading main contractors.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://byarcsa.com">
 
@@ -24,7 +24,10 @@
   "description": "ARC Construction is a leading contracting company in Saudi Arabia delivering exceptional construction, design, and infrastructure across Riyadh, Jeddah, and Dammam.",
   "telephone": "+966534140415",
   "email": "info@byarcsa.com",
-  "foundingDate": "2017",
+  "foundingDate":"2019",
+  "legalName":"Ark Hom for General Contracting Co.",
+  "taxID":"312383808100003",
+  "identifier":{"@type":"PropertyValue","name":"Commercial Registration","value":"1010874676"},
   "areaServed": {"@type":"Country","name":"Saudi Arabia"},
   "address": [
     {"@type":"PostalAddress","streetAddress":"Sheikh Salman bin Hamad Al Khalifa, Al-Malaz","addressLocality":"Riyadh","postalCode":"13518","addressCountry":"SA"},
@@ -33,8 +36,7 @@
   ],
   "openingHours": "Sa-Th 09:00-17:00",
   "priceRange": "$$$",
-  "sameAs": ["https://x.com/byarcsa","https://www.instagram.com/byarcsa/","https://www.linkedin.com/company/95948157"],
-  "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"58"}
+  "sameAs": ["https://x.com/byarcsa","https://www.instagram.com/byarcsa/","https://www.linkedin.com/company/95948157"]
 }
 </script>
 
@@ -938,6 +940,7 @@ html[data-lang="ar"] .partners-track { animation-direction: reverse; }
 }
 @media (max-width: 968px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 500px) { .team-grid { grid-template-columns: 1fr; } }
+.team-grid.depts { grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
 .team-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -976,6 +979,38 @@ html[data-lang="ar"] .partners-track { animation-direction: reverse; }
 .team-social a:hover { background: var(--navy); border-color: var(--navy); }
 .team-social a:hover svg { stroke: #fff; }
 .team-social svg { width: 14px; height: 14px; stroke: var(--text-muted); fill: none; stroke-width: 2; }
+
+/* ====== CREDENTIALS ====== */
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.cred-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 24px;
+  display: flex; flex-direction: column; gap: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--easing), border-color 0.35s, box-shadow 0.35s;
+}
+.cred-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(244,180,0,0.45);
+  box-shadow: var(--shadow-lg);
+}
+.cred-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+.cred-value {
+  font-size: 21px; font-weight: 800; color: var(--navy);
+  line-height: 1.35; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.cred-note { font-size: 13px; color: var(--text-secondary); }
 
 /* ====== TESTIMONIALS ====== */
 .testimonials-grid {
@@ -1922,6 +1957,23 @@ html[data-lang="ar"] .live-feed { left: auto; right: 24px; }
   z-index: 2;
 }
 .modal-close:hover { background: var(--gold); }
+/* project modal gallery */
+.modal-meta { grid-template-columns: repeat(2, 1fr); }
+.modal-gallery {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-top: 4px;
+}
+.modal-gallery button {
+  width: 84px; height: 62px;
+  padding: 0; border: 2px solid transparent;
+  border-radius: 10px; overflow: hidden;
+  cursor: pointer; background: var(--bg-soft);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.modal-gallery button:hover { transform: translateY(-2px); }
+.modal-gallery button[aria-current="true"] { border-color: var(--gold); }
+.modal-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.modal-body h2 .sub { display: block; font-size: 18px; font-weight: 600; color: var(--text-secondary); margin-top: 2px; }
 @media (max-width: 600px) {
   .modal-body { padding: 24px; }
   .modal-meta { grid-template-columns: 1fr; gap: 12px; }
@@ -2713,8 +2765,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-ar>نبني مستقبل<br><span class="accent">المملكة</span></span>
       </h1>
       <p class="hero-subtitle">
-        <span data-en>ARC is a leading contracting company delivering exceptional construction, design, and infrastructure projects across Saudi Arabia. Trusted by industry leaders for nine years and counting.</span>
-        <span data-ar>شركة ارك للمقاولات الرائدة في تنفيذ مشاريع البناء والتصميم والبنية التحتية في جميع أنحاء المملكة العربية السعودية. ثقة كبرى الجهات لأكثر من تسع سنوات.</span>
+        <span data-en>ARC is a leading contracting company delivering exceptional construction, design, and infrastructure projects across Saudi Arabia. Delivering architectural, mechanical and electrical scopes alongside the Kingdom&rsquo;s leading main contractors since 2019.</span>
+        <span data-ar>شركة ارك للمقاولات الرائدة في تنفيذ مشاريع البناء والتصميم والبنية التحتية في جميع أنحاء المملكة العربية السعودية. ننفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019.</span>
       </p>
       <div class="live-pill">
         <span class="dot"></span>
@@ -2739,20 +2791,20 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
       <div class="hero-stats">
         <div class="hero-stat">
-          <span class="num gold" data-count="58">0</span><span class="num gold">+</span><br>
+          <span class="num gold" data-count="15">0</span><span class="num gold">+</span><br>
           <span class="label"><span data-en>Projects Delivered</span><span data-ar>مشروع منجز</span></span>
         </div>
         <div class="hero-stat">
-          <span class="num gold" data-count="9">0</span><span class="num gold">+</span><br>
-          <span class="label"><span data-en>Years Experience</span><span data-ar>سنوات خبرة</span></span>
+          <span class="num gold" data-count="7">0</span><span class="num gold">+</span><br>
+          <span class="label"><span data-en>Years Since 2019</span><span data-ar>سنوات منذ 2019</span></span>
         </div>
         <div class="hero-stat">
-          <span class="num gold" data-count="98">0</span><span class="num gold">%</span><br>
-          <span class="label"><span data-en>Client Retention</span><span data-ar>عودة العملاء</span></span>
+          <span class="num gold" data-count="16">0</span><br>
+          <span class="label"><span data-en>Partners</span><span data-ar>شركاء</span></span>
         </div>
         <div class="hero-stat">
-          <span class="num gold" data-count="78">0</span><span class="num gold">+</span><br>
-          <span class="label"><span data-en>Trusted Partners</span><span data-ar>شريك موثوق</span></span>
+          <span class="num gold" data-count="30">0</span><span class="num gold">+</span><br>
+          <span class="label"><span data-en>Engineers &amp; Technicians</span><span data-ar>مهندسون وفنيون</span></span>
         </div>
       </div>
     </div>
@@ -2827,20 +2879,20 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card reveal">
-        <span class="stat-num"><span data-count="58">0</span>+</span>
-        <span class="stat-label"><span data-en>Successful Projects</span><span data-ar>مشاريع منجزة</span></span>
+        <span class="stat-num"><span data-count="15">0</span>+</span>
+        <span class="stat-label"><span data-en>Projects Delivered</span><span data-ar>مشاريع منفّذة</span></span>
       </div>
       <div class="stat-card reveal">
-        <span class="stat-num"><span data-count="9">0</span>+</span>
-        <span class="stat-label"><span data-en>Years Experience</span><span data-ar>سنوات خبرة</span></span>
+        <span class="stat-num"><span data-count="7">0</span></span>
+        <span class="stat-label"><span data-en>Years Since 2019</span><span data-ar>سنوات منذ 2019</span></span>
       </div>
       <div class="stat-card reveal">
-        <span class="stat-num"><span data-count="98">0</span>%</span>
-        <span class="stat-label"><span data-en>Client Retention</span><span data-ar>نسبة عودة العملاء</span></span>
+        <span class="stat-num"><span data-count="16">0</span></span>
+        <span class="stat-label"><span data-en>Partners &amp; Main Contractors</span><span data-ar>شركاء ومقاولون رئيسيون</span></span>
       </div>
       <div class="stat-card reveal">
-        <span class="stat-num"><span data-count="78">0</span>+</span>
-        <span class="stat-label"><span data-en>Trusted Partners</span><span data-ar>شريك موثوق</span></span>
+        <span class="stat-num"><span data-count="30">0</span>+</span>
+        <span class="stat-label"><span data-en>Engineers &amp; Technicians</span><span data-ar>مهندسون وفنيون</span></span>
       </div>
     </div>
   </div>
@@ -2851,20 +2903,17 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <div class="container">
     <div class="founder-grid">
       <div class="founder-photo reveal">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 11c-5 0-9 2.5-9 6v3h18v-3c0-3.5-4-6-9-6z"/></svg>
-        </div>
+        <img src="assets/team/ceo.jpg" alt="Executive Director, ARC Construction" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:inherit;">
       </div>
       <div class="founder-content reveal">
         <span class="eyebrow"><span data-en>From The CEO</span><span data-ar>كلمة الرئيس التنفيذي</span></span>
         <p class="founder-quote" style="margin-top: 24px;">
-          <span data-en>We don't just build structures — we build trust, communities, and a piece of the Kingdom's future. Every project carries our promise: deliver excellence, on time, every time.</span>
-          <span data-ar>نحن لا نبني هياكل فحسب — بل نبني الثقة، والمجتمعات، وجزءاً من مستقبل المملكة. كل مشروع يحمل وعدنا: الإتقان في الموعد، في كل مرة.</span>
+          <span data-en>Since the establishment of ARC in 2019, we set a clear goal for ourselves: to become a role model in the construction sector by delivering projects with high quality, unwavering commitment, and a unified team spirit. What sets us apart is that we do not view projects as mere numbers or walls to be erected, but as success stories written with team spirit and a passion for achievement.</span>
+          <span data-ar>منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة. ما يميزنا في رحلتنا هو أننا لا ننظر إلى المشاريع كأرقام أو جدران تُبنى، بل كقصة نجاح تُكتب بروح الفريق وشغف الإنجاز.</span>
         </p>
-        <div class="signature">Eng. Ahmed Al-Rashidi</div>
         <div class="name-title">
-          <span data-en>Founder & CEO · ARC Construction</span>
-          <span data-ar>المؤسّس والرئيس التنفيذي · شركة ارك للمقاولات</span>
+          <span data-en>Executive Director · ARC Construction</span>
+          <span data-ar>المدير التنفيذي · شركة أرك للمقاولات</span>
         </div>
       </div>
     </div>
@@ -3020,74 +3069,161 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 <section class="section section-bg-soft" id="projects">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow"><span data-en>Recent Work</span><span data-ar>أحدث الأعمال</span></span>
+      <span class="eyebrow"><span data-en>Our Work</span><span data-ar>أعمالنا</span></span>
       <h2 class="section-title">
-        <span data-en>Projects that <span class="gold">define skylines</span>.</span>
-        <span data-ar>مشاريع <span class="gold">تشكّل الأفق</span>.</span>
+        <span data-en>Projects we <span class="gold">delivered</span>.</span>
+        <span data-ar>مشاريع <span class="gold">نفّذناها</span>.</span>
       </h2>
       <p class="section-subtitle">
-        <span data-en>Iconic developments delivered for the Kingdom's most ambitious partners.</span>
-        <span data-ar>وجهات أيقونية نُنجزها لأكبر شركاء المملكة.</span>
+        <span data-en>Fifteen projects across the Kingdom — architectural, mechanical and electrical scopes delivered alongside leading main contractors.</span>
+        <span data-ar>خمسة عشر مشروعاً في أنحاء المملكة — أعمال معمارية وميكانيكية وكهربائية نُفِّذت بالتعاون مع كبرى شركات المقاولات.</span>
       </p>
     </div>
 
     <div class="projects-filter reveal">
       <button class="filter-btn active" data-filter="all" type="button"><span data-en>All</span><span data-ar>الكل</span></button>
-      <button class="filter-btn" data-filter="entertainment" type="button"><span data-en>Entertainment</span><span data-ar>ترفيهي</span></button>
-      <button class="filter-btn" data-filter="residential" type="button"><span data-en>Residential</span><span data-ar>سكني</span></button>
-      <button class="filter-btn" data-filter="heritage" type="button"><span data-en>Heritage</span><span data-ar>تراثي</span></button>
-      <button class="filter-btn" data-filter="commercial" type="button"><span data-en>Commercial</span><span data-ar>تجاري</span></button>
+      <button class="filter-btn" data-filter="mechanical" type="button"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></button>
+      <button class="filter-btn" data-filter="electrical" type="button"><span data-en>Electrical</span><span data-ar>كهرباء</span></button>
+      <button class="filter-btn" data-filter="architectural" type="button"><span data-en>Architectural</span><span data-ar>معماري</span></button>
     </div>
 
     <div class="projects-grid">
-      <div class="project-card reveal" data-category="entertainment">
-        <img src="assets/projects/1-2.png" alt="" onerror="this.style.opacity=0.3">
+
+      <article class="project-card reveal" data-category="architectural mechanical" data-project="itcc" tabindex="0" role="button" aria-label="ITCC Compound">
+        <img src="assets/projects/itcc-hero.jpg" loading="lazy" width="1000" height="563" alt="ITCC Compound, Riyadh">
         <div class="project-info">
-          <span class="project-tag"><span data-en>Boulevard City</span><span data-ar>بوليفارد سيتي</span></span>
-          <h3><span data-en>WWE Crown Jewel Arena</span><span data-ar>أرينا WWE كراون جويل</span></h3>
-          <p><span data-en>Large-scale entertainment venue.</span><span data-ar>منشأة ترفيهية ضخمة.</span></p>
+          <span class="project-tag"><span data-en>Architectural · Mechanical</span><span data-ar>معماري · ميكانيكا</span></span>
+          <h3><span data-en>ITCC Compound</span><span data-ar>مجمع تقنية المعلومات والاتصالات</span></h3>
+          <p><span data-en>with AZMEEL Contracting</span><span data-ar>بالتعاون مع أزميل للمقاولات</span></p>
         </div>
-      </div>
-      <div class="project-card reveal" data-category="residential">
-        <img src="assets/projects/2-2.png" alt="" onerror="this.style.opacity=0.3">
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical" data-project="samhan-hotel" tabindex="0" role="button" aria-label="Samhan Heritage Hotel">
+        <img src="assets/projects/samhan-hotel-hero.jpg" loading="lazy" width="1000" height="561" alt="Samhan Heritage Hotel, Diriyah">
         <div class="project-info">
-          <span class="project-tag"><span data-en>Roshn</span><span data-ar>روشن</span></span>
-          <h3><span data-en>Roshn Sedra Villas</span><span data-ar>فلل روشن سدرة</span></h3>
-          <p><span data-en>Premium residential development.</span><span data-ar>تطوير سكني فاخر.</span></p>
-        </div>
-      </div>
-      <div class="project-card reveal" data-category="heritage">
-        <img src="assets/projects/3-2.png" alt="" onerror="this.style.opacity=0.3">
-        <div class="project-info">
-          <span class="project-tag"><span data-en>Diriyah Gate</span><span data-ar>بوابة الدرعية</span></span>
+          <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
           <h3><span data-en>Samhan Heritage Hotel</span><span data-ar>فندق سمحان التراثي</span></h3>
-          <p><span data-en>Heritage hospitality showcase.</span><span data-ar>وجهة ضيافة تراثية.</span></p>
+          <p><span data-en>with MARCO &amp; HAWA Dynamics</span><span data-ar>بالتعاون مع ماركو وهوا ديناميكس</span></p>
         </div>
-      </div>
-      <div class="project-card reveal" data-category="entertainment">
-        <img src="assets/projects/4-2.png" alt="" onerror="this.style.opacity=0.3">
+      </article>
+
+      <article class="project-card reveal" data-category="electrical mechanical" data-project="boulevard-hall" tabindex="0" role="button" aria-label="Boulevard Hall">
+        <img src="assets/projects/boulevard-hall-hero.jpg" loading="lazy" width="1000" height="481" alt="Boulevard Hall, Riyadh">
         <div class="project-info">
-          <span class="project-tag"><span data-en>Boulevard World</span><span data-ar>بوليفارد ورلد</span></span>
-          <h3><span data-en>Kingdom Arena</span><span data-ar>أرينا المملكة</span></h3>
-          <p><span data-en>Iconic concert venue.</span><span data-ar>وجهة حفلات أيقونية.</span></p>
+          <span class="project-tag"><span data-en>Electrical · Mechanical</span><span data-ar>كهرباء · ميكانيكا</span></span>
+          <h3><span data-en>Boulevard Hall</span><span data-ar>بوليفارد هول</span></h3>
+          <p><span data-en>with Awtad Alfahd Contracting</span><span data-ar>بالتعاون مع أوتاد الفهد للمقاولات</span></p>
         </div>
-      </div>
-      <div class="project-card reveal" data-category="commercial">
-        <img src="assets/projects/5-2.png" alt="" onerror="this.style.opacity=0.3">
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical" data-project="ministry-justice" tabindex="0" role="button" aria-label="Ministry of Justice, Riyadh Branch">
+        <img src="assets/projects/ministry-justice-hero.jpg" loading="lazy" width="393" height="412" alt="Ministry of Justice branch, Riyadh">
         <div class="project-info">
-          <span class="project-tag"><span data-en>Commercial</span><span data-ar>تجاري</span></span>
-          <h3><span data-en>Corporate Headquarters</span><span data-ar>مقرات إدارية</span></h3>
-          <p><span data-en>Class A office development.</span><span data-ar>مبنى إداري من الفئة A.</span></p>
+          <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
+          <h3><span data-en>Ministry of Justice</span><span data-ar>فرع وزارة العدل</span></h3>
+          <p><span data-en>Riyadh Branch · via Etimad</span><span data-ar>فرع الرياض · عبر منصة اعتماد</span></p>
         </div>
-      </div>
-      <div class="project-card reveal" data-category="residential">
-        <img src="assets/projects/6-2.png" alt="" onerror="this.style.opacity=0.3">
+      </article>
+
+      <article class="project-card reveal" data-category="electrical" data-project="al-habib-hospital" tabindex="0" role="button" aria-label="Suleiman Al Habib Hospital">
+        <img src="assets/projects/al-habib-hospital-hero.jpg" loading="lazy" width="1000" height="724" alt="Suleiman Al Habib Hospital under construction">
         <div class="project-info">
-          <span class="project-tag"><span data-en>Residential</span><span data-ar>سكني</span></span>
-          <h3><span data-en>Luxury Compound</span><span data-ar>مجمع سكني فاخر</span></h3>
-          <p><span data-en>Multi-villa luxury community.</span><span data-ar>مجتمع فلل فاخر.</span></p>
+          <span class="project-tag"><span data-en>Electrical</span><span data-ar>كهرباء</span></span>
+          <h3><span data-en>Suleiman Al Habib Hospital</span><span data-ar>مستشفى سليمان الحبيب</span></h3>
+          <p><span data-en>with MASAH Specialized Construction</span><span data-ar>بالتعاون مع مساح للمقاولات المتخصصة</span></p>
         </div>
-      </div>
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical" data-project="jubail-university" tabindex="0" role="button" aria-label="Jubail University">
+        <img src="assets/projects/jubail-university-hero.jpg" loading="lazy" width="1000" height="626" alt="Jubail University campus">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
+          <h3><span data-en>Jubail University</span><span data-ar>جامعة الجبيل</span></h3>
+          <p><span data-en>Student housing · with AZMEEL</span><span data-ar>سكن الطلاب · بالتعاون مع أزميل</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="architectural mechanical" data-project="blocks-offices" tabindex="0" role="button" aria-label="Blocks Co Offices">
+        <img src="assets/projects/blocks-offices-hero.jpg" loading="lazy" width="750" height="1000" alt="Blocks Co offices interior">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Architectural · Mechanical</span><span data-ar>معماري · ميكانيكا</span></span>
+          <h3><span data-en>Blocks Co Offices</span><span data-ar>مكاتب شركة بلوكس</span></h3>
+          <p><span data-en>with BLOCKS Group</span><span data-ar>بالتعاون مع مجموعة بلوكس</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical" data-project="roshn-villas" tabindex="0" role="button" aria-label="Roshn Villas, Sedra">
+        <img src="assets/projects/roshn-villas-hero.jpg" loading="lazy" width="1000" height="705" alt="Roshn Sedra villas">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
+          <h3><span data-en>Roshn Villas — Sedra</span><span data-ar>فيلل روشن — سدرة</span></h3>
+          <p><span data-en>with BCC as main contractor</span><span data-ar>بالتعاون مع الإنشاء والتعمير كمقاول رئيسي</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical" data-project="boulevard-city" tabindex="0" role="button" aria-label="Boulevard City">
+        <img src="assets/projects/boulevard-city-hero.jpg" loading="lazy" width="1000" height="816" alt="Boulevard City venue at night">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
+          <h3><span data-en>Boulevard City</span><span data-ar>بوليفارد سيتي</span></h3>
+          <p><span data-en>with BLOCKS Group</span><span data-ar>بالتعاون مع مجموعة بلوكس</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="architectural" data-project="al-kharj-stadiums" tabindex="0" role="button" aria-label="Al Kharj Stadiums">
+        <img src="assets/projects/al-kharj-stadiums-hero.jpg" loading="lazy" width="1000" height="750" alt="Padel courts at Al Kharj">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
+          <h3><span data-en>Al Kharj Stadiums</span><span data-ar>ملاعب الخرج</span></h3>
+          <p><span data-en>Padel &amp; tennis courts · with 2C Fitness</span><span data-ar>ملاعب بادل وتنس · بالتعاون مع 2C Fitness</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical electrical" data-project="qunfudhah-station" tabindex="0" role="button" aria-label="Periodic Inspection Station, Al Qunfudhah">
+        <img src="assets/projects/qunfudhah-station-hero.jpg" loading="lazy" width="1000" height="561" alt="Periodic Inspection Station under construction, Al Qunfudhah">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Mechanical · Electrical</span><span data-ar>ميكانيكا · كهرباء</span></span>
+          <h3><span data-en>Periodic Inspection Station</span><span data-ar>محطة الفحص الدوري</span></h3>
+          <p><span data-en>Al Qunfudhah · with Three Palms Group</span><span data-ar>القنفذة · بالتعاون مع مجموعة النخلات الثلاث</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="architectural" data-project="cipriani" tabindex="0" role="button" aria-label="Cipriani Restaurant">
+        <img src="assets/projects/cipriani-hero.jpg" loading="lazy" width="1000" height="750" alt="Cipriani Restaurant site, Riyadh">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
+          <h3><span data-en>Cipriani Restaurant</span><span data-ar>مطعم تشيبرياني</span></h3>
+          <p><span data-en>with Hodood Al-Kamal Contracting</span><span data-ar>بالتعاون مع حدود الكمال للمقاولات</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="mechanical electrical" data-project="al-hammadi-hospital" tabindex="0" role="button" aria-label="Al Hammadi Hospital, Al Olaya">
+        <img src="assets/projects/al-hammadi-hospital-hero.jpg" loading="lazy" width="750" height="1000" alt="Al Hammadi Hospital Al Olaya under construction">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Mechanical · Electrical</span><span data-ar>ميكانيكا · كهرباء</span></span>
+          <h3><span data-en>Al Hammadi Hospital</span><span data-ar>مستشفى الحمادي</span></h3>
+          <p><span data-en>Al Olaya · with SAWAED</span><span data-ar>العليا · بالتعاون مع سواعد</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="architectural" data-project="gulf-villas" tabindex="0" role="button" aria-label="Gulf Villas">
+        <img src="assets/projects/gulf-villas-hero.jpg" loading="lazy" width="750" height="1000" alt="Gulf Villas under construction">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
+          <h3><span data-en>Gulf Villas</span><span data-ar>فيلل الخليج</span></h3>
+          <p><span data-en>Interior finishing works</span><span data-ar>أعمال التشطيبات الداخلية</span></p>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-category="architectural" data-project="al-rabwa-villas" tabindex="0" role="button" aria-label="Al Rabwa Villas">
+        <img src="assets/projects/al-rabwa-villas-hero.jpg" loading="lazy" width="1000" height="750" alt="Al Rabwa Villas foundation works">
+        <div class="project-info">
+          <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
+          <h3><span data-en>Al Rabwa Villas</span><span data-ar>فيلل الربوة</span></h3>
+          <p><span data-en>with SAWAED</span><span data-ar>بالتعاون مع سواعد</span></p>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -3102,13 +3238,13 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-ar>شاهد <span class="gold">التحوّل</span>.</span>
       </h2>
       <p class="section-subtitle">
-        <span data-en>Drag the slider to reveal what we built from concept to completion.</span>
-        <span data-ar>اسحب الشريط لترى كيف حوّلنا الفكرة إلى واقع.</span>
+        <span data-en>Periodic Inspection Station, Al Qunfudhah — drag the slider from steel frame erection to the completed building.</span>
+        <span data-ar>محطة الفحص الدوري بالقنفذة — اسحب الشريط من مرحلة تركيب الهيكل الحديدي إلى المبنى المكتمل.</span>
       </p>
     </div>
     <div class="ba-slider" id="baSlider">
-      <div class="ba-before"><img src="assets/services/construction.jpg" alt="Before"></div>
-      <div class="ba-after"><img src="assets/projects/2-2.png" alt="After"></div>
+      <div class="ba-before"><img src="assets/projects/qunfudhah-station-hero.jpg" alt="Periodic Inspection Station, Al Qunfudhah — steel frame erection" loading="lazy"></div>
+      <div class="ba-after"><img src="assets/projects/qunfudhah-station-g1.jpg" alt="Periodic Inspection Station, Al Qunfudhah — completed building" loading="lazy"></div>
       <div class="ba-label ba-label-before"><span data-en>Before</span><span data-ar>قبل</span></div>
       <div class="ba-label ba-label-after"><span data-en>After</span><span data-ar>بعد</span></div>
       <div class="ba-handle"></div>
@@ -3124,8 +3260,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-en>Our Journey</span><span data-ar>رحلتنا</span>
       </span>
       <h2 class="section-title">
-        <span data-en>Nine years of <span class="gold">milestones</span>.</span>
-        <span data-ar>تسع سنوات من <span class="gold">الإنجازات</span>.</span>
+        <span data-en>Our journey since <span class="gold">2019</span>.</span>
+        <span data-ar>رحلتنا منذ <span class="gold">2019</span>.</span>
       </h2>
     </div>
 
@@ -3135,15 +3271,15 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <h4><span data-en>ARC Founded</span><span data-ar>تأسيس ARC</span></h4>
           <p><span data-en>Started as a specialized contracting firm in Riyadh with a vision to redefine quality.</span><span data-ar>بدأنا كشركة مقاولات متخصصة في الرياض برؤية لإعادة تعريف الجودة.</span></p>
         </div>
-        <div class="year">2017</div>
+        <div class="year">2019</div>
         <div></div>
       </div>
       <div class="timeline-item reveal">
         <div></div>
-        <div class="year">2019</div>
+        <div class="year">2020</div>
         <div class="timeline-content">
-          <h4><span data-en>First Major Contract</span><span data-ar>أول عقد كبير</span></h4>
-          <p><span data-en>Secured strategic partnership with a leading developer in the Kingdom.</span><span data-ar>شراكة استراتيجية مع مطوّر رائد في المملكة.</span></p>
+          <h4><span data-en>Specialist Contracting Work</span><span data-ar>أعمال المقاولات المتخصصة</span></h4>
+          <p><span data-en>Delivering mechanical and electrical scopes as a specialist subcontractor to established main contractors.</span><span data-ar>تنفيذ الأعمال الميكانيكية والكهربائية كمقاول متخصص لدى شركات مقاولات رئيسية.</span></p>
         </div>
       </div>
       <div class="timeline-item reveal">
@@ -3158,14 +3294,14 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <div></div>
         <div class="year">2023</div>
         <div class="timeline-content">
-          <h4><span data-en>Vision 2030 Projects</span><span data-ar>مشاريع رؤية 2030</span></h4>
-          <p><span data-en>Joined giga-projects: Roshn, Diriyah Gate, and Boulevard developments.</span><span data-ar>انضمامنا لمشاريع كبرى: روشن، بوابة الدرعية، البوليفارد.</span></p>
+          <h4><span data-en>Ark Hom for General Contracting</span><span data-ar>شركة أرك هوم للمقاولات العامة</span></h4>
+          <p><span data-en>Commercial registration 1010874676 issued; Riyadh Chamber membership registered.</span><span data-ar>إصدار السجل التجاري رقم 1010874676 وتسجيل العضوية في غرفة الرياض.</span></p>
         </div>
       </div>
       <div class="timeline-item reveal">
         <div class="timeline-content">
-          <h4><span data-en>58+ Projects Delivered</span><span data-ar>أكثر من 58 مشروع منجز</span></h4>
-          <p><span data-en>Crossing milestones with 98% client retention and award-winning execution.</span><span data-ar>تجاوزنا الإنجازات بنسبة عودة عملاء 98% وتنفيذ حائز على جوائز.</span></p>
+          <h4><span data-en>15+ Projects Delivered</span><span data-ar>أكثر من 15 مشروعاً منفّذاً</span></h4>
+          <p><span data-en>Architectural, mechanical and electrical scopes across hospitals, hospitality, residential and sports facilities.</span><span data-ar>أعمال معمارية وميكانيكية وكهربائية في المستشفيات والضيافة والمشاريع السكنية والمنشآت الرياضية.</span></p>
         </div>
         <div class="year">2026</div>
         <div></div>
@@ -3209,103 +3345,126 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 <section class="section" id="team">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow"><span data-en>Our People</span><span data-ar>فريقنا</span></span>
+      <span class="eyebrow"><span data-en>How We Are Organised</span><span data-ar>هيكلنا التنظيمي</span></span>
       <h2 class="section-title">
-        <span data-en>The team behind <span class="gold">every milestone</span>.</span>
-        <span data-ar>الفريق وراء <span class="gold">كل إنجاز</span>.</span>
+        <span data-en>Five departments behind <span class="gold">every delivery</span>.</span>
+        <span data-ar>خمس إدارات وراء <span class="gold">كل تسليم</span>.</span>
       </h2>
+      <p class="section-subtitle">
+        <span data-en>A general manager and executive director oversee five departments, each with defined responsibilities — so accountability on your project is never ambiguous.</span>
+        <span data-ar>يشرف المدير العام والمدير التنفيذي على خمس إدارات، لكل منها مسؤوليات محددة — لتكون المسؤولية في مشروعك واضحة دائماً.</span>
+      </p>
     </div>
 
-    <div class="team-grid">
+    <div class="team-grid depts">
       <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 11c-5 0-9 2.5-9 6v3h18v-3c0-3.5-4-6-9-6z"/></svg></div>
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zm0 6h8v12H3zm10 0h8v5h-8zm0 7h8v5h-8z"/></svg></div>
         <div class="team-info">
-          <h4>Eng. Ahmed Al-Rashidi</h4>
-          <span class="role"><span data-en>Founder & CEO</span><span data-ar>المؤسّس والرئيس التنفيذي</span></span>
-          <div class="team-social">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
-          </div>
+          <h4><span data-en>Project Management Office</span><span data-ar>إدارة المشاريع</span></h4>
+          <span class="role"><span data-en>PMO</span><span data-ar>PMO</span></span>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            <span data-en>Technical department and engineering site management — planning, supervision and execution control.</span>
+            <span data-ar>الإدارة الفنية وإدارة المواقع الهندسية — التخطيط والإشراف وضبط التنفيذ.</span>
+          </p>
         </div>
       </div>
+
       <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 11c-5 0-9 2.5-9 6v3h18v-3c0-3.5-4-6-9-6z"/></svg></div>
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M4 20h3V10H4zm6.5 0h3V4h-3zM17 20h3v-7h-3z"/></svg></div>
         <div class="team-info">
-          <h4>Eng. Khaled Al-Sayed</h4>
-          <span class="role"><span data-en>Chief Operations Officer</span><span data-ar>رئيس العمليات</span></span>
-          <div class="team-social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a></div>
+          <h4><span data-en>Finance Department</span><span data-ar>الإدارة المالية</span></h4>
+          <span class="role"><span data-en>FD</span><span data-ar>FD</span></span>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            <span data-en>Chief accountant, budgeting and financial planning across every project.</span>
+            <span data-ar>المحاسب الرئيسي والموازنات والتخطيط المالي لكل مشروع.</span>
+          </p>
         </div>
       </div>
+
       <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 11c-5 0-9 2.5-9 6v3h18v-3c0-3.5-4-6-9-6z"/></svg></div>
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7zm0 2.3L5 8v8l7 3.9 7-3.9V8z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
         <div class="team-info">
-          <h4>Eng. Reem Al-Mutairi</h4>
-          <span class="role"><span data-en>Head of Architecture</span><span data-ar>رئيسة العمارة</span></span>
-          <div class="team-social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a></div>
+          <h4><span data-en>Planning &amp; Development</span><span data-ar>التخطيط والتطوير</span></h4>
+          <span class="role"><span data-en>Quality &amp; Follow-up</span><span data-ar>الجودة والمتابعة</span></span>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            <span data-en>Quality and follow-up management plus development management.</span>
+            <span data-ar>إدارة الجودة والمتابعة وإدارة التطوير.</span>
+          </p>
         </div>
       </div>
+
       <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 11c-5 0-9 2.5-9 6v3h18v-3c0-3.5-4-6-9-6z"/></svg></div>
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M3 6h13v9H3zm14 3h3l2 3v3h-5zM6.5 20a2 2 0 100-4 2 2 0 000 4zm12 0a2 2 0 100-4 2 2 0 000 4z"/></svg></div>
         <div class="team-info">
-          <h4>Eng. Omar Al-Qahtani</h4>
-          <span class="role"><span data-en>Head of Engineering</span><span data-ar>رئيس الهندسة</span></span>
-          <div class="team-social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a></div>
+          <h4><span data-en>Procurement &amp; Contracts</span><span data-ar>المشتريات والعقود</span></h4>
+          <span class="role"><span data-en>Supply Chain</span><span data-ar>سلسلة الإمداد</span></span>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            <span data-en>Contract management, warehouse and equipment management.</span>
+            <span data-ar>إدارة العقود وإدارة المستودعات والمعدات.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-7 2-7 4.5V21h14v-3.5C16 15 13 13 9 13zm8.5-2a3 3 0 100-6 3 3 0 000 6zm0 2c-.9 0-1.7.1-2.4.4 1.5 1.1 2.4 2.5 2.4 4.1V21H23v-3c0-2.2-2.5-4-5.5-4z"/></svg></div>
+        <div class="team-info">
+          <h4><span data-en>Human Resources</span><span data-ar>الموارد البشرية</span></h4>
+          <span class="role"><span data-en>People &amp; IT</span><span data-ar>الأفراد وتقنية المعلومات</span></span>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            <span data-en>Employee affairs, support services and IT systems.</span>
+            <span data-ar>شؤون الموظفين والخدمات المساندة وأنظمة تقنية المعلومات.</span>
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== TESTIMONIALS ====== -->
-<section class="section section-bg-soft">
+<!-- ====== CREDENTIALS ====== -->
+<section class="section section-bg-soft" id="credentials">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow"><span data-en>Client Voices</span><span data-ar>آراء العملاء</span></span>
+      <span class="eyebrow"><span data-en>Verified Credentials</span><span data-ar>سجلات موثّقة</span></span>
       <h2 class="section-title">
-        <span data-en>What our clients <span class="gold">say</span>.</span>
-        <span data-ar>ما يقوله <span class="gold">عملاؤنا</span>.</span>
+        <span data-en>Registered, documented, <span class="gold">verifiable</span>.</span>
+        <span data-ar>مسجّلون وموثّقون <span class="gold">وقابلون للتحقق</span>.</span>
       </h2>
+      <p class="section-subtitle">
+        <span data-en>Every number below appears on our official documentation and can be checked against the relevant Saudi authority.</span>
+        <span data-ar>كل رقم أدناه وارد في وثائقنا الرسمية ويمكن التحقق منه لدى الجهة السعودية المختصة.</span>
+      </p>
     </div>
 
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          <span data-en>"Our collaboration with the ARC team was a model of organization and professionalism. The project was delivered on time and exceeded expectations in quality."</span>
-          <span data-ar>"تعاوننا مع فريق ARC كان مثالاً للتنظيم والاحترافية. تمّ تسليم المشروع في الوقت وتجاوز توقعاتنا في الجودة."</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">BC</div>
-          <div><h5>BCC Company</h5><span><span data-en>Long-term partner</span><span data-ar>شريك طويل الأمد</span></span></div>
-        </div>
+    <div class="cred-grid">
+      <div class="cred-card reveal">
+        <span class="cred-label"><span data-en>Legal Name</span><span data-ar>الاسم النظامي</span></span>
+        <span class="cred-value"><span data-en>Ark Hom for General Contracting Co.</span><span data-ar>شركة أرك هوم للمقاولات العامة</span></span>
+        <span class="cred-note"><span data-en>Limited Liability Company (single person)</span><span data-ar>شركة ذات مسؤولية محدودة (شخص واحد)</span></span>
       </div>
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          <span data-en>"An outstanding team with deep understanding of our needs. Every requirement executed with high efficiency and attention to detail."</span>
-          <span data-ar>"فريق متميّز بفهم عميق لاحتياجاتنا. كل متطلب نُفِّذ بكفاءة عالية واهتمام بالتفاصيل."</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">MC</div>
-          <div><h5>Marco Company</h5><span><span data-en>Industrial partner</span><span data-ar>شريك صناعي</span></span></div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-label"><span data-en>Commercial Registration</span><span data-ar>السجل التجاري</span></span>
+        <span class="cred-value">1010874676</span>
+        <span class="cred-note"><span data-en>Ministry of Commerce</span><span data-ar>وزارة التجارة</span></span>
       </div>
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          <span data-en>"We truly value their high professionalism and fast execution. Every stage reflected strong commitment to international standards."</span>
-          <span data-ar>"نُقدّر احترافيتهم العالية وسرعة تنفيذهم. كل مرحلة عكست التزاماً بالمعايير الدولية."</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">PI</div>
-          <div><h5>Proline International</h5><span><span data-en>Strategic client</span><span data-ar>عميل استراتيجي</span></span></div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-label"><span data-en>Unified National Number</span><span data-ar>الرقم الوطني الموحد</span></span>
+        <span class="cred-value">7034912431</span>
+        <span class="cred-note"><span data-en>Status: active</span><span data-ar>حالة السجل: نشط</span></span>
       </div>
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          <span data-en>"The service was precise and well-executed, with seamless communication throughout. They bring a real professional perspective."</span>
-          <span data-ar>"الخدمة دقيقة وفقاً للمواصفات، مع تواصل سلس. لديهم منظور احترافي حقيقي."</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">BK</div>
-          <div><h5>Blocks</h5><span><span data-en>Construction partner</span><span data-ar>شريك إنشاءات</span></span></div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-label"><span data-en>VAT Registration</span><span data-ar>التسجيل في ضريبة القيمة المضافة</span></span>
+        <span class="cred-value">312383808100003</span>
+        <span class="cred-note"><span data-en>ZATCA</span><span data-ar>هيئة الزكاة والضريبة والجمارك</span></span>
+      </div>
+      <div class="cred-card reveal">
+        <span class="cred-label"><span data-en>Established</span><span data-ar>سنة التأسيس</span></span>
+        <span class="cred-value">2019</span>
+        <span class="cred-note"><span data-en>Operating across the Kingdom</span><span data-ar>نعمل في أنحاء المملكة</span></span>
+      </div>
+      <div class="cred-card reveal">
+        <span class="cred-label"><span data-en>Head Office</span><span data-ar>المقر الرئيسي</span></span>
+        <span class="cred-value"><span data-en>Al Malaz, Riyadh</span><span data-ar>الملز، الرياض</span></span>
+        <span class="cred-note"><span data-en>Abaad Ibn Hanif St., Riyadh 12831</span><span data-ar>شارع عباد بن حنيف، الرياض 12831</span></span>
       </div>
     </div>
   </div>
@@ -3806,19 +3965,25 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 </button>
 
 <!-- Project Modal -->
-<div class="project-modal" id="projectModal">
+<div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
-    <button class="modal-close" id="modalClose" type="button">×</button>
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
     <img class="modal-img" id="modalImg" src="" alt="">
     <div class="modal-body">
       <span class="modal-tag" id="modalTag"></span>
       <h2 id="modalTitle"></h2>
       <div class="modal-meta">
-        <div><div class="label" data-en>Client</div><div class="label" data-ar>العميل</div><div class="value" id="modalClient">—</div></div>
-        <div><div class="label" data-en>Year</div><div class="label" data-ar>السنة</div><div class="value" id="modalYear">—</div></div>
-        <div><div class="label" data-en>Scope</div><div class="label" data-ar>النطاق</div><div class="value" id="modalScope">—</div></div>
+        <div>
+          <div class="label" data-en>Discipline</div><div class="label" data-ar>نطاق العمل</div>
+          <div class="value" id="modalScope">—</div>
+        </div>
+        <div>
+          <div class="label" data-en>Delivered with</div><div class="label" data-ar>بالتعاون مع</div>
+          <div class="value" id="modalPartner">—</div>
+        </div>
       </div>
       <p id="modalDesc"></p>
+      <div class="modal-gallery" id="modalGallery"></div>
     </div>
   </div>
 </div>
@@ -4477,66 +4642,189 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   const closeBtn = document.getElementById('modalClose');
   if (!modal) return;
 
+  const P = 'assets/projects/';
   const projectData = {
-    'entertainment-1': {
-      tag: 'Boulevard City', title: 'WWE Crown Jewel Arena',
-      img: 'assets/projects/1-2.png', client: 'Boulevard City', year: '2024', scope: '120,000 m²',
-      desc: 'A landmark entertainment venue built to international event standards, hosting the WWE Crown Jewel championship. Our team delivered structural, MEP, and finishing works ahead of schedule.'
+    'itcc': {
+      scopeEn: 'Architectural · Mechanical', scopeAr: 'معماري · ميكانيكا',
+      titleEn: 'ITCC Compound', titleAr: 'مجمع تقنية المعلومات والاتصالات',
+      partnerEn: 'AZMEEL Contracting', partnerAr: 'أزميل للمقاولات',
+      descEn: 'Electrical work was carried out strictly in accordance with the required industrial standards, in addition to painting work and the installation of gypsum board. The painting was executed with attention to detail for quality and aesthetics, while the gypsum board was carefully installed to achieve the required finishes and provide thermal and sound insulation.',
+      descAr: 'تم في المشروع تنفيذ أعمال كهرباء بدقة وفقًا للمعايير الصناعية المطلوبة، بالإضافة إلى أعمال الدهانات وتركيب الجبس البورد. تمت أعمال الدهانات بإتقان واهتمام بالتفاصيل لضمان الجودة والجمالية، بينما تم تركيب الجبس بورد بدقة لتحقيق التشطيبات المطلوبة وتوفير العزل الحراري والصوتي.',
+      imgs: ['itcc-hero.jpg']
     },
-    'residential-1': {
-      tag: 'Roshn', title: 'Roshn Sedra Villas',
-      img: 'assets/projects/2-2.png', client: 'Roshn (PIF)', year: '2025', scope: '450 villas',
-      desc: 'Premium residential development for Roshn flagship community. Full-scope contracting from foundations to luxury finishes, aligned with Vision 2030 quality benchmarks.'
+    'samhan-hotel': {
+      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
+      titleEn: 'Samhan Heritage Hotel', titleAr: 'فندق سمحان التراثي',
+      partnerEn: 'MARCO & HAWA Dynamics', partnerAr: 'ماركو وهوا ديناميكس',
+      descEn: 'The mechanical works included heating and air-conditioning (chiller) and fire-fighting systems: chilled water pipes, their insulation, and the connections needed to operate the chiller, along with testing and commissioning. Ductwork and air-handling units were also installed, planned and balanced to ensure optimal efficiency.',
+      descAr: 'شملت الأعمال الميكانيكية تركيب أنظمة التدفئة وتكييف الهواء (شيلر) ومكافحة الحرائق، بما في ذلك تركيب أنابيب المياه المبردة وعزلها والتوصيلات اللازمة لتشغيل الشيلر مع اختبار وتشغيل النظام. كما شملت تركيب دكت الوحدات الخاصة بالتدفئة وتكييف الهواء والتخطيط للنظام واختباره وضبطه لضمان الكفاءة المثلى.',
+      imgs: ['samhan-hotel-hero.jpg', 'samhan-hotel-g1.jpg', 'samhan-hotel-g2.jpg', 'samhan-hotel-g3.jpg']
     },
-    'heritage-1': {
-      tag: 'Diriyah Gate', title: 'Samhan Heritage Hotel',
-      img: 'assets/projects/3-2.png', client: 'Diriyah Gate Development Authority', year: '2024', scope: '85 rooms',
-      desc: 'A heritage hospitality showcase combining traditional Najdi architecture with modern hospitality. Restoration techniques and contemporary engineering, side by side.'
+    'boulevard-hall': {
+      scopeEn: 'Electrical · Mechanical', scopeAr: 'كهرباء · ميكانيكا',
+      titleEn: 'Boulevard Hall', titleAr: 'بوليفارد هول',
+      partnerEn: 'Awtad Alfahd Contracting', partnerAr: 'أوتاد الفهد للمقاولات',
+      descEn: 'The electrical work included installing cable tray panels, connecting wires and switches, and installing lighting systems. A rainwater drainage system was also designed and installed to avoid water accumulation and ensure the safety of the area.',
+      descAr: 'شملت الأعمال الكهربائية تركيب ألواح الكيبل تراي وتوصيل الأسلاك والمفاتيح بالإضافة إلى تثبيت أنظمة الإضاءة، كما تم تصميم وتركيب نظام صرف مياه المطر لتجنب تجمعات المياه وضمان سلامة المنطقة.',
+      imgs: ['boulevard-hall-hero.jpg', 'boulevard-hall-g1.jpg', 'boulevard-hall-g2.jpg']
     },
-    'entertainment-2': {
-      tag: 'Boulevard World', title: 'Kingdom Arena',
-      img: 'assets/projects/4-2.png', client: 'Boulevard World', year: '2023', scope: '60,000 capacity',
-      desc: 'Iconic concert and event venue. Delivered under tight schedule for Riyadh Season opening, includes advanced acoustic systems and crowd-flow engineering.'
+    'ministry-justice': {
+      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
+      titleEn: 'Ministry of Justice — Riyadh Branch', titleAr: 'فرع وزارة العدل — الرياض',
+      partnerEn: 'Awarded via Etimad', partnerAr: 'ترسية عبر منصة اعتماد',
+      descEn: 'The mechanical works covered maintenance of the air-conditioning and refrigeration units in the Ministry of Justice building, executed with high professionalism and in response to the needs of the project. The service included comprehensive evaluation, spot repairs, and testing that demonstrated excellent unit performance.',
+      descAr: 'شملت الأعمال الميكانيكية صيانة وحدات التكييف والتبريد في مبنى وزارة العدل، حيث تم تنفيذ الخدمات بمهنية عالية واستجابة لاحتياجات المشروع. تضمنت الخدمة التقييم الشامل والإصلاحات الفورية والاختبارات التي أظهرت أداءً ممتازًا للوحدات.',
+      imgs: ['ministry-justice-hero.jpg', 'ministry-justice-g1.jpg', 'ministry-justice-g2.jpg']
     },
-    'commercial-1': {
-      tag: 'Commercial', title: 'Corporate Headquarters',
-      img: 'assets/projects/5-2.png', client: 'Private (NDA)', year: '2025', scope: '32,000 m²',
-      desc: 'Class A office tower with LEED Gold targets. From structural shell to interior fit-out and smart building systems.'
+    'al-habib-hospital': {
+      scopeEn: 'Electrical', scopeAr: 'كهرباء',
+      titleEn: 'Suleiman Al Habib Hospital', titleAr: 'مستشفى سليمان الحبيب',
+      partnerEn: 'MASAH Specialized Construction', partnerAr: 'مساح للمقاولات المتخصصة',
+      descEn: 'The electrical work included the installation of electrical panels. The service covered evaluating the wires and connections and installing the panels to high safety standards. Cable tray panels were also installed to connect the wires and switches to the electrical panels.',
+      descAr: 'شملت الأعمال الكهربائية تركيب ألواح الكهرباء، وشملت الخدمة تقييم الأسلاك والتوصيلات وتنصيب اللوح بمعايير السلامة العالية، كما تم تركيب ألواح الكيبل تراي الخاصة بتوصيل الأسلاك والمفاتيح للألواح الكهربائية.',
+      imgs: ['al-habib-hospital-hero.jpg']
     },
-    'residential-2': {
-      tag: 'Residential', title: 'Luxury Compound',
-      img: 'assets/projects/6-2.png', client: 'Private Developer', year: '2024', scope: '24 villas + amenities',
-      desc: 'A multi-villa luxury community with shared amenities — pool, gym, club. Fast-track delivery with no compromise on finish quality.'
+    'jubail-university': {
+      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
+      titleEn: 'Jubail University — Student Housing', titleAr: 'جامعة الجبيل — سكن الطلاب',
+      partnerEn: 'AZMEEL Contracting', partnerAr: 'أزميل للمقاولات',
+      descEn: 'ARC delivered infrastructure works for the sewage network within the student housing at Jubail University, including the construction and extension of internal networks to the highest technical specifications and approved engineering standards. The work also included efficient implementation of a chiller network, ensuring system integration and sustainable performance.',
+      descAr: 'قامت الشركة بتنفيذ أعمال البنية التحتية لشبكة الصرف الصحي داخل سكن الطلاب بجامعة الجبيل، متضمنة إنشاء وتمديد الشبكات الداخلية وفق أعلى المواصفات الفنية والمعايير الهندسية المعتمدة. كما شملت الأعمال تنفيذ شبكة محطة التبريد (الشيلر) بكفاءة عالية، بما يضمن تكامل الأنظمة واستدامة الأداء.',
+      imgs: ['jubail-university-hero.jpg', 'jubail-university-g1.jpg', 'jubail-university-g2.jpg']
+    },
+    'blocks-offices': {
+      scopeEn: 'Architectural · Mechanical', scopeAr: 'معماري · ميكانيكا',
+      titleEn: 'Blocks Co Offices', titleAr: 'مكاتب شركة بلوكس',
+      partnerEn: 'BLOCKS Group', partnerAr: 'مجموعة بلوكس',
+      descEn: 'The project covered all electrical and mechanical systems in the Blocks Group building, including the installation of air-conditioning and refrigeration units, alongside the electrical works. Our team applied the highest standards of quality and precision across every phase.',
+      descAr: 'شملت الأعمال المنفذة في المشروع كافة الأنظمة الكهربائية والميكانيكية في المبنى الخاص بمجموعة بلوكس، حيث تم تركيب وحدات التكييف والتبريد باحترافية عالية، إلى جانب تنفيذ أعمال الكهرباء، وقد حرص فريقنا على تطبيق أعلى معايير الجودة والدقة في جميع مراحل العمل.',
+      imgs: ['blocks-offices-hero.jpg', 'blocks-offices-g1.jpg', 'blocks-offices-g2.jpg']
+    },
+    'roshn-villas': {
+      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
+      titleEn: 'Roshn Villas — Sedra', titleAr: 'فيلل روشن — سدرة',
+      partnerEn: 'BCC (main contractor)', partnerAr: 'الإنشاء والتعمير (المقاول الرئيسي)',
+      descEn: 'ARC executed a comprehensive set of advanced mechanical works within the Roshn Villas project, in cooperation with BCC as the main contractor. The works included the installation of air ducts, air-conditioning units and ventilation fans for all villas within the project.',
+      descAr: 'شاركت شركة أرك في تنفيذ مجموعة شاملة من الأعمال الميكانيكية المتقدمة ضمن مشروع فيلل روشن، بالتعاون مع شركة الإنشاء والتعمير كمقاول رئيسي. تضمنت الأعمال تركيب دكت الهواء ووحدات التكييف ومراوح التهوية لجميع الفلل ضمن المشروع.',
+      imgs: ['roshn-villas-hero.jpg', 'roshn-villas-g1.jpg', 'roshn-villas-g2.jpg']
+    },
+    'boulevard-city': {
+      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
+      titleEn: 'Boulevard City', titleAr: 'بوليفارد سيتي',
+      partnerEn: 'BLOCKS Group', partnerAr: 'مجموعة بلوكس',
+      descEn: 'Installation of steel networks was carried out strictly according to technical specifications, taking structural and security needs into account. Lighting networks were also carefully installed to provide appropriate lighting and enhance safety and aesthetics on site.',
+      descAr: 'تم في المشروع تنفيذ أعمال تركيب الشبكات الحديدية بدقة وفقًا للمواصفات الفنية، مع مراعاة الاحتياجات الهيكلية والأمنية. كما تم تركيب شبكات إنارة بشكل متقن لتوفير الإضاءة المناسبة وتعزيز الأمان والجمالية في الموقع.',
+      imgs: ['boulevard-city-hero.jpg', 'boulevard-city-g1.jpg']
+    },
+    'al-kharj-stadiums': {
+      scopeEn: 'Architectural', scopeAr: 'معماري',
+      titleEn: 'Al Kharj Stadiums', titleAr: 'ملاعب الخرج',
+      partnerEn: '2C Fitness', partnerAr: '2C Fitness',
+      descEn: 'Construction works of padel and tennis courts in the Al Kharj Courts Project. The padel courts are built to modern specifications using advanced materials for excellent performance and an ideal playing experience, while the tennis courts follow the highest international standards.',
+      descAr: 'أعمال إنشاء ملاعب البادل والتنس في مشروع ملاعب الخرج، حيث تمثل هذه المرافق الرياضية إضافة قيمة تسهم في تعزيز جودة الحياة في المجتمع المحلي. تم تصميم ملاعب البادل بمواصفات عصرية واستخدام مواد متطورة لضمان أداء ممتاز وتجربة لعب مثالية، بينما تم إنشاء ملاعب التنس وفقاً لأعلى المعايير الدولية.',
+      imgs: ['al-kharj-stadiums-hero.jpg', 'al-kharj-stadiums-g1.jpg', 'al-kharj-stadiums-g2.jpg']
+    },
+    'qunfudhah-station': {
+      scopeEn: 'Mechanical · Electrical', scopeAr: 'ميكانيكا · كهرباء',
+      titleEn: 'Periodic Inspection Station — Al Qunfudhah', titleAr: 'محطة الفحص الدوري — القنفذة',
+      partnerEn: 'Three Palms Group', partnerAr: 'مجموعة النخلات الثلاث',
+      descEn: 'ARC continues to deliver electromechanical works at the Periodic Inspection Station in Al Qunfudhah Governorate. Scope includes electrical works, heating and air-conditioning systems, water and drainage systems and their insulation, plus the fire network and the connections required to test and operate all systems efficiently.',
+      descAr: 'تفخر شركة أرك بمواصلة تنفيذ أعمال الإلكتروميكانيكال في مشروع محطة الفحص الدوري بمحافظة القنفذة، حيث تشمل الأعمال الكهربائية وتركيب أنظمة التدفئة وتكييف الهواء، بما في ذلك تركيب نظام المياه والصرف وعزلها، بالإضافة إلى عمل شبكة الحريق وعمل التوصيلات اللازمة لاختبار وتشغيل جميع الأنظمة بكفاءة.',
+      imgs: ['qunfudhah-station-hero.jpg', 'qunfudhah-station-g1.jpg', 'qunfudhah-station-g2.jpg', 'qunfudhah-station-g3.jpg']
+    },
+    'cipriani': {
+      scopeEn: 'Architectural', scopeAr: 'معماري',
+      titleEn: 'Cipriani Restaurant', titleAr: 'مطعم تشيبرياني',
+      partnerEn: 'Hodood Al-Kamal Contracting', partnerAr: 'حدود الكمال للمقاولات',
+      descEn: "The project's architectural works were executed in accordance with the approved specifications and plans, including ceramic, gypsum board and cement board wall works, ensuring high-quality finishes and compliance with the project's technical requirements.",
+      descAr: 'تم تنفيذ الأعمال المعمارية بالمشروع وفقًا للمواصفات الفنية والمخططات المعتمدة، حيث شملت الأعمال تركيب وتنفيذ أعمال السيراميك وأعمال الجبس بورد وتنفيذ الجدران من ألواح السمنت بورد، مع مراعاة جودة التنفيذ ودقة التشطيبات.',
+      imgs: ['cipriani-hero.jpg', 'cipriani-g1.jpg']
+    },
+    'al-hammadi-hospital': {
+      scopeEn: 'Mechanical · Electrical', scopeAr: 'ميكانيكا · كهرباء',
+      titleEn: 'Al Hammadi Hospital — Al Olaya', titleAr: 'مستشفى الحمادي — العليا',
+      partnerEn: 'SAWAED', partnerAr: 'سواعد',
+      descEn: "The project's electromechanical works were executed in accordance with the approved specifications and plans, including electrical works, the fire protection network, the chilled water network and ductwork, ensuring quality execution and compliance with project requirements.",
+      descAr: 'تم تنفيذ أعمال الإلكتروميكانيكال بالمشروع وفقًا للمواصفات الفنية والمخططات المعتمدة، حيث شملت الأعمال تنفيذ أعمال الكهرباء وتركيب شبكة مكافحة الحريق وتركيب شبكة المياه المبردة وتنفيذ وتركيب أعمال الدكت.',
+      imgs: ['al-hammadi-hospital-hero.jpg']
+    },
+    'gulf-villas': {
+      scopeEn: 'Architectural', scopeAr: 'معماري',
+      titleEn: 'Gulf Villas', titleAr: 'فيلل الخليج',
+      partnerEn: 'Direct execution', partnerAr: 'تنفيذ مباشر',
+      descEn: "The company executed the project's interior finishing works in accordance with the approved specifications and plans, including ceramic tiling and gypsum board works, ensuring high-quality finishes and compliance with project requirements.",
+      descAr: 'تم تنفيذ أعمال التشطيبات الخاصة بالمشروع من قبل الشركة، حيث قامت بتنفيذ أعمال التشطيب الداخلي وفقًا للمواصفات الفنية والمخططات المعتمدة، وقد شملت الأعمال بند السيراميك وأعمال الجبس بورد.',
+      imgs: ['gulf-villas-hero.jpg', 'gulf-villas-g1.jpg', 'gulf-villas-g2.jpg']
+    },
+    'al-rabwa-villas': {
+      scopeEn: 'Architectural', scopeAr: 'معماري',
+      titleEn: 'Al Rabwa Villas', titleAr: 'فيلل الربوة',
+      partnerEn: 'SAWAED', partnerAr: 'سواعد',
+      descEn: "The company constructed the project's villas in accordance with the approved technical specifications and plans, with interior and exterior finishing works to follow, ensuring high-quality execution and compliance with project requirements.",
+      descAr: 'تم تنفيذ الأعمال الإنشائية للمشروع من قبل الشركة، حيث قامت بتنفيذ أعمال إنشاء الفلل وفقًا للمواصفات الفنية والمخططات المعتمدة، على أن يتم لاحقًا تنفيذ أعمال التشطيبات الداخلية والخارجية.',
+      imgs: ['al-rabwa-villas-hero.jpg', 'al-rabwa-villas-g1.jpg', 'al-rabwa-villas-g2.jpg', 'al-rabwa-villas-g3.jpg']
     }
   };
 
-  document.querySelectorAll('.project-card').forEach(function(card, idx) {
-    const category = card.getAttribute('data-category');
-    const keys = Object.keys(projectData);
+  const bi = (en, ar) => '<span data-en>' + en + '</span><span data-ar>' + ar + '</span>';
+  const mainImg = document.getElementById('modalImg');
+  const gallery = document.getElementById('modalGallery');
+  let lastFocus = null;
+
+  function showImage(src, btn) {
+    mainImg.src = P + src;
+    gallery.querySelectorAll('button').forEach(function(b) { b.setAttribute('aria-current', b === btn ? 'true' : 'false'); });
+  }
+
+  function open(key) {
+    const d = projectData[key];
+    if (!d) return;
+    document.getElementById('modalTag').innerHTML = bi(d.scopeEn, d.scopeAr);
+    document.getElementById('modalTitle').innerHTML = bi(d.titleEn, d.titleAr);
+    document.getElementById('modalScope').innerHTML = bi(d.scopeEn, d.scopeAr);
+    document.getElementById('modalPartner').innerHTML = bi(d.partnerEn, d.partnerAr);
+    document.getElementById('modalDesc').innerHTML = bi(d.descEn, d.descAr);
+    mainImg.src = P + d.imgs[0];
+    mainImg.alt = d.titleEn;
+
+    gallery.innerHTML = '';
+    if (d.imgs.length > 1) {
+      d.imgs.forEach(function(src, i) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+        b.setAttribute('aria-label', d.titleEn + ' — image ' + (i + 1));
+        const im = document.createElement('img');
+        im.src = P + src; im.alt = ''; im.loading = 'lazy';
+        b.appendChild(im);
+        b.addEventListener('click', function() { showImage(src, b); });
+        gallery.appendChild(b);
+      });
+    }
+
+    lastFocus = document.activeElement;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+    if (window.unlockAchievement) unlockAchievement('explorer', '🔍', 'Project Explorer');
+  }
+
+  document.querySelectorAll('.project-card[data-project]').forEach(function(card) {
     card.style.cursor = 'pointer';
-    card.addEventListener('click', function() {
-      const key = keys[idx] || keys[0];
-      const data = projectData[key];
-      document.getElementById('modalImg').src = data.img;
-      document.getElementById('modalTag').textContent = data.tag;
-      document.getElementById('modalTitle').textContent = data.title;
-      document.getElementById('modalClient').textContent = data.client;
-      document.getElementById('modalYear').textContent = data.year;
-      document.getElementById('modalScope').textContent = data.scope;
-      document.getElementById('modalDesc').textContent = data.desc;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      unlockAchievement('explorer', '🔍', 'Project Explorer');
+    card.addEventListener('click', function() { open(card.getAttribute('data-project')); });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card.getAttribute('data-project')); }
     });
   });
 
   closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
 
   function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
   }
 })();
 
@@ -4603,8 +4891,9 @@ window.addEventListener('scroll', function() {
   const items = [
     { icon: '🏠', label: 'Roshn Villas', section: 'Projects', target: '#projects' },
     { icon: '🏛️', label: 'Samhan Heritage Hotel', section: 'Projects', target: '#projects' },
-    { icon: '🎤', label: 'Kingdom Arena', section: 'Projects', target: '#projects' },
-    { icon: '🥊', label: 'WWE Crown Jewel Arena', section: 'Projects', target: '#projects' },
+    { icon: '🏥', label: 'Al Hammadi Hospital', section: 'Projects', target: '#projects' },
+    { icon: '🎢', label: 'Boulevard City', section: 'Projects', target: '#projects' },
+    { icon: '🎓', label: 'Jubail University', section: 'Projects', target: '#projects' },
     { icon: '🏗️', label: 'Construction Services', section: 'Services', target: '#services' },
     { icon: '📐', label: 'Architectural Design', section: 'Services', target: '#services' },
     { icon: '⚡', label: 'Electrical Systems', section: 'Services', target: '#services' },
@@ -4659,8 +4948,8 @@ window.addEventListener('scroll', function() {
   const html = document.documentElement;
 
   const scripts = {
-    en: 'Welcome to ARC Construction. We are a leading contracting company in Saudi Arabia, building the Kingdom\'s future for over nine years. We have delivered fifty-eight successful projects with a ninety-eight percent client retention rate. Our work spans Roshn, Diriyah Gate, Boulevard, and the Kingdom Arena. Explore our services, see our projects, and reach out to start building together.',
-    ar: 'مرحباً بكم في شركة ارك للمقاولات. نحن شركة رائدة في المقاولات في المملكة العربية السعودية، نبني مستقبل المملكة منذ أكثر من تسع سنوات. أنجزنا أكثر من ثمانية وخمسين مشروعاً ناجحاً بنسبة عودة عملاء بلغت ثمانية وتسعين بالمئة. أعمالنا تمتد عبر روشن وبوابة الدرعية والبوليفارد وأرينا المملكة. استعرض خدماتنا وشاهد مشاريعنا وتواصل معنا لنبني معاً.'
+    en: 'Welcome to ARC Construction. We are a Saudi contracting company established in 2019, delivering architectural, mechanical and electrical works across the Kingdom. We have completed more than fifteen projects alongside main contractors such as Azmeel, Marco, Blocks, Masah and Sawaed, including Samhan Heritage Hotel, Jubail University student housing, Al Hammadi Hospital and Boulevard City. Explore our projects, and reach out to start building together.',
+    ar: 'مرحباً بكم في شركة أرك للمقاولات. نحن شركة مقاولات سعودية تأسست عام ألفين وتسعة عشر، ننفّذ الأعمال المعمارية والميكانيكية والكهربائية في أنحاء المملكة. أنجزنا أكثر من خمسة عشر مشروعاً بالتعاون مع مقاولين رئيسيين مثل أزميل وماركو وبلوكس ومساح وسواعد، من بينها فندق سمحان التراثي وسكن طلاب جامعة الجبيل ومستشفى الحمادي وبوليفارد سيتي. استعرض مشاريعنا وتواصل معنا لنبني معاً.'
   };
 
   btn.addEventListener('click', function() {
@@ -4816,13 +5105,13 @@ window.addEventListener('scroll', function() {
   const isAr = function() { return html.getAttribute('data-lang') === 'ar'; };
 
   const updates = [
-    { icon: '🏗️', titleEn: 'Roshn Villa Project', titleAr: 'مشروع فلل روشن', textEn: 'Foundation work completed in Riyadh', textAr: 'انتهاء أعمال الأساسات في الرياض' },
-    { icon: '⚡', titleEn: 'Active Site · Diriyah', titleAr: 'موقع نشط · الدرعية', textEn: 'Electrical systems installation in progress', textAr: 'تركيب الأنظمة الكهربائية جارٍ' },
-    { icon: '🏆', titleEn: 'Project Milestone', titleAr: 'إنجاز جديد', textEn: 'Kingdom Arena phase 2 completed on schedule', textAr: 'اكتمال المرحلة 2 من أرينا المملكة في موعدها' },
-    { icon: '📐', titleEn: 'Design Review · Jeddah', titleAr: 'مراجعة تصميم · جدة', textEn: 'New commercial tower drawings approved', textAr: 'اعتماد مخططات برج تجاري جديد' },
-    { icon: '🔨', titleEn: 'Team On-Site', titleAr: 'فريق في الموقع', textEn: 'Eng. Khaled supervising MEP installation', textAr: 'م. خالد يشرف على تركيب الأنظمة' },
-    { icon: '✅', titleEn: 'Quality Inspection', titleAr: 'فحص الجودة', textEn: 'Boulevard project passed safety audit', textAr: 'مشروع البوليفارد اجتاز تدقيق السلامة' },
-    { icon: '🤝', titleEn: 'New Partnership', titleAr: 'شراكة جديدة', textEn: 'Signed contract with Diriyah Gate', textAr: 'توقيع عقد مع بوابة الدرعية' }
+    { icon: '🏨', titleEn: 'Samhan Heritage Hotel', titleAr: 'فندق سمحان التراثي', textEn: 'Chiller, chilled-water piping and fire-fighting systems', textAr: 'الشيلر وأنابيب المياه المبردة وأنظمة مكافحة الحريق' },
+    { icon: '🎓', titleEn: 'Jubail University', titleAr: 'جامعة الجبيل', textEn: 'Sewage network and chiller network for student housing', textAr: 'شبكة الصرف الصحي وشبكة التبريد لسكن الطلاب' },
+    { icon: '🏥', titleEn: 'Al Hammadi Hospital · Al Olaya', titleAr: 'مستشفى الحمادي · العليا', textEn: 'Electrical, fire protection, chilled water and ductwork', textAr: 'الكهرباء ومكافحة الحريق والمياه المبردة والدكت' },
+    { icon: '⚡', titleEn: 'Boulevard Hall', titleAr: 'بوليفارد هول', textEn: 'Cable trays, lighting systems and rainwater drainage', textAr: 'الكيبل تراي وأنظمة الإضاءة وتصريف مياه الأمطار' },
+    { icon: '🏘️', titleEn: 'Roshn Villas · Sedra', titleAr: 'فيلل روشن · سدرة', textEn: 'Air ducts, AC units and ventilation fans', textAr: 'دكت الهواء ووحدات التكييف ومراوح التهوية' },
+    { icon: '🎾', titleEn: 'Al Kharj Stadiums', titleAr: 'ملاعب الخرج', textEn: 'Padel and tennis court construction', textAr: 'إنشاء ملاعب البادل والتنس' },
+    { icon: '🔧', titleEn: 'Periodic Inspection Station', titleAr: 'محطة الفحص الدوري', textEn: 'Electromechanical works, Al Qunfudhah', textAr: 'أعمال الإلكتروميكانيكال بالقنفذة' }
   ];
 
   let idx = 0;
@@ -5052,7 +5341,8 @@ window.addEventListener('scroll', function() {
       const filter = btn.getAttribute('data-filter');
       projectCards.forEach(function(card) {
         const category = card.getAttribute('data-category');
-        if (filter === 'all' || filter === category) {
+        const cats = (category || '').split(/\s+/);
+        if (filter === 'all' || cats.indexOf(filter) !== -1) {
           card.style.display = '';
           requestAnimationFrame(function() { card.style.opacity = '1'; });
         } else {
