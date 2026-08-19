@@ -3200,6 +3200,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     </div>
 
     <div class="projects-grid">
+<!-- ARC:PROJECTS:START -->
 
       <article class="project-card reveal" data-category="architectural mechanical" data-project="itcc" tabindex="0" role="button" aria-label="ITCC Compound">
         <img src="assets/projects/itcc-hero.jpg" loading="lazy" width="1000" height="563" alt="ITCC Compound, Riyadh">
@@ -3335,7 +3336,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <p><span data-en>with SAWAED</span><span data-ar>بالتعاون مع سواعد</span></p>
         </div>
       </article>
-
+<!-- ARC:PROJECTS:END -->
     </div>
   </div>
 </section>
@@ -4876,128 +4877,130 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   if (!modal) return;
 
   const P = 'assets/projects/';
+/* ARC:PROJECTDATA:START */
   const projectData = {
-    'itcc': {
-      scopeEn: 'Architectural · Mechanical', scopeAr: 'معماري · ميكانيكا',
-      titleEn: 'ITCC Compound', titleAr: 'مجمع تقنية المعلومات والاتصالات',
-      partnerEn: 'AZMEEL Contracting', partnerAr: 'أزميل للمقاولات',
-      descEn: 'Electrical work was carried out strictly in accordance with the required industrial standards, in addition to painting work and the installation of gypsum board. The painting was executed with attention to detail for quality and aesthetics, while the gypsum board was carefully installed to achieve the required finishes and provide thermal and sound insulation.',
-      descAr: 'تم في المشروع تنفيذ أعمال كهرباء بدقة وفقًا للمعايير الصناعية المطلوبة، بالإضافة إلى أعمال الدهانات وتركيب الجبس البورد. تمت أعمال الدهانات بإتقان واهتمام بالتفاصيل لضمان الجودة والجمالية، بينما تم تركيب الجبس بورد بدقة لتحقيق التشطيبات المطلوبة وتوفير العزل الحراري والصوتي.',
-      imgs: ['itcc-hero.jpg']
+    "itcc": {
+      scopeEn: "Architectural · Mechanical", scopeAr: "معماري · ميكانيكا",
+      titleEn: "ITCC Compound", titleAr: "مجمع تقنية المعلومات والاتصالات",
+      partnerEn: "AZMEEL Contracting", partnerAr: "أزميل للمقاولات",
+      descEn: "Electrical work was carried out strictly in accordance with the required industrial standards, in addition to painting work and the installation of gypsum board. The painting was executed with attention to detail for quality and aesthetics, while the gypsum board was carefully installed to achieve the required finishes and provide thermal and sound insulation.",
+      descAr: "تم في المشروع تنفيذ أعمال كهرباء بدقة وفقًا للمعايير الصناعية المطلوبة، بالإضافة إلى أعمال الدهانات وتركيب الجبس البورد. تمت أعمال الدهانات بإتقان واهتمام بالتفاصيل لضمان الجودة والجمالية، بينما تم تركيب الجبس بورد بدقة لتحقيق التشطيبات المطلوبة وتوفير العزل الحراري والصوتي.",
+      imgs: ["itcc-hero.jpg"]
     },
-    'samhan-hotel': {
-      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
-      titleEn: 'Samhan Heritage Hotel', titleAr: 'فندق سمحان التراثي',
-      partnerEn: 'MARCO & HAWA Dynamics', partnerAr: 'ماركو وهوا ديناميكس',
-      descEn: 'The mechanical works included heating and air-conditioning (chiller) and fire-fighting systems: chilled water pipes, their insulation, and the connections needed to operate the chiller, along with testing and commissioning. Ductwork and air-handling units were also installed, planned and balanced to ensure optimal efficiency.',
-      descAr: 'شملت الأعمال الميكانيكية تركيب أنظمة التدفئة وتكييف الهواء (شيلر) ومكافحة الحرائق، بما في ذلك تركيب أنابيب المياه المبردة وعزلها والتوصيلات اللازمة لتشغيل الشيلر مع اختبار وتشغيل النظام. كما شملت تركيب دكت الوحدات الخاصة بالتدفئة وتكييف الهواء والتخطيط للنظام واختباره وضبطه لضمان الكفاءة المثلى.',
-      imgs: ['samhan-hotel-hero.jpg', 'samhan-hotel-g1.jpg', 'samhan-hotel-g2.jpg', 'samhan-hotel-g3.jpg']
+    "samhan-hotel": {
+      scopeEn: "Mechanical", scopeAr: "ميكانيكا",
+      titleEn: "Samhan Heritage Hotel", titleAr: "فندق سمحان التراثي",
+      partnerEn: "MARCO & HAWA Dynamics", partnerAr: "ماركو وهوا ديناميكس",
+      descEn: "The mechanical works included heating and air-conditioning (chiller) and fire-fighting systems: chilled water pipes, their insulation, and the connections needed to operate the chiller, along with testing and commissioning. Ductwork and air-handling units were also installed, planned and balanced to ensure optimal efficiency.",
+      descAr: "شملت الأعمال الميكانيكية تركيب أنظمة التدفئة وتكييف الهواء (شيلر) ومكافحة الحرائق، بما في ذلك تركيب أنابيب المياه المبردة وعزلها والتوصيلات اللازمة لتشغيل الشيلر مع اختبار وتشغيل النظام. كما شملت تركيب دكت الوحدات الخاصة بالتدفئة وتكييف الهواء والتخطيط للنظام واختباره وضبطه لضمان الكفاءة المثلى.",
+      imgs: ["samhan-hotel-hero.jpg","samhan-hotel-g1.jpg","samhan-hotel-g2.jpg","samhan-hotel-g3.jpg"]
     },
-    'boulevard-hall': {
-      scopeEn: 'Electrical · Mechanical', scopeAr: 'كهرباء · ميكانيكا',
-      titleEn: 'Boulevard Hall', titleAr: 'بوليفارد هول',
-      partnerEn: 'Awtad Alfahd Contracting', partnerAr: 'أوتاد الفهد للمقاولات',
-      descEn: 'The electrical work included installing cable tray panels, connecting wires and switches, and installing lighting systems. A rainwater drainage system was also designed and installed to avoid water accumulation and ensure the safety of the area.',
-      descAr: 'شملت الأعمال الكهربائية تركيب ألواح الكيبل تراي وتوصيل الأسلاك والمفاتيح بالإضافة إلى تثبيت أنظمة الإضاءة، كما تم تصميم وتركيب نظام صرف مياه المطر لتجنب تجمعات المياه وضمان سلامة المنطقة.',
-      imgs: ['boulevard-hall-hero.jpg', 'boulevard-hall-g1.jpg', 'boulevard-hall-g2.jpg']
+    "boulevard-hall": {
+      scopeEn: "Electrical · Mechanical", scopeAr: "كهرباء · ميكانيكا",
+      titleEn: "Boulevard Hall", titleAr: "بوليفارد هول",
+      partnerEn: "Awtad Alfahd Contracting", partnerAr: "أوتاد الفهد للمقاولات",
+      descEn: "The electrical work included installing cable tray panels, connecting wires and switches, and installing lighting systems. A rainwater drainage system was also designed and installed to avoid water accumulation and ensure the safety of the area.",
+      descAr: "شملت الأعمال الكهربائية تركيب ألواح الكيبل تراي وتوصيل الأسلاك والمفاتيح بالإضافة إلى تثبيت أنظمة الإضاءة، كما تم تصميم وتركيب نظام صرف مياه المطر لتجنب تجمعات المياه وضمان سلامة المنطقة.",
+      imgs: ["boulevard-hall-hero.jpg","boulevard-hall-g1.jpg","boulevard-hall-g2.jpg"]
     },
-    'ministry-justice': {
-      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
-      titleEn: 'Ministry of Justice — Riyadh Branch', titleAr: 'فرع وزارة العدل — الرياض',
-      partnerEn: 'Awarded via Etimad', partnerAr: 'ترسية عبر منصة اعتماد',
-      descEn: 'The mechanical works covered maintenance of the air-conditioning and refrigeration units in the Ministry of Justice building, executed with high professionalism and in response to the needs of the project. The service included comprehensive evaluation, spot repairs, and testing that demonstrated excellent unit performance.',
-      descAr: 'شملت الأعمال الميكانيكية صيانة وحدات التكييف والتبريد في مبنى وزارة العدل، حيث تم تنفيذ الخدمات بمهنية عالية واستجابة لاحتياجات المشروع. تضمنت الخدمة التقييم الشامل والإصلاحات الفورية والاختبارات التي أظهرت أداءً ممتازًا للوحدات.',
-      imgs: ['ministry-justice-hero.jpg', 'ministry-justice-g1.jpg', 'ministry-justice-g2.jpg']
+    "ministry-justice": {
+      scopeEn: "Mechanical", scopeAr: "ميكانيكا",
+      titleEn: "Ministry of Justice — Riyadh Branch", titleAr: "فرع وزارة العدل — الرياض",
+      partnerEn: "Awarded via Etimad", partnerAr: "ترسية عبر منصة اعتماد",
+      descEn: "The mechanical works covered maintenance of the air-conditioning and refrigeration units in the Ministry of Justice building, executed with high professionalism and in response to the needs of the project. The service included comprehensive evaluation, spot repairs, and testing that demonstrated excellent unit performance.",
+      descAr: "شملت الأعمال الميكانيكية صيانة وحدات التكييف والتبريد في مبنى وزارة العدل، حيث تم تنفيذ الخدمات بمهنية عالية واستجابة لاحتياجات المشروع. تضمنت الخدمة التقييم الشامل والإصلاحات الفورية والاختبارات التي أظهرت أداءً ممتازًا للوحدات.",
+      imgs: ["ministry-justice-hero.jpg","ministry-justice-g1.jpg","ministry-justice-g2.jpg"]
     },
-    'al-habib-hospital': {
-      scopeEn: 'Electrical', scopeAr: 'كهرباء',
-      titleEn: 'Suleiman Al Habib Hospital', titleAr: 'مستشفى سليمان الحبيب',
-      partnerEn: 'MASAH Specialized Construction', partnerAr: 'مساح للمقاولات المتخصصة',
-      descEn: 'The electrical work included the installation of electrical panels. The service covered evaluating the wires and connections and installing the panels to high safety standards. Cable tray panels were also installed to connect the wires and switches to the electrical panels.',
-      descAr: 'شملت الأعمال الكهربائية تركيب ألواح الكهرباء، وشملت الخدمة تقييم الأسلاك والتوصيلات وتنصيب اللوح بمعايير السلامة العالية، كما تم تركيب ألواح الكيبل تراي الخاصة بتوصيل الأسلاك والمفاتيح للألواح الكهربائية.',
-      imgs: ['al-habib-hospital-hero.jpg']
+    "al-habib-hospital": {
+      scopeEn: "Electrical", scopeAr: "كهرباء",
+      titleEn: "Suleiman Al Habib Hospital", titleAr: "مستشفى سليمان الحبيب",
+      partnerEn: "MASAH Specialized Construction", partnerAr: "مساح للمقاولات المتخصصة",
+      descEn: "The electrical work included the installation of electrical panels. The service covered evaluating the wires and connections and installing the panels to high safety standards. Cable tray panels were also installed to connect the wires and switches to the electrical panels.",
+      descAr: "شملت الأعمال الكهربائية تركيب ألواح الكهرباء، وشملت الخدمة تقييم الأسلاك والتوصيلات وتنصيب اللوح بمعايير السلامة العالية، كما تم تركيب ألواح الكيبل تراي الخاصة بتوصيل الأسلاك والمفاتيح للألواح الكهربائية.",
+      imgs: ["al-habib-hospital-hero.jpg"]
     },
-    'jubail-university': {
-      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
-      titleEn: 'Jubail University — Student Housing', titleAr: 'جامعة الجبيل — سكن الطلاب',
-      partnerEn: 'AZMEEL Contracting', partnerAr: 'أزميل للمقاولات',
-      descEn: 'ARC delivered infrastructure works for the sewage network within the student housing at Jubail University, including the construction and extension of internal networks to the highest technical specifications and approved engineering standards. The work also included efficient implementation of a chiller network, ensuring system integration and sustainable performance.',
-      descAr: 'قامت الشركة بتنفيذ أعمال البنية التحتية لشبكة الصرف الصحي داخل سكن الطلاب بجامعة الجبيل، متضمنة إنشاء وتمديد الشبكات الداخلية وفق أعلى المواصفات الفنية والمعايير الهندسية المعتمدة. كما شملت الأعمال تنفيذ شبكة محطة التبريد (الشيلر) بكفاءة عالية، بما يضمن تكامل الأنظمة واستدامة الأداء.',
-      imgs: ['jubail-university-hero.jpg', 'jubail-university-g1.jpg', 'jubail-university-g2.jpg']
+    "jubail-university": {
+      scopeEn: "Mechanical", scopeAr: "ميكانيكا",
+      titleEn: "Jubail University — Student Housing", titleAr: "جامعة الجبيل — سكن الطلاب",
+      partnerEn: "AZMEEL Contracting", partnerAr: "أزميل للمقاولات",
+      descEn: "ARC delivered infrastructure works for the sewage network within the student housing at Jubail University, including the construction and extension of internal networks to the highest technical specifications and approved engineering standards. The work also included efficient implementation of a chiller network, ensuring system integration and sustainable performance.",
+      descAr: "قامت الشركة بتنفيذ أعمال البنية التحتية لشبكة الصرف الصحي داخل سكن الطلاب بجامعة الجبيل، متضمنة إنشاء وتمديد الشبكات الداخلية وفق أعلى المواصفات الفنية والمعايير الهندسية المعتمدة. كما شملت الأعمال تنفيذ شبكة محطة التبريد (الشيلر) بكفاءة عالية، بما يضمن تكامل الأنظمة واستدامة الأداء.",
+      imgs: ["jubail-university-hero.jpg","jubail-university-g1.jpg","jubail-university-g2.jpg"]
     },
-    'blocks-offices': {
-      scopeEn: 'Architectural · Mechanical', scopeAr: 'معماري · ميكانيكا',
-      titleEn: 'Blocks Co Offices', titleAr: 'مكاتب شركة بلوكس',
-      partnerEn: 'BLOCKS Group', partnerAr: 'مجموعة بلوكس',
-      descEn: 'The project covered all electrical and mechanical systems in the Blocks Group building, including the installation of air-conditioning and refrigeration units, alongside the electrical works. Our team applied the highest standards of quality and precision across every phase.',
-      descAr: 'شملت الأعمال المنفذة في المشروع كافة الأنظمة الكهربائية والميكانيكية في المبنى الخاص بمجموعة بلوكس، حيث تم تركيب وحدات التكييف والتبريد باحترافية عالية، إلى جانب تنفيذ أعمال الكهرباء، وقد حرص فريقنا على تطبيق أعلى معايير الجودة والدقة في جميع مراحل العمل.',
-      imgs: ['blocks-offices-hero.jpg', 'blocks-offices-g1.jpg', 'blocks-offices-g2.jpg']
+    "blocks-offices": {
+      scopeEn: "Architectural · Mechanical", scopeAr: "معماري · ميكانيكا",
+      titleEn: "Blocks Co Offices", titleAr: "مكاتب شركة بلوكس",
+      partnerEn: "BLOCKS Group", partnerAr: "مجموعة بلوكس",
+      descEn: "The project covered all electrical and mechanical systems in the Blocks Group building, including the installation of air-conditioning and refrigeration units, alongside the electrical works. Our team applied the highest standards of quality and precision across every phase.",
+      descAr: "شملت الأعمال المنفذة في المشروع كافة الأنظمة الكهربائية والميكانيكية في المبنى الخاص بمجموعة بلوكس، حيث تم تركيب وحدات التكييف والتبريد باحترافية عالية، إلى جانب تنفيذ أعمال الكهرباء، وقد حرص فريقنا على تطبيق أعلى معايير الجودة والدقة في جميع مراحل العمل.",
+      imgs: ["blocks-offices-hero.jpg","blocks-offices-g1.jpg","blocks-offices-g2.jpg"]
     },
-    'roshn-villas': {
-      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
-      titleEn: 'Roshn Villas — Sedra', titleAr: 'فيلل روشن — سدرة',
-      partnerEn: 'BCC (main contractor)', partnerAr: 'الإنشاء والتعمير (المقاول الرئيسي)',
-      descEn: 'ARC executed a comprehensive set of advanced mechanical works within the Roshn Villas project, in cooperation with BCC as the main contractor. The works included the installation of air ducts, air-conditioning units and ventilation fans for all villas within the project.',
-      descAr: 'شاركت شركة أرك في تنفيذ مجموعة شاملة من الأعمال الميكانيكية المتقدمة ضمن مشروع فيلل روشن، بالتعاون مع شركة الإنشاء والتعمير كمقاول رئيسي. تضمنت الأعمال تركيب دكت الهواء ووحدات التكييف ومراوح التهوية لجميع الفلل ضمن المشروع.',
-      imgs: ['roshn-villas-hero.jpg', 'roshn-villas-g1.jpg', 'roshn-villas-g2.jpg']
+    "roshn-villas": {
+      scopeEn: "Mechanical", scopeAr: "ميكانيكا",
+      titleEn: "Roshn Villas — Sedra", titleAr: "فيلل روشن — سدرة",
+      partnerEn: "BCC (main contractor)", partnerAr: "الإنشاء والتعمير (المقاول الرئيسي)",
+      descEn: "ARC executed a comprehensive set of advanced mechanical works within the Roshn Villas project, in cooperation with BCC as the main contractor. The works included the installation of air ducts, air-conditioning units and ventilation fans for all villas within the project.",
+      descAr: "شاركت شركة أرك في تنفيذ مجموعة شاملة من الأعمال الميكانيكية المتقدمة ضمن مشروع فيلل روشن، بالتعاون مع شركة الإنشاء والتعمير كمقاول رئيسي. تضمنت الأعمال تركيب دكت الهواء ووحدات التكييف ومراوح التهوية لجميع الفلل ضمن المشروع.",
+      imgs: ["roshn-villas-hero.jpg","roshn-villas-g1.jpg","roshn-villas-g2.jpg"]
     },
-    'boulevard-city': {
-      scopeEn: 'Mechanical', scopeAr: 'ميكانيكا',
-      titleEn: 'Boulevard City', titleAr: 'بوليفارد سيتي',
-      partnerEn: 'BLOCKS Group', partnerAr: 'مجموعة بلوكس',
-      descEn: 'Installation of steel networks was carried out strictly according to technical specifications, taking structural and security needs into account. Lighting networks were also carefully installed to provide appropriate lighting and enhance safety and aesthetics on site.',
-      descAr: 'تم في المشروع تنفيذ أعمال تركيب الشبكات الحديدية بدقة وفقًا للمواصفات الفنية، مع مراعاة الاحتياجات الهيكلية والأمنية. كما تم تركيب شبكات إنارة بشكل متقن لتوفير الإضاءة المناسبة وتعزيز الأمان والجمالية في الموقع.',
-      imgs: ['boulevard-city-hero.jpg', 'boulevard-city-g1.jpg']
+    "boulevard-city": {
+      scopeEn: "Mechanical", scopeAr: "ميكانيكا",
+      titleEn: "Boulevard City", titleAr: "بوليفارد سيتي",
+      partnerEn: "BLOCKS Group", partnerAr: "مجموعة بلوكس",
+      descEn: "Installation of steel networks was carried out strictly according to technical specifications, taking structural and security needs into account. Lighting networks were also carefully installed to provide appropriate lighting and enhance safety and aesthetics on site.",
+      descAr: "تم في المشروع تنفيذ أعمال تركيب الشبكات الحديدية بدقة وفقًا للمواصفات الفنية، مع مراعاة الاحتياجات الهيكلية والأمنية. كما تم تركيب شبكات إنارة بشكل متقن لتوفير الإضاءة المناسبة وتعزيز الأمان والجمالية في الموقع.",
+      imgs: ["boulevard-city-hero.jpg","boulevard-city-g1.jpg"]
     },
-    'al-kharj-stadiums': {
-      scopeEn: 'Architectural', scopeAr: 'معماري',
-      titleEn: 'Al Kharj Stadiums', titleAr: 'ملاعب الخرج',
-      partnerEn: '2C Fitness', partnerAr: '2C Fitness',
-      descEn: 'Construction works of padel and tennis courts in the Al Kharj Courts Project. The padel courts are built to modern specifications using advanced materials for excellent performance and an ideal playing experience, while the tennis courts follow the highest international standards.',
-      descAr: 'أعمال إنشاء ملاعب البادل والتنس في مشروع ملاعب الخرج، حيث تمثل هذه المرافق الرياضية إضافة قيمة تسهم في تعزيز جودة الحياة في المجتمع المحلي. تم تصميم ملاعب البادل بمواصفات عصرية واستخدام مواد متطورة لضمان أداء ممتاز وتجربة لعب مثالية، بينما تم إنشاء ملاعب التنس وفقاً لأعلى المعايير الدولية.',
-      imgs: ['al-kharj-stadiums-hero.jpg', 'al-kharj-stadiums-g1.jpg', 'al-kharj-stadiums-g2.jpg']
+    "al-kharj-stadiums": {
+      scopeEn: "Architectural", scopeAr: "معماري",
+      titleEn: "Al Kharj Stadiums", titleAr: "ملاعب الخرج",
+      partnerEn: "2C Fitness", partnerAr: "2C Fitness",
+      descEn: "Construction works of padel and tennis courts in the Al Kharj Courts Project. The padel courts are built to modern specifications using advanced materials for excellent performance and an ideal playing experience, while the tennis courts follow the highest international standards.",
+      descAr: "أعمال إنشاء ملاعب البادل والتنس في مشروع ملاعب الخرج، حيث تمثل هذه المرافق الرياضية إضافة قيمة تسهم في تعزيز جودة الحياة في المجتمع المحلي. تم تصميم ملاعب البادل بمواصفات عصرية واستخدام مواد متطورة لضمان أداء ممتاز وتجربة لعب مثالية، بينما تم إنشاء ملاعب التنس وفقاً لأعلى المعايير الدولية.",
+      imgs: ["al-kharj-stadiums-hero.jpg","al-kharj-stadiums-g1.jpg","al-kharj-stadiums-g2.jpg"]
     },
-    'qunfudhah-station': {
-      scopeEn: 'Mechanical · Electrical', scopeAr: 'ميكانيكا · كهرباء',
-      titleEn: 'Periodic Inspection Station — Al Qunfudhah', titleAr: 'محطة الفحص الدوري — القنفذة',
-      partnerEn: 'Three Palms Group', partnerAr: 'مجموعة النخلات الثلاث',
-      descEn: 'ARC continues to deliver electromechanical works at the Periodic Inspection Station in Al Qunfudhah Governorate. Scope includes electrical works, heating and air-conditioning systems, water and drainage systems and their insulation, plus the fire network and the connections required to test and operate all systems efficiently.',
-      descAr: 'تفخر شركة أرك بمواصلة تنفيذ أعمال الإلكتروميكانيكال في مشروع محطة الفحص الدوري بمحافظة القنفذة، حيث تشمل الأعمال الكهربائية وتركيب أنظمة التدفئة وتكييف الهواء، بما في ذلك تركيب نظام المياه والصرف وعزلها، بالإضافة إلى عمل شبكة الحريق وعمل التوصيلات اللازمة لاختبار وتشغيل جميع الأنظمة بكفاءة.',
-      imgs: ['qunfudhah-station-hero.jpg', 'qunfudhah-station-g1.jpg', 'qunfudhah-station-g2.jpg', 'qunfudhah-station-g3.jpg']
+    "qunfudhah-station": {
+      scopeEn: "Mechanical · Electrical", scopeAr: "ميكانيكا · كهرباء",
+      titleEn: "Periodic Inspection Station — Al Qunfudhah", titleAr: "محطة الفحص الدوري — القنفذة",
+      partnerEn: "Three Palms Group", partnerAr: "مجموعة النخلات الثلاث",
+      descEn: "ARC continues to deliver electromechanical works at the Periodic Inspection Station in Al Qunfudhah Governorate. Scope includes electrical works, heating and air-conditioning systems, water and drainage systems and their insulation, plus the fire network and the connections required to test and operate all systems efficiently.",
+      descAr: "تفخر شركة أرك بمواصلة تنفيذ أعمال الإلكتروميكانيكال في مشروع محطة الفحص الدوري بمحافظة القنفذة، حيث تشمل الأعمال الكهربائية وتركيب أنظمة التدفئة وتكييف الهواء، بما في ذلك تركيب نظام المياه والصرف وعزلها، بالإضافة إلى عمل شبكة الحريق وعمل التوصيلات اللازمة لاختبار وتشغيل جميع الأنظمة بكفاءة.",
+      imgs: ["qunfudhah-station-hero.jpg","qunfudhah-station-g1.jpg","qunfudhah-station-g2.jpg","qunfudhah-station-g3.jpg"]
     },
-    'cipriani': {
-      scopeEn: 'Architectural', scopeAr: 'معماري',
-      titleEn: 'Cipriani Restaurant', titleAr: 'مطعم تشيبرياني',
-      partnerEn: 'Hodood Al-Kamal Contracting', partnerAr: 'حدود الكمال للمقاولات',
+    "cipriani": {
+      scopeEn: "Architectural", scopeAr: "معماري",
+      titleEn: "Cipriani Restaurant", titleAr: "مطعم تشيبرياني",
+      partnerEn: "Hodood Al-Kamal Contracting", partnerAr: "حدود الكمال للمقاولات",
       descEn: "The project's architectural works were executed in accordance with the approved specifications and plans, including ceramic, gypsum board and cement board wall works, ensuring high-quality finishes and compliance with the project's technical requirements.",
-      descAr: 'تم تنفيذ الأعمال المعمارية بالمشروع وفقًا للمواصفات الفنية والمخططات المعتمدة، حيث شملت الأعمال تركيب وتنفيذ أعمال السيراميك وأعمال الجبس بورد وتنفيذ الجدران من ألواح السمنت بورد، مع مراعاة جودة التنفيذ ودقة التشطيبات.',
-      imgs: ['cipriani-hero.jpg', 'cipriani-g1.jpg']
+      descAr: "تم تنفيذ الأعمال المعمارية بالمشروع وفقًا للمواصفات الفنية والمخططات المعتمدة، حيث شملت الأعمال تركيب وتنفيذ أعمال السيراميك وأعمال الجبس بورد وتنفيذ الجدران من ألواح السمنت بورد، مع مراعاة جودة التنفيذ ودقة التشطيبات.",
+      imgs: ["cipriani-hero.jpg","cipriani-g1.jpg"]
     },
-    'al-hammadi-hospital': {
-      scopeEn: 'Mechanical · Electrical', scopeAr: 'ميكانيكا · كهرباء',
-      titleEn: 'Al Hammadi Hospital — Al Olaya', titleAr: 'مستشفى الحمادي — العليا',
-      partnerEn: 'SAWAED', partnerAr: 'سواعد',
+    "al-hammadi-hospital": {
+      scopeEn: "Mechanical · Electrical", scopeAr: "ميكانيكا · كهرباء",
+      titleEn: "Al Hammadi Hospital — Al Olaya", titleAr: "مستشفى الحمادي — العليا",
+      partnerEn: "SAWAED", partnerAr: "سواعد",
       descEn: "The project's electromechanical works were executed in accordance with the approved specifications and plans, including electrical works, the fire protection network, the chilled water network and ductwork, ensuring quality execution and compliance with project requirements.",
-      descAr: 'تم تنفيذ أعمال الإلكتروميكانيكال بالمشروع وفقًا للمواصفات الفنية والمخططات المعتمدة، حيث شملت الأعمال تنفيذ أعمال الكهرباء وتركيب شبكة مكافحة الحريق وتركيب شبكة المياه المبردة وتنفيذ وتركيب أعمال الدكت.',
-      imgs: ['al-hammadi-hospital-hero.jpg']
+      descAr: "تم تنفيذ أعمال الإلكتروميكانيكال بالمشروع وفقًا للمواصفات الفنية والمخططات المعتمدة، حيث شملت الأعمال تنفيذ أعمال الكهرباء وتركيب شبكة مكافحة الحريق وتركيب شبكة المياه المبردة وتنفيذ وتركيب أعمال الدكت.",
+      imgs: ["al-hammadi-hospital-hero.jpg"]
     },
-    'gulf-villas': {
-      scopeEn: 'Architectural', scopeAr: 'معماري',
-      titleEn: 'Gulf Villas', titleAr: 'فيلل الخليج',
-      partnerEn: 'Direct execution', partnerAr: 'تنفيذ مباشر',
+    "gulf-villas": {
+      scopeEn: "Architectural", scopeAr: "معماري",
+      titleEn: "Gulf Villas", titleAr: "فيلل الخليج",
+      partnerEn: "Direct execution", partnerAr: "تنفيذ مباشر",
       descEn: "The company executed the project's interior finishing works in accordance with the approved specifications and plans, including ceramic tiling and gypsum board works, ensuring high-quality finishes and compliance with project requirements.",
-      descAr: 'تم تنفيذ أعمال التشطيبات الخاصة بالمشروع من قبل الشركة، حيث قامت بتنفيذ أعمال التشطيب الداخلي وفقًا للمواصفات الفنية والمخططات المعتمدة، وقد شملت الأعمال بند السيراميك وأعمال الجبس بورد.',
-      imgs: ['gulf-villas-hero.jpg', 'gulf-villas-g1.jpg', 'gulf-villas-g2.jpg']
+      descAr: "تم تنفيذ أعمال التشطيبات الخاصة بالمشروع من قبل الشركة، حيث قامت بتنفيذ أعمال التشطيب الداخلي وفقًا للمواصفات الفنية والمخططات المعتمدة، وقد شملت الأعمال بند السيراميك وأعمال الجبس بورد.",
+      imgs: ["gulf-villas-hero.jpg","gulf-villas-g1.jpg","gulf-villas-g2.jpg"]
     },
-    'al-rabwa-villas': {
-      scopeEn: 'Architectural', scopeAr: 'معماري',
-      titleEn: 'Al Rabwa Villas', titleAr: 'فيلل الربوة',
-      partnerEn: 'SAWAED', partnerAr: 'سواعد',
+    "al-rabwa-villas": {
+      scopeEn: "Architectural", scopeAr: "معماري",
+      titleEn: "Al Rabwa Villas", titleAr: "فيلل الربوة",
+      partnerEn: "SAWAED", partnerAr: "سواعد",
       descEn: "The company constructed the project's villas in accordance with the approved technical specifications and plans, with interior and exterior finishing works to follow, ensuring high-quality execution and compliance with project requirements.",
-      descAr: 'تم تنفيذ الأعمال الإنشائية للمشروع من قبل الشركة، حيث قامت بتنفيذ أعمال إنشاء الفلل وفقًا للمواصفات الفنية والمخططات المعتمدة، على أن يتم لاحقًا تنفيذ أعمال التشطيبات الداخلية والخارجية.',
-      imgs: ['al-rabwa-villas-hero.jpg', 'al-rabwa-villas-g1.jpg', 'al-rabwa-villas-g2.jpg', 'al-rabwa-villas-g3.jpg']
+      descAr: "تم تنفيذ الأعمال الإنشائية للمشروع من قبل الشركة، حيث قامت بتنفيذ أعمال إنشاء الفلل وفقًا للمواصفات الفنية والمخططات المعتمدة، على أن يتم لاحقًا تنفيذ أعمال التشطيبات الداخلية والخارجية.",
+      imgs: ["al-rabwa-villas-hero.jpg","al-rabwa-villas-g1.jpg","al-rabwa-villas-g2.jpg","al-rabwa-villas-g3.jpg"]
     }
   };
+/* ARC:PROJECTDATA:END */
 
   const bi = (en, ar) => '<span data-en>' + en + '</span><span data-ar>' + ar + '</span>';
   const mainImg = document.getElementById('modalImg');
