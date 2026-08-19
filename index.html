@@ -38,14 +38,26 @@
 }
 </script>
 
-<!-- Three.js for 3D Skyline -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-<!-- jsPDF for Configurator -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<!-- Heavy libraries are fetched on demand (see loadLib below), not on page load -->
+<script>
+  window.__libs = {};
+  window.loadLib = function(url) {
+    if (window.__libs[url]) return window.__libs[url];
+    window.__libs[url] = new Promise(function(res, rej) {
+      var t = document.createElement('script');
+      t.src = url; t.async = true;
+      t.onload = res; t.onerror = rej;
+      document.head.appendChild(t);
+    });
+    return window.__libs[url];
+  };
+  window.THREE_URL = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  window.JSPDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ====== RESET ====== */
@@ -84,7 +96,7 @@ body {
   line-height: 1.65;
 }
 html[data-lang="ar"] { direction: rtl; }
-html[data-lang="ar"] body { font-family: 'Tajawal', 'Cairo', sans-serif; }
+html[data-lang="ar"] body { font-family: 'Tajawal', sans-serif; }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -292,8 +304,8 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
   animation: heroFade 21s ease-in-out infinite, heroZoom 21s ease-in-out infinite;
 }
 .hero-slide:nth-child(1) { background-image: url('assets/hero-skyline.jpg'); animation-delay: 0s; }
-.hero-slide:nth-child(2) { background-image: url('assets/hero-modern.jpg'); animation-delay: -7s; }
-.hero-slide:nth-child(3) { background-image: url('assets/hero-construction.jpg'); animation-delay: -14s; }
+.hero-slide:nth-child(2) { animation-delay: -7s; }
+.hero-slide:nth-child(3) { animation-delay: -14s; }
 @keyframes heroFade {
   0%, 28%, 100% { opacity: 0; }
   5%, 23% { opacity: 0.30; }
@@ -2593,6 +2605,21 @@ html[data-lang="ar"] .voice-tour { left: auto; right: 24px; }
 }
 .branch-card:hover .branch-map { filter: grayscale(0); }
 
+/* ====== TOUCH TARGETS ====== */
+/* WCAG 2.5.8 asks for 44x44 CSS px of tappable area on pointer-coarse devices. */
+@media (hover: none), (pointer: coarse) {
+  .footer-links a, .footer-col a, .footer-social a,
+  .job-card a, .filter-btn, .config-btn, .lang-toggle,
+  .accept-btn, .modal-close, .employee-portal, .direction,
+  .nav-link, .mobile-nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-social a, .modal-close, .lang-toggle { min-width: 44px; justify-content: center; }
+  .footer-links a, .footer-col a { padding-block: 4px; }
+}
+
 /* ====== BACK TO TOP ====== */
 .back-to-top {
   position: fixed;
@@ -2750,6 +2777,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 </div>
 
 <!-- ====== HERO ====== -->
+<main id="main">
 <section class="hero" id="home">
   <div class="hero-slideshow">
     <div class="hero-slide"></div>
@@ -3621,7 +3649,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
         <div class="calc-field">
           <label><span data-en>Area (m²)</span><span data-ar>المساحة (متر²)</span></label>
-          <input type="range" class="calc-slider" id="calcArea" min="100" max="2000" step="50" value="400">
+          <input type="range" class="calc-slider" id="calcArea" aria-label="Project area in square metres / مساحة المشروع بالمتر المربع" min="100" max="2000" step="50" value="400">
           <div class="calc-value">
             <span><span data-en>Size</span><span data-ar>الحجم</span></span>
             <span><span class="current" id="calcAreaValue">400</span> m²</span>
@@ -3630,7 +3658,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
         <div class="calc-field">
           <label><span data-en>Finish Quality</span><span data-ar>مستوى التشطيب</span></label>
-          <input type="range" class="calc-slider" id="calcFinish" min="1" max="3" step="1" value="2">
+          <input type="range" class="calc-slider" id="calcFinish" aria-label="Finish level / مستوى التشطيب" min="1" max="3" step="1" value="2">
           <div class="calc-value">
             <span id="calcFinishLabel"><span data-en>Premium</span><span data-ar>فاخر</span></span>
             <span><span class="current" id="calcFinishMultiplier">×1.0</span></span>
@@ -3782,7 +3810,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <div class="step-desc"><span data-en>Adjust the total built-up area.</span><span data-ar>عدّل المساحة الإجمالية للبناء.</span></div>
           <div class="config-slider-wrap">
             <div class="current"><span id="configSizeValue">400</span> <span>m²</span></div>
-            <input type="range" class="calc-slider" id="configSize" min="100" max="3000" step="50" value="400" style="background: var(--border);">
+            <input type="range" class="calc-slider" id="configSize" aria-label="Project size in square metres / حجم المشروع بالمتر المربع" min="100" max="3000" step="50" value="400" style="background: var(--border);">
           </div>
         </div>
 
@@ -3836,9 +3864,9 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <div class="step-label"><span data-en>Step 5 of 5</span><span data-ar>الخطوة 5 من 5</span></div>
           <div class="step-title"><span data-en>Your details</span><span data-ar>بياناتك</span></div>
           <div class="step-desc"><span data-en>We'll send the full proposal within 24 hours.</span><span data-ar>سنرسل العرض الكامل خلال 24 ساعة.</span></div>
-          <input type="text" class="config-input" id="configName" placeholder="Full Name / الاسم الكامل" required>
-          <input type="email" class="config-input" id="configEmail" placeholder="Email / البريد الإلكتروني" required>
-          <input type="tel" class="config-input" id="configPhone" placeholder="Phone +966 / رقم الجوال" required>
+          <input type="text" class="config-input" id="configName" placeholder="Full Name / الاسم الكامل" aria-label="Full name / الاسم الكامل" required>
+          <input type="email" class="config-input" id="configEmail" placeholder="Email / البريد الإلكتروني" aria-label="Email address / البريد الإلكتروني" required>
+          <input type="tel" class="config-input" id="configPhone" placeholder="Phone +966 / رقم الجوال" aria-label="Phone number / رقم الجوال" required>
 
           <div class="config-summary" id="configSummary">
             <h4><span data-en>Project Summary</span><span data-ar>ملخّص المشروع</span></h4>
@@ -3886,10 +3914,10 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       </div>
       <form class="newsletter-form" id="newsletterForm">
         <div class="field">
-          <input type="text" id="nlName" placeholder="Your Name / اسمك" required>
+          <input type="text" id="nlName" placeholder="Your Name / اسمك" aria-label="Your name / اسمك" required>
         </div>
         <div class="field">
-          <input type="email" id="nlEmail" placeholder="Email address / البريد الإلكتروني" required>
+          <input type="email" id="nlEmail" placeholder="Email address / البريد الإلكتروني" aria-label="Email address / البريد الإلكتروني" required>
         </div>
         <button type="submit">
           <span data-en>Send Me The Guide ➜</span>
@@ -3901,6 +3929,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 </section>
 
 <!-- ====== FOOTER ====== -->
+</main>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -4026,7 +4056,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 <div class="search-overlay" id="searchOverlay">
   <span class="search-close" id="searchClose">×</span>
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search projects, services, branches... / ابحث في المشاريع، الخدمات..." autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Search projects and services / ابحث في المشاريع والخدمات" autocomplete="off">
     <div class="search-results" id="searchResults"></div>
   </div>
 </div>
@@ -4215,9 +4245,20 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 // ============== 3D SKYLINE (Three.js) ==============
 (function() {
   function initSkyline() {
-    if (typeof THREE === 'undefined') { setTimeout(initSkyline, 200); return; }
     const canvas = document.getElementById('skylineCanvas');
     if (!canvas) return;
+    if (typeof THREE === 'undefined') {
+      // fetch the 600 KB library only once the section is actually approaching
+      const io = new IntersectionObserver(function(entries) {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        window.loadLib(window.THREE_URL).then(initSkyline).catch(function() {
+          canvas.style.display = 'none';
+        });
+      }, { rootMargin: '400px' });
+      io.observe(canvas);
+      return;
+    }
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x0A0E1F, 30, 120);
@@ -4501,7 +4542,12 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
   function generatePDF() {
     if (typeof window.jspdf === 'undefined') {
-      alert('PDF library not loaded yet. Please try again in a moment.');
+      // fetch the library the first time someone actually asks for a PDF
+      window.loadLib(window.JSPDF_URL).then(generatePDF).catch(function() {
+        alert(document.documentElement.getAttribute('data-lang') === 'ar'
+          ? 'تعذّر تجهيز ملف PDF، حاول مرة أخرى'
+          : 'Could not prepare the PDF, please try again');
+      });
       return;
     }
     const { jsPDF } = window.jspdf;
@@ -4986,7 +5032,20 @@ window.addEventListener('scroll', function() {
     const name = document.getElementById('nlName').value;
     const email = document.getElementById('nlEmail').value;
     if (!name || !email) return;
-    form.innerHTML = '<div style="text-align:center;padding:30px;"><div style="font-size:48px;margin-bottom:14px;">✓</div><h4 style="color:var(--navy);margin-bottom:8px;">Thank you, ' + name + '!</h4><p style="color:var(--navy);opacity:0.8;font-size:14px;">The guide is on its way to ' + email + '</p></div>';
+    const box = document.createElement('div');
+    box.style.cssText = 'text-align:center;padding:30px;';
+    const tick = document.createElement('div');
+    tick.style.cssText = 'font-size:48px;margin-bottom:14px;'; tick.textContent = '✓';
+    const h = document.createElement('h4');
+    h.style.cssText = 'color:var(--navy);margin-bottom:8px;';
+    h.textContent = (document.documentElement.getAttribute('data-lang') === 'ar' ? 'شكراً لك، ' : 'Thank you, ') + name;
+    const p = document.createElement('p');
+    p.style.cssText = 'color:var(--navy);opacity:0.8;font-size:14px;';
+    p.textContent = document.documentElement.getAttribute('data-lang') === 'ar'
+      ? 'سنتواصل معك على ' + email
+      : 'We will be in touch at ' + email;
+    box.appendChild(tick); box.appendChild(h); box.appendChild(p);
+    form.replaceChildren(box);
     unlockAchievement('subscriber', '📩', 'Newsletter Subscriber');
   });
 })();
@@ -5361,5 +5420,16 @@ window.addEventListener('scroll', function() {
 })();
 </script>
 
+<script>
+  // the second and third hero frames are only needed seconds in — keep them off the critical path
+  window.addEventListener('load', function() {
+    setTimeout(paintSlides, 400);
+    function paintSlides() {
+      var slides = document.querySelectorAll('.hero-slide');
+      if (slides[1]) slides[1].style.backgroundImage = "url('assets/hero-modern.jpg')";
+      if (slides[2]) slides[2].style.backgroundImage = "url('assets/hero-construction.jpg')";
+    }
+  });
+</script>
 </body>
 </html>
