@@ -2605,6 +2605,83 @@ html[data-lang="ar"] .voice-tour { left: auto; right: 24px; }
 }
 .branch-card:hover .branch-map { filter: grayscale(0); }
 
+/* Keep Latin phone/email strings readable inside Arabic paragraphs */
+.num-ltr, a[href^="tel:"], a[href^="mailto:"] {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+/* ====== QUOTE REQUEST ====== */
+.quote-panel {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 900px) { .quote-panel { grid-template-columns: 1fr; gap: 32px; padding: 28px; } }
+.quote-intro h3 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; color: var(--navy); margin: 14px 0 12px; letter-spacing: -0.02em; }
+.quote-intro p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.quote-points { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.quote-points li {
+  position: relative; padding-inline-start: 26px;
+  color: var(--text-secondary); font-size: 14px; line-height: 1.6;
+}
+.quote-points li::before {
+  content: '✓';
+  position: absolute; inset-inline-start: 0; top: 0;
+  color: var(--gold-dark); font-weight: 800;
+}
+.qf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .qf-row { grid-template-columns: 1fr; } }
+.qf-field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+.qf-label { font-size: 13px; font-weight: 600; color: var(--navy); }
+.qf-label b { color: var(--gold-dark); }
+.qf-field input, .qf-field select, .qf-field textarea {
+  font-family: inherit; font-size: 15px;
+  padding: 13px 15px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-soft);
+  color: var(--navy);
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  width: 100%;
+  min-height: 46px;
+}
+.qf-field textarea { resize: vertical; min-height: 96px; }
+.qf-field input:focus, .qf-field select:focus, .qf-field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(244,180,0,0.15);
+}
+.qf-field input[aria-invalid="true"], .qf-field select[aria-invalid="true"] {
+  border-color: #d64545; background: #fff7f7;
+}
+.qf-error {
+  color: #c53030; font-size: 14px; font-weight: 600;
+  background: #fff5f5; border: 1px solid #fed7d7;
+  padding: 12px 14px; border-radius: 12px; margin-bottom: 16px;
+}
+.qf-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.qf-note { font-size: 12px; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+.qf-sent {
+  text-align: center; padding: 40px 20px;
+}
+.qf-sent .tick {
+  width: 62px; height: 62px; margin: 0 auto 18px;
+  border-radius: 50%; background: rgba(244,180,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; color: var(--gold-dark);
+}
+.qf-sent h4 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.qf-sent p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+
 /* ====== TOUCH TARGETS ====== */
 /* WCAG 2.5.8 asks for 44x44 CSS px of tappable area on pointer-coarse devices. */
 @media (hover: none), (pointer: coarse) {
@@ -3691,12 +3768,115 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     <div class="section-header reveal">
       <span class="eyebrow"><span data-en>Get In Touch</span><span data-ar>تواصل معنا</span></span>
       <h2 class="section-title">
-        <span data-en>Three offices. <span class="gold">One commitment</span>.</span>
-        <span data-ar>ثلاثة مكاتب. <span class="gold">التزام واحد</span>.</span>
+        <span data-en>One office. <span class="gold">Projects Kingdom-wide</span>.</span>
+        <span data-ar>مقرّ واحد. <span class="gold">مشاريع في أنحاء المملكة</span>.</span>
       </h2>
     </div>
 
     <div class="contact-grid">
+      <div class="branch-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3><span data-en>Riyadh — Head Office</span><span data-ar>الرياض — المقر الرئيسي</span></h3>
+        <p><span data-en>Sheikh Salman bin Hamad Al Khalifa St., Al-Malaz, Riyadh 13518</span><span data-ar>شارع الشيخ سلمان بن حمد آل خليفة، الملز، الرياض 13518</span></p>
+        <p><span class="num-ltr">📞 +966 11 246 6126</span><br><span class="num-ltr">📱 +966 53 414 0415</span></p>
+        <a href="https://maps.app.goo.gl/JW5Wnz7AKkwUS6zL6" target="_blank" rel="noopener" class="direction">
+          <span data-en>Get Directions</span><span data-ar>الاتجاهات</span> →
+        </a>
+      </div>
+      <div class="branch-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h3><span data-en>Email &amp; Phone</span><span data-ar>البريد والهاتف</span></h3>
+        <p><a href="mailto:info@byarcsa.com" style="color:inherit;">info@byarcsa.com</a></p>
+        <p><a href="tel:+966112466126" style="color:inherit;">+966 11 246 6126</a><br><a href="tel:+966534140415" style="color:inherit;">+966 53 414 0415</a></p>
+        <a href="https://wa.me/966534140415" target="_blank" rel="noopener" class="direction">
+          <span data-en>Message on WhatsApp</span><span data-ar>راسلنا على واتساب</span> →
+        </a>
+      </div>
+      <div class="branch-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3><span data-en>Working Hours</span><span data-ar>ساعات العمل</span></h3>
+        <p><span data-en>Saturday – Thursday</span><span data-ar>السبت – الخميس</span><br>9:00 — 17:00</p>
+        <p><span data-en>Projects run across the Kingdom — Riyadh, Jubail, Al Kharj and Al Qunfudhah.</span><span data-ar>مشاريعنا في أنحاء المملكة — الرياض والجبيل والخرج والقنفذة.</span></p>
+      </div>
+    </div>
+
+    <div class="quote-panel reveal" id="quotePanel">
+      <div class="quote-intro">
+        <span class="eyebrow"><span data-en>Request a Quote</span><span data-ar>اطلب عرض سعر</span></span>
+        <h3>
+          <span data-en>Tell us about your project.</span>
+          <span data-ar>أخبرنا عن مشروعك.</span>
+        </h3>
+        <p>
+          <span data-en>Fill this in and it reaches us directly on WhatsApp — usually answered the same working day.</span>
+          <span data-ar>املأ النموذج ويصلنا مباشرة على واتساب — نردّ عادةً في نفس يوم العمل.</span>
+        </p>
+        <ul class="quote-points">
+          <li><span data-en>Architectural, mechanical and electrical scopes</span><span data-ar>أعمال معمارية وميكانيكية وكهربائية</span></li>
+          <li><span data-en>Main contractor or specialist subcontract</span><span data-ar>مقاول رئيسي أو مقاول متخصص من الباطن</span></li>
+          <li><span data-en>Registered, documented, verifiable</span><span data-ar>مسجّلون وموثّقون وقابلون للتحقق</span></li>
+        </ul>
+      </div>
+
+      <form class="quote-form" id="quoteForm" novalidate>
+        <div class="qf-row">
+          <label class="qf-field">
+            <span class="qf-label"><span data-en>Full name</span><span data-ar>الاسم الكامل</span> <b>*</b></span>
+            <input type="text" name="name" id="qfName" required autocomplete="name">
+          </label>
+          <label class="qf-field">
+            <span class="qf-label"><span data-en>Phone</span><span data-ar>رقم الجوال</span> <b>*</b></span>
+            <input type="tel" name="phone" id="qfPhone" required autocomplete="tel" inputmode="tel" placeholder="05xxxxxxxx">
+          </label>
+        </div>
+        <div class="qf-row">
+          <label class="qf-field">
+            <span class="qf-label"><span data-en>Email</span><span data-ar>البريد الإلكتروني</span></span>
+            <input type="email" name="email" id="qfEmail" autocomplete="email">
+          </label>
+          <label class="qf-field">
+            <span class="qf-label"><span data-en>Scope of work</span><span data-ar>نطاق العمل</span></span>
+            <select name="scope" id="qfScope">
+              <option value="architectural"><span></span>Architectural / معماري</option>
+              <option value="mechanical">Mechanical / ميكانيكا</option>
+              <option value="electrical">Electrical / كهرباء</option>
+              <option value="electromechanical">Electromechanical / إلكتروميكانيكال</option>
+              <option value="finishing">Finishing / تشطيبات</option>
+              <option value="other">Other / أخرى</option>
+            </select>
+          </label>
+        </div>
+        <div class="qf-row">
+          <label class="qf-field">
+            <span class="qf-label"><span data-en>City</span><span data-ar>المدينة</span></span>
+            <input type="text" name="city" id="qfCity" autocomplete="address-level2">
+          </label>
+          <label class="qf-field">
+            <span class="qf-label"><span data-en>Approx. area (m²)</span><span data-ar>المساحة التقريبية (م²)</span></span>
+            <input type="number" name="area" id="qfArea" min="0" inputmode="numeric">
+          </label>
+        </div>
+        <label class="qf-field">
+          <span class="qf-label"><span data-en>Project details</span><span data-ar>تفاصيل المشروع</span></span>
+          <textarea name="details" id="qfDetails" rows="4"></textarea>
+        </label>
+
+        <p class="qf-error" id="qfError" role="alert" hidden></p>
+
+        <div class="qf-actions">
+          <button type="submit" class="btn btn-primary" id="qfSubmit">
+            <span data-en>Send via WhatsApp</span><span data-ar>إرسال عبر واتساب</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2z"/></svg>
+          </button>
+          <button type="button" class="btn btn-outline" id="qfEmailBtn">
+            <span data-en>Send by email instead</span><span data-ar>إرسال بالبريد بدلاً من ذلك</span>
+          </button>
+        </div>
+        <p class="qf-note">
+          <span data-en>Your details are only used to prepare a reply. We do not share them.</span>
+          <span data-ar>بياناتك تُستخدم فقط لإعداد الرد. لا نشاركها مع أي جهة.</span>
+        </p>
+      </form>
     </div>
 
     <div class="contact-cta reveal">
@@ -3705,8 +3885,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-ar>جاهز لبناء شيء <span class="text-gold">استثنائي</span>؟</span>
       </h3>
       <p>
-        <span data-en>Tell us about your project. Our team will respond within 24 hours.</span>
-        <span data-ar>أخبرنا عن مشروعك. سيردّ فريقنا خلال 24 ساعة.</span>
+        <span data-en>Prefer to talk first? Reach us directly.</span>
+        <span data-ar>تفضّل الحديث أولاً؟ تواصل معنا مباشرة.</span>
       </p>
       <div class="contact-cta-actions">
         <a href="mailto:info@byarcsa.com" class="btn btn-primary">
@@ -5393,6 +5573,137 @@ window.addEventListener('scroll', function() {
     loader.classList.add('hidden');
     setTimeout(function() { if (loader.parentNode) loader.remove(); }, 700);
   }, 3000);
+})();
+
+// ============== QUOTE REQUEST ==============
+(function() {
+  const form = document.getElementById('quoteForm');
+  if (!form) return;
+
+  const WHATSAPP = '966534140415';
+  const EMAIL = 'info@byarcsa.com';
+  const isAr = function() { return document.documentElement.getAttribute('data-lang') === 'ar'; };
+  const errBox = document.getElementById('qfError');
+
+  const F = {
+    name: document.getElementById('qfName'),
+    phone: document.getElementById('qfPhone'),
+    email: document.getElementById('qfEmail'),
+    scope: document.getElementById('qfScope'),
+    city: document.getElementById('qfCity'),
+    area: document.getElementById('qfArea'),
+    details: document.getElementById('qfDetails')
+  };
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.hidden = false;
+    errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function clearError() {
+    errBox.hidden = true;
+    Object.values(F).forEach(function(el) { if (el) el.removeAttribute('aria-invalid'); });
+  }
+
+  // Saudi mobile: 05xxxxxxxx, 5xxxxxxxx, +9665xxxxxxxx, 009665xxxxxxxx
+  function normalisePhone(raw) {
+    const digits = (raw || '').replace(/[^\d]/g, '');
+    if (/^9665\d{8}$/.test(digits)) return '+' + digits;
+    if (/^009665\d{8}$/.test(digits)) return '+' + digits.slice(2);
+    if (/^05\d{8}$/.test(digits)) return '+966' + digits.slice(1);
+    if (/^5\d{8}$/.test(digits)) return '+966' + digits;
+    if (digits.length >= 8 && digits.length <= 15) return '+' + digits;   // non-Saudi, keep as given
+    return null;
+  }
+
+  function validate() {
+    clearError();
+    const name = F.name.value.trim();
+    if (name.length < 2) {
+      F.name.setAttribute('aria-invalid', 'true'); F.name.focus();
+      showError(isAr() ? 'من فضلك اكتب اسمك.' : 'Please enter your name.');
+      return null;
+    }
+    const phone = normalisePhone(F.phone.value);
+    if (!phone) {
+      F.phone.setAttribute('aria-invalid', 'true'); F.phone.focus();
+      showError(isAr() ? 'رقم الجوال غير صحيح — مثال: 0534140415' : 'That phone number does not look right — e.g. 0534140415');
+      return null;
+    }
+    const email = F.email.value.trim();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      F.email.setAttribute('aria-invalid', 'true'); F.email.focus();
+      showError(isAr() ? 'البريد الإلكتروني غير صحيح.' : 'That email address does not look right.');
+      return null;
+    }
+    return {
+      name: name,
+      phone: phone,
+      email: email,
+      scope: F.scope.options[F.scope.selectedIndex].text.trim(),
+      city: F.city.value.trim(),
+      area: F.area.value.trim(),
+      details: F.details.value.trim()
+    };
+  }
+
+  function compose(d) {
+    const ar = isAr();
+    const L = ar
+      ? { head: 'طلب عرض سعر — من موقع byarcsa.com', name: 'الاسم', phone: 'الجوال', email: 'البريد',
+          scope: 'نطاق العمل', city: 'المدينة', area: 'المساحة', details: 'التفاصيل', m2: 'م²' }
+      : { head: 'Quote request from byarcsa.com', name: 'Name', phone: 'Phone', email: 'Email',
+          scope: 'Scope', city: 'City', area: 'Area', details: 'Details', m2: 'm²' };
+    const lines = [L.head, '', L.name + ': ' + d.name, L.phone + ': ' + d.phone];
+    if (d.email) lines.push(L.email + ': ' + d.email);
+    lines.push(L.scope + ': ' + d.scope);
+    if (d.city) lines.push(L.city + ': ' + d.city);
+    if (d.area) lines.push(L.area + ': ' + d.area + ' ' + L.m2);
+    if (d.details) lines.push('', L.details + ':', d.details);
+    return lines.join('\n');
+  }
+
+  function confirmSent(via) {
+    const ar = isAr();
+    const box = document.createElement('div');
+    box.className = 'qf-sent';
+    const tick = document.createElement('div');
+    tick.className = 'tick'; tick.textContent = '✓';
+    const h = document.createElement('h4');
+    h.textContent = ar ? 'تم تجهيز طلبك' : 'Your request is ready';
+    const p = document.createElement('p');
+    p.textContent = ar
+      ? (via === 'wa'
+          ? 'فتحنا لك واتساب بالطلب جاهزاً — اضغط إرسال داخل التطبيق ليصلنا. إن لم يفتح، راسلنا على 0534140415.'
+          : 'فتحنا لك برنامج البريد بالطلب جاهزاً — اضغط إرسال ليصلنا. إن لم يفتح، راسلنا على info@byarcsa.com.')
+      : (via === 'wa'
+          ? 'WhatsApp is open with your request filled in — press send inside the app and it reaches us. If it did not open, message us on +966 53 414 0415.'
+          : 'Your mail app is open with the request filled in — press send and it reaches us. If it did not open, write to info@byarcsa.com.');
+    box.appendChild(tick); box.appendChild(h); box.appendChild(p);
+    form.replaceChildren(box);
+    if (window.unlockAchievement) unlockAchievement('quote', '📝', 'Quote Requested');
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const d = validate();
+    if (!d) return;
+    const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(compose(d));
+    window.open(url, '_blank', 'noopener');
+    confirmSent('wa');
+  });
+
+  document.getElementById('qfEmailBtn').addEventListener('click', function() {
+    const d = validate();
+    if (!d) return;
+    const subject = isAr() ? 'طلب عرض سعر — ' + d.name : 'Quote request — ' + d.name;
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(compose(d));
+    confirmSent('mail');
+  });
+
+  Object.values(F).forEach(function(el) {
+    if (el) el.addEventListener('input', function() { el.removeAttribute('aria-invalid'); errBox.hidden = true; });
+  });
 })();
 
 // ============== PROJECT FILTER ==============
