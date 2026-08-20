@@ -5210,6 +5210,40 @@ window.addEventListener('scroll', function() {
 (function() {
   const form = document.getElementById('newsletterForm');
   if (!form) return;
+  /**
+   * Store the enquiry before handing the visitor to WhatsApp or mail.
+   * Without this the lead is lost whenever someone never presses send in
+   * the other app. Failure here must never block the handoff, so it is
+   * deliberately fire-and-forget with a short timeout.
+   */
+  function record(d) {
+    if (!window.fetch || !SB_URL) return Promise.resolve(false);
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    if (ctrl) setTimeout(function () { ctrl.abort(); }, 6000);
+    return fetch(SB_URL + '/rest/v1/leads', {
+      method: 'POST',
+      headers: {
+        'apikey': SB_KEY,
+        'Authorization': 'Bearer ' + SB_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      signal: ctrl ? ctrl.signal : undefined,
+      body: JSON.stringify({
+        name: d.name,
+        phone: d.phone,
+        email: d.email || null,
+        scope: d.scopeValue || null,
+        city: d.city || null,
+        area: d.area ? parseInt(d.area, 10) : null,
+        details: d.details || null,
+        lang: isAr() ? 'ar' : 'en',
+        source: 'website',
+        status: 'new'
+      })
+    }).then(function (r) { return r.ok; }).catch(function () { return false; });
+  }
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('nlName').value;
@@ -5585,6 +5619,10 @@ window.addEventListener('scroll', function() {
 
   const WHATSAPP = '966534140415';
   const EMAIL = 'info@byarcsa.com';
+  // Publishable key — it is meant to ship in the page. Row level security
+  // lets it insert a lead and nothing else; it cannot read anyone back.
+  const SB_URL = 'https://cavojuqysdabhnidhhqa.supabase.co';
+  const SB_KEY = 'sb_publishable_ktAw1dC0J7udqhUR1R7eug_I1GArH91';
   const isAr = function() { return document.documentElement.getAttribute('data-lang') === 'ar'; };
   const errBox = document.getElementById('qfError');
 
@@ -5644,6 +5682,7 @@ window.addEventListener('scroll', function() {
       phone: phone,
       email: email,
       scope: F.scope.options[F.scope.selectedIndex].text.trim(),
+      scopeValue: F.scope.value,
       city: F.city.value.trim(),
       area: F.area.value.trim(),
       details: F.details.value.trim()
@@ -5691,6 +5730,7 @@ window.addEventListener('scroll', function() {
     e.preventDefault();
     const d = validate();
     if (!d) return;
+    record(d);
     const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(compose(d));
     window.open(url, '_blank', 'noopener');
     confirmSent('wa');
@@ -5699,6 +5739,7 @@ window.addEventListener('scroll', function() {
   document.getElementById('qfEmailBtn').addEventListener('click', function() {
     const d = validate();
     if (!d) return;
+    record(d);
     const subject = isAr() ? 'طلب عرض سعر — ' + d.name : 'Quote request — ' + d.name;
     window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(compose(d));
     confirmSent('mail');
