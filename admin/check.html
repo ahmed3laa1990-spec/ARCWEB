@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>تشخيص الدخول — ARC</title>
+<link rel="icon" href="../assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0E2A47;--gold:#F4B400;--bg:#f5f7fa;--line:#e3e8ef;--muted:#6b7a8d;--ok:#2f855a;--bad:#c53030}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--navy);line-height:1.7;padding:26px 18px 70px}
+.box{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+h1{font-size:23px;font-weight:800;margin-bottom:6px}
+.lead{color:var(--muted);font-size:14px;margin-bottom:22px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+label{font-size:13.5px;font-weight:700}
+input{padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;background:var(--bg);min-height:46px;direction:ltr;text-align:left;font-family:inherit;font-size:15px;width:100%}
+input:focus{outline:none;border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(244,180,0,.16)}
+.pw-wrap{position:relative}.pw-wrap input{padding-inline-end:48px}
+#eye{position:absolute;inset-inline-end:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:17px;width:38px;height:38px;border-radius:9px}
+button.run{background:var(--gold);color:var(--navy);border:none;border-radius:11px;padding:13px 24px;font-weight:800;font-size:15px;cursor:pointer;width:100%;min-height:48px;font-family:inherit}
+button.run:disabled{opacity:.55}
+.res{margin-top:24px;display:none;flex-direction:column;gap:9px}
+.t{display:flex;gap:11px;align-items:flex-start;padding:12px 14px;border-radius:11px;background:var(--bg);font-size:14px}
+.t .ic{font-size:17px;line-height:1.3}
+.t b{display:block;font-weight:700}
+.t span{color:var(--muted);font-size:13px;word-break:break-word}
+.t.ok{background:#f0fff4}.t.bad{background:#fff5f5}
+.verdict{margin-top:20px;padding:16px 18px;border-radius:13px;font-weight:700;font-size:15px;line-height:1.8}
+.verdict.ok{background:#f0fff4;border:1px solid #c6f6d5;color:var(--ok)}
+.verdict.bad{background:#fff5f5;border:1px solid #fed7d7;color:var(--bad)}
+.copy{margin-top:14px;width:100%;background:#fff;border:1.5px solid var(--line);border-radius:11px;padding:11px;cursor:pointer;font-family:inherit;font-weight:700;min-height:44px}
+a{color:#c98f00}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>تشخيص مشكلة الدخول</h1>
+  <p class="lead">هذه الصفحة تفحص كل خطوة في متصفحك وتخبرك أين تتوقف بالضبط. لا تُحفظ بياناتك ولا تُرسل إلا إلى Supabase.</p>
+
+  <div class="field">
+    <label for="em">البريد الإلكتروني</label>
+    <input type="email" id="em" value="info@byarcsa.com" autocomplete="username">
+  </div>
+  <div class="field">
+    <label for="pw">كلمة المرور</label>
+    <div class="pw-wrap">
+      <input type="password" id="pw" autocomplete="current-password">
+      <button type="button" id="eye" aria-label="إظهار">👁</button>
+    </div>
+  </div>
+  <button class="run" id="run">ابدأ الفحص</button>
+
+  <div class="res" id="res"></div>
+  <div id="verdict"></div>
+  <button class="copy hidden" id="copy" style="display:none">نسخ النتيجة لإرسالها</button>
+</div>
+
+<script>
+const SB='https://cavojuqysdabhnidhhqa.supabase.co';
+const KEY='sb_publishable_ktAw1dC0J7udqhUR1R7eug_I1GArH91';
+const $=(i)=>document.getElementById(i);
+let report=[];
+
+$('eye').addEventListener('click',function(){
+  const f=$('pw'); const s=f.type==='password';
+  f.type=s?'text':'password'; this.textContent=s?'🙈':'👁';
+});
+
+function add(ok,title,detail){
+  report.push((ok?'[نجح] ':'[فشل] ')+title+(detail?' — '+detail:''));
+  const d=document.createElement('div');
+  d.className='t '+(ok?'ok':'bad');
+  const ic=document.createElement('span'); ic.className='ic'; ic.textContent=ok?'✅':'❌';
+  const w=document.createElement('div');
+  const b=document.createElement('b'); b.textContent=title;
+  w.appendChild(b);
+  if(detail){const s=document.createElement('span');s.textContent=detail;w.appendChild(s);}
+  d.appendChild(ic); d.appendChild(w);
+  $('res').appendChild(d);
+  return ok;
+}
+
+$('run').addEventListener('click',async function(){
+  this.disabled=true; this.textContent='جارٍ الفحص…';
+  $('res').innerHTML=''; $('res').style.display='flex'; $('verdict').innerHTML=''; report=[];
+  const pwRaw=$('pw').value, em=$('em').value.trim();
+  let verdict=null;
+
+  // 0. what is actually in the password box
+  const spaces = pwRaw !== pwRaw.trim();
+  const nonAscii = /[^\x20-\x7E]/.test(pwRaw);
+  add(!spaces, 'كلمة المرور بلا مسافات زائدة', spaces?'يوجد فراغ في أولها أو آخرها — احذفه':(pwRaw.length+' حرفاً'));
+  if(nonAscii) add(false,'أحرف غير إنجليزية داخل كلمة المرور','ربما لوحة المفاتيح بالعربية — اضغط 👁 لترى ما كُتب');
+  if(spaces) verdict=verdict||'المسافة الزائدة هي السبب. احذفها وأعد المحاولة.';
+  if(nonAscii) verdict=verdict||'كلمة المرور تحوي أحرفاً غير إنجليزية. بدّل لوحة المفاتيح إلى الإنجليزية وأعد كتابتها.';
+
+  // 1. can this browser reach supabase at all
+  let reach=false;
+  try{
+    const r=await fetch(SB+'/auth/v1/health',{headers:{apikey:KEY}});
+    reach=add(r.ok,'الوصول إلى خادم Supabase','HTTP '+r.status);
+  }catch(e){
+    add(false,'الوصول إلى خادم Supabase',e.message);
+    verdict=verdict||'متصفحك لا يصل إلى supabase.co. الأرجح مانع إعلانات أو إضافة خصوصية أو شبكة تحجبه — جرّب نافذة تصفّح خفي مع تعطيل الإضافات، أو شبكة أخرى (بيانات الجوال).';
+  }
+
+  // 2. does the auth endpoint accept this password
+  if(reach && em && pwRaw){
+    try{
+      const r=await fetch(SB+'/auth/v1/token?grant_type=password',{
+        method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},
+        body:JSON.stringify({email:em,password:pwRaw})});
+      const j=await r.json().catch(()=>({}));
+      if(r.ok&&j.access_token){
+        add(true,'تسجيل الدخول بكلمة المرور كما كُتبت','نجح');
+        verdict=verdict||'OK';
+      }else{
+        add(false,'تسجيل الدخول بكلمة المرور كما كُتبت','HTTP '+r.status+' — '+(j.error_description||j.msg||j.error||''));
+        // retry trimmed
+        if(spaces){
+          const r2=await fetch(SB+'/auth/v1/token?grant_type=password',{
+            method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},
+            body:JSON.stringify({email:em,password:pwRaw.trim()})});
+          const j2=await r2.json().catch(()=>({}));
+          add(r2.ok&&!!j2.access_token,'المحاولة بعد إزالة المسافات',r2.ok?'نجحت':'فشلت أيضاً');
+          if(r2.ok) verdict=verdict||'OK';
+        }
+        if(!verdict) verdict='الخادم يرفض هذه البيانات. تأكد من البريد وكلمة المرور، أو أعد تعيين كلمة المرور من Supabase.';
+      }
+    }catch(e){
+      add(false,'تسجيل الدخول',e.message);
+      verdict=verdict||'الطلب لم يصل. الأرجح حجب من إضافة في المتصفح أو من الشبكة.';
+    }
+  }
+
+  // 3. environment
+  add(true,'المتصفح',navigator.userAgent.slice(0,110));
+  add(navigator.cookieEnabled,'الكوكيز مفعّلة',navigator.cookieEnabled?'نعم':'لا — بعض المتصفحات تمنع التخزين');
+  try{ localStorage.setItem('_t','1'); localStorage.removeItem('_t'); add(true,'التخزين المحلي يعمل',''); }
+  catch(e){ add(false,'التخزين المحلي محجوب',e.message); verdict=verdict||'التخزين المحلي محجوب في متصفحك — عطّل وضع الخصوصية الصارم لهذا الموقع.'; }
+
+  const v=document.createElement('div');
+  if(verdict==='OK'){
+    v.className='verdict ok';
+    v.innerHTML='بياناتك صحيحة والاتصال سليم — الدخول يعمل من هذا المتصفح.<br>افتح <a href="/admin/">لوحة التحكم</a> واستخدم نفس ما كتبته هنا بالضبط.';
+  }else{
+    v.className='verdict bad';
+    v.textContent=verdict||'لم يكتمل الفحص.';
+  }
+  $('verdict').appendChild(v);
+  $('copy').style.display='block';
+  this.disabled=false; this.textContent='إعادة الفحص';
+});
+
+$('copy').addEventListener('click',function(){
+  const t=report.join('\n');
+  navigator.clipboard.writeText(t).then(()=>{this.textContent='✅ نُسخت — أرسلها';},()=>{
+    prompt('انسخ النص التالي:',t);
+  });
+});
+</script>
+</body>
+</html>
