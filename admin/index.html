@@ -48,6 +48,10 @@ a{color:var(--gold-d)}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(244,180,0,.16)}
 .field .hint{font-size:12px;color:var(--muted)}
 .field input[dir=ltr],.field textarea[dir=ltr]{direction:ltr;text-align:left}
+.pw-wrap{position:relative}
+.pw-wrap input{padding-inline-end:48px}
+#pwEye{position:absolute;inset-inline-end:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:17px;width:38px;height:38px;border-radius:9px}
+#pwEye:hover{background:var(--bg)}
 
 .notice{padding:13px 16px;border-radius:12px;font-size:14px;font-weight:500;margin-bottom:18px}
 .notice.err{background:#fff5f5;border:1px solid #fed7d7;color:var(--danger)}
@@ -128,7 +132,10 @@ a{color:var(--gold-d)}
     </div>
     <div class="field">
       <label for="pw">كلمة المرور</label>
-      <input type="password" id="pw" dir="ltr" autocomplete="current-password">
+      <div class="pw-wrap">
+        <input type="password" id="pw" dir="ltr" autocomplete="current-password">
+        <button type="button" id="pwEye" aria-label="إظهار كلمة المرور">👁</button>
+      </div>
     </div>
     <div id="loginMsg"></div>
     <button class="btn btn-p" id="loginBtn" style="width:100%">دخول</button>

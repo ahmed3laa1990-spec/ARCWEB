@@ -597,15 +597,52 @@ function render() {
 }
 
 /* ---------------- wire ---------------- */
-$('loginBtn').addEventListener('click', async function () {
-  const email = $('email').value.trim(), pw = $('pw').value;
-  if (!email || !pw) { note($('loginMsg'), 'err', 'أدخل البريد وكلمة المرور.'); return; }
-  this.disabled = true;
-  try { await signIn(email, pw); await boot(); }
-  catch (e) { note($('loginMsg'), 'err', 'تعذّر الدخول: ' + e.message); }
-  finally { this.disabled = false; }
+async function doLogin() {
+  const btn = $('loginBtn');
+  const email = $('email').value.trim();
+  const raw = $('pw').value;
+  if (!email || !raw) { note($('loginMsg'), 'err', 'أدخل البريد وكلمة المرور.'); return; }
+  btn.disabled = true;
+  btn.textContent = 'جارٍ الدخول…';
+  clearNote($('loginMsg'));
+  try {
+    try {
+      await signIn(email, raw);
+    } catch (first) {
+      const trimmed = raw.trim();
+      if (trimmed && trimmed !== raw) {
+        // almost always a space or newline picked up while copying
+        await signIn(email, trimmed);
+        $('pw').value = trimmed;
+      } else {
+        throw first;
+      }
+    }
+    await boot();
+  } catch (e) {
+    const m = String(e.message || '');
+    note($('loginMsg'), 'err',
+      /invalid login credentials/i.test(m)
+        ? 'البريد أو كلمة المرور غير صحيحة. إن نسختها فتأكد أنها بلا مسافة زائدة — اضغط 👁 لرؤيتها.'
+        : /failed to fetch|networkerror/i.test(m)
+          ? 'تعذّر الوصول إلى الخادم. تحقق من الاتصال، وإن كان لديك مانع إعلانات فقد يحجب supabase.co.'
+          : 'تعذّر الدخول: ' + m);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'دخول';
+  }
+}
+
+$('loginBtn').addEventListener('click', doLogin);
+$('pw').addEventListener('keydown', (e) => { if (e.key === 'Enter') doLogin(); });
+$('email').addEventListener('keydown', (e) => { if (e.key === 'Enter') doLogin(); });
+$('pwEye').addEventListener('click', function () {
+  const f = $('pw');
+  const show = f.type === 'password';
+  f.type = show ? 'text' : 'password';
+  this.textContent = show ? '🙈' : '👁';
+  this.setAttribute('aria-label', show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
 });
-$('pw').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('loginBtn').click(); });
 $('logout').addEventListener('click', signOut);
 $('refresh').addEventListener('click', async () => { await loadLeads(); render(); });
 document.querySelectorAll('.tab').forEach((b) => b.addEventListener('click', () => {
