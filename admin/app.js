@@ -360,24 +360,108 @@ async function loadContent() {
   setDirty(false);
 }
 
-async function ensureGh() {
-  if (ghToken) return true;
-  const t = prompt('لتعديل المشاريع أحتاج رمز وصول GitHub (Contents: Read and write على مستودع ARCWEB).\n\nسيُحفظ في قاعدة بياناتك ولن تحتاج إدخاله مرة أخرى:');
-  if (!t) return false;
-  ghToken = t.trim();
-  try {
-    await gh('/repos/' + OWNER + '/' + REPO);
-    await sb('/rest/v1/app_secrets', {
-      method: 'POST',
-      headers: { 'Prefer': 'resolution=merge-duplicates' },
-      body: JSON.stringify({ key: 'github_token', value: ghToken })
-    });
-    return true;
-  } catch (e) {
-    ghToken = null;
-    note($('msg'), 'err', 'الرمز غير صالح: ' + e.message);
-    return false;
-  }
+/**
+ * The panel publishes by committing to the site's repository, which is a
+ * separate service from the login, so it needs its own permission slip.
+ * Asked for once, then kept in app_secrets and never asked again.
+ */
+function ensureGh() {
+  if (ghToken) return Promise.resolve(true);
+  return new Promise((resolve) => showConnectScreen(resolve));
+}
+
+function showConnectScreen(resolve) {
+  const host = $('body');
+  host.innerHTML = '';
+
+  const box = document.createElement('div');
+  box.className = 'editor connect';
+
+  const h = document.createElement('h3');
+  h.textContent = 'خطوة واحدة، لمرة واحدة';
+  box.appendChild(h);
+
+  const p = document.createElement('p');
+  p.className = 'sub';
+  p.textContent = 'حفظ التعديلات يكتبها في مخزن ملفات موقعك على GitHub، وهو خدمة منفصلة عن تسجيل دخولك — لذلك يحتاج تصريحاً خاصاً به. التصريح مقصور على موقعك وحده، ويُحفظ في قاعدة بياناتك فلن تُسأل عنه مرة أخرى.';
+  box.appendChild(p);
+
+  const steps = document.createElement('ol');
+  steps.className = 'steps';
+  [
+    ['افتح صفحة إنشاء التصريح', 'https://github.com/settings/personal-access-tokens/new'],
+    ['في خانة <b>Repository access</b> اختر <b>Only select repositories</b> ثم اختر <b>ARCWEB</b>', null],
+    ['في <b>Permissions → Repository permissions</b> ابحث عن <b>Contents</b> واجعلها <b>Read and write</b>', null],
+    ['اضغط <b>Generate token</b> في آخر الصفحة، ثم انسخ ما يظهر والصقه بالأسفل', null]
+  ].forEach(([text, href]) => {
+    const li = document.createElement('li');
+    li.innerHTML = text;
+    if (href) {
+      const a = document.createElement('a');
+      a.href = href; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = ' ← اضغط هنا';
+      li.appendChild(a);
+    }
+    steps.appendChild(li);
+  });
+  box.appendChild(steps);
+
+  const f = document.createElement('div');
+  f.className = 'field';
+  const l = document.createElement('label');
+  l.textContent = 'الصق التصريح هنا';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.setAttribute('dir', 'ltr');
+  input.placeholder = 'github_pat_...';
+  input.autocomplete = 'off';
+  f.appendChild(l); f.appendChild(input);
+  box.appendChild(f);
+
+  const msg = document.createElement('div');
+  box.appendChild(msg);
+
+  const actions = document.createElement('div');
+  actions.className = 'qf-actions';
+  const ok = document.createElement('button');
+  ok.className = 'btn btn-p';
+  ok.textContent = 'ربط وحفظ';
+  const cancel = document.createElement('button');
+  cancel.className = 'btn btn-o';
+  cancel.textContent = 'لاحقاً';
+  actions.appendChild(ok); actions.appendChild(cancel);
+  box.appendChild(actions);
+  host.appendChild(box);
+  input.focus();
+
+  cancel.addEventListener('click', () => { render(); resolve(false); });
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') ok.click(); });
+
+  ok.addEventListener('click', async () => {
+    const t = input.value.trim();
+    if (!t) { note(msg, 'err', 'الصق التصريح أولاً.'); return; }
+    ok.disabled = true; ok.textContent = 'جارٍ التحقق…';
+    ghToken = t;
+    try {
+      await gh('/repos/' + OWNER + '/' + REPO);
+      await sb('/rest/v1/app_secrets', {
+        method: 'POST',
+        headers: { 'Prefer': 'resolution=merge-duplicates' },
+        body: JSON.stringify({ key: 'github_token', value: ghToken })
+      });
+      resolve(true);
+      render();
+    } catch (e) {
+      ghToken = null;
+      const m = String(e.message || '');
+      note(msg, 'err', /404/.test(m)
+        ? 'التصريح لا يصل إلى مستودع ARCWEB. تأكد أنك اخترته في خانة Repository access.'
+        : /401|403/.test(m)
+          ? 'التصريح مرفوض أو تنقصه صلاحية Contents: Read and write.'
+          : 'تعذّر التحقق: ' + m);
+      ok.disabled = false; ok.textContent = 'ربط وحفظ';
+    }
+  });
 }
 
 const sorted = () => content.projects.slice().sort((a, b) => (a.order || 0) - (b.order || 0));
