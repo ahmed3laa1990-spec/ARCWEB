@@ -20,6 +20,29 @@ let dirty = false;
 let editingSlug = null;
 let tab = 'leads';
 let leadFilter = 'all';
+let textFilter = '';
+let openSection = null;
+
+const SECTION_AR = {
+  head: 'عنوان الصفحة ووصفها (يظهر في جوجل)',
+  home: 'البانر الرئيسي',
+  about: 'من نحن',
+  founder: 'كلمة المدير التنفيذي',
+  vision: 'رؤية 2030',
+  services: 'الخدمات',
+  projects: 'قسم المشاريع',
+  timeline: 'الخط الزمني',
+  team: 'الإدارات',
+  credentials: 'السجلات الموثّقة',
+  careers: 'الوظائف',
+  blog: 'المدوّنة (مخفية حالياً)',
+  calculator: 'حاسبة التكلفة',
+  contact: 'التواصل وطلب عرض السعر',
+  skyline: 'المجسّم ثلاثي الأبعاد',
+  configurator: 'مكوّن المشروع',
+  footer: 'تذييل الموقع',
+  section: 'أقسام أخرى'
+};
 
 /* ---------------- ui helpers ---------------- */
 function note(host, kind, text) {
@@ -593,7 +616,140 @@ async function saveContent() {
 /* ---------------- render ---------------- */
 function render() {
   document.querySelectorAll('.tab').forEach((b) => b.classList.toggle('on', b.dataset.tab === tab));
-  if (tab === 'leads') renderLeads(); else renderProjects();
+  if (tab === 'leads') renderLeads();
+  else if (tab === 'texts') renderTexts();
+  else renderProjects();
+}
+
+/* ---------------- texts ---------------- */
+// tags and HTML entities both need to survive an edit untouched
+const looksLikeHtml = (s) => /<[a-z/][^>]*>/i.test(s) || /&[a-z]+;|&#\d+;/i.test(s);
+
+function renderTexts() {
+  const host = $('body');
+  host.innerHTML = '';
+
+  if (!content) {
+    const e = document.createElement('div');
+    e.className = 'empty';
+    e.appendChild(document.createTextNode('اضغط للتحميل من المستودع. '));
+    e.appendChild(mkBtn('تحميل النصوص', 'btn-p', async () => {
+      if (!await ensureGh()) return;
+      try { await loadContent(); render(); }
+      catch (err) { note($('msg'), 'err', 'تعذّر التحميل: ' + err.message); }
+    }));
+    host.appendChild(e);
+    return;
+  }
+  if (!content.texts) {
+    const e = document.createElement('div');
+    e.className = 'empty';
+    e.textContent = 'ملف المحتوى لا يحوي النصوص. شغّل: node tools/build.js';
+    host.appendChild(e);
+    return;
+  }
+
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  const saveBtn = document.createElement('button');
+  saveBtn.className = 'btn btn-p'; saveBtn.id = 'save';
+  saveBtn.textContent = 'حفظ ونشر'; saveBtn.disabled = !dirty;
+  saveBtn.addEventListener('click', saveContent);
+  bar.appendChild(saveBtn);
+  const search = document.createElement('input');
+  search.type = 'search';
+  search.placeholder = 'ابحث في نصوص الموقع…';
+  search.className = 'search';
+  search.value = textFilter;
+  search.addEventListener('input', function () {
+    textFilter = this.value;
+    const pos = this.selectionStart;
+    renderTexts();
+    const s2 = $('body').querySelector('.search');
+    if (s2) { s2.focus(); s2.setSelectionRange(pos, pos); }
+  });
+  bar.appendChild(search);
+  host.appendChild(bar);
+
+  const keys = Object.keys(content.texts);
+  const q = textFilter.trim().toLowerCase();
+  const groups = {};
+  keys.forEach((k) => {
+    const t = content.texts[k];
+    if (q && (t.en + ' ' + t.ar + ' ' + k).toLowerCase().indexOf(q) === -1) return;
+    (groups[t.section] = groups[t.section] || []).push(k);
+  });
+
+  const names = Object.keys(groups);
+  if (!names.length) {
+    const e = document.createElement('div');
+    e.className = 'empty';
+    e.textContent = 'لا نتائج لـ "' + textFilter + '".';
+    host.appendChild(e);
+    return;
+  }
+  if (q && names.length) openSection = names[0];
+
+  names.forEach((sec) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'group';
+    const head = document.createElement('button');
+    head.className = 'group-head' + (openSection === sec ? ' on' : '');
+    head.innerHTML = '';
+    const nm = document.createElement('b');
+    nm.textContent = SECTION_AR[sec] || sec;
+    const ct = document.createElement('span');
+    ct.textContent = groups[sec].length + ' نص';
+    head.appendChild(nm); head.appendChild(ct);
+    head.addEventListener('click', () => { openSection = openSection === sec ? null : sec; renderTexts(); });
+    wrap.appendChild(head);
+
+    if (openSection === sec) {
+      const body = document.createElement('div');
+      body.className = 'group-body';
+      groups[sec].forEach((k) => body.appendChild(textRow(k)));
+      wrap.appendChild(body);
+    }
+    host.appendChild(wrap);
+  });
+}
+
+function textRow(key) {
+  const t = content.texts[key];
+  const row = document.createElement('div');
+  row.className = 'trow';
+
+  const k = document.createElement('div');
+  k.className = 'tkey';
+  k.textContent = key;
+  row.appendChild(k);
+
+  const html = looksLikeHtml(t.en) || looksLikeHtml(t.ar);
+  if (html) {
+    const w = document.createElement('div');
+    w.className = 'twarn';
+    w.textContent = 'يحتوي رموز HTML مثل <span> أو &rsquo; — عدّل الكلمات فقط وأبقِ الرموز كما هي.';
+    row.appendChild(w);
+  }
+
+  const g = document.createElement('div');
+  g.className = 'grid2';
+  const mk = (label, val, set, ltr) => {
+    const f = document.createElement('div'); f.className = 'field';
+    const l = document.createElement('label'); l.textContent = label;
+    const long = String(val).length > 90 || html;
+    const el = document.createElement(long ? 'textarea' : 'input');
+    el.value = val;
+    if (ltr) el.setAttribute('dir', 'ltr');
+    if (long) el.rows = Math.min(6, Math.ceil(String(val).length / 60) + 1);
+    el.addEventListener('input', () => { set(el.value); setDirty(true); });
+    f.appendChild(l); f.appendChild(el);
+    return f;
+  };
+  g.appendChild(mk('عربي', t.ar, (v) => { t.ar = v; }, false));
+  g.appendChild(mk('إنجليزي', t.en, (v) => { t.en = v; }, true));
+  row.appendChild(g);
+  return row;
 }
 
 /* ---------------- wire ---------------- */

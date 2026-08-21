@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for the editable content on byarcsa.com. Regenerate the page with: node tools/build.js",
-  "version": 1,
+  "version": 2,
   "projects": [
     {
       "slug": "itcc",
@@ -538,5 +538,1647 @@
       ],
       "ariaLabel": "Al Rabwa Villas"
     }
-  ]
+  ],
+  "texts": {
+    "head.1": {
+      "section": "head",
+      "en": "Home",
+      "ar": "الرئيسية"
+    },
+    "head.2": {
+      "section": "head",
+      "en": "About",
+      "ar": "عنّا"
+    },
+    "head.3": {
+      "section": "head",
+      "en": "Vision 2030",
+      "ar": "رؤية 2030"
+    },
+    "head.4": {
+      "section": "head",
+      "en": "Services",
+      "ar": "الخدمات"
+    },
+    "head.5": {
+      "section": "head",
+      "en": "Projects",
+      "ar": "المشاريع"
+    },
+    "head.6": {
+      "section": "head",
+      "en": "Team",
+      "ar": "الفريق"
+    },
+    "head.7": {
+      "section": "head",
+      "en": "Blog",
+      "ar": "المدوّنة"
+    },
+    "head.8": {
+      "section": "head",
+      "en": "Contact",
+      "ar": "اتصل بنا"
+    },
+    "head.9": {
+      "section": "head",
+      "en": "عربي",
+      "ar": "EN"
+    },
+    "head.10": {
+      "section": "head",
+      "en": "Get A Quote",
+      "ar": "عرض سعر"
+    },
+    "head.11": {
+      "section": "head",
+      "en": "Home",
+      "ar": "الرئيسية"
+    },
+    "head.12": {
+      "section": "head",
+      "en": "About",
+      "ar": "عنّا"
+    },
+    "head.13": {
+      "section": "head",
+      "en": "Vision 2030",
+      "ar": "رؤية 2030"
+    },
+    "head.14": {
+      "section": "head",
+      "en": "Services",
+      "ar": "الخدمات"
+    },
+    "head.15": {
+      "section": "head",
+      "en": "Projects",
+      "ar": "المشاريع"
+    },
+    "head.16": {
+      "section": "head",
+      "en": "Team",
+      "ar": "الفريق"
+    },
+    "head.17": {
+      "section": "head",
+      "en": "Blog",
+      "ar": "المدوّنة"
+    },
+    "head.18": {
+      "section": "head",
+      "en": "Contact",
+      "ar": "اتصل بنا"
+    },
+    "home.1": {
+      "section": "home",
+      "en": "Saudi Arabia · Vision 2030",
+      "ar": "المملكة العربية السعودية · رؤية 2030"
+    },
+    "home.2": {
+      "section": "home",
+      "en": "Building the<br><span class=\"accent\">Kingdom</span>'s Future",
+      "ar": "نبني مستقبل<br><span class=\"accent\">المملكة</span>"
+    },
+    "home.3": {
+      "section": "home",
+      "en": "ARC is a leading contracting company delivering exceptional construction, design, and infrastructure projects across Saudi Arabia. Delivering architectural, mechanical and electrical scopes alongside the Kingdom&rsquo;s leading main contractors since 2019.",
+      "ar": "شركة ارك للمقاولات الرائدة في تنفيذ مشاريع البناء والتصميم والبنية التحتية في جميع أنحاء المملكة العربية السعودية. ننفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019."
+    },
+    "home.4": {
+      "section": "home",
+      "en": "Riyadh",
+      "ar": "الرياض"
+    },
+    "home.5": {
+      "section": "home",
+      "en": "Open Now",
+      "ar": "مفتوح الآن"
+    },
+    "home.6": {
+      "section": "home",
+      "en": "Explore Projects",
+      "ar": "استعرض المشاريع"
+    },
+    "home.7": {
+      "section": "home",
+      "en": "Contact Us",
+      "ar": "تواصل معنا"
+    },
+    "home.8": {
+      "section": "home",
+      "en": "Projects Delivered",
+      "ar": "مشروع منجز"
+    },
+    "home.9": {
+      "section": "home",
+      "en": "Years Since 2019",
+      "ar": "سنوات منذ 2019"
+    },
+    "home.10": {
+      "section": "home",
+      "en": "Partners",
+      "ar": "شركاء"
+    },
+    "home.11": {
+      "section": "home",
+      "en": "Engineers &amp; Technicians",
+      "ar": "مهندسون وفنيون"
+    },
+    "home.12": {
+      "section": "home",
+      "en": "Scroll",
+      "ar": "اسحب"
+    },
+    "about.1": {
+      "section": "about",
+      "en": "Years of trusted excellence in Saudi construction",
+      "ar": "سنوات من التميّز في قطاع المقاولات السعودي"
+    },
+    "about.2": {
+      "section": "about",
+      "en": "About ARC",
+      "ar": "عن ARC"
+    },
+    "about.3": {
+      "section": "about",
+      "en": "Engineering <em>excellence</em> for a new Saudi era.",
+      "ar": "هندسة <em>التميّز</em> لعصر سعودي جديد."
+    },
+    "about.4": {
+      "section": "about",
+      "en": "From foundations to finishes, we deliver large-scale contracting projects with uncompromising quality, precision, and on-time execution.",
+      "ar": "من الأساسات إلى التشطيبات، نُنجز مشاريع المقاولات الكبرى بجودة لا تتنازل، ودقّة وتسليم في الوقت."
+    },
+    "about.5": {
+      "section": "about",
+      "en": "Aligned with Vision 2030, we partner with the Kingdom's most ambitious developers — Roshn, Diriyah Gate, Boulevard — to shape iconic destinations.",
+      "ar": "متماشين مع رؤية 2030، نشارك أهم المطوّرين في المملكة — روشن، بوابة الدرعية، البوليفارد — في صياغة وجهات استثنائية."
+    },
+    "about.6": {
+      "section": "about",
+      "en": "Saudi Building Code Compliance",
+      "ar": "الالتزام بكود البناء السعودي"
+    },
+    "about.7": {
+      "section": "about",
+      "en": "Every project meets SBC and international quality standards.",
+      "ar": "كل مشروع يحقق كود البناء السعودي والمعايير الدولية."
+    },
+    "about.8": {
+      "section": "about",
+      "en": "End-to-End Project Delivery",
+      "ar": "تسليم متكامل للمشاريع"
+    },
+    "about.9": {
+      "section": "about",
+      "en": "Design, build, MEP, finishes — managed under one roof.",
+      "ar": "تصميم، بناء، أعمال ميكانيكية وكهربائية، تشطيبات — كلها تحت إدارة واحدة."
+    },
+    "about.10": {
+      "section": "about",
+      "en": "Safety-First Culture",
+      "ar": "ثقافة السلامة أولاً"
+    },
+    "about.11": {
+      "section": "about",
+      "en": "OSHA-aligned protocols, continuous training, zero shortcuts.",
+      "ar": "بروتوكولات OSHA، تدريب مستمر، صفر اختصارات."
+    },
+    "section.1": {
+      "section": "section",
+      "en": "Projects Delivered",
+      "ar": "مشاريع منفّذة"
+    },
+    "section.2": {
+      "section": "section",
+      "en": "Years Since 2019",
+      "ar": "سنوات منذ 2019"
+    },
+    "section.3": {
+      "section": "section",
+      "en": "Partners &amp; Main Contractors",
+      "ar": "شركاء ومقاولون رئيسيون"
+    },
+    "section.4": {
+      "section": "section",
+      "en": "Engineers &amp; Technicians",
+      "ar": "مهندسون وفنيون"
+    },
+    "founder.1": {
+      "section": "founder",
+      "en": "From The CEO",
+      "ar": "كلمة الرئيس التنفيذي"
+    },
+    "founder.2": {
+      "section": "founder",
+      "en": "Since the establishment of ARC in 2019, we set a clear goal for ourselves: to become a role model in the construction sector by delivering projects with high quality, unwavering commitment, and a unified team spirit. What sets us apart is that we do not view projects as mere numbers or walls to be erected, but as success stories written with team spirit and a passion for achievement.",
+      "ar": "منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة. ما يميزنا في رحلتنا هو أننا لا ننظر إلى المشاريع كأرقام أو جدران تُبنى، بل كقصة نجاح تُكتب بروح الفريق وشغف الإنجاز."
+    },
+    "founder.3": {
+      "section": "founder",
+      "en": "Executive Director · ARC Construction",
+      "ar": "المدير التنفيذي · شركة أرك للمقاولات"
+    },
+    "vision.1": {
+      "section": "vision",
+      "en": "Vision",
+      "ar": "رؤية"
+    },
+    "vision.2": {
+      "section": "vision",
+      "en": "Kingdom of Saudi Arabia",
+      "ar": "المملكة العربية السعودية"
+    },
+    "vision.3": {
+      "section": "vision",
+      "en": "Aligned with Vision 2030",
+      "ar": "متماشون مع رؤية 2030"
+    },
+    "vision.4": {
+      "section": "vision",
+      "en": "Partnering with the <em>Kingdom's transformation</em>.",
+      "ar": "شركاء في <em>تحوّل المملكة</em>."
+    },
+    "vision.5": {
+      "section": "vision",
+      "en": "ARC contributes to the giga-projects shaping Saudi Arabia's future — from sustainable housing to world-class entertainment destinations, infrastructure that strengthens communities, and architecture that reflects national identity.",
+      "ar": "تُساهم ARC في المشاريع الكبرى التي ترسم مستقبل المملكة — من الإسكان المستدام إلى الوجهات الترفيهية العالمية، والبنية التحتية التي تُقوّي المجتمعات، والعمارة التي تعكس الهوية الوطنية."
+    },
+    "vision.6": {
+      "section": "vision",
+      "en": "Riyadh",
+      "ar": "الرياض"
+    },
+    "vision.7": {
+      "section": "vision",
+      "en": "Al Qunfudhah",
+      "ar": "القنفذة"
+    },
+    "vision.8": {
+      "section": "vision",
+      "en": "Jubail",
+      "ar": "الجبيل"
+    },
+    "vision.9": {
+      "section": "vision",
+      "en": "Vibrant Society",
+      "ar": "مجتمع حيوي"
+    },
+    "vision.10": {
+      "section": "vision",
+      "en": "Inclusive communities & cultural heritage",
+      "ar": "مجتمعات شاملة وتراث ثقافي"
+    },
+    "vision.11": {
+      "section": "vision",
+      "en": "Thriving Economy",
+      "ar": "اقتصاد مزدهر"
+    },
+    "vision.12": {
+      "section": "vision",
+      "en": "Diversified growth & infrastructure",
+      "ar": "نموّ متنوّع وبنية تحتية"
+    },
+    "vision.13": {
+      "section": "vision",
+      "en": "Ambitious Nation",
+      "ar": "وطن طموح"
+    },
+    "vision.14": {
+      "section": "vision",
+      "en": "World-class delivery & excellence",
+      "ar": "تنفيذ عالمي وتميّز"
+    },
+    "services.1": {
+      "section": "services",
+      "en": "What we do",
+      "ar": "ما نقدّمه"
+    },
+    "services.2": {
+      "section": "services",
+      "en": "Services that <span class=\"gold\">build legacies</span>.",
+      "ar": "خدمات تصنع <span class=\"gold\">إرثاً</span>."
+    },
+    "services.3": {
+      "section": "services",
+      "en": "Six integrated disciplines — one trusted contractor delivering projects from concept to completion.",
+      "ar": "ستة تخصصات متكاملة — مقاول موثوق ينجز المشاريع من الفكرة حتى التسليم."
+    },
+    "services.4": {
+      "section": "services",
+      "en": "Architectural Design",
+      "ar": "التصميم المعماري"
+    },
+    "services.5": {
+      "section": "services",
+      "en": "Shaping the aesthetic and functional vision — combining innovation with practical requirements for harmony between form and performance.",
+      "ar": "صياغة الرؤية الجمالية والوظيفية — دمج الابتكار بالمتطلبات العملية لتحقيق تناغم بين الشكل والأداء."
+    },
+    "services.6": {
+      "section": "services",
+      "en": "Construction",
+      "ar": "الإنشاءات"
+    },
+    "services.7": {
+      "section": "services",
+      "en": "Infrastructure & structural works from foundations to final finishes.",
+      "ar": "البنية التحتية والإنشائية من الأساسات حتى التشطيبات النهائية."
+    },
+    "services.8": {
+      "section": "services",
+      "en": "Engineering Design",
+      "ar": "الهندسة والرسومات"
+    },
+    "services.9": {
+      "section": "services",
+      "en": "Technical drawings & plans built to standards.",
+      "ar": "رسومات تقنية وخطط هندسية وفق المعايير."
+    },
+    "services.10": {
+      "section": "services",
+      "en": "Material Supply",
+      "ar": "توريد المواد"
+    },
+    "services.11": {
+      "section": "services",
+      "en": "Quality materials & equipment delivered on time.",
+      "ar": "مواد ومعدّات بجودة عالية وتسليم في الموعد."
+    },
+    "services.12": {
+      "section": "services",
+      "en": "Electrical Systems",
+      "ar": "الأنظمة الكهربائية"
+    },
+    "services.13": {
+      "section": "services",
+      "en": "Wiring, distribution, smart panels.",
+      "ar": "تمديدات، توزيع، لوحات ذكية."
+    },
+    "services.14": {
+      "section": "services",
+      "en": "Mechanical / HVAC",
+      "ar": "الميكانيكية"
+    },
+    "services.15": {
+      "section": "services",
+      "en": "HVAC, plumbing, pumps & generators.",
+      "ar": "تكييف، سباكة، مضخّات ومولدات."
+    },
+    "projects.1": {
+      "section": "projects",
+      "en": "Our Work",
+      "ar": "أعمالنا"
+    },
+    "projects.2": {
+      "section": "projects",
+      "en": "Projects we <span class=\"gold\">delivered</span>.",
+      "ar": "مشاريع <span class=\"gold\">نفّذناها</span>."
+    },
+    "projects.3": {
+      "section": "projects",
+      "en": "Fifteen projects across the Kingdom — architectural, mechanical and electrical scopes delivered alongside leading main contractors.",
+      "ar": "خمسة عشر مشروعاً في أنحاء المملكة — أعمال معمارية وميكانيكية وكهربائية نُفِّذت بالتعاون مع كبرى شركات المقاولات."
+    },
+    "projects.4": {
+      "section": "projects",
+      "en": "All",
+      "ar": "الكل"
+    },
+    "projects.5": {
+      "section": "projects",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "projects.6": {
+      "section": "projects",
+      "en": "Electrical",
+      "ar": "كهرباء"
+    },
+    "projects.7": {
+      "section": "projects",
+      "en": "Architectural",
+      "ar": "معماري"
+    },
+    "projects.8": {
+      "section": "projects",
+      "en": "Architectural · Mechanical",
+      "ar": "معماري · ميكانيكا"
+    },
+    "projects.9": {
+      "section": "projects",
+      "en": "ITCC Compound",
+      "ar": "مجمع تقنية المعلومات والاتصالات"
+    },
+    "projects.10": {
+      "section": "projects",
+      "en": "with AZMEEL Contracting",
+      "ar": "بالتعاون مع أزميل للمقاولات"
+    },
+    "projects.11": {
+      "section": "projects",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "projects.12": {
+      "section": "projects",
+      "en": "Samhan Heritage Hotel",
+      "ar": "فندق سمحان التراثي"
+    },
+    "projects.13": {
+      "section": "projects",
+      "en": "with MARCO &amp; HAWA Dynamics",
+      "ar": "بالتعاون مع ماركو وهوا ديناميكس"
+    },
+    "projects.14": {
+      "section": "projects",
+      "en": "Electrical · Mechanical",
+      "ar": "كهرباء · ميكانيكا"
+    },
+    "projects.15": {
+      "section": "projects",
+      "en": "Boulevard Hall",
+      "ar": "بوليفارد هول"
+    },
+    "projects.16": {
+      "section": "projects",
+      "en": "with Awtad Alfahd Contracting",
+      "ar": "بالتعاون مع أوتاد الفهد للمقاولات"
+    },
+    "projects.17": {
+      "section": "projects",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "projects.18": {
+      "section": "projects",
+      "en": "Ministry of Justice",
+      "ar": "فرع وزارة العدل"
+    },
+    "projects.19": {
+      "section": "projects",
+      "en": "Riyadh Branch · via Etimad",
+      "ar": "فرع الرياض · عبر منصة اعتماد"
+    },
+    "projects.20": {
+      "section": "projects",
+      "en": "Electrical",
+      "ar": "كهرباء"
+    },
+    "projects.21": {
+      "section": "projects",
+      "en": "Suleiman Al Habib Hospital",
+      "ar": "مستشفى سليمان الحبيب"
+    },
+    "projects.22": {
+      "section": "projects",
+      "en": "with MASAH Specialized Construction",
+      "ar": "بالتعاون مع مساح للمقاولات المتخصصة"
+    },
+    "projects.23": {
+      "section": "projects",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "projects.24": {
+      "section": "projects",
+      "en": "Jubail University",
+      "ar": "جامعة الجبيل"
+    },
+    "projects.25": {
+      "section": "projects",
+      "en": "Student housing · with AZMEEL",
+      "ar": "سكن الطلاب · بالتعاون مع أزميل"
+    },
+    "projects.26": {
+      "section": "projects",
+      "en": "Architectural · Mechanical",
+      "ar": "معماري · ميكانيكا"
+    },
+    "projects.27": {
+      "section": "projects",
+      "en": "Blocks Co Offices",
+      "ar": "مكاتب شركة بلوكس"
+    },
+    "projects.28": {
+      "section": "projects",
+      "en": "with BLOCKS Group",
+      "ar": "بالتعاون مع مجموعة بلوكس"
+    },
+    "projects.29": {
+      "section": "projects",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "projects.30": {
+      "section": "projects",
+      "en": "Roshn Villas — Sedra",
+      "ar": "فيلل روشن — سدرة"
+    },
+    "projects.31": {
+      "section": "projects",
+      "en": "with BCC as main contractor",
+      "ar": "بالتعاون مع الإنشاء والتعمير كمقاول رئيسي"
+    },
+    "projects.32": {
+      "section": "projects",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "projects.33": {
+      "section": "projects",
+      "en": "Boulevard City",
+      "ar": "بوليفارد سيتي"
+    },
+    "projects.34": {
+      "section": "projects",
+      "en": "with BLOCKS Group",
+      "ar": "بالتعاون مع مجموعة بلوكس"
+    },
+    "projects.35": {
+      "section": "projects",
+      "en": "Architectural",
+      "ar": "معماري"
+    },
+    "projects.36": {
+      "section": "projects",
+      "en": "Al Kharj Stadiums",
+      "ar": "ملاعب الخرج"
+    },
+    "projects.37": {
+      "section": "projects",
+      "en": "Padel &amp; tennis courts · with 2C Fitness",
+      "ar": "ملاعب بادل وتنس · بالتعاون مع 2C Fitness"
+    },
+    "projects.38": {
+      "section": "projects",
+      "en": "Mechanical · Electrical",
+      "ar": "ميكانيكا · كهرباء"
+    },
+    "projects.39": {
+      "section": "projects",
+      "en": "Periodic Inspection Station",
+      "ar": "محطة الفحص الدوري"
+    },
+    "projects.40": {
+      "section": "projects",
+      "en": "Al Qunfudhah · with Three Palms Group",
+      "ar": "القنفذة · بالتعاون مع مجموعة النخلات الثلاث"
+    },
+    "projects.41": {
+      "section": "projects",
+      "en": "Architectural",
+      "ar": "معماري"
+    },
+    "projects.42": {
+      "section": "projects",
+      "en": "Cipriani Restaurant",
+      "ar": "مطعم تشيبرياني"
+    },
+    "projects.43": {
+      "section": "projects",
+      "en": "with Hodood Al-Kamal Contracting",
+      "ar": "بالتعاون مع حدود الكمال للمقاولات"
+    },
+    "projects.44": {
+      "section": "projects",
+      "en": "Mechanical · Electrical",
+      "ar": "ميكانيكا · كهرباء"
+    },
+    "projects.45": {
+      "section": "projects",
+      "en": "Al Hammadi Hospital",
+      "ar": "مستشفى الحمادي"
+    },
+    "projects.46": {
+      "section": "projects",
+      "en": "Al Olaya · with SAWAED",
+      "ar": "العليا · بالتعاون مع سواعد"
+    },
+    "projects.47": {
+      "section": "projects",
+      "en": "Architectural",
+      "ar": "معماري"
+    },
+    "projects.48": {
+      "section": "projects",
+      "en": "Gulf Villas",
+      "ar": "فيلل الخليج"
+    },
+    "projects.49": {
+      "section": "projects",
+      "en": "Interior finishing works",
+      "ar": "أعمال التشطيبات الداخلية"
+    },
+    "projects.50": {
+      "section": "projects",
+      "en": "Architectural",
+      "ar": "معماري"
+    },
+    "projects.51": {
+      "section": "projects",
+      "en": "Al Rabwa Villas",
+      "ar": "فيلل الربوة"
+    },
+    "projects.52": {
+      "section": "projects",
+      "en": "with SAWAED",
+      "ar": "بالتعاون مع سواعد"
+    },
+    "section.5": {
+      "section": "section",
+      "en": "Transformation",
+      "ar": "التحوّل"
+    },
+    "section.6": {
+      "section": "section",
+      "en": "See the <span class=\"gold\">transformation</span>.",
+      "ar": "شاهد <span class=\"gold\">التحوّل</span>."
+    },
+    "section.7": {
+      "section": "section",
+      "en": "Periodic Inspection Station, Al Qunfudhah — drag the slider from steel frame erection to the completed building.",
+      "ar": "محطة الفحص الدوري بالقنفذة — اسحب الشريط من مرحلة تركيب الهيكل الحديدي إلى المبنى المكتمل."
+    },
+    "section.8": {
+      "section": "section",
+      "en": "Before",
+      "ar": "قبل"
+    },
+    "section.9": {
+      "section": "section",
+      "en": "After",
+      "ar": "بعد"
+    },
+    "timeline.1": {
+      "section": "timeline",
+      "en": "Our Journey",
+      "ar": "رحلتنا"
+    },
+    "timeline.2": {
+      "section": "timeline",
+      "en": "Our journey since <span class=\"gold\">2019</span>.",
+      "ar": "رحلتنا منذ <span class=\"gold\">2019</span>."
+    },
+    "timeline.3": {
+      "section": "timeline",
+      "en": "ARC Founded",
+      "ar": "تأسيس ARC"
+    },
+    "timeline.4": {
+      "section": "timeline",
+      "en": "Started as a specialized contracting firm in Riyadh with a vision to redefine quality.",
+      "ar": "بدأنا كشركة مقاولات متخصصة في الرياض برؤية لإعادة تعريف الجودة."
+    },
+    "timeline.5": {
+      "section": "timeline",
+      "en": "Specialist Contracting Work",
+      "ar": "أعمال المقاولات المتخصصة"
+    },
+    "timeline.6": {
+      "section": "timeline",
+      "en": "Delivering mechanical and electrical scopes as a specialist subcontractor to established main contractors.",
+      "ar": "تنفيذ الأعمال الميكانيكية والكهربائية كمقاول متخصص لدى شركات مقاولات رئيسية."
+    },
+    "timeline.7": {
+      "section": "timeline",
+      "en": "Expanding Nationwide",
+      "ar": "التوسّع على مستوى الوطن"
+    },
+    "timeline.8": {
+      "section": "timeline",
+      "en": "Work extended beyond Riyadh — Jubail University, Al Kharj and Al Qunfudhah.",
+      "ar": "امتداد الأعمال خارج الرياض — جامعة الجبيل والخرج والقنفذة."
+    },
+    "timeline.9": {
+      "section": "timeline",
+      "en": "Ark Hom for General Contracting",
+      "ar": "شركة أرك هوم للمقاولات العامة"
+    },
+    "timeline.10": {
+      "section": "timeline",
+      "en": "Commercial registration 1010874676 issued; Riyadh Chamber membership registered.",
+      "ar": "إصدار السجل التجاري رقم 1010874676 وتسجيل العضوية في غرفة الرياض."
+    },
+    "timeline.11": {
+      "section": "timeline",
+      "en": "15+ Projects Delivered",
+      "ar": "أكثر من 15 مشروعاً منفّذاً"
+    },
+    "timeline.12": {
+      "section": "timeline",
+      "en": "Architectural, mechanical and electrical scopes across hospitals, hospitality, residential and sports facilities.",
+      "ar": "أعمال معمارية وميكانيكية وكهربائية في المستشفيات والضيافة والمشاريع السكنية والمنشآت الرياضية."
+    },
+    "section.10": {
+      "section": "section",
+      "en": "Partners &amp; main contractors we deliver with",
+      "ar": "شركاؤنا والمقاولون الرئيسيون الذين ننفّذ معهم"
+    },
+    "team.1": {
+      "section": "team",
+      "en": "How We Are Organised",
+      "ar": "هيكلنا التنظيمي"
+    },
+    "team.2": {
+      "section": "team",
+      "en": "Five departments behind <span class=\"gold\">every delivery</span>.",
+      "ar": "خمس إدارات وراء <span class=\"gold\">كل تسليم</span>."
+    },
+    "team.3": {
+      "section": "team",
+      "en": "A general manager and executive director oversee five departments, each with defined responsibilities — so accountability on your project is never ambiguous.",
+      "ar": "يشرف المدير العام والمدير التنفيذي على خمس إدارات، لكل منها مسؤوليات محددة — لتكون المسؤولية في مشروعك واضحة دائماً."
+    },
+    "team.4": {
+      "section": "team",
+      "en": "Project Management Office",
+      "ar": "إدارة المشاريع"
+    },
+    "team.5": {
+      "section": "team",
+      "en": "PMO",
+      "ar": "PMO"
+    },
+    "team.6": {
+      "section": "team",
+      "en": "Technical department and engineering site management — planning, supervision and execution control.",
+      "ar": "الإدارة الفنية وإدارة المواقع الهندسية — التخطيط والإشراف وضبط التنفيذ."
+    },
+    "team.7": {
+      "section": "team",
+      "en": "Finance Department",
+      "ar": "الإدارة المالية"
+    },
+    "team.8": {
+      "section": "team",
+      "en": "FD",
+      "ar": "FD"
+    },
+    "team.9": {
+      "section": "team",
+      "en": "Chief accountant, budgeting and financial planning across every project.",
+      "ar": "المحاسب الرئيسي والموازنات والتخطيط المالي لكل مشروع."
+    },
+    "team.10": {
+      "section": "team",
+      "en": "Planning &amp; Development",
+      "ar": "التخطيط والتطوير"
+    },
+    "team.11": {
+      "section": "team",
+      "en": "Quality &amp; Follow-up",
+      "ar": "الجودة والمتابعة"
+    },
+    "team.12": {
+      "section": "team",
+      "en": "Quality and follow-up management plus development management.",
+      "ar": "إدارة الجودة والمتابعة وإدارة التطوير."
+    },
+    "team.13": {
+      "section": "team",
+      "en": "Procurement &amp; Contracts",
+      "ar": "المشتريات والعقود"
+    },
+    "team.14": {
+      "section": "team",
+      "en": "Supply Chain",
+      "ar": "سلسلة الإمداد"
+    },
+    "team.15": {
+      "section": "team",
+      "en": "Contract management, warehouse and equipment management.",
+      "ar": "إدارة العقود وإدارة المستودعات والمعدات."
+    },
+    "team.16": {
+      "section": "team",
+      "en": "Human Resources",
+      "ar": "الموارد البشرية"
+    },
+    "team.17": {
+      "section": "team",
+      "en": "People &amp; IT",
+      "ar": "الأفراد وتقنية المعلومات"
+    },
+    "team.18": {
+      "section": "team",
+      "en": "Employee affairs, support services and IT systems.",
+      "ar": "شؤون الموظفين والخدمات المساندة وأنظمة تقنية المعلومات."
+    },
+    "credentials.1": {
+      "section": "credentials",
+      "en": "Verified Credentials",
+      "ar": "سجلات موثّقة"
+    },
+    "credentials.2": {
+      "section": "credentials",
+      "en": "Registered, documented, <span class=\"gold\">verifiable</span>.",
+      "ar": "مسجّلون وموثّقون <span class=\"gold\">وقابلون للتحقق</span>."
+    },
+    "credentials.3": {
+      "section": "credentials",
+      "en": "Every number below appears on our official documentation and can be checked against the relevant Saudi authority.",
+      "ar": "كل رقم أدناه وارد في وثائقنا الرسمية ويمكن التحقق منه لدى الجهة السعودية المختصة."
+    },
+    "credentials.4": {
+      "section": "credentials",
+      "en": "Legal Name",
+      "ar": "الاسم النظامي"
+    },
+    "credentials.5": {
+      "section": "credentials",
+      "en": "Ark Hom for General Contracting Co.",
+      "ar": "شركة أرك هوم للمقاولات العامة"
+    },
+    "credentials.6": {
+      "section": "credentials",
+      "en": "Limited Liability Company (single person)",
+      "ar": "شركة ذات مسؤولية محدودة (شخص واحد)"
+    },
+    "credentials.7": {
+      "section": "credentials",
+      "en": "Commercial Registration",
+      "ar": "السجل التجاري"
+    },
+    "credentials.8": {
+      "section": "credentials",
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+    },
+    "credentials.9": {
+      "section": "credentials",
+      "en": "Unified National Number",
+      "ar": "الرقم الوطني الموحد"
+    },
+    "credentials.10": {
+      "section": "credentials",
+      "en": "Status: active",
+      "ar": "حالة السجل: نشط"
+    },
+    "credentials.11": {
+      "section": "credentials",
+      "en": "VAT Registration",
+      "ar": "التسجيل في ضريبة القيمة المضافة"
+    },
+    "credentials.12": {
+      "section": "credentials",
+      "en": "ZATCA",
+      "ar": "هيئة الزكاة والضريبة والجمارك"
+    },
+    "credentials.13": {
+      "section": "credentials",
+      "en": "Established",
+      "ar": "سنة التأسيس"
+    },
+    "credentials.14": {
+      "section": "credentials",
+      "en": "Operating across the Kingdom",
+      "ar": "نعمل في أنحاء المملكة"
+    },
+    "credentials.15": {
+      "section": "credentials",
+      "en": "Head Office",
+      "ar": "المقر الرئيسي"
+    },
+    "credentials.16": {
+      "section": "credentials",
+      "en": "Al Malaz, Riyadh",
+      "ar": "الملز، الرياض"
+    },
+    "credentials.17": {
+      "section": "credentials",
+      "en": "Abaad Ibn Hanif St., Riyadh 12831",
+      "ar": "شارع عباد بن حنيف، الرياض 12831"
+    },
+    "credentials.18": {
+      "section": "credentials",
+      "en": "Saudi Contractors Authority",
+      "ar": "الهيئة السعودية للمقاولين"
+    },
+    "credentials.19": {
+      "section": "credentials",
+      "en": "Contractor membership · Muqawil platform",
+      "ar": "عضوية مقاول · منصة مقاول"
+    },
+    "credentials.20": {
+      "section": "credentials",
+      "en": "Riyadh Chamber",
+      "ar": "غرفة الرياض"
+    },
+    "credentials.21": {
+      "section": "credentials",
+      "en": "Membership · sixth class",
+      "ar": "عضوية · الدرجة السادسة"
+    },
+    "careers.1": {
+      "section": "careers",
+      "en": "Join Us",
+      "ar": "انضم إلينا"
+    },
+    "careers.2": {
+      "section": "careers",
+      "en": "Build your career, <span class=\"gold\">build the Kingdom</span>.",
+      "ar": "ابني مسيرتك، <span class=\"gold\">وابني المملكة</span>."
+    },
+    "careers.3": {
+      "section": "careers",
+      "en": "We're hiring at our Riyadh head office and on project sites across the Kingdom.",
+      "ar": "نوظّف في مقرّنا بالرياض وفي مواقع مشاريعنا بأنحاء المملكة."
+    },
+    "careers.4": {
+      "section": "careers",
+      "en": "Full-time",
+      "ar": "دوام كامل"
+    },
+    "careers.5": {
+      "section": "careers",
+      "en": "Senior Project Manager",
+      "ar": "مدير مشاريع أول"
+    },
+    "careers.6": {
+      "section": "careers",
+      "en": "📍 Riyadh",
+      "ar": "📍 الرياض"
+    },
+    "careers.7": {
+      "section": "careers",
+      "en": "Apply Now",
+      "ar": "تقدّم الآن"
+    },
+    "careers.8": {
+      "section": "careers",
+      "en": "Full-time",
+      "ar": "دوام كامل"
+    },
+    "careers.9": {
+      "section": "careers",
+      "en": "Structural Engineer",
+      "ar": "مهندس إنشائي"
+    },
+    "careers.10": {
+      "section": "careers",
+      "en": "📍 Riyadh",
+      "ar": "📍 الرياض"
+    },
+    "careers.11": {
+      "section": "careers",
+      "en": "Apply Now",
+      "ar": "تقدّم الآن"
+    },
+    "careers.12": {
+      "section": "careers",
+      "en": "Full-time",
+      "ar": "دوام كامل"
+    },
+    "careers.13": {
+      "section": "careers",
+      "en": "MEP Engineer",
+      "ar": "مهندس ميكانيكا وكهرباء"
+    },
+    "careers.14": {
+      "section": "careers",
+      "en": "📍 Riyadh",
+      "ar": "📍 الرياض"
+    },
+    "careers.15": {
+      "section": "careers",
+      "en": "Apply Now",
+      "ar": "تقدّم الآن"
+    },
+    "blog.1": {
+      "section": "blog",
+      "en": "Insights",
+      "ar": "رؤى"
+    },
+    "blog.2": {
+      "section": "blog",
+      "en": "Latest <span class=\"gold\">thinking</span>.",
+      "ar": "أحدث <span class=\"gold\">رؤانا</span>."
+    },
+    "blog.3": {
+      "section": "blog",
+      "en": "How Vision 2030 is reshaping Saudi construction",
+      "ar": "كيف تُعيد رؤية 2030 تشكيل قطاع المقاولات السعودي"
+    },
+    "blog.4": {
+      "section": "blog",
+      "en": "From Roshn to NEOM, the Kingdom is in a once-in-a-generation construction boom.",
+      "ar": "من روشن إلى نيوم — المملكة في طفرة إنشائية تاريخية."
+    },
+    "blog.5": {
+      "section": "blog",
+      "en": "Saudi Building Code: what every developer should know",
+      "ar": "كود البناء السعودي: ما يجب أن يعرفه كل مطوّر"
+    },
+    "blog.6": {
+      "section": "blog",
+      "en": "A practical guide to SBC compliance.",
+      "ar": "دليل عملي للالتزام بـ SBC."
+    },
+    "blog.7": {
+      "section": "blog",
+      "en": "Sustainable construction in arid climates",
+      "ar": "البناء المستدام في المناخات الجافة"
+    },
+    "blog.8": {
+      "section": "blog",
+      "en": "Materials and techniques to reduce environmental impact.",
+      "ar": "مواد وتقنيات لتقليل الأثر البيئي."
+    },
+    "calculator.1": {
+      "section": "calculator",
+      "en": "Project Cost Estimator",
+      "ar": "حاسبة تكلفة المشروع"
+    },
+    "calculator.2": {
+      "section": "calculator",
+      "en": "Get an <span class=\"gold\">instant estimate</span> for your project.",
+      "ar": "احصل على <span class=\"gold\">تقدير فوري</span> لمشروعك."
+    },
+    "calculator.3": {
+      "section": "calculator",
+      "en": "Adjust the type, size, and finish quality to see a real-time estimate. Submit your details for a precise quote within 24 hours.",
+      "ar": "اختر النوع والمساحة ومستوى التشطيب لترى تقديراً فورياً. أرسل تفاصيلك لتلقّي عرض دقيق خلال 24 ساعة."
+    },
+    "calculator.4": {
+      "section": "calculator",
+      "en": "✦ Approximate range — final pricing after site visit",
+      "ar": "✦ تقدير تقريبي — السعر النهائي بعد المعاينة"
+    },
+    "calculator.5": {
+      "section": "calculator",
+      "en": "Project Type",
+      "ar": "نوع المشروع"
+    },
+    "calculator.6": {
+      "section": "calculator",
+      "en": "🏠 Villa",
+      "ar": "🏠 فيلا"
+    },
+    "calculator.7": {
+      "section": "calculator",
+      "en": "🏢 Office",
+      "ar": "🏢 مكتب"
+    },
+    "calculator.8": {
+      "section": "calculator",
+      "en": "🏭 Warehouse",
+      "ar": "🏭 مستودع"
+    },
+    "calculator.9": {
+      "section": "calculator",
+      "en": "Area (m²)",
+      "ar": "المساحة (متر²)"
+    },
+    "calculator.10": {
+      "section": "calculator",
+      "en": "Size",
+      "ar": "الحجم"
+    },
+    "calculator.11": {
+      "section": "calculator",
+      "en": "Finish Quality",
+      "ar": "مستوى التشطيب"
+    },
+    "calculator.12": {
+      "section": "calculator",
+      "en": "Premium",
+      "ar": "فاخر"
+    },
+    "calculator.13": {
+      "section": "calculator",
+      "en": "Estimated Cost",
+      "ar": "التكلفة التقديرية"
+    },
+    "calculator.14": {
+      "section": "calculator",
+      "en": "Get Detailed Quote",
+      "ar": "احصل على عرض مفصّل"
+    },
+    "calculator.15": {
+      "section": "calculator",
+      "en": "* Estimate range ±15%. Excludes land, permits, design fees.",
+      "ar": "* النطاق ±15%. لا يشمل الأرض والتراخيص ورسوم التصميم."
+    },
+    "contact.1": {
+      "section": "contact",
+      "en": "Get In Touch",
+      "ar": "تواصل معنا"
+    },
+    "contact.2": {
+      "section": "contact",
+      "en": "One office. <span class=\"gold\">Projects Kingdom-wide</span>.",
+      "ar": "مقرّ واحد. <span class=\"gold\">مشاريع في أنحاء المملكة</span>."
+    },
+    "contact.3": {
+      "section": "contact",
+      "en": "Riyadh — Head Office",
+      "ar": "الرياض — المقر الرئيسي"
+    },
+    "contact.4": {
+      "section": "contact",
+      "en": "Sheikh Salman bin Hamad Al Khalifa St., Al-Malaz, Riyadh 13518",
+      "ar": "شارع الشيخ سلمان بن حمد آل خليفة، الملز، الرياض 13518"
+    },
+    "contact.5": {
+      "section": "contact",
+      "en": "Get Directions",
+      "ar": "الاتجاهات"
+    },
+    "contact.6": {
+      "section": "contact",
+      "en": "Email &amp; Phone",
+      "ar": "البريد والهاتف"
+    },
+    "contact.7": {
+      "section": "contact",
+      "en": "Message on WhatsApp",
+      "ar": "راسلنا على واتساب"
+    },
+    "contact.8": {
+      "section": "contact",
+      "en": "Working Hours",
+      "ar": "ساعات العمل"
+    },
+    "contact.9": {
+      "section": "contact",
+      "en": "Saturday – Thursday",
+      "ar": "السبت – الخميس"
+    },
+    "contact.10": {
+      "section": "contact",
+      "en": "Projects run across the Kingdom — Riyadh, Jubail, Al Kharj and Al Qunfudhah.",
+      "ar": "مشاريعنا في أنحاء المملكة — الرياض والجبيل والخرج والقنفذة."
+    },
+    "contact.11": {
+      "section": "contact",
+      "en": "Request a Quote",
+      "ar": "اطلب عرض سعر"
+    },
+    "contact.12": {
+      "section": "contact",
+      "en": "Tell us about your project.",
+      "ar": "أخبرنا عن مشروعك."
+    },
+    "contact.13": {
+      "section": "contact",
+      "en": "Fill this in and it reaches us directly on WhatsApp — usually answered the same working day.",
+      "ar": "املأ النموذج ويصلنا مباشرة على واتساب — نردّ عادةً في نفس يوم العمل."
+    },
+    "contact.14": {
+      "section": "contact",
+      "en": "Architectural, mechanical and electrical scopes",
+      "ar": "أعمال معمارية وميكانيكية وكهربائية"
+    },
+    "contact.15": {
+      "section": "contact",
+      "en": "Main contractor or specialist subcontract",
+      "ar": "مقاول رئيسي أو مقاول متخصص من الباطن"
+    },
+    "contact.16": {
+      "section": "contact",
+      "en": "Registered, documented, verifiable",
+      "ar": "مسجّلون وموثّقون وقابلون للتحقق"
+    },
+    "contact.17": {
+      "section": "contact",
+      "en": "Full name",
+      "ar": "الاسم الكامل"
+    },
+    "contact.18": {
+      "section": "contact",
+      "en": "Phone",
+      "ar": "رقم الجوال"
+    },
+    "contact.19": {
+      "section": "contact",
+      "en": "Email",
+      "ar": "البريد الإلكتروني"
+    },
+    "contact.20": {
+      "section": "contact",
+      "en": "Scope of work",
+      "ar": "نطاق العمل"
+    },
+    "contact.21": {
+      "section": "contact",
+      "en": "City",
+      "ar": "المدينة"
+    },
+    "contact.22": {
+      "section": "contact",
+      "en": "Approx. area (m²)",
+      "ar": "المساحة التقريبية (م²)"
+    },
+    "contact.23": {
+      "section": "contact",
+      "en": "Project details",
+      "ar": "تفاصيل المشروع"
+    },
+    "contact.24": {
+      "section": "contact",
+      "en": "Send via WhatsApp",
+      "ar": "إرسال عبر واتساب"
+    },
+    "contact.25": {
+      "section": "contact",
+      "en": "Send by email instead",
+      "ar": "إرسال بالبريد بدلاً من ذلك"
+    },
+    "contact.26": {
+      "section": "contact",
+      "en": "Your details are only used to prepare a reply. We do not share them.",
+      "ar": "بياناتك تُستخدم فقط لإعداد الرد. لا نشاركها مع أي جهة."
+    },
+    "contact.27": {
+      "section": "contact",
+      "en": "Ready to build something <span class=\"text-gold\">extraordinary</span>?",
+      "ar": "جاهز لبناء شيء <span class=\"text-gold\">استثنائي</span>؟"
+    },
+    "contact.28": {
+      "section": "contact",
+      "en": "Prefer to talk first? Reach us directly.",
+      "ar": "تفضّل الحديث أولاً؟ تواصل معنا مباشرة."
+    },
+    "contact.29": {
+      "section": "contact",
+      "en": "Email Us",
+      "ar": "راسلنا"
+    },
+    "contact.30": {
+      "section": "contact",
+      "en": "WhatsApp",
+      "ar": "واتساب"
+    },
+    "skyline.1": {
+      "section": "skyline",
+      "en": "Interactive 3D Vision",
+      "ar": "رؤية ثلاثية الأبعاد تفاعلية"
+    },
+    "skyline.2": {
+      "section": "skyline",
+      "en": "Witness the Kingdom <span class=\"gold\">rising</span>.",
+      "ar": "شاهد المملكة <span class=\"gold\">ترتفع</span>."
+    },
+    "skyline.3": {
+      "section": "skyline",
+      "en": "An interactive 3D representation of the urban transformation we're a part of. Drag to rotate · click to rebuild.",
+      "ar": "تمثيل ثلاثي الأبعاد تفاعلي للتحوّل العمراني الذي نشارك فيه. اسحب للدوران · انقر لإعادة البناء."
+    },
+    "skyline.4": {
+      "section": "skyline",
+      "en": "↻ Rebuild City",
+      "ar": "↻ أعد البناء"
+    },
+    "skyline.5": {
+      "section": "skyline",
+      "en": "⏸ Pause Rotation",
+      "ar": "⏸ إيقاف الدوران"
+    },
+    "configurator.1": {
+      "section": "configurator",
+      "en": "Project Configurator",
+      "ar": "معالج المشروع"
+    },
+    "configurator.2": {
+      "section": "configurator",
+      "en": "Build your <span class=\"gold\">dream project</span> in 5 steps.",
+      "ar": "صمّم <span class=\"gold\">مشروع أحلامك</span> في 5 خطوات."
+    },
+    "configurator.3": {
+      "section": "configurator",
+      "en": "Answer a few questions and download a PDF with your custom estimate. Our team will follow up within 24 hours.",
+      "ar": "أجب عن بضعة أسئلة واحصل على تقدير مخصص بصيغة PDF. سيتواصل فريقنا خلال 24 ساعة."
+    },
+    "configurator.4": {
+      "section": "configurator",
+      "en": "Step 1 of 5",
+      "ar": "الخطوة 1 من 5"
+    },
+    "configurator.5": {
+      "section": "configurator",
+      "en": "What are we building?",
+      "ar": "ماذا نبني؟"
+    },
+    "configurator.6": {
+      "section": "configurator",
+      "en": "Select the project type.",
+      "ar": "اختر نوع المشروع."
+    },
+    "configurator.7": {
+      "section": "configurator",
+      "en": "Villa",
+      "ar": "فيلا"
+    },
+    "configurator.8": {
+      "section": "configurator",
+      "en": "Office",
+      "ar": "مكتب"
+    },
+    "configurator.9": {
+      "section": "configurator",
+      "en": "Warehouse",
+      "ar": "مستودع"
+    },
+    "configurator.10": {
+      "section": "configurator",
+      "en": "Compound",
+      "ar": "مجمع"
+    },
+    "configurator.11": {
+      "section": "configurator",
+      "en": "Restaurant",
+      "ar": "مطعم"
+    },
+    "configurator.12": {
+      "section": "configurator",
+      "en": "Clinic",
+      "ar": "عيادة"
+    },
+    "configurator.13": {
+      "section": "configurator",
+      "en": "Step 2 of 5",
+      "ar": "الخطوة 2 من 5"
+    },
+    "configurator.14": {
+      "section": "configurator",
+      "en": "How big?",
+      "ar": "ما الحجم؟"
+    },
+    "configurator.15": {
+      "section": "configurator",
+      "en": "Adjust the total built-up area.",
+      "ar": "عدّل المساحة الإجمالية للبناء."
+    },
+    "configurator.16": {
+      "section": "configurator",
+      "en": "Step 3 of 5",
+      "ar": "الخطوة 3 من 5"
+    },
+    "configurator.17": {
+      "section": "configurator",
+      "en": "Where?",
+      "ar": "أين الموقع؟"
+    },
+    "configurator.18": {
+      "section": "configurator",
+      "en": "Project location.",
+      "ar": "موقع المشروع."
+    },
+    "configurator.19": {
+      "section": "configurator",
+      "en": "Other",
+      "ar": "أخرى"
+    },
+    "configurator.20": {
+      "section": "configurator",
+      "en": "Step 4 of 5",
+      "ar": "الخطوة 4 من 5"
+    },
+    "configurator.21": {
+      "section": "configurator",
+      "en": "What level of finish?",
+      "ar": "أي مستوى تشطيب؟"
+    },
+    "configurator.22": {
+      "section": "configurator",
+      "en": "Choose your quality tier.",
+      "ar": "اختر مستوى الجودة."
+    },
+    "configurator.23": {
+      "section": "configurator",
+      "en": "Standard",
+      "ar": "قياسي"
+    },
+    "configurator.24": {
+      "section": "configurator",
+      "en": "Premium",
+      "ar": "فاخر"
+    },
+    "configurator.25": {
+      "section": "configurator",
+      "en": "Luxury",
+      "ar": "سوبر فاخر"
+    },
+    "configurator.26": {
+      "section": "configurator",
+      "en": "Step 5 of 5",
+      "ar": "الخطوة 5 من 5"
+    },
+    "configurator.27": {
+      "section": "configurator",
+      "en": "Your details",
+      "ar": "بياناتك"
+    },
+    "configurator.28": {
+      "section": "configurator",
+      "en": "We'll send the full proposal within 24 hours.",
+      "ar": "سنرسل العرض الكامل خلال 24 ساعة."
+    },
+    "configurator.29": {
+      "section": "configurator",
+      "en": "Project Summary",
+      "ar": "ملخّص المشروع"
+    },
+    "configurator.30": {
+      "section": "configurator",
+      "en": "Type",
+      "ar": "النوع"
+    },
+    "configurator.31": {
+      "section": "configurator",
+      "en": "Size",
+      "ar": "المساحة"
+    },
+    "configurator.32": {
+      "section": "configurator",
+      "en": "Location",
+      "ar": "الموقع"
+    },
+    "configurator.33": {
+      "section": "configurator",
+      "en": "Quality",
+      "ar": "الجودة"
+    },
+    "configurator.34": {
+      "section": "configurator",
+      "en": "Estimated Cost",
+      "ar": "التكلفة التقديرية"
+    },
+    "configurator.35": {
+      "section": "configurator",
+      "en": "Previous",
+      "ar": "السابق"
+    },
+    "configurator.36": {
+      "section": "configurator",
+      "en": "Next",
+      "ar": "التالي"
+    },
+    "configurator.37": {
+      "section": "configurator",
+      "en": "Download PDF",
+      "ar": "تحميل PDF"
+    },
+    "section.11": {
+      "section": "section",
+      "en": "Free 50-Page Guide",
+      "ar": "دليل مجاني 50 صفحة"
+    },
+    "section.12": {
+      "section": "section",
+      "en": "The Complete Villa Building Guide for Saudi Arabia",
+      "ar": "الدليل الكامل لبناء فيلا في المملكة"
+    },
+    "section.13": {
+      "section": "section",
+      "en": "Materials, permits, costs, timelines, and pro tips — everything we wish we'd known. Get it free in your inbox.",
+      "ar": "المواد، التراخيص، التكاليف، المدد، نصائح المحترفين — كل ما تمنيّنا معرفته. احصل عليه مجاناً في بريدك."
+    },
+    "section.14": {
+      "section": "section",
+      "en": "Send Me The Guide ➜",
+      "ar": "أرسل لي الدليل ➜"
+    },
+    "footer.1": {
+      "section": "footer",
+      "en": "Building Saudi Arabia's iconic destinations with precision, quality, and integrity since 2017.",
+      "ar": "نبني وجهات المملكة الأيقونية بدقة وجودة ونزاهة منذ 2017."
+    },
+    "footer.2": {
+      "section": "footer",
+      "en": "Services",
+      "ar": "الخدمات"
+    },
+    "footer.3": {
+      "section": "footer",
+      "en": "Architecture",
+      "ar": "عمارة"
+    },
+    "footer.4": {
+      "section": "footer",
+      "en": "Construction",
+      "ar": "إنشاءات"
+    },
+    "footer.5": {
+      "section": "footer",
+      "en": "Engineering",
+      "ar": "هندسة"
+    },
+    "footer.6": {
+      "section": "footer",
+      "en": "Electrical",
+      "ar": "كهرباء"
+    },
+    "footer.7": {
+      "section": "footer",
+      "en": "Mechanical",
+      "ar": "ميكانيكا"
+    },
+    "footer.8": {
+      "section": "footer",
+      "en": "Company",
+      "ar": "الشركة"
+    },
+    "footer.9": {
+      "section": "footer",
+      "en": "About",
+      "ar": "عنّا"
+    },
+    "footer.10": {
+      "section": "footer",
+      "en": "Projects",
+      "ar": "المشاريع"
+    },
+    "footer.11": {
+      "section": "footer",
+      "en": "Team",
+      "ar": "الفريق"
+    },
+    "footer.12": {
+      "section": "footer",
+      "en": "Careers",
+      "ar": "الوظائف"
+    },
+    "footer.13": {
+      "section": "footer",
+      "en": "Blog",
+      "ar": "المدوّنة"
+    },
+    "footer.14": {
+      "section": "footer",
+      "en": "Contact",
+      "ar": "تواصل"
+    },
+    "footer.15": {
+      "section": "footer",
+      "en": "Sat - Thu: 9:00 - 17:00",
+      "ar": "السبت - الخميس: 9:00 - 17:00"
+    },
+    "footer.16": {
+      "section": "footer",
+      "en": "All rights reserved.",
+      "ar": "جميع الحقوق محفوظة."
+    },
+    "footer.17": {
+      "section": "footer",
+      "en": "Privacy",
+      "ar": "الخصوصية"
+    },
+    "footer.18": {
+      "section": "footer",
+      "en": "Terms",
+      "ar": "الشروط"
+    },
+    "footer.19": {
+      "section": "footer",
+      "en": "Employee Portal",
+      "ar": "بوابة الموظفين"
+    },
+    "footer.20": {
+      "section": "footer",
+      "en": "Discipline",
+      "ar": "نطاق العمل"
+    },
+    "footer.21": {
+      "section": "footer",
+      "en": "Delivered with",
+      "ar": "بالتعاون مع"
+    },
+    "footer.22": {
+      "section": "footer",
+      "en": "You found a secret!",
+      "ar": "اكتشفت سرّاً!"
+    },
+    "footer.23": {
+      "section": "footer",
+      "en": "Use this code for 10% off your next project consultation.",
+      "ar": "استخدم هذا الكود للحصول على 10% خصم على استشارة مشروعك القادم."
+    },
+    "footer.24": {
+      "section": "footer",
+      "en": "Mention this code when you contact us",
+      "ar": "اذكر هذا الكود عند التواصل معنا"
+    },
+    "footer.25": {
+      "section": "footer",
+      "en": "Achievement Unlocked",
+      "ar": "إنجاز مفتوح"
+    },
+    "footer.26": {
+      "section": "footer",
+      "en": "This site uses cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.",
+      "ar": "يستخدم هذا الموقع ملفات تعريف الارتباط لتحسين تجربتك. باستمرار التصفّح، فإنك توافق على استخدامنا لها."
+    },
+    "footer.27": {
+      "section": "footer",
+      "en": "Accept",
+      "ar": "موافق"
+    },
+    "footer.28": {
+      "section": "footer",
+      "en": "' + en + '",
+      "ar": "' + ar + '"
+    }
+  }
 }

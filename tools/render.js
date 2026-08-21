@@ -58,10 +58,14 @@
     return html.slice(0, i + startTag.length) + '\n' + body + '\n' + html.slice(j);
   }
 
-  /** Applies every generated block to a full index.html string. */
+  /** Applies every generated block, then the edited texts, to index.html. */
   function applyAll(html, content) {
     let out = replaceBlock(html, 'PROJECTS', projectCards(content.projects));
     out = replaceBlock(out, 'PROJECTDATA', projectData(content.projects));
+    const texts = (typeof module === 'object' && module.exports)
+      ? require('./texts.js')
+      : (typeof self !== 'undefined' ? self.ARCTexts : null);
+    if (texts && content.texts) out = texts.apply(out, content.texts);
     return out;
   }
 
