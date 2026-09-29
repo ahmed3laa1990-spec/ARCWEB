@@ -863,77 +863,172 @@
     "services.1": {
       "section": "services",
       "en": "What we do",
-      "ar": "ما نقدّمه"
+      "ar": "خدماتنا"
     },
     "services.2": {
       "section": "services",
-      "en": "Services that <span class=\"gold\">build legacies</span>.",
-      "ar": "خدمات تصنع <span class=\"gold\">إرثاً</span>."
+      "en": "Three layers. <span class=\"gold\">One contractor</span>.",
+      "ar": "ثلاث طبقات.. <span class=\"gold\">مقاول واحد</span>."
     },
     "services.3": {
       "section": "services",
-      "en": "Six integrated disciplines — one trusted contractor delivering projects from concept to completion.",
-      "ar": "ستة تخصصات متكاملة — مقاول موثوق ينجز المشاريع من الفكرة حتى التسليم."
+      "en": "From the structural frame to the last connection — every layer of the building delivered by our own specialist teams, with design and supply available as standalone services.",
+      "ar": "من الهيكل الإنشائي حتى آخر تمديد — ننفّذ كل طبقة من المبنى بفرقنا المتخصصة، ونقدّم التصميم والتوريد كخدمات مستقلة."
     },
     "services.4": {
+      "section": "services",
+      "en": "Structural",
+      "ar": "إنشائي"
+    },
+    "services.5": {
+      "section": "services",
+      "en": "The full structure, delivered end to end — the frame every other layer stands on.",
+      "ar": "الأعمال الإنشائية بشكل كامل — الهيكل الذي تقوم عليه كل الطبقات الأخرى."
+    },
+    "services.6": {
+      "section": "services",
+      "en": "Foundations &amp; civil works",
+      "ar": "الأساسات والأعمال المدنية"
+    },
+    "services.7": {
+      "section": "services",
+      "en": "Reinforced concrete structures",
+      "ar": "الهياكل الخرسانية"
+    },
+    "services.8": {
+      "section": "services",
+      "en": "Steel structures",
+      "ar": "الهياكل المعدنية"
+    },
+    "services.9": {
+      "section": "services",
+      "en": "Infrastructure works",
+      "ar": "أعمال البنية التحتية"
+    },
+    "services.10": {
+      "section": "services",
+      "en": "From excavation to handover of the frame",
+      "ar": "من الحفر حتى تسليم الهيكل"
+    },
+    "services.11": {
+      "section": "services",
+      "en": "Discuss a project",
+      "ar": "ناقش مشروعك"
+    },
+    "services.12": {
+      "section": "services",
+      "en": "Architectural",
+      "ar": "معماري"
+    },
+    "services.13": {
+      "section": "services",
+      "en": "What people see and touch — envelopes, spaces and the finish.",
+      "ar": "ما يراه الناس ويلمسونه — الواجهات والمساحات والتشطيب."
+    },
+    "services.14": {
+      "section": "services",
+      "en": "Interior finishing &amp; painting",
+      "ar": "التشطيبات الداخلية والدهانات"
+    },
+    "services.15": {
+      "section": "services",
+      "en": "Facades &amp; architectural works",
+      "ar": "الواجهات والأعمال المعمارية"
+    },
+    "services.16": {
+      "section": "services",
+      "en": "Offices, restaurants &amp; villas",
+      "ar": "المكاتب والمطاعم والفلل"
+    },
+    "services.17": {
+      "section": "services",
+      "en": "Sports courts — padel &amp; tennis",
+      "ar": "الملاعب الرياضية — بادل وتنس"
+    },
+    "services.18": {
+      "section": "services",
+      "en": "e.g. <b>Blocks offices</b> · <b>Al Kharj courts</b>",
+      "ar": "مثل <b>مكاتب بلوكس</b> · <b>ملاعب الخرج</b>"
+    },
+    "services.19": {
+      "section": "services",
+      "en": "Projects",
+      "ar": "المشاريع"
+    },
+    "services.20": {
+      "section": "services",
+      "en": "Electromechanical",
+      "ar": "إلكتروميكانيك"
+    },
+    "services.21": {
+      "section": "services",
+      "en": "The systems that make a building work — air, water, power and protection.",
+      "ar": "الأنظمة التي تجعل المبنى يعمل — هواء وماء وكهرباء وحماية."
+    },
+    "services.22": {
+      "section": "services",
+      "en": "HVAC, chillers &amp; chilled water",
+      "ar": "التكييف والشيلر والمياه المبردة"
+    },
+    "services.23": {
+      "section": "services",
+      "en": "Fire-fighting systems",
+      "ar": "أنظمة مكافحة الحريق"
+    },
+    "services.24": {
+      "section": "services",
+      "en": "Power, lighting &amp; cable trays",
+      "ar": "الكهرباء والإنارة والكيبل تراي"
+    },
+    "services.25": {
+      "section": "services",
+      "en": "Drainage &amp; rainwater",
+      "ar": "الصرف الصحي وتصريف الأمطار"
+    },
+    "services.26": {
+      "section": "services",
+      "en": "e.g. <b>Samhan Hotel</b> · <b>Al Hammadi Hospital</b>",
+      "ar": "مثل <b>فندق سمحان</b> · <b>مستشفى الحمادي</b>"
+    },
+    "services.27": {
+      "section": "services",
+      "en": "Projects",
+      "ar": "المشاريع"
+    },
+    "services.28": {
+      "section": "services",
+      "en": "Also standalone:",
+      "ar": "خدمات مستقلة أيضاً:"
+    },
+    "services.29": {
       "section": "services",
       "en": "Architectural Design",
       "ar": "التصميم المعماري"
     },
-    "services.5": {
+    "services.30": {
       "section": "services",
-      "en": "Shaping the aesthetic and functional vision — combining innovation with practical requirements for harmony between form and performance.",
-      "ar": "صياغة الرؤية الجمالية والوظيفية — دمج الابتكار بالمتطلبات العملية لتحقيق تناغم بين الشكل والأداء."
+      "en": "Form and function resolved before a single block is laid.",
+      "ar": "حلول الشكل والوظيفة قبل وضع أول حجر."
     },
-    "services.6": {
+    "services.31": {
       "section": "services",
-      "en": "Construction",
-      "ar": "الإنشاءات"
-    },
-    "services.7": {
-      "section": "services",
-      "en": "Infrastructure & structural works from foundations to final finishes.",
-      "ar": "البنية التحتية والإنشائية من الأساسات حتى التشطيبات النهائية."
-    },
-    "services.8": {
-      "section": "services",
-      "en": "Engineering Design",
+      "en": "Engineering &amp; Drawings",
       "ar": "الهندسة والرسومات"
     },
-    "services.9": {
+    "services.32": {
       "section": "services",
-      "en": "Technical drawings & plans built to standards.",
-      "ar": "رسومات تقنية وخطط هندسية وفق المعايير."
+      "en": "Technical drawings and plans built to code.",
+      "ar": "رسومات تقنية وخطط هندسية وفق الكود."
     },
-    "services.10": {
+    "services.33": {
       "section": "services",
       "en": "Material Supply",
       "ar": "توريد المواد"
     },
-    "services.11": {
+    "services.34": {
       "section": "services",
-      "en": "Quality materials & equipment delivered on time.",
+      "en": "Quality materials and equipment, delivered on schedule.",
       "ar": "مواد ومعدّات بجودة عالية وتسليم في الموعد."
-    },
-    "services.12": {
-      "section": "services",
-      "en": "Electrical Systems",
-      "ar": "الأنظمة الكهربائية"
-    },
-    "services.13": {
-      "section": "services",
-      "en": "Wiring, distribution, smart panels.",
-      "ar": "تمديدات، توزيع، لوحات ذكية."
-    },
-    "services.14": {
-      "section": "services",
-      "en": "Mechanical / HVAC",
-      "ar": "الميكانيكية"
-    },
-    "services.15": {
-      "section": "services",
-      "en": "HVAC, plumbing, pumps & generators.",
-      "ar": "تكييف، سباكة، مضخّات ومولدات."
     },
     "projects.1": {
       "section": "projects",
