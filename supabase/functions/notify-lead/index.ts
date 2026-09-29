@@ -95,10 +95,24 @@ function render(l: Lead) {
   return { subject, html, text };
 }
 
+// A secret name typed on an Arabic keyboard can carry an invisible
+// right-to-left mark (U+200F), so "RESEND_API_KEY" arrives with a hidden mark in front.
+// Match names with direction marks and stray whitespace ignored.
+const INVISIBLE = /[\s\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]/g;
+const MARKS = /[\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]/g;
+// Values lose the marks too (a pasted key can carry one) but keep inner
+// spaces, which "ARC Website <leads@...>" needs.
+function env(name: string): string | undefined {
+  const all = Deno.env.toObject();
+  const hit = name in all ? name : Object.keys(all).find((k) => k.replace(INVISIBLE, "") === name);
+  const v = hit ? all[hit].replace(MARKS, "").trim() : "";
+  return v || undefined;
+}
+
 let cachedSecret: string | null = null;
 
 async function webhookSecret(): Promise<string | null> {
-  const fromEnv = Deno.env.get("WEBHOOK_SECRET");
+  const fromEnv = env("WEBHOOK_SECRET");
   if (fromEnv) return fromEnv;
   if (cachedSecret) return cachedSecret;
   const url = Deno.env.get("SUPABASE_URL");
@@ -130,11 +144,15 @@ Deno.serve(async (req) => {
   }
   if (!lead?.name || !lead?.phone) return new Response("missing fields", { status: 400 });
 
-  const key = Deno.env.get("RESEND_API_KEY");
-  if (!key) return new Response("RESEND_API_KEY not set", { status: 500 });
+  const key = env("RESEND_API_KEY");
+  if (!key) {
+    // names only, never values: enough to spot a mistyped secret name
+    const seen = Object.keys(Deno.env.toObject()).filter((n) => !n.startsWith("SUPABASE_")).sort();
+    return new Response(`RESEND_API_KEY not set; custom secrets seen: ${seen.join(", ") || "none"}`, { status: 500 });
+  }
 
-  const to = (Deno.env.get("NOTIFY_TO") || "info@byarcsa.com").split(",").map((s) => s.trim()).filter(Boolean);
-  const from = Deno.env.get("NOTIFY_FROM") || "ARC Website <leads@byarcsa.com>";
+  const to = (env("NOTIFY_TO") || "info@byarcsa.com").split(",").map((s) => s.trim()).filter(Boolean);
+  const from = env("NOTIFY_FROM") || "ARC Website <leads@byarcsa.com>";
   const { subject, html, text } = render(lead);
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -153,7 +171,8 @@ Deno.serve(async (req) => {
   if (!res.ok) {
     const detail = await res.text();
     console.error("resend failed", res.status, detail);
-    return new Response("send failed", { status: 502 });
+    // Resend's error text (e.g. unverified domain) lands in net._http_response
+    return new Response(`send failed: ${res.status} ${detail.slice(0, 200)}`, { status: 502 });
   }
   return new Response("sent", { status: 200 });
 });
