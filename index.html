@@ -1665,10 +1665,9 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
   object-fit: cover;
   object-position: center top;
 }
-.founder-photo::after {
-  content: 'CEO';
-  position: absolute;
-  top: 20px; right: 20px;
+.founder-photo .photo-badge {
+  position: absolute; z-index: 1;
+  top: 20px; inset-inline-end: 20px;
   padding: 6px 14px;
   background: var(--gold);
   color: var(--navy);
@@ -1677,6 +1676,7 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
   font-weight: 700;
   letter-spacing: 0.1em;
 }
+html[data-lang="ar"] .founder-photo .photo-badge { letter-spacing: 0; font-size: 12px; }
 .founder-photo .photo-placeholder {
   width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
@@ -1710,13 +1710,28 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
 }
 .founder-quote {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 500;
-  line-height: 1.5;
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 600;
+  line-height: 1.45;
   color: var(--navy);
   position: relative;
+  margin: 34px 0 0;
   padding-left: 30px;
 }
+html[data-lang="ar"] .founder-quote { font-family: 'Tajawal', sans-serif; font-weight: 700; line-height: 1.6; }
+.founder-letter {
+  margin-top: 22px;
+  padding-inline-start: 30px;
+  font-size: 17px; line-height: 1.85;
+  color: var(--text-secondary);
+}
+.founder-content .name-title {
+  display: flex; align-items: center; gap: 14px;
+  padding-inline-start: 30px;
+  margin-top: 26px !important;
+  color: var(--navy) !important; font-size: 15px !important; font-weight: 700 !important;
+}
+.founder-content .name-title::before { content: ''; width: 36px; height: 3px; background: var(--gold); flex-shrink: 0; }
 html[data-lang="ar"] .founder-quote { padding-left: 0; padding-right: 30px; }
 .founder-quote::before {
   content: '“';
@@ -2413,17 +2428,22 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <div class="container">
     <div class="founder-grid">
       <div class="founder-photo reveal">
-        <img src="assets/team/ceo-2026.webp" alt="Executive Director, ARC Construction" width="1000" height="1250" loading="lazy" decoding="async">
+        <span class="photo-badge"><span data-en>General Manager</span><span data-ar>المدير العام</span></span>
+        <img src="assets/team/ceo-2026.webp" alt="General Manager, ARC Construction" width="1000" height="1250" loading="lazy" decoding="async">
       </div>
       <div class="founder-content reveal">
-        <span class="eyebrow"><span data-en>From The CEO</span><span data-ar>كلمة الرئيس التنفيذي</span></span>
-        <p class="founder-quote" style="margin-top: 24px;">
-          <span data-en>Since the establishment of ARC in 2019, we set a clear goal for ourselves: to become a role model in the construction sector by delivering projects with high quality, unwavering commitment, and a unified team spirit. What sets us apart is that we do not view projects as mere numbers or walls to be erected, but as success stories written with team spirit and a passion for achievement.</span>
-          <span data-ar>منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة. ما يميزنا في رحلتنا هو أننا لا ننظر إلى المشاريع كأرقام أو جدران تُبنى، بل كقصة نجاح تُكتب بروح الفريق وشغف الإنجاز.</span>
+        <span class="eyebrow"><span data-en>From the General Manager</span><span data-ar>كلمة المدير العام</span></span>
+        <blockquote class="founder-quote">
+          <span data-en>What sets us apart is that we do not see projects as numbers or walls to be raised, but as success stories written with team spirit and a passion for achievement.</span>
+          <span data-ar>ما يميّزنا أننا لا ننظر إلى المشاريع كأرقام أو جدران تُبنى، بل كقصة نجاح تُكتب بروح الفريق وشغف الإنجاز.</span>
+        </blockquote>
+        <p class="founder-letter">
+          <span data-en>Since establishing ARC in 2019, we set ourselves a clear goal: to be a model in the construction sector by delivering projects with high quality, unwavering commitment and a single team spirit.</span>
+          <span data-ar>منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة.</span>
         </p>
         <div class="name-title">
-          <span data-en>Executive Director · ARC Construction</span>
-          <span data-ar>المدير التنفيذي · شركة أرك للمقاولات</span>
+          <span data-en>General Manager · ARC Construction</span>
+          <span data-ar>المدير العام · شركة أرك للمقاولات</span>
         </div>
       </div>
     </div>

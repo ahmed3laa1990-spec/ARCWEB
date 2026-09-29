@@ -777,18 +777,28 @@
     },
     "founder.1": {
       "section": "founder",
-      "en": "From The CEO",
-      "ar": "كلمة الرئيس التنفيذي"
+      "en": "General Manager",
+      "ar": "المدير العام"
     },
     "founder.2": {
       "section": "founder",
-      "en": "Since the establishment of ARC in 2019, we set a clear goal for ourselves: to become a role model in the construction sector by delivering projects with high quality, unwavering commitment, and a unified team spirit. What sets us apart is that we do not view projects as mere numbers or walls to be erected, but as success stories written with team spirit and a passion for achievement.",
-      "ar": "منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة. ما يميزنا في رحلتنا هو أننا لا ننظر إلى المشاريع كأرقام أو جدران تُبنى، بل كقصة نجاح تُكتب بروح الفريق وشغف الإنجاز."
+      "en": "From the General Manager",
+      "ar": "كلمة المدير العام"
     },
     "founder.3": {
       "section": "founder",
-      "en": "Executive Director · ARC Construction",
-      "ar": "المدير التنفيذي · شركة أرك للمقاولات"
+      "en": "What sets us apart is that we do not see projects as numbers or walls to be raised, but as success stories written with team spirit and a passion for achievement.",
+      "ar": "ما يميّزنا أننا لا ننظر إلى المشاريع كأرقام أو جدران تُبنى، بل كقصة نجاح تُكتب بروح الفريق وشغف الإنجاز."
+    },
+    "founder.4": {
+      "section": "founder",
+      "en": "Since establishing ARC in 2019, we set ourselves a clear goal: to be a model in the construction sector by delivering projects with high quality, unwavering commitment and a single team spirit.",
+      "ar": "منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة."
+    },
+    "founder.5": {
+      "section": "founder",
+      "en": "General Manager · ARC Construction",
+      "ar": "المدير العام · شركة أرك للمقاولات"
     },
     "vision.1": {
       "section": "vision",
