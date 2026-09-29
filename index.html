@@ -3769,23 +3769,40 @@ window.ARCLeads = (function() {
     const phone = L.normalisePhone(phoneEl.value);
     if (name.length < 2) { nameEl.setAttribute('aria-invalid', 'true'); nameEl.focus(); return; }
     if (!phone) { phoneEl.setAttribute('aria-invalid', 'true'); phoneEl.focus(); return; }
-    L.record({ name: name, phone: phone, details: 'Call-back request from the website' });
     const ar = L.isAr();
-    const box = document.createElement('div');
-    box.style.cssText = 'text-align:center;padding:30px;';
-    const tick = document.createElement('div');
-    tick.style.cssText = 'font-size:48px;margin-bottom:14px;'; tick.textContent = '✓';
-    const h = document.createElement('h4');
-    h.style.cssText = 'color:var(--navy);margin-bottom:8px;';
-    h.textContent = (ar ? 'شكراً لك، ' : 'Thank you, ') + name;
-    const p = document.createElement('p');
-    p.style.cssText = 'color:var(--navy);opacity:0.8;font-size:14px;';
-    // the number is isolated LTR so it does not read backwards inside Arabic text
-    const num = document.createElement('bdi');
-    num.dir = 'ltr'; num.textContent = phone;
-    p.append(ar ? 'سيتصل بك فريقنا على ' : 'Our team will call you on ', num);
-    box.appendChild(tick); box.appendChild(h); box.appendChild(p);
-    form.replaceChildren(box);
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; }
+    // Only thank the visitor once the lead is really stored. If storage is
+    // down, hand them a one-tap WhatsApp message instead of a false "done".
+    L.record({ name: name, phone: phone, details: 'Call-back request from the website' }).then(function(saved) {
+      const box = document.createElement('div');
+      box.style.cssText = 'text-align:center;padding:30px;';
+      const tick = document.createElement('div');
+      tick.style.cssText = 'font-size:48px;margin-bottom:14px;'; tick.textContent = saved ? '✓' : '!';
+      const h = document.createElement('h4');
+      h.style.cssText = 'color:var(--navy);margin-bottom:8px;';
+      const p = document.createElement('p');
+      p.style.cssText = 'color:var(--navy);opacity:0.8;font-size:14px;';
+      // the number is isolated LTR so it does not read backwards inside Arabic text
+      const num = document.createElement('bdi');
+      num.dir = 'ltr'; num.textContent = phone;
+      box.appendChild(tick); box.appendChild(h); box.appendChild(p);
+      if (saved) {
+        h.textContent = (ar ? 'شكراً لك، ' : 'Thank you, ') + name;
+        p.append(ar ? 'سيتصل بك فريقنا على ' : 'Our team will call you on ', num);
+      } else {
+        h.textContent = ar ? 'خطوة أخيرة' : 'One last step';
+        p.textContent = ar ? 'لم يصلنا طلبك تلقائياً — أرسله عبر واتساب بضغطة واحدة:' : 'Your request did not reach us automatically — send it on WhatsApp in one tap:';
+        const msg = (ar ? 'طلب اتصال من الموقع\nالاسم: ' : 'Call-back request from the website\nName: ') + name + (ar ? '\nالجوال: ' : '\nMobile: ') + phone;
+        const wa = document.createElement('a');
+        wa.href = 'https://wa.me/966534140415?text=' + encodeURIComponent(msg);
+        wa.target = '_blank'; wa.rel = 'noopener';
+        wa.textContent = ar ? 'أرسل عبر واتساب' : 'Send on WhatsApp';
+        wa.style.cssText = 'display:inline-block;margin-top:16px;padding:12px 26px;border-radius:12px;background:#25D366;color:#fff;font-weight:700;';
+        box.appendChild(wa);
+      }
+      form.replaceChildren(box);
+    });
   });
   form.addEventListener('input', function(e) { e.target.removeAttribute('aria-invalid'); });
 })();
