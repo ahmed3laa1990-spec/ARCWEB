@@ -289,6 +289,35 @@ function leadCard(l) {
     c.appendChild(p);
   }
 
+  // files sit in the private lead-files bucket; sign a short-lived link on click
+  if (Array.isArray(l.attachments) && l.attachments.length) {
+    const box = document.createElement('div');
+    box.className = 'files';
+    const k = document.createElement('span'); k.className = 'k'; k.textContent = 'المرفقات';
+    box.appendChild(k);
+    l.attachments.forEach((path, i) => {
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = (l.attachment_names && l.attachment_names[i]) || path.split('/').pop().replace(/^\d+-/, '');
+      a.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const win = window.open('', '_blank');
+        try {
+          const r = await sb('/storage/v1/object/sign/lead-files/' + path.split('/').map(encodeURIComponent).join('/'), {
+            method: 'POST', body: JSON.stringify({ expiresIn: 3600 })
+          });
+          const u = SB_URL + '/storage/v1' + (r.signedURL || r.signedUrl);
+          if (win) win.location = u; else window.location = u;
+        } catch (err) {
+          if (win) win.close();
+          alert('تعذّر فتح الملف: ' + err.message);
+        }
+      });
+      box.appendChild(a);
+    });
+    c.appendChild(box);
+  }
+
   const acts = document.createElement('div');
   acts.className = 'acts';
   const sel = document.createElement('select');
@@ -343,6 +372,12 @@ async function editNote(l) {
 async function delLead(l) {
   if (!confirm('حذف طلب "' + l.name + '" نهائياً؟ لا يمكن التراجع.')) return;
   try {
+    if (Array.isArray(l.attachments) && l.attachments.length) {
+      // the files go with the request; a storage hiccup must not keep the lead alive
+      try {
+        await sb('/storage/v1/object/lead-files', { method: 'DELETE', body: JSON.stringify({ prefixes: l.attachments }) });
+      } catch (e) { console.warn('attachments not deleted', e); }
+    }
     await sb('/rest/v1/leads?id=eq.' + l.id, { method: 'DELETE', headers: { 'Prefer': 'return=minimal' } });
     leads = leads.filter((x) => x.id !== l.id);
     render();

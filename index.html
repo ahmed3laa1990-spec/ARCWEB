@@ -1273,8 +1273,8 @@ html[data-lang="ar"] .testimonial-card::before { right: auto; left: 28px; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.5fr 1fr 1fr 1.6fr;
+  gap: 48px;
   margin-bottom: 60px;
 }
 @media (max-width: 968px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
@@ -1293,6 +1293,14 @@ html[data-lang="ar"] .testimonial-card::before { right: auto; left: 28px; }
 .footer-social a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
 .footer-social a:hover svg { stroke: var(--navy); }
 .footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.7); fill: none; stroke-width: 2; }
+.footer-social svg.fill { fill: rgba(255,255,255,0.7); stroke: none; }
+.footer-social a:hover svg.fill { fill: var(--navy); }
+.footer-contact { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.footer-contact li { display: flex; gap: 12px; align-items: flex-start; margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); }
+.footer-contact svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: none; stroke: var(--gold); stroke-width: 1.8; }
+.footer-contact small { color: rgba(255,255,255,0.45); font-size: 12px; margin-inline-start: 4px; }
+.footer-legal { display: flex; flex-direction: column; gap: 4px; }
+.footer-ids { color: rgba(255,255,255,0.4) !important; font-size: 12px !important; }
 
 .footer-col h5 {
   color: var(--gold);
@@ -2011,7 +2019,28 @@ html[data-lang="ar"] .cookie-consent { padding: 10px 18px 10px 10px; }
   background: #fff5f5; border: 1px solid #fed7d7;
   padding: 12px 14px; border-radius: 12px; margin-bottom: 16px;
 }
-.qf-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.qf-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+.qf-actions .btn[disabled] { opacity: 0.7; cursor: progress; }
+.qf-alt { font-size: 14px; font-weight: 600; color: var(--navy); border-bottom: 1.5px solid var(--gold); padding-bottom: 2px; }
+.qf-field { position: relative; }
+.qf-field .qf-file-input { position: absolute; top: 0; left: 0; width: 1px; height: 1px; padding: 0; margin: 0; border: 0; opacity: 0; overflow: hidden; clip: rect(0 0 0 0); pointer-events: none; }
+.qf-drop {
+  display: flex; align-items: center; gap: 14px; cursor: pointer;
+  padding: 16px 18px; border: 1.5px dashed #C9D2DB; border-radius: 12px; background: var(--bg-soft);
+  transition: border-color 0.2s, background 0.2s;
+}
+.qf-drop:hover, .qf-file-input:focus-visible + .qf-files, .qf-drop:focus-within { border-color: var(--gold); background: #fff; }
+.qf-drop svg { width: 26px; height: 26px; flex-shrink: 0; fill: none; stroke: var(--gold-dark); stroke-width: 2; }
+.qf-drop b { display: block; color: var(--navy); font-size: 14px; }
+.qf-drop small { display: block; color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+.qf-files { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.qf-files li { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+.qf-files .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--navy); font-weight: 600; }
+.qf-files .sz { color: var(--text-muted); flex-shrink: 0; direction: ltr; }
+.qf-files .rm { width: 28px; height: 28px; border-radius: 8px; font-size: 18px; line-height: 1; color: var(--text-secondary); flex-shrink: 0; }
+.qf-files .rm:hover { background: #FDECEC; color: #C62828; }
+.qf-sent .ref { margin-top: 10px; font-weight: 700; color: var(--navy); }
+.qf-sent .warn { margin-top: 8px; color: #B45309; font-size: 13px; }
 .qf-note { font-size: 12px; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
 .qf-sent {
   text-align: center; padding: 40px 20px;
@@ -3035,8 +3064,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span data-ar>أخبرنا عن مشروعك.</span>
         </h3>
         <p>
-          <span data-en>Fill this in and it reaches us directly on WhatsApp — usually answered the same working day.</span>
-          <span data-ar>املأ النموذج ويصلنا مباشرة على واتساب — نردّ عادةً في نفس يوم العمل.</span>
+          <span data-en>Send your request here and it reaches our team straight away — usually answered the same working day.</span>
+          <span data-ar>أرسل طلبك من هنا ويصل إلى فريقنا مباشرة — نردّ عادةً في نفس يوم العمل.</span>
         </p>
         <ul class="quote-points">
           <li><span data-en>Structural, architectural and electromechanical scopes</span><span data-ar>أعمال إنشائية ومعمارية وإلكتروميكانيكية</span></li>
@@ -3088,17 +3117,25 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="qf-label"><span data-en>Project details</span><span data-ar>تفاصيل المشروع</span></span>
           <textarea name="details" id="qfDetails" rows="4"></textarea>
         </label>
+        <div class="qf-field">
+          <span class="qf-label"><span data-en>Plans or photos (optional)</span><span data-ar>مخططات أو صور (اختياري)</span></span>
+          <label class="qf-drop" for="qfFiles">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+            <span><b><span data-en>Choose files</span><span data-ar>اختر الملفات</span></b>
+            <small><span data-en>PDF, images, DWG or ZIP · up to 5 files, 15 MB each</span><span data-ar>PDF أو صور أو DWG أو ZIP · حتى 5 ملفات، 15 ميجابايت للملف</span></small></span>
+          </label>
+          <input type="file" id="qfFiles" class="qf-file-input" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.heic,.heif,.dwg,.zip">
+          <ul class="qf-files" id="qfFileList" hidden></ul>
+        </div>
 
         <p class="qf-error" id="qfError" role="alert" hidden></p>
 
         <div class="qf-actions">
           <button type="submit" class="btn btn-primary" id="qfSubmit">
-            <span data-en>Send via WhatsApp</span><span data-ar>إرسال عبر واتساب</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2z"/></svg>
+            <span data-en>Send request</span><span data-ar>إرسال الطلب</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           </button>
-          <button type="button" class="btn btn-outline" id="qfEmailBtn">
-            <span data-en>Send by email instead</span><span data-ar>إرسال بالبريد بدلاً من ذلك</span>
-          </button>
+          <a class="qf-alt" href="https://wa.me/966534140415" target="_blank" rel="noopener"><span data-en>or message us on WhatsApp</span><span data-ar>أو راسلنا على واتساب</span></a>
         </div>
         <p class="qf-note">
           <span data-en>Your details are only used to prepare a reply. We do not share them.</span>
@@ -3157,7 +3194,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <a href="https://x.com/byarcsa" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4l-6.6 7.2M10.4 12.8L4 20" /></svg></a>
           <a href="https://www.instagram.com/byarcsa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
           <a href="https://www.linkedin.com/company/95948157" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
-          <a href="https://wa.me/966534140415?text=Hello%20ARC%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          <a href="https://wa.me/966534140415?text=Hello%20ARC%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2z"/></svg></a>
         </div>
       </div>
 
@@ -3178,6 +3215,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <li><a href="#about"><span data-en>About</span><span data-ar>عنّا</span></a></li>
           <li><a href="#projects"><span data-en>Projects</span><span data-ar>المشاريع</span></a></li>
           <li><a href="#team"><span data-en>Team</span><span data-ar>الفريق</span></a></li>
+          <li><a href="#vision"><span data-en>Vision 2030</span><span data-ar>رؤية 2030</span></a></li>
+          <li><a href="#contact"><span data-en>Request a quote</span><span data-ar>اطلب عرض سعر</span></a></li>
           <li hidden><a href="#careers"><span data-en>Careers</span><span data-ar>الوظائف</span></a></li>
           <li hidden><a href="#blog"><span data-en>Blog</span><span data-ar>المدوّنة</span></a></li>
         </ul>
@@ -3185,18 +3224,21 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
       <div class="footer-col">
         <h5><span data-en>Contact</span><span data-ar>تواصل</span></h5>
-        <p>
-          <span data-en>Sat - Thu: 9:00 - 17:00</span>
-          <span data-ar>السبت - الخميس: 9:00 - 17:00</span><br>
-          info@byarcsa.com<br>
-          sales@byarcsa.com<br>
-          <a href="tel:+966534140415">+966 53 414 0415</a>
-        </p>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21zM12 12.5a3 3 0 100-6 3 3 0 000 6z"/></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=2411%20Abbad%20Ibn%20Hunaif%20St%2C%20Al%20Malaz%2C%20Riyadh%2012831" target="_blank" rel="noopener"><span data-en>2411 Abbad Ibn Hunaif St., Al-Malaz, Riyadh 12831</span><span data-ar>شارع عباد بن حنيف، 2411 - الملز، الرياض 12831</span></a></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg><span><a href="tel:+966112466126">+966 11 246 6126</a> <small><span data-en>office</span><span data-ar>هاتف</span></small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2h14v20H5zM11 18h2"/></svg><span><a href="tel:+966534140415">+966 53 414 0415</a> <small><span data-en>mobile · WhatsApp</span><span data-ar>جوال · واتساب</span></small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 6l8 7 8-7"/></svg><span><a href="mailto:info@byarcsa.com">info@byarcsa.com</a><br><a href="mailto:sales@byarcsa.com">sales@byarcsa.com</a></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 6v6l4 2"/></svg><span><span data-en>Sat – Thu · 9:00 – 17:00</span><span data-ar>السبت – الخميس · 9:00 – 17:00</span></span></li>
+        </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 ARC Construction. <span data-en>All rights reserved.</span><span data-ar>جميع الحقوق محفوظة.</span></p>
+      <div class="footer-legal">
+        <p>© 2026 ARC Construction. <span data-en>All rights reserved.</span><span data-ar>جميع الحقوق محفوظة.</span></p>
+        <p class="footer-ids"><span data-en>CR</span><span data-ar>س.ت</span> <bdi>1010874676</bdi> · <span data-en>VAT</span><span data-ar>الرقم الضريبي</span> <bdi>312383808100003</bdi></p>
+      </div>
       <div class="links">
         <a href="https://portal.byarcsa.com" class="employee-portal" target="_blank" rel="noopener" title="Employee Login">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -3739,6 +3781,9 @@ window.ARCLeads = (function() {
       },
       signal: ctrl ? ctrl.signal : undefined,
       body: JSON.stringify({
+        id: d.id || undefined,
+        attachments: d.attachments || null,
+        attachment_names: d.attachmentNames || null,
         name: d.name,
         phone: d.phone,
         email: d.email || null,
@@ -3753,7 +3798,7 @@ window.ARCLeads = (function() {
     }).then(function (r) { return r.ok; }).catch(function () { return false; });
   }
 
-  return { record: record, normalisePhone: normalisePhone, isAr: isAr };
+  return { record: record, normalisePhone: normalisePhone, isAr: isAr, url: SB_URL, key: SB_KEY };
 })();
 
 // ============== CALL-BACK BOX ==============
@@ -3912,16 +3957,22 @@ window.ARCLeads = (function() {
 })();
 
 // ============== QUOTE REQUEST ==============
+// Sends straight to the leads table (which emails the team); optional files
+// go to the private lead-files bucket first, under a fresh <lead id>/ folder.
 (function() {
   const form = document.getElementById('quoteForm');
   if (!form) return;
-
   const WHATSAPP = '966534140415';
-  const EMAIL = 'info@byarcsa.com';
-  const record = window.ARCLeads.record;
-  const normalisePhone = window.ARCLeads.normalisePhone;
-  const isAr = window.ARCLeads.isAr;
+  const L = window.ARCLeads;
+  const isAr = L.isAr;
   const errBox = document.getElementById('qfError');
+  const fileInput = document.getElementById('qfFiles');
+  const fileList = document.getElementById('qfFileList');
+  const submitBtn = document.getElementById('qfSubmit');
+  const MAX_FILES = 5, MAX_BYTES = 15 * 1024 * 1024;
+  const TYPES = { pdf: 'application/pdf', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp',
+    heic: 'image/heic', heif: 'image/heif', dwg: 'image/vnd.dwg', zip: 'application/zip' };
+  let files = [];
 
   const F = {
     name: document.getElementById('qfName'),
@@ -3942,6 +3993,36 @@ window.ARCLeads = (function() {
     errBox.hidden = true;
     Object.values(F).forEach(function(el) { if (el) el.removeAttribute('aria-invalid'); });
   }
+  const ext = function(f) { return (f.name.split('.').pop() || '').toLowerCase(); };
+  const size = function(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; };
+
+  function renderFiles() {
+    fileList.replaceChildren();
+    files.forEach(function(f, i) {
+      const li = document.createElement('li');
+      const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = f.name;
+      const sz = document.createElement('span'); sz.className = 'sz'; sz.textContent = size(f.size);
+      const rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'rm'; rm.textContent = '×';
+      rm.setAttribute('aria-label', (isAr() ? 'إزالة ' : 'Remove ') + f.name);
+      rm.addEventListener('click', function() { files.splice(i, 1); renderFiles(); });
+      li.append(nm, sz, rm);
+      fileList.appendChild(li);
+    });
+    fileList.hidden = !files.length;
+  }
+  fileInput.addEventListener('change', function() {
+    clearError();
+    const ar = isAr();
+    Array.prototype.forEach.call(fileInput.files, function(f) {
+      if (files.length >= MAX_FILES) { showError(ar ? 'الحد الأقصى 5 ملفات.' : 'Up to 5 files.'); return; }
+      if (!TYPES[ext(f)]) { showError((ar ? 'نوع الملف غير مدعوم: ' : 'File type not supported: ') + f.name); return; }
+      if (f.size > MAX_BYTES) { showError((ar ? 'الملف أكبر من 15 ميجابايت: ' : 'File is over 15 MB: ') + f.name); return; }
+      files.push(f);
+    });
+    fileInput.value = '';
+    renderFiles();
+  });
 
   function validate() {
     clearError();
@@ -3951,7 +4032,7 @@ window.ARCLeads = (function() {
       showError(isAr() ? 'من فضلك اكتب اسمك.' : 'Please enter your name.');
       return null;
     }
-    const phone = normalisePhone(F.phone.value);
+    const phone = L.normalisePhone(F.phone.value);
     if (!phone) {
       F.phone.setAttribute('aria-invalid', 'true'); F.phone.focus();
       showError(isAr() ? 'رقم الجوال غير صحيح — مثال: 0534140415' : 'That phone number does not look right — e.g. 0534140415');
@@ -3964,9 +4045,7 @@ window.ARCLeads = (function() {
       return null;
     }
     return {
-      name: name,
-      phone: phone,
-      email: email,
+      name: name, phone: phone, email: email,
       scope: F.scope.options[F.scope.selectedIndex].text.trim(),
       scopeValue: F.scope.value,
       city: F.city.value.trim(),
@@ -3975,59 +4054,102 @@ window.ARCLeads = (function() {
     };
   }
 
+  function uuid() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+  }
+  // storage keys must stay ASCII; keep the extension so the file still opens
+  function safeName(f, i) {
+    const base = f.name.replace(/\.[^.]+$/, '').normalize('NFKD').replace(/[^\w.-]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 60);
+    return i + '-' + (base || 'file') + '.' + ext(f);
+  }
+  function upload(id, f, i) {
+    const path = id + '/' + safeName(f, i);
+    return fetch(L.url + '/storage/v1/object/lead-files/' + path, {
+      method: 'POST',
+      headers: { apikey: L.key, Authorization: 'Bearer ' + L.key, 'Content-Type': TYPES[ext(f)], 'x-upsert': 'false' },
+      body: f
+    }).then(function(r) { return r.ok ? path : null; }).catch(function() { return null; });
+  }
+
   function compose(d) {
     const ar = isAr();
-    const L = ar
-      ? { head: 'طلب عرض سعر — من موقع byarcsa.com', name: 'الاسم', phone: 'الجوال', email: 'البريد',
-          scope: 'نطاق العمل', city: 'المدينة', area: 'المساحة', details: 'التفاصيل', m2: 'م²' }
-      : { head: 'Quote request from byarcsa.com', name: 'Name', phone: 'Phone', email: 'Email',
-          scope: 'Scope', city: 'City', area: 'Area', details: 'Details', m2: 'm²' };
-    const lines = [L.head, '', L.name + ': ' + d.name, L.phone + ': ' + d.phone];
-    if (d.email) lines.push(L.email + ': ' + d.email);
-    lines.push(L.scope + ': ' + d.scope);
-    if (d.city) lines.push(L.city + ': ' + d.city);
-    if (d.area) lines.push(L.area + ': ' + d.area + ' ' + L.m2);
-    if (d.details) lines.push('', L.details + ':', d.details);
+    const lines = [ar ? 'طلب عرض سعر — من موقع byarcsa.com' : 'Quote request from byarcsa.com', '',
+      (ar ? 'الاسم: ' : 'Name: ') + d.name, (ar ? 'الجوال: ' : 'Phone: ') + d.phone];
+    if (d.email) lines.push((ar ? 'البريد: ' : 'Email: ') + d.email);
+    lines.push((ar ? 'نطاق العمل: ' : 'Scope: ') + d.scope);
+    if (d.city) lines.push((ar ? 'المدينة: ' : 'City: ') + d.city);
+    if (d.area) lines.push((ar ? 'المساحة: ' : 'Area: ') + d.area + (ar ? ' م²' : ' m²'));
+    if (d.details) lines.push('', (ar ? 'التفاصيل:' : 'Details:'), d.details);
     return lines.join('\n');
   }
 
-  function confirmSent(via) {
+  function done(ok, d, id, lostFiles) {
     const ar = isAr();
     const box = document.createElement('div');
     box.className = 'qf-sent';
     const tick = document.createElement('div');
-    tick.className = 'tick'; tick.textContent = '✓';
+    tick.className = 'tick'; tick.textContent = ok ? '✓' : '!';
     const h = document.createElement('h4');
-    h.textContent = ar ? 'تم تجهيز طلبك' : 'Your request is ready';
     const p = document.createElement('p');
-    p.textContent = ar
-      ? (via === 'wa'
-          ? 'فتحنا لك واتساب بالطلب جاهزاً — اضغط إرسال داخل التطبيق ليصلنا. إن لم يفتح، راسلنا على 0534140415.'
-          : 'فتحنا لك برنامج البريد بالطلب جاهزاً — اضغط إرسال ليصلنا. إن لم يفتح، راسلنا على info@byarcsa.com.')
-      : (via === 'wa'
-          ? 'WhatsApp is open with your request filled in — press send inside the app and it reaches us. If it did not open, message us on +966 53 414 0415.'
-          : 'Your mail app is open with the request filled in — press send and it reaches us. If it did not open, write to info@byarcsa.com.');
-    box.appendChild(tick); box.appendChild(h); box.appendChild(p);
+    box.append(tick, h, p);
+    if (ok) {
+      h.textContent = ar ? 'تم استلام طلبك' : 'Request received';
+      p.textContent = ar ? 'وصل طلبك إلى فريقنا وسنتواصل معك خلال يوم العمل.' : 'Your request reached our team; we will be in touch within the working day.';
+      const ref = document.createElement('p');
+      ref.className = 'ref';
+      ref.append(ar ? 'رقم الطلب: ' : 'Reference: ');
+      const b = document.createElement('bdi'); b.textContent = id.slice(0, 8).toUpperCase(); ref.appendChild(b);
+      box.appendChild(ref);
+      if (lostFiles) {
+        const w = document.createElement('p'); w.className = 'warn';
+        w.textContent = ar ? 'تعذّر رفع بعض الملفات — أرسلها لنا على info@byarcsa.com.' : 'Some files could not be uploaded — please email them to info@byarcsa.com.';
+        box.appendChild(w);
+      }
+    } else {
+      h.textContent = ar ? 'خطوة أخيرة' : 'One last step';
+      p.textContent = ar ? 'لم يصلنا طلبك تلقائياً — أرسله عبر واتساب بضغطة واحدة:' : 'Your request did not reach us automatically — send it on WhatsApp in one tap:';
+      const wa = document.createElement('a');
+      wa.className = 'btn btn-primary';
+      wa.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(compose(d));
+      wa.target = '_blank'; wa.rel = 'noopener';
+      wa.textContent = ar ? 'أرسل عبر واتساب' : 'Send on WhatsApp';
+      wa.style.marginTop = '16px';
+      box.appendChild(wa);
+    }
     form.replaceChildren(box);
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     const d = validate();
     if (!d) return;
-    record(d);
-    const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(compose(d));
-    window.open(url, '_blank', 'noopener');
-    confirmSent('wa');
-  });
-
-  document.getElementById('qfEmailBtn').addEventListener('click', function() {
-    const d = validate();
-    if (!d) return;
-    record(d);
-    const subject = isAr() ? 'طلب عرض سعر — ' + d.name : 'Quote request — ' + d.name;
-    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(compose(d));
-    confirmSent('mail');
+    const ar = isAr();
+    const label = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    const status = function(t) { submitBtn.textContent = t; };
+    status(ar ? 'جارٍ الإرسال…' : 'Sending…');
+    const id = uuid();
+    let chain = Promise.resolve([]);
+    files.forEach(function(f, i) {
+      chain = chain.then(function(paths) {
+        status((ar ? 'رفع الملفات ' : 'Uploading files ') + (i + 1) + '/' + files.length + '…');
+        return upload(id, f, i).then(function(p) { return paths.concat(p ? [{ path: p, name: f.name.slice(0, 180) }] : []); });
+      });
+    });
+    chain.then(function(paths) {
+      status(ar ? 'جارٍ الإرسال…' : 'Sending…');
+      d.id = id;
+      d.attachments = paths.length ? paths.map(function(x) { return x.path; }) : null;
+      d.attachmentNames = paths.length ? paths.map(function(x) { return x.name; }) : null;
+      return L.record(d).then(function(ok) { done(ok, d, id, paths.length < files.length); });
+    }).catch(function() {
+      submitBtn.disabled = false; submitBtn.innerHTML = label;
+      done(false, d, id, false);
+    });
   });
 
   Object.values(F).forEach(function(el) {

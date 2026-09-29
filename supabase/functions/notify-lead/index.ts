@@ -23,6 +23,8 @@ type Lead = {
   details?: string | null;
   lang?: string | null;
   source?: string | null;
+  attachments?: string[] | null;
+  attachment_names?: string[] | null;
 };
 
 const SCOPES: Record<string, string> = {
@@ -47,7 +49,13 @@ function isCallback(l: Lead) {
   return !l.scope && (l.details || "").startsWith("Call-back request");
 }
 
-function render(l: Lead) {
+type Attachment = { name: string; url: string };
+
+// Email clients (Outlook, Apple Mail, Gmail) strip <html>/<body> attributes
+// and many drop table direction, so every block carries its own dir/align,
+// labels sit above values instead of in a second column, and long unbroken
+// text wraps instead of widening the card.
+function render(l: Lead, files: Attachment[] = []) {
   const digits = (l.phone || "").replace(/[^\d]/g, "");
   const when = new Date(l.created_at || Date.now()).toLocaleString("ar-SA-u-ca-gregory-nu-latn", {
     timeZone: "Asia/Riyadh",
@@ -57,42 +65,73 @@ function render(l: Lead) {
   const kind = isCallback(l) ? "طلب اتصال" : "طلب عرض سعر";
   const rows: [string, string][] = [
     ["الاسم", esc(l.name)],
-    ["الجوال", `<a href="tel:${esc(l.phone)}" dir="ltr">${esc(l.phone)}</a>`],
+    ["الجوال", `<a href="tel:${esc(l.phone)}" style="color:#033856;text-decoration:none"><span dir="ltr">${esc(l.phone)}</span></a>`],
   ];
-  if (l.email) rows.push(["البريد", `<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>`]);
+  if (l.email) rows.push(["البريد", `<a href="mailto:${esc(l.email)}" style="color:#033856"><span dir="ltr">${esc(l.email)}</span></a>`]);
   if (l.scope) rows.push(["نطاق العمل", esc(SCOPES[l.scope] || l.scope)]);
   if (l.city) rows.push(["المدينة", esc(l.city)]);
   if (l.area) rows.push(["المساحة", `${esc(l.area)} م²`]);
   if (l.details && !isCallback(l)) rows.push(["التفاصيل", esc(l.details).replace(/\n/g, "<br>")]);
+  if (files.length) {
+    rows.push(["المرفقات", files.map((f) =>
+      `<a href="${esc(f.url)}" style="color:#0B4A70;font-weight:700">${esc(f.name)}</a>`).join("<br>")]);
+  }
   rows.push(["الوقت", esc(when)]);
 
-  const table = rows
-    .map(([k, v]) =>
-      `<tr><td style="padding:10px 14px;color:#5B7186;white-space:nowrap;vertical-align:top">${k}</td>` +
-      `<td dir="auto" style="padding:10px 14px;color:#033856;font-weight:600;text-align:right">${v}</td></tr>`)
-    .join("");
+  const wrap = "word-wrap:break-word;overflow-wrap:anywhere;word-break:break-word";
+  const blocks = rows.map(([k, v], i) =>
+    `<tr><td dir="rtl" align="right" style="padding:14px 24px;${i ? "border-top:1px solid #EEF1F5;" : ""}text-align:right;${wrap}">` +
+    `<div style="font-size:12px;color:#5B7186;margin-bottom:4px">${k}</div>` +
+    `<div style="font-size:16px;color:#033856;font-weight:700;line-height:1.6;${wrap}">${v}</div>` +
+    `</td></tr>`).join("");
 
   const btn = (href: string, label: string, bg: string, fg: string) =>
-    `<a href="${href}" style="display:inline-block;margin:4px;padding:12px 20px;border-radius:10px;` +
-    `background:${bg};color:${fg};font-weight:700;text-decoration:none">${label}</a>`;
+    `<a href="${href}" style="display:inline-block;margin:4px;padding:12px 18px;border-radius:10px;` +
+    `background:${bg};color:${fg};font-weight:700;font-size:14px;text-decoration:none">${label}</a>`;
 
-  const html = `<!doctype html><html lang="ar" dir="rtl"><body style="margin:0;background:#F3F5F7;font-family:Tahoma,Arial,sans-serif">
-<div style="max-width:560px;margin:24px auto;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E5E9F0">
-  <div style="background:#033856;color:#fff;padding:20px 24px;border-bottom:4px solid #F6B80F">
+  const html = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
+<body style="margin:0;padding:0;background:#F3F5F7">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F5F7"><tr><td align="center" style="padding:24px 12px">
+<table role="presentation" dir="rtl" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;table-layout:fixed;background:#ffffff;border:1px solid #E5E9F0;border-radius:16px;font-family:Tahoma,Arial,sans-serif">
+  <tr><td dir="rtl" align="right" style="background:#033856;padding:20px 24px;border-bottom:4px solid #F6B80F;border-radius:16px 16px 0 0;text-align:right">
     <div style="font-size:13px;color:#F6B80F;font-weight:700">byarcsa.com</div>
-    <div style="font-size:20px;font-weight:800;margin-top:4px">${kind} جديد</div>
-  </div>
-  <table style="width:100%;border-collapse:collapse;font-size:15px">${table}</table>
-  <div style="padding:18px 20px 24px;text-align:center">
-    ${digits ? btn(`https://wa.me/${digits}`, "واتساب العميل", "#25D366", "#fff") : ""}
-    ${btn(`tel:${esc(l.phone)}`, "اتصال", "#033856", "#fff")}
+    <div style="font-size:20px;color:#ffffff;font-weight:800;margin-top:4px">${kind} جديد</div>
+  </td></tr>
+  ${blocks}
+  <tr><td align="center" style="padding:18px 16px 24px;border-top:1px solid #EEF1F5;text-align:center">
+    ${digits ? btn(`https://wa.me/${digits}`, "واتساب العميل", "#1FA855", "#ffffff") : ""}
+    ${btn(`tel:${esc(l.phone)}`, "اتصال", "#033856", "#ffffff")}
     ${btn("https://byarcsa.com/admin/", "لوحة التحكم", "#F6B80F", "#033856")}
-  </div>
-</div></body></html>`;
+  </td></tr>
+</table>
+</td></tr></table>
+</body></html>`;
 
   const subject = `${kind} جديد — ${String(l.name || "").slice(0, 60)}`;
-  const text = rows.map(([k, v]) => `${k}: ${v.replace(/<[^>]+>/g, "")}`).join("\n");
+  const text = rows.map(([k, v]) => `${k}: ${v.replace(/<br>/g, "\n").replace(/<[^>]+>/g, "")}`).join("\n");
   return { subject, html, text };
+}
+
+// Private bucket: the email gets 30-day signed links, the panel signs its own.
+async function signFiles(paths: string[] | null | undefined, names?: string[] | null): Promise<Attachment[]> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!paths?.length || !url || !key) return [];
+  const out: Attachment[] = [];
+  for (const [i, p] of paths.slice(0, 5).entries()) {
+    try {
+      const r = await fetch(`${url}/storage/v1/object/sign/lead-files/${p.split("/").map(encodeURIComponent).join("/")}`, {
+        method: "POST",
+        headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ expiresIn: 60 * 60 * 24 * 30 }),
+      });
+      if (!r.ok) continue;
+      const j = await r.json();
+      const signed = j.signedURL || j.signedUrl;
+      if (signed) out.push({ name: names?.[i] || p.split("/").pop()!.replace(/^\d+-/, ""), url: `${url}/storage/v1${signed}` });
+    } catch (_) { /* a missing file must not block the email */ }
+  }
+  return out;
 }
 
 // A secret name typed on an Arabic keyboard can carry an invisible
@@ -153,7 +192,7 @@ Deno.serve(async (req) => {
 
   const to = (env("NOTIFY_TO") || "info@byarcsa.com").split(",").map((s) => s.trim()).filter(Boolean);
   const from = env("NOTIFY_FROM") || "ARC Website <leads@byarcsa.com>";
-  const { subject, html, text } = render(lead);
+  const { subject, html, text } = render(lead, await signFiles(lead.attachments, lead.attachment_names));
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
