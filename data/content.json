@@ -632,63 +632,73 @@
     },
     "home.1": {
       "section": "home",
-      "en": "Saudi Arabia · Vision 2030",
-      "ar": "المملكة العربية السعودية · رؤية 2030"
+      "en": "ARC Construction · Since 2019",
+      "ar": "شركة أرك للمقاولات · منذ 2019"
     },
     "home.2": {
       "section": "home",
-      "en": "Building the<br><span class=\"accent\">Kingdom&rsquo;s</span> Future",
-      "ar": "نبني مستقبل<br><span class=\"accent\">المملكة</span>"
+      "en": "ARC.. Building<br><span class=\"mark-line\">the <span class=\"hl\">Future</span><svg class=\"future-mark\" viewBox=\"0 0 100 100\" aria-hidden=\"true\"><polygon class=\"fm-b\" points=\"22,100 100,100 100,22\"></polygon><polygon class=\"fm-a\" points=\"0,100 78,100 78,22\"></polygon></svg></span>",
+      "ar": "أرك.. نبني<br><span class=\"mark-line\"><span class=\"hl\">المستقبل</span><svg class=\"future-mark\" viewBox=\"0 0 100 100\" aria-hidden=\"true\"><polygon class=\"fm-b\" points=\"22,100 100,100 100,22\"></polygon><polygon class=\"fm-a\" points=\"0,100 78,100 78,22\"></polygon></svg></span>"
     },
     "home.3": {
       "section": "home",
-      "en": "ARC is a Saudi contracting company delivering architectural, mechanical and electrical works alongside the Kingdom&rsquo;s leading main contractors since 2019.",
-      "ar": "شركة أرك للمقاولات شركة سعودية تنفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019."
+      "en": "Structural, architectural and electromechanical works across the Kingdom, delivered alongside its leading main contractors.",
+      "ar": "أعمال إنشائية ومعمارية وإلكتروميكانيكية ننفّذها في مشاريع المملكة، بالتعاون مع كبرى شركات المقاولات."
     },
     "home.4": {
       "section": "home",
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Request a Quote",
+      "ar": "اطلب عرض سعر"
     },
     "home.5": {
-      "section": "home",
-      "en": "Open Now",
-      "ar": "مفتوح الآن"
-    },
-    "home.6": {
       "section": "home",
       "en": "Explore Projects",
       "ar": "استعرض المشاريع"
     },
+    "home.6": {
+      "section": "home",
+      "en": "Structural",
+      "ar": "إنشائي"
+    },
     "home.7": {
       "section": "home",
-      "en": "Contact Us",
-      "ar": "تواصل معنا"
+      "en": "Foundations &amp; frame",
+      "ar": "الأساس والهيكل"
     },
     "home.8": {
       "section": "home",
-      "en": "Projects Delivered",
-      "ar": "مشروع منجز"
+      "en": "Architectural",
+      "ar": "معماري"
     },
     "home.9": {
       "section": "home",
-      "en": "Years Since 2019",
-      "ar": "سنوات منذ 2019"
+      "en": "Envelope &amp; finishes",
+      "ar": "الواجهات والتشطيب"
     },
     "home.10": {
       "section": "home",
-      "en": "Partners",
-      "ar": "شركاء"
+      "en": "Electromechanical",
+      "ar": "إلكتروميكانيك"
     },
     "home.11": {
       "section": "home",
-      "en": "Engineers &amp; Technicians",
-      "ar": "مهندسون وفنيون"
+      "en": "Building systems",
+      "ar": "الأنظمة والتمديدات"
     },
     "home.12": {
       "section": "home",
-      "en": "Scroll",
-      "ar": "اسحب"
+      "en": "On site",
+      "ar": "من مواقع العمل"
+    },
+    "home.13": {
+      "section": "home",
+      "en": "Projects delivered",
+      "ar": "مشروعاً منجزاً"
+    },
+    "home.14": {
+      "section": "home",
+      "en": "with Azmeel · Marco · Blocks · Sawaed",
+      "ar": "مع أزميل · ماركو · بلوكس · سواعد"
     },
     "about.1": {
       "section": "about",
