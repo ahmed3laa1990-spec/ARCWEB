@@ -708,7 +708,7 @@
     "about.2": {
       "section": "about",
       "en": "About ARC",
-      "ar": "عن ARC"
+      "ar": "عن أرك"
     },
     "about.3": {
       "section": "about",
@@ -828,7 +828,7 @@
     "vision.5": {
       "section": "vision",
       "en": "ARC contributes to the giga-projects shaping Saudi Arabia's future — from sustainable housing to world-class entertainment destinations, infrastructure that strengthens communities, and architecture that reflects national identity.",
-      "ar": "تُساهم ARC في المشاريع الكبرى التي ترسم مستقبل المملكة — من الإسكان المستدام إلى الوجهات الترفيهية العالمية، والبنية التحتية التي تُقوّي المجتمعات، والعمارة التي تعكس الهوية الوطنية."
+      "ar": "تُساهم أرك في المشاريع الكبرى التي ترسم مستقبل المملكة — من الإسكان المستدام إلى الوجهات الترفيهية العالمية، والبنية التحتية التي تُقوّي المجتمعات، والعمارة التي تعكس الهوية الوطنية."
     },
     "vision.6": {
       "section": "vision",
@@ -1787,8 +1787,8 @@
     },
     "contact.14": {
       "section": "contact",
-      "en": "Architectural, mechanical and electrical scopes",
-      "ar": "أعمال معمارية وميكانيكية وكهربائية"
+      "en": "Structural, architectural and electromechanical scopes",
+      "ar": "أعمال إنشائية ومعمارية وإلكتروميكانيكية"
     },
     "contact.15": {
       "section": "contact",
@@ -1892,8 +1892,8 @@
     },
     "footer.1": {
       "section": "footer",
-      "en": "Architectural, mechanical and electrical contracting across Saudi Arabia since 2019.",
-      "ar": "مقاولات معمارية وميكانيكية وكهربائية في أنحاء المملكة منذ 2019."
+      "en": "Structural, architectural and electromechanical contracting across Saudi Arabia since 2019.",
+      "ar": "مقاولات إنشائية ومعمارية وإلكتروميكانيكية في أنحاء المملكة منذ 2019."
     },
     "footer.2": {
       "section": "footer",
@@ -1902,28 +1902,28 @@
     },
     "footer.3": {
       "section": "footer",
-      "en": "Architecture",
-      "ar": "عمارة"
+      "en": "Structural",
+      "ar": "إنشائي"
     },
     "footer.4": {
       "section": "footer",
-      "en": "Construction",
-      "ar": "إنشاءات"
+      "en": "Architectural",
+      "ar": "معماري"
     },
     "footer.5": {
       "section": "footer",
-      "en": "Engineering",
-      "ar": "هندسة"
+      "en": "Electromechanical",
+      "ar": "إلكتروميكانيك"
     },
     "footer.6": {
       "section": "footer",
-      "en": "Electrical",
-      "ar": "كهرباء"
+      "en": "Design &amp; Drawings",
+      "ar": "التصميم والرسومات"
     },
     "footer.7": {
       "section": "footer",
-      "en": "Mechanical",
-      "ar": "ميكانيكا"
+      "en": "Material Supply",
+      "ar": "توريد المواد"
     },
     "footer.8": {
       "section": "footer",
@@ -1972,40 +1972,30 @@
     },
     "footer.17": {
       "section": "footer",
-      "en": "Privacy",
-      "ar": "الخصوصية"
-    },
-    "footer.18": {
-      "section": "footer",
-      "en": "Terms",
-      "ar": "الشروط"
-    },
-    "footer.19": {
-      "section": "footer",
       "en": "Employee Portal",
       "ar": "بوابة الموظفين"
     },
-    "footer.20": {
+    "footer.18": {
       "section": "footer",
       "en": "Discipline",
       "ar": "نطاق العمل"
     },
-    "footer.21": {
+    "footer.19": {
       "section": "footer",
       "en": "Delivered with",
       "ar": "بالتعاون مع"
     },
-    "footer.22": {
+    "footer.20": {
       "section": "footer",
       "en": "We use cookies to improve your experience.",
       "ar": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك."
     },
-    "footer.23": {
+    "footer.21": {
       "section": "footer",
       "en": "Accept",
       "ar": "موافق"
     },
-    "footer.24": {
+    "footer.22": {
       "section": "footer",
       "en": "' + en + '",
       "ar": "' + ar + '"
