@@ -800,6 +800,11 @@
       "en": "General Manager · ARC Construction",
       "ar": "المدير العام · شركة أرك للمقاولات"
     },
+    "founder.6": {
+      "section": "founder",
+      "en": "General Manager · ARC Construction",
+      "ar": "المدير العام · شركة أرك للمقاولات"
+    },
     "vision.1": {
       "section": "vision",
       "en": "Vision",
@@ -1299,6 +1304,11 @@
       "section": "projects",
       "en": "with SAWAED",
       "ar": "بالتعاون مع سواعد"
+    },
+    "projects.53": {
+      "section": "projects",
+      "en": "Show all projects",
+      "ar": "عرض كل المشاريع"
     },
     "section.5": {
       "section": "section",

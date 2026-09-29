@@ -880,17 +880,24 @@ html[data-lang="ar"] .service-card .proof a svg { transform: scaleX(-1); }
   border-color: var(--navy);
 }
 
+.filter-btn .n {
+  display: inline-block; min-width: 22px; margin-inline-start: 8px; padding: 1px 7px;
+  border-radius: 20px; font-size: 11px; font-weight: 700; line-height: 1.6;
+  background: var(--bg-soft); color: var(--text-secondary);
+}
+.filter-btn.active .n { background: rgba(255,255,255,0.16); color: #fff; }
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
-@media (max-width: 968px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 968px) { .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
 
 .project-card {
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -898,44 +905,60 @@ html[data-lang="ar"] .service-card .proof a svg { transform: scaleX(-1); }
   box-shadow: var(--shadow);
   transition: transform 0.4s var(--easing), box-shadow 0.4s;
 }
-.project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.project-card:hover, .project-card:focus-visible { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.project-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .project-card img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.8s var(--easing);
-  opacity: 0.85;
 }
-.project-card:hover img { transform: scale(1.08); opacity: 1; }
+.project-card:hover img { transform: scale(1.06); }
 .project-card::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(3,56,86,0.95));
+  background: linear-gradient(180deg, rgba(2,36,58,0) 35%, rgba(2,36,58,0.55) 60%, rgba(2,36,58,0.94) 100%);
 }
 .project-info {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 28px;
+  padding: 22px 24px;
   z-index: 2;
   color: #fff;
 }
 .project-tag {
   display: inline-block;
-  padding: 5px 14px;
-  background: rgba(246,184,15,0.95);
+  padding: 4px 12px;
+  background: var(--gold);
   color: var(--navy);
   border-radius: 50px;
   font-size: 11px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
 }
+html[data-lang="ar"] .project-tag { letter-spacing: 0; font-size: 12px; }
 .project-info h3 {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 6px;
+  line-height: 1.3;
+  margin-bottom: 4px;
 }
-.project-info p { color: rgba(255,255,255,0.85); font-size: 13px; }
+.project-info p { color: rgba(255,255,255,0.8); font-size: 13px; }
+.project-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.75);
+}
+.project-meta .shots { display: inline-flex; align-items: center; gap: 6px; }
+.project-meta svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+.project-meta .more { color: var(--gold); transition: transform 0.3s; }
+.project-meta .more::after { content: 'Details \2192'; }
+html[data-lang="ar"] .project-meta .more::after { content: 'التفاصيل \2190'; }
+.project-card:hover .more { transform: translateX(4px); }
+html[data-lang="ar"] .project-card:hover .more { transform: translateX(-4px); }
+
+.projects-more { display: flex; justify-content: center; margin-top: 40px; }
+.projects-more .btn .n { font-family: 'Space Grotesk', sans-serif; opacity: 0.7; }
 
 /* ====== PARTNERS TICKER ====== */
 .partners-section {
@@ -1731,6 +1754,11 @@ html[data-lang="ar"] .founder-quote { font-family: 'Tajawal', sans-serif; font-w
   margin-top: 26px !important;
   color: var(--navy) !important; font-size: 15px !important; font-weight: 700 !important;
 }
+.founder-content .founder-name {
+  margin-top: 28px; padding-inline-start: 30px;
+  font-size: 24px; font-weight: 800; color: var(--navy); line-height: 1.2;
+}
+.founder-content .founder-name + .name-title { margin-top: 8px !important; color: var(--text-secondary) !important; font-weight: 600 !important; }
 .founder-content .name-title::before { content: ''; width: 36px; height: 3px; background: var(--gold); flex-shrink: 0; }
 html[data-lang="ar"] .founder-quote { padding-left: 0; padding-right: 30px; }
 .founder-quote::before {
@@ -2429,7 +2457,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     <div class="founder-grid">
       <div class="founder-photo reveal">
         <span class="photo-badge"><span data-en>General Manager</span><span data-ar>المدير العام</span></span>
-        <img src="assets/team/ceo-2026.webp" alt="General Manager, ARC Construction" width="1000" height="1250" loading="lazy" decoding="async">
+        <img src="assets/team/ceo-2026.webp" alt="Ahmed Al-Baghdadi, General Manager of ARC Construction" width="1000" height="1250" loading="lazy" decoding="async">
       </div>
       <div class="founder-content reveal">
         <span class="eyebrow"><span data-en>From the General Manager</span><span data-ar>كلمة المدير العام</span></span>
@@ -2441,6 +2469,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span data-en>Since establishing ARC in 2019, we set ourselves a clear goal: to be a model in the construction sector by delivering projects with high quality, unwavering commitment and a single team spirit.</span>
           <span data-ar>منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة.</span>
         </p>
+        <div class="founder-name"><span data-en>General Manager · ARC Construction</span><span data-ar>المدير العام · شركة أرك للمقاولات</span></div>
         <div class="name-title">
           <span data-en>General Manager · ARC Construction</span>
           <span data-ar>المدير العام · شركة أرك للمقاولات</span>
@@ -2657,6 +2686,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Architectural · Mechanical</span><span data-ar>معماري · ميكانيكا</span></span>
           <h3><span data-en>ITCC Compound</span><span data-ar>مجمع تقنية المعلومات والاتصالات</span></h3>
           <p><span data-en>with AZMEEL Contracting</span><span data-ar>بالتعاون مع أزميل للمقاولات</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>1</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2666,6 +2696,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
           <h3><span data-en>Samhan Heritage Hotel</span><span data-ar>فندق سمحان التراثي</span></h3>
           <p><span data-en>with MARCO &amp; HAWA Dynamics</span><span data-ar>بالتعاون مع ماركو وهوا ديناميكس</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>4</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2675,6 +2706,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Electrical · Mechanical</span><span data-ar>كهرباء · ميكانيكا</span></span>
           <h3><span data-en>Boulevard Hall</span><span data-ar>بوليفارد هول</span></h3>
           <p><span data-en>with Awtad Alfahd Contracting</span><span data-ar>بالتعاون مع أوتاد الفهد للمقاولات</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2684,6 +2716,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
           <h3><span data-en>Ministry of Justice</span><span data-ar>فرع وزارة العدل</span></h3>
           <p><span data-en>Riyadh Branch · via Etimad</span><span data-ar>فرع الرياض · عبر منصة اعتماد</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2693,6 +2726,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Electrical</span><span data-ar>كهرباء</span></span>
           <h3><span data-en>Suleiman Al Habib Hospital</span><span data-ar>مستشفى سليمان الحبيب</span></h3>
           <p><span data-en>with MASAH Specialized Construction</span><span data-ar>بالتعاون مع مساح للمقاولات المتخصصة</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>1</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2702,6 +2736,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
           <h3><span data-en>Jubail University</span><span data-ar>جامعة الجبيل</span></h3>
           <p><span data-en>Student housing · with AZMEEL</span><span data-ar>سكن الطلاب · بالتعاون مع أزميل</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2711,6 +2746,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Architectural · Mechanical</span><span data-ar>معماري · ميكانيكا</span></span>
           <h3><span data-en>Blocks Co Offices</span><span data-ar>مكاتب شركة بلوكس</span></h3>
           <p><span data-en>with BLOCKS Group</span><span data-ar>بالتعاون مع مجموعة بلوكس</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2720,6 +2756,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
           <h3><span data-en>Roshn Villas — Sedra</span><span data-ar>فيلل روشن — سدرة</span></h3>
           <p><span data-en>with BCC as main contractor</span><span data-ar>بالتعاون مع الإنشاء والتعمير كمقاول رئيسي</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2729,6 +2766,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical</span><span data-ar>ميكانيكا</span></span>
           <h3><span data-en>Boulevard City</span><span data-ar>بوليفارد سيتي</span></h3>
           <p><span data-en>with BLOCKS Group</span><span data-ar>بالتعاون مع مجموعة بلوكس</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>2</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2738,6 +2776,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
           <h3><span data-en>Al Kharj Stadiums</span><span data-ar>ملاعب الخرج</span></h3>
           <p><span data-en>Padel &amp; tennis courts · with 2C Fitness</span><span data-ar>ملاعب بادل وتنس · بالتعاون مع 2C Fitness</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2747,6 +2786,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical · Electrical</span><span data-ar>ميكانيكا · كهرباء</span></span>
           <h3><span data-en>Periodic Inspection Station</span><span data-ar>محطة الفحص الدوري</span></h3>
           <p><span data-en>Al Qunfudhah · with Three Palms Group</span><span data-ar>القنفذة · بالتعاون مع مجموعة النخلات الثلاث</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>4</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2756,6 +2796,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
           <h3><span data-en>Cipriani Restaurant</span><span data-ar>مطعم تشيبرياني</span></h3>
           <p><span data-en>with Hodood Al-Kamal Contracting</span><span data-ar>بالتعاون مع حدود الكمال للمقاولات</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>2</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2765,6 +2806,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Mechanical · Electrical</span><span data-ar>ميكانيكا · كهرباء</span></span>
           <h3><span data-en>Al Hammadi Hospital</span><span data-ar>مستشفى الحمادي</span></h3>
           <p><span data-en>Al Olaya · with SAWAED</span><span data-ar>العليا · بالتعاون مع سواعد</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>1</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2774,6 +2816,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
           <h3><span data-en>Gulf Villas</span><span data-ar>فيلل الخليج</span></h3>
           <p><span data-en>Interior finishing works</span><span data-ar>أعمال التشطيبات الداخلية</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>3</span><span class="more"></span></span>
         </div>
       </article>
 
@@ -2783,9 +2826,16 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span class="project-tag"><span data-en>Architectural</span><span data-ar>معماري</span></span>
           <h3><span data-en>Al Rabwa Villas</span><span data-ar>فيلل الربوة</span></h3>
           <p><span data-en>with SAWAED</span><span data-ar>بالتعاون مع سواعد</span></p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>4</span><span class="more"></span></span>
         </div>
       </article>
 <!-- ARC:PROJECTS:END -->
+    </div>
+    <div class="projects-more">
+      <button type="button" class="btn btn-outline" id="projectsMore" hidden>
+        <span data-en>Show all projects</span><span data-ar>عرض كل المشاريع</span>
+        <span class="n"></span>
+      </button>
     </div>
   </div>
 </section>
@@ -4173,27 +4223,57 @@ window.ARCLeads = (function() {
 })();
 
 // ============== PROJECT FILTER ==============
+// Class-free and timer-free: each click recomputes which cards show, so
+// quick successive clicks can't leave a matching card hidden. "All"
+// shows the first six until the visitor asks for the rest.
 (function() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  filterBtns.forEach(function(btn) {
+  const grid = document.querySelector('.projects-grid');
+  if (!grid) return;
+  const cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+  const btns = document.querySelectorAll('.filter-btn');
+  const more = document.getElementById('projectsMore');
+  const LIMIT = 6;
+  let current = 'all';
+  let expanded = false;
+
+  function matches(card, f) {
+    return f === 'all' || (card.getAttribute('data-category') || '').split(/\s+/).indexOf(f) !== -1;
+  }
+  function apply() {
+    let shown = 0, total = 0;
+    cards.forEach(function(card) {
+      const ok = matches(card, current);
+      if (ok) total++;
+      const cut = ok && current === 'all' && !expanded && shown >= LIMIT;
+      if (ok && !cut) shown++;
+      card.hidden = !ok || cut;
+    });
+    if (more) {
+      more.hidden = !(current === 'all' && !expanded && total > LIMIT);
+      more.querySelector('.n').textContent = '(' + total + ')';
+    }
+  }
+  btns.forEach(function(btn) {
+    const f = btn.getAttribute('data-filter');
+    const n = document.createElement('span');
+    n.className = 'n';
+    n.textContent = cards.filter(function(c) { return matches(c, f); }).length;
+    btn.appendChild(n);
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
     btn.addEventListener('click', function() {
-      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-      projectCards.forEach(function(card) {
-        const category = card.getAttribute('data-category');
-        const cats = (category || '').split(/\s+/);
-        if (filter === 'all' || cats.indexOf(filter) !== -1) {
-          card.style.display = '';
-          requestAnimationFrame(function() { card.style.opacity = '1'; });
-        } else {
-          card.style.opacity = '0';
-          setTimeout(function() { card.style.display = 'none'; }, 300);
-        }
-      });
+      btn.setAttribute('aria-pressed', 'true');
+      current = f;
+      apply();
     });
   });
+  if (more) more.addEventListener('click', function() {
+    expanded = true;
+    apply();
+    if (cards[LIMIT]) cards[LIMIT].focus({ preventScroll: true });
+  });
+  apply();
 })();
 </script>
 

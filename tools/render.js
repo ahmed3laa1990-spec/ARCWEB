@@ -31,6 +31,7 @@
           <span class="project-tag">${bi(p.scope)}</span>
           <h3>${bi(p.cardTitle || p.title)}</h3>
           <p>${bi(p.cardSubtitle)}</p>
+          <span class="project-meta" aria-hidden="true"><span class="shots"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg>${p.images.length}</span><span class="more"></span></span>
         </div>
       </article>`).join('\n');
   }
