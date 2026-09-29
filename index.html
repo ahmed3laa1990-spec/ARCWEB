@@ -51,7 +51,7 @@
   "address": [
     {"@type":"PostalAddress","streetAddress":"2411 Abbad Ibn Hunaif St., Al-Malaz","addressLocality":"Riyadh","postalCode":"12831","addressCountry":"SA"}
   ],
-  "openingHours": "Sa-Th 09:00-17:00",
+  "openingHours": "Su-Th 09:00-17:00",
   "priceRange": "$$$",
   "sameAs": ["https://x.com/byarcsa","https://www.instagram.com/byarcsa/","https://www.linkedin.com/company/95948157"]
 }
@@ -2161,6 +2161,105 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 ::-webkit-scrollbar-track { background: var(--bg-soft); }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-dark)); border-radius: 5px; }
 ::selection { background: var(--gold); color: var(--navy); }
+/* ====== PHONES ====== */
+/* One block so the desktop layout is untouched: tighter rhythm, shorter
+   media, compact cards and a sticky call / WhatsApp / quote bar. */
+.m-actions { display: none; }
+@media (max-width: 760px) {
+  .section, .founder-section, .vision-section, .ba-section, .newsletter-section { padding: 64px 0; }
+  .timeline-section { padding: 60px 0 64px; }
+  .partners-section { padding: 48px 0; }
+  .stats-section { padding: 48px 0 !important; }
+  .section-header { margin-bottom: 36px; }
+  .section-title { font-size: clamp(28px, 8vw, 34px) !important; line-height: 1.25 !important; }
+  .section-subtitle { font-size: 15px; }
+  .eyebrow { font-size: 11px; padding: 6px 14px; }
+
+  /* hero */
+  .hero-grid { gap: 32px; }
+  .hero-visual { min-height: 260px; }
+  .hero-layers { margin-top: 4px; }
+
+  /* about + GM: landscape crops instead of tall portraits */
+  .about-visual { aspect-ratio: 4 / 3; }
+  .about-badge { left: 14px; right: 14px; bottom: 14px; padding: 14px 18px; }
+  .about-badge .big { font-size: 34px; }
+  .founder-photo { aspect-ratio: 1 / 1; max-width: 340px; margin: 0 auto; width: 100%; }
+  .founder-quote { font-size: 21px; }
+  .founder-letter { font-size: 15.5px; }
+
+  /* stats: one tight 2×2 */
+  .stats-grid { gap: 12px !important; }
+  .stat-card { padding: 22px 12px !important; }
+
+  /* projects: shorter cards */
+  .project-card { aspect-ratio: 16 / 11; }
+  .project-info { padding: 16px 18px; }
+  .project-info h3 { font-size: 19px; }
+  .project-meta { margin-top: 10px; padding-top: 10px; }
+  .ba-slider { margin-top: 28px; }
+
+  /* services + departments: less chrome */
+  .service-card { padding: 24px 20px 20px; }
+  .service-card .top { margin-bottom: 14px; }
+  .service-card .num { font-size: 40px; }
+  .service-card .icon { width: 46px; height: 46px; }
+  .service-card h3 { font-size: 22px; }
+  .service-card li { padding: 9px 0; font-size: 14px; }
+  .org-dept { padding: 18px 16px; }
+  .org-dept .top { margin-bottom: 10px; }
+  .org-dept .ico { width: 40px; height: 40px; }
+  .org-dept .num { font-size: 26px; }
+
+  /* credentials: compact two-up grid */
+  .cred-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+  .cred-card { padding: 16px 14px !important; }
+  .cred-card:first-child { grid-column: 1 / -1; }
+  .cred-card:last-child:nth-child(even) { grid-column: 1 / -1; }
+  .footer-col li { margin-bottom: 4px; }
+  .footer-col a { display: inline-block; padding: 6px 0; }
+  .cred-value { font-size: 17px !important; word-break: break-word; }
+  .cred-note { font-size: 12px !important; }
+
+  /* contact cards: a compact list */
+  .contact-grid { gap: 10px !important; margin-bottom: 28px !important; }
+  .branch-card { padding: 18px 18px 16px !important; display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; }
+  .branch-card > * { grid-column: 2; }
+  .branch-card .icon { grid-column: 1; grid-row: 1 / span 4; width: 44px !important; height: 44px !important; margin: 0 !important; }
+  .branch-card h3 { font-size: 17px; margin-bottom: 6px; }
+  .branch-card .direction { margin-top: 6px !important; }
+  .quote-panel { padding: 22px 16px !important; }
+  .qf-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .qf-row:first-child, .qf-row:nth-child(2) { grid-template-columns: 1fr; }
+  .qf-actions .btn { flex: 1 1 100%; justify-content: center; }
+  .qf-alt { margin: 0 auto; }
+
+  /* sticky action bar replaces the floating buttons */
+  .whatsapp-float, .back-to-top { display: none !important; }
+  .m-actions {
+    display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 8px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 96;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(3,56,86,0.08);
+  }
+  .m-actions a {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    height: 46px; border-radius: 12px; font-size: 14px; font-weight: 700;
+    color: var(--navy); background: var(--bg-soft); border: 1px solid var(--border);
+  }
+  .m-actions a.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .m-actions svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .m-actions svg.fill { fill: #1FA855; stroke: none; }
+  body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
+  .cookie-consent { bottom: calc(80px + env(safe-area-inset-bottom)) !important; left: 12px !important; right: 12px !important; }
+
+  /* footer: two columns for the link lists */
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px 20px !important; margin-bottom: 36px !important; }
+  .footer-brand, .footer-grid > .footer-col:last-child { grid-column: 1 / -1; }
+  .site-footer { padding: 52px 0 24px !important; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
 </style>
 </head>
 <body>
@@ -2374,7 +2473,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span data-en>Since establishing ARC in 2019, we set ourselves a clear goal: to be a model in the construction sector by delivering projects with high quality, unwavering commitment and a single team spirit.</span>
           <span data-ar>منذ تأسيس شركة أرك في عام 2019، وضعنا لأنفسنا هدفًا واضحًا: أن نكون نموذجًا يُحتذى به في عالم المقاولات، من خلال تنفيذ المشاريع بجودة عالية، والتزام راسخ، وروح فريق واحدة.</span>
         </p>
-        <div class="founder-name"><span data-en>General Manager · ARC Construction</span><span data-ar>المدير العام · شركة أرك للمقاولات</span></div>
+        <div class="founder-name"><span data-en>Ahmed Al-Baghdadi</span><span data-ar>أحمد البغدادي</span></div>
         <div class="name-title">
           <span data-en>General Manager · ARC Construction</span>
           <span data-ar>المدير العام · شركة أرك للمقاولات</span>
@@ -3034,7 +3133,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3><span data-en>Riyadh — Head Office</span><span data-ar>الرياض — المقر الرئيسي</span></h3>
         <p><span data-en>2411 Abbad Ibn Hunaif St., Al-Malaz, Riyadh 12831</span><span data-ar>شارع عباد بن حنيف، 2411 - الملز، الرياض 12831</span></p>
-        <p><span class="num-ltr">📞 +966 11 246 6126</span><br><span class="num-ltr">📱 +966 53 414 0415</span></p>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=2411%20Abbad%20Ibn%20Hunaif%20St%2C%20Al%20Malaz%2C%20Riyadh%2012831" target="_blank" rel="noopener" class="direction">
           <span data-en>Get Directions</span><span data-ar>الاتجاهات</span> →
         </a>
@@ -3051,7 +3149,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       <div class="branch-card reveal">
         <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <h3><span data-en>Working Hours</span><span data-ar>ساعات العمل</span></h3>
-        <p><span data-en>Saturday – Thursday</span><span data-ar>السبت – الخميس</span><br>9:00 — 17:00</p>
+        <p><span data-en>Sunday – Thursday</span><span data-ar>الأحد – الخميس</span><br>9:00 — 17:00</p>
         <p><span data-en>Projects run across the Kingdom — Riyadh, Jubail, Al Kharj and Al Qunfudhah.</span><span data-ar>مشاريعنا في أنحاء المملكة — الرياض والجبيل والخرج والقنفذة.</span></p>
       </div>
     </div>
@@ -3229,7 +3327,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg><span><a href="tel:+966112466126">+966 11 246 6126</a> <small><span data-en>office</span><span data-ar>هاتف</span></small></span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2h14v20H5zM11 18h2"/></svg><span><a href="tel:+966534140415">+966 53 414 0415</a> <small><span data-en>mobile · WhatsApp</span><span data-ar>جوال · واتساب</span></small></span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 6l8 7 8-7"/></svg><span><a href="mailto:info@byarcsa.com">info@byarcsa.com</a><br><a href="mailto:sales@byarcsa.com">sales@byarcsa.com</a></span></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 6v6l4 2"/></svg><span><span data-en>Sat – Thu · 9:00 – 17:00</span><span data-ar>السبت – الخميس · 9:00 – 17:00</span></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 6v6l4 2"/></svg><span><span data-en>Sun – Thu · 9:00 – 17:00</span><span data-ar>الأحد – الخميس · 9:00 – 17:00</span></span></li>
         </ul>
       </div>
     </div>
@@ -3308,6 +3406,12 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <img src="assets/logo.svg" alt="ARC" class="loader-logo">
   <div class="loader-bar"></div>
 </div>
+
+<nav class="m-actions" aria-label="Quick contact">
+  <a href="tel:+966112466126"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg><span data-en>Call</span><span data-ar>اتصال</span></a>
+  <a href="https://wa.me/966534140415" target="_blank" rel="noopener"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2z"/></svg><span data-en>WhatsApp</span><span data-ar>واتساب</span></a>
+  <a href="#quotePanel" class="primary"><span data-en>Request a quote</span><span data-ar>اطلب عرض سعر</span></a>
+</nav>
 
 <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>

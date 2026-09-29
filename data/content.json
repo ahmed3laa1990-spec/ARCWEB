@@ -797,8 +797,8 @@
     },
     "founder.5": {
       "section": "founder",
-      "en": "General Manager · ARC Construction",
-      "ar": "المدير العام · شركة أرك للمقاولات"
+      "en": "Ahmed Al-Baghdadi",
+      "ar": "أحمد البغدادي"
     },
     "founder.6": {
       "section": "founder",
@@ -1817,8 +1817,8 @@
     },
     "contact.9": {
       "section": "contact",
-      "en": "Saturday – Thursday",
-      "ar": "السبت – الخميس"
+      "en": "Sunday – Thursday",
+      "ar": "الأحد – الخميس"
     },
     "contact.10": {
       "section": "contact",
@@ -2037,8 +2037,8 @@
     },
     "footer.20": {
       "section": "footer",
-      "en": "Sat – Thu · 9:00 – 17:00",
-      "ar": "السبت – الخميس · 9:00 – 17:00"
+      "en": "Sun – Thu · 9:00 – 17:00",
+      "ar": "الأحد – الخميس · 9:00 – 17:00"
     },
     "footer.21": {
       "section": "footer",
@@ -2081,6 +2081,21 @@
       "ar": "موافق"
     },
     "footer.29": {
+      "section": "footer",
+      "en": "Call",
+      "ar": "اتصال"
+    },
+    "footer.30": {
+      "section": "footer",
+      "en": "WhatsApp",
+      "ar": "واتساب"
+    },
+    "footer.31": {
+      "section": "footer",
+      "en": "Request a quote",
+      "ar": "اطلب عرض سعر"
+    },
+    "footer.32": {
       "section": "footer",
       "en": "' + en + '",
       "ar": "' + ar + '"
