@@ -992,52 +992,96 @@ html[data-lang="ar"] .service-card .proof a svg { transform: scaleX(-1); }
 html[data-lang="ar"] .partners-track { animation-direction: reverse; }
 
 /* ====== TEAM ====== */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+/* ====== ORGANISATION (team section) ====== */
+/* Management at the top, a gold line branching to five departments. */
+.org { margin-top: 8px; }
+.org-head {
+  position: relative;
+  width: fit-content; max-width: 100%;
+  margin: 0 auto 64px;
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 26px 16px 18px;
+  background: var(--navy); color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(3,56,86,0.2);
 }
-@media (max-width: 968px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px) { .team-grid { grid-template-columns: 1fr; } }
-.team-grid.depts { grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
-.team-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: all 0.4s var(--easing);
-  box-shadow: var(--shadow-sm);
+html[data-lang="ar"] .org-head { padding: 16px 18px 16px 26px; }
+.org-head::after {
+  /* trunk down to the branch line */
+  content: ''; position: absolute; top: 100%; left: 50%; width: 3px; height: 34px;
+  background: var(--gold); transform: translateX(-50%);
 }
-.team-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(246,184,15,0.4);
-  box-shadow: var(--shadow-lg);
-}
-.team-photo {
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, var(--bg-section), var(--bg-soft));
-  position: relative; overflow: hidden;
-}
-.team-photo svg {
-  width: 60%; height: 60%;
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  fill: var(--border);
-}
-.team-info { padding: 24px; }
-.team-info h4 { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--navy); }
-.team-info .role { color: var(--gold-dark); font-size: 13px; font-weight: 600; margin-bottom: 14px; display: block; }
-.team-social { display: flex; gap: 10px; }
-.team-social a {
-  width: 34px; height: 34px;
+.org-head .ico {
+  width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  transition: all 0.3s;
+  background: rgba(246,184,15,0.16); border: 1px solid rgba(246,184,15,0.4);
 }
-.team-social a:hover { background: var(--navy); border-color: var(--navy); }
-.team-social a:hover svg { stroke: #fff; }
-.team-social svg { width: 14px; height: 14px; stroke: var(--text-muted); fill: none; stroke-width: 2; }
+.org-head .ico svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 2; }
+.org-head strong { display: block; font-size: 17px; font-weight: 700; }
+.org-head small { display: block; font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+.org-depts {
+  position: relative;
+  list-style: none; margin: 0; padding: 30px 0 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px;
+}
+.org-depts::before {
+  /* branch line from the first column's centre to the last */
+  content: ''; position: absolute; top: 0; height: 3px; background: var(--gold);
+  inset-inline: calc((100% - 80px) / 10);
+}
+.org-dept {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 26px 22px 24px;
+  background: #fff; border: 1px solid var(--border); border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--easing), box-shadow 0.4s var(--easing), border-color 0.4s;
+}
+.org-dept::before {
+  /* drop from the branch line */
+  content: ''; position: absolute; bottom: 100%; left: 50%; width: 3px; height: 31px;
+  background: var(--gold); transform: translateX(-50%);
+}
+.org-dept::after {
+  content: ''; position: absolute; top: -8px; left: 50%; width: 13px; height: 13px; box-sizing: border-box;
+  border-radius: 50%; background: var(--navy); border: 3px solid var(--gold); transform: translateX(-50%);
+}
+.org-dept:hover { transform: translateY(-5px); border-color: rgba(246,184,15,0.5); box-shadow: var(--shadow-lg); }
+.org-dept .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.org-dept .ico {
+  width: 48px; height: 48px; border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(246,184,15,0.1); border: 1px solid rgba(246,184,15,0.25);
+  transition: background 0.3s;
+}
+.org-dept .ico svg { width: 24px; height: 24px; fill: var(--gold-dark); }
+.org-dept:hover .ico { background: var(--gold); }
+.org-dept:hover .ico svg { fill: var(--navy); }
+.org-dept .num { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; line-height: 1; color: #E3E8EE; }
+.org-dept h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.35; }
+.org-dept .tag {
+  align-self: flex-start;
+  font-size: 12px; font-weight: 700; color: #8A6400; letter-spacing: 0.02em;
+  padding: 4px 11px; border-radius: 30px;
+  background: rgba(246,184,15,0.13); border: 1px solid rgba(246,184,15,0.35);
+  margin-bottom: 14px;
+}
+.org-dept p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+
+@media (max-width: 1100px) {
+  /* a vertical tree below desktop width */
+  .org { max-width: 760px; margin-inline: auto; }
+  .org-head { margin: 0 0 28px; width: auto; }
+  .org-head::after { left: auto; inset-inline-start: 15px; transform: none; height: 28px; }
+  .org-depts { grid-template-columns: 1fr; row-gap: 16px; padding: 0; padding-inline-start: 40px; }
+  .org-depts::before { top: -28px; bottom: 40px; height: auto; width: 3px; inset-inline: 15px auto; }
+  .org-dept::before { bottom: auto; top: 38px; left: auto; inset-inline-start: -25px; width: 25px; height: 3px; transform: none; }
+  .org-dept::after { top: 33px; left: auto; inset-inline-start: -31px; transform: none; }
+}
+@media (max-width: 600px) {
+  .org-dept { padding: 22px 18px 20px; }
+}
 
 /* ====== CREDENTIALS ====== */
 .cred-grid {
@@ -2870,66 +2914,46 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       </p>
     </div>
 
-    <div class="team-grid depts">
-      <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zm0 6h8v12H3zm10 0h8v5h-8zm0 7h8v5h-8z"/></svg></div>
-        <div class="team-info">
-          <h4><span data-en>Project Management Office</span><span data-ar>إدارة المشاريع</span></h4>
-          <span class="role"><span data-en>PMO</span><span data-ar>PMO</span></span>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            <span data-en>Technical department and engineering site management — planning, supervision and execution control.</span>
-            <span data-ar>الإدارة الفنية وإدارة المواقع الهندسية — التخطيط والإشراف وضبط التنفيذ.</span>
-          </p>
+    <div class="org">
+      <div class="org-head reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg></span>
+        <div>
+          <strong><span data-en>General Manager &amp; Executive Director</span><span data-ar>المدير العام والمدير التنفيذي</span></strong>
+          <small><span data-en>Oversee all five departments</span><span data-ar>الإشراف على الإدارات الخمس</span></small>
         </div>
       </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M4 20h3V10H4zm6.5 0h3V4h-3zM17 20h3v-7h-3z"/></svg></div>
-        <div class="team-info">
-          <h4><span data-en>Finance Department</span><span data-ar>الإدارة المالية</span></h4>
-          <span class="role"><span data-en>FD</span><span data-ar>FD</span></span>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            <span data-en>Chief accountant, budgeting and financial planning across every project.</span>
-            <span data-ar>المحاسب الرئيسي والموازنات والتخطيط المالي لكل مشروع.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7zm0 2.3L5 8v8l7 3.9 7-3.9V8z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
-        <div class="team-info">
-          <h4><span data-en>Planning &amp; Development</span><span data-ar>التخطيط والتطوير</span></h4>
-          <span class="role"><span data-en>Quality &amp; Follow-up</span><span data-ar>الجودة والمتابعة</span></span>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            <span data-en>Quality and follow-up management plus development management.</span>
-            <span data-ar>إدارة الجودة والمتابعة وإدارة التطوير.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M3 6h13v9H3zm14 3h3l2 3v3h-5zM6.5 20a2 2 0 100-4 2 2 0 000 4zm12 0a2 2 0 100-4 2 2 0 000 4z"/></svg></div>
-        <div class="team-info">
-          <h4><span data-en>Procurement &amp; Contracts</span><span data-ar>المشتريات والعقود</span></h4>
-          <span class="role"><span data-en>Supply Chain</span><span data-ar>سلسلة الإمداد</span></span>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            <span data-en>Contract management, warehouse and equipment management.</span>
-            <span data-ar>إدارة العقود وإدارة المستودعات والمعدات.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-7 2-7 4.5V21h14v-3.5C16 15 13 13 9 13zm8.5-2a3 3 0 100-6 3 3 0 000 6zm0 2c-.9 0-1.7.1-2.4.4 1.5 1.1 2.4 2.5 2.4 4.1V21H23v-3c0-2.2-2.5-4-5.5-4z"/></svg></div>
-        <div class="team-info">
-          <h4><span data-en>Human Resources</span><span data-ar>الموارد البشرية</span></h4>
-          <span class="role"><span data-en>People &amp; IT</span><span data-ar>الأفراد وتقنية المعلومات</span></span>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            <span data-en>Employee affairs, support services and IT systems.</span>
-            <span data-ar>شؤون الموظفين والخدمات المساندة وأنظمة تقنية المعلومات.</span>
-          </p>
-        </div>
-      </div>
+      <ol class="org-depts">
+      <li class="org-dept reveal">
+        <div class="top"><span class="ico" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 3h18v4H3zm0 6h8v12H3zm10 0h8v5h-8zm0 7h8v5h-8z"/></svg></span><span class="num">01</span></div>
+        <h4><span data-en>Project Management Office</span><span data-ar>إدارة المشاريع</span></h4>
+        <span class="tag"><span data-en>PMO</span><span data-ar>PMO</span></span>
+        <p><span data-en>Technical department and engineering site management — planning, supervision and execution control.</span> <span data-ar>الإدارة الفنية وإدارة المواقع الهندسية — التخطيط والإشراف وضبط التنفيذ.</span></p>
+      </li>
+      <li class="org-dept reveal">
+        <div class="top"><span class="ico" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20h3V10H4zm6.5 0h3V4h-3zM17 20h3v-7h-3z"/></svg></span><span class="num">02</span></div>
+        <h4><span data-en>Finance Department</span><span data-ar>الإدارة المالية</span></h4>
+        <span class="tag"><span data-en>FD</span><span data-ar>FD</span></span>
+        <p><span data-en>Chief accountant, budgeting and financial planning across every project.</span> <span data-ar>المحاسب الرئيسي والموازنات والتخطيط المالي لكل مشروع.</span></p>
+      </li>
+      <li class="org-dept reveal">
+        <div class="top"><span class="ico" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7zm0 2.3L5 8v8l7 3.9 7-3.9V8z"/><circle cx="12" cy="12" r="2.6"/></svg></span><span class="num">03</span></div>
+        <h4><span data-en>Planning &amp; Development</span><span data-ar>التخطيط والتطوير</span></h4>
+        <span class="tag"><span data-en>Quality &amp; Follow-up</span><span data-ar>الجودة والمتابعة</span></span>
+        <p><span data-en>Quality and follow-up management plus development management.</span> <span data-ar>إدارة الجودة والمتابعة وإدارة التطوير.</span></p>
+      </li>
+      <li class="org-dept reveal">
+        <div class="top"><span class="ico" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h13v9H3zm14 3h3l2 3v3h-5zM6.5 20a2 2 0 100-4 2 2 0 000 4zm12 0a2 2 0 100-4 2 2 0 000 4z"/></svg></span><span class="num">04</span></div>
+        <h4><span data-en>Procurement &amp; Contracts</span><span data-ar>المشتريات والعقود</span></h4>
+        <span class="tag"><span data-en>Supply Chain</span><span data-ar>سلسلة الإمداد</span></span>
+        <p><span data-en>Contract management, warehouse and equipment management.</span> <span data-ar>إدارة العقود وإدارة المستودعات والمعدات.</span></p>
+      </li>
+      <li class="org-dept reveal">
+        <div class="top"><span class="ico" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-7 2-7 4.5V21h14v-3.5C16 15 13 13 9 13zm8.5-2a3 3 0 100-6 3 3 0 000 6zm0 2c-.9 0-1.7.1-2.4.4 1.5 1.1 2.4 2.5 2.4 4.1V21H23v-3c0-2.2-2.5-4-5.5-4z"/></svg></span><span class="num">05</span></div>
+        <h4><span data-en>Human Resources</span><span data-ar>الموارد البشرية</span></h4>
+        <span class="tag"><span data-en>People &amp; IT</span><span data-ar>الأفراد وتقنية المعلومات</span></span>
+        <p><span data-en>Employee affairs, support services and IT systems.</span> <span data-ar>شؤون الموظفين والخدمات المساندة وأنظمة تقنية المعلومات.</span></p>
+      </li>
+      </ol>
     </div>
   </div>
 </section>

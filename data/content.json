@@ -1397,75 +1397,85 @@
     },
     "team.4": {
       "section": "team",
+      "en": "General Manager &amp; Executive Director",
+      "ar": "المدير العام والمدير التنفيذي"
+    },
+    "team.5": {
+      "section": "team",
+      "en": "Oversee all five departments",
+      "ar": "الإشراف على الإدارات الخمس"
+    },
+    "team.6": {
+      "section": "team",
       "en": "Project Management Office",
       "ar": "إدارة المشاريع"
     },
-    "team.5": {
+    "team.7": {
       "section": "team",
       "en": "PMO",
       "ar": "PMO"
     },
-    "team.6": {
+    "team.8": {
       "section": "team",
       "en": "Technical department and engineering site management — planning, supervision and execution control.",
       "ar": "الإدارة الفنية وإدارة المواقع الهندسية — التخطيط والإشراف وضبط التنفيذ."
     },
-    "team.7": {
+    "team.9": {
       "section": "team",
       "en": "Finance Department",
       "ar": "الإدارة المالية"
     },
-    "team.8": {
+    "team.10": {
       "section": "team",
       "en": "FD",
       "ar": "FD"
     },
-    "team.9": {
+    "team.11": {
       "section": "team",
       "en": "Chief accountant, budgeting and financial planning across every project.",
       "ar": "المحاسب الرئيسي والموازنات والتخطيط المالي لكل مشروع."
     },
-    "team.10": {
+    "team.12": {
       "section": "team",
       "en": "Planning &amp; Development",
       "ar": "التخطيط والتطوير"
     },
-    "team.11": {
+    "team.13": {
       "section": "team",
       "en": "Quality &amp; Follow-up",
       "ar": "الجودة والمتابعة"
     },
-    "team.12": {
+    "team.14": {
       "section": "team",
       "en": "Quality and follow-up management plus development management.",
       "ar": "إدارة الجودة والمتابعة وإدارة التطوير."
     },
-    "team.13": {
+    "team.15": {
       "section": "team",
       "en": "Procurement &amp; Contracts",
       "ar": "المشتريات والعقود"
     },
-    "team.14": {
+    "team.16": {
       "section": "team",
       "en": "Supply Chain",
       "ar": "سلسلة الإمداد"
     },
-    "team.15": {
+    "team.17": {
       "section": "team",
       "en": "Contract management, warehouse and equipment management.",
       "ar": "إدارة العقود وإدارة المستودعات والمعدات."
     },
-    "team.16": {
+    "team.18": {
       "section": "team",
       "en": "Human Resources",
       "ar": "الموارد البشرية"
     },
-    "team.17": {
+    "team.19": {
       "section": "team",
       "en": "People &amp; IT",
       "ar": "الأفراد وتقنية المعلومات"
     },
-    "team.18": {
+    "team.20": {
       "section": "team",
       "en": "Employee affairs, support services and IT systems.",
       "ar": "شؤون الموظفين والخدمات المساندة وأنظمة تقنية المعلومات."
