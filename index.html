@@ -269,72 +269,43 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
   display: flex; align-items: center;
   padding: 140px 0 80px;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 75% 30%, rgba(244,180,0,0.10) 0%, transparent 50%),
-    radial-gradient(ellipse at 15% 80%, rgba(14,42,71,0.05) 0%, transparent 50%),
-    linear-gradient(135deg, #FFFFFF 0%, #F7F9FC 100%);
+  background: var(--navy-dark);
+  color: #fff;
 }
-/* Animated Hero Slideshow with Ken Burns zoom */
-.hero-slideshow {
+/* Background film: muted loop under a navy grade so the text always reads */
+.hero-media {
   position: absolute; inset: 0; z-index: 0;
   overflow: hidden;
+  background: var(--navy-dark) url('assets/hero-poster.jpg') center / cover no-repeat;
 }
-.hero-slide {
-  position: absolute; inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: heroFade 21s ease-in-out infinite, heroZoom 21s ease-in-out infinite;
+.hero-media video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.hero-slide:nth-child(1) { background-image: url('assets/hero-skyline.jpg'); animation-delay: 0s; }
-.hero-slide:nth-child(2) { animation-delay: -7s; }
-.hero-slide:nth-child(3) { animation-delay: -14s; }
-@keyframes heroFade {
-  0%, 28%, 100% { opacity: 0; }
-  5%, 23% { opacity: 0.30; }
-}
-@keyframes heroZoom {
-  0%, 100% { transform: scale(1.0); }
-  33% { transform: scale(1.12); }
-}
-.hero-slideshow::after {
+.hero-media::after {
   content: '';
   position: absolute; inset: 0;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.65) 0%, rgba(247,249,252,0.85) 50%, rgba(255,255,255,0.55) 100%);
+    linear-gradient(90deg, rgba(8,27,48,0.92) 0%, rgba(8,27,48,0.72) 45%, rgba(8,27,48,0.35) 100%),
+    linear-gradient(0deg, rgba(8,27,48,0.85) 0%, transparent 35%);
   pointer-events: none;
 }
-.shape {
-  position: absolute; pointer-events: none; z-index: 0;
+html[data-lang="ar"] .hero-media::after {
+  background:
+    linear-gradient(270deg, rgba(8,27,48,0.92) 0%, rgba(8,27,48,0.72) 45%, rgba(8,27,48,0.35) 100%),
+    linear-gradient(0deg, rgba(8,27,48,0.85) 0%, transparent 35%);
 }
-.shape-1 {
-  top: 15%; right: 8%;
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, rgba(244,180,0,0.30) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(80px);
-  animation: float1 12s ease-in-out infinite;
+@media (max-width: 768px) {
+  .hero-media::after, html[data-lang="ar"] .hero-media::after { background: rgba(8,27,48,0.78); }
 }
-.shape-2 {
-  bottom: 10%; left: -5%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(14,42,71,0.08) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(90px);
-  animation: float2 15s ease-in-out infinite;
-}
-.shape-3 {
-  top: 30%; left: 50%;
-  width: 200px; height: 200px;
-  border: 2px solid rgba(244,180,0,0.20);
-  border-radius: 32% 68% 70% 30% / 30% 30% 70% 70%;
-  animation: morph 20s ease-in-out infinite, spin 30s linear infinite;
-  opacity: 0.6;
-}
-@keyframes float1 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px, 30px) scale(1.1); } }
-@keyframes float2 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px, -30px) scale(0.9); } }
-@keyframes morph { 0%, 100% { border-radius: 32% 68% 70% 30% / 30% 30% 70% 70%; } 50% { border-radius: 70% 30% 32% 68% / 70% 70% 30% 30%; } }
-@keyframes spin { to { transform: rotate(360deg); } }
+.hero .eyebrow { background: rgba(244,180,0,0.14); border-color: rgba(244,180,0,0.45); color: var(--gold-light); }
+.hero .btn-outline { color: #fff; border-color: rgba(255,255,255,0.45); }
+.hero .btn-outline:hover { background: #fff; border-color: #fff; color: var(--navy); }
+.hero .live-pill { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: #fff; box-shadow: none; }
+.hero .live-pill .divider { background: rgba(255,255,255,0.25); }
+.hero .live-pill .time { color: var(--gold-light); }
+.hero .live-pill .status { color: rgba(255,255,255,0.8); }
 
 .hero-content { position: relative; z-index: 2; max-width: 900px; }
 .hero-title {
@@ -343,7 +314,7 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
   letter-spacing: -0.04em;
   line-height: 0.98;
   margin: 24px 0;
-  color: var(--navy);
+  color: #fff;
 }
 .hero-title .accent {
   display: block;
@@ -356,7 +327,7 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
 }
 .hero-subtitle {
   font-size: clamp(16px, 1.4vw, 19px);
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.82);
   max-width: 620px;
   margin-bottom: 40px;
 }
@@ -367,7 +338,7 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
   gap: 32px;
   max-width: 850px;
   padding-top: 40px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.18);
 }
 .hero-stat .num {
   font-family: 'Space Grotesk', sans-serif;
@@ -386,7 +357,7 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
 }
 .hero-stat .label {
   font-size: 12px;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.65);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 600;
@@ -400,7 +371,7 @@ html[data-lang="ar"] .btn:hover .btn-icon { transform: translateX(-4px); }
   bottom: 30px; left: 50%;
   transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.6);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -1590,8 +1561,8 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
   border-radius: 24px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 45% at 50% 30%, rgba(255,255,255,0.14), transparent 70%),
-    linear-gradient(180deg, #1B3A5C 0%, var(--navy) 55%, var(--navy-dark) 100%);
+    radial-gradient(ellipse 65% 50% at 50% 32%, #E4E6E9 0%, transparent 72%),
+    linear-gradient(180deg, #C9CCD1 0%, #9EA3AA 60%, #7D838B 100%);
   box-shadow: var(--shadow-lg);
 }
 .founder-photo img {
@@ -1599,7 +1570,7 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center bottom;
-  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,0.28));
 }
 .founder-photo::after {
   content: 'CEO';
@@ -2226,14 +2197,11 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 <!-- ====== HERO ====== -->
 <main id="main">
 <section class="hero" id="home">
-  <div class="hero-slideshow">
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
+  <div class="hero-media" aria-hidden="true">
+    <video id="heroVideo" muted loop playsinline preload="none" poster="assets/hero-poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
   </div>
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
-  <div class="shape shape-3"></div>
 
   <div class="container">
     <div class="hero-content reveal">
@@ -3919,21 +3887,22 @@ window.ARCLeads = (function() {
   });
 })();
 
-// ============== HERO PARALLAX ==============
+// ============== HERO VIDEO ==============
+// Starts after the page has loaded so the 3 MB film never delays first paint.
+// Skipped for reduced motion and data-saver; the poster frame stays instead.
 (function() {
-  const heroSlides = document.querySelectorAll('.hero-slide');
-  const shapes = document.querySelectorAll('.hero .shape');
-  if (!heroSlides.length) return;
-  window.addEventListener('scroll', function() {
-    const scrolled = window.scrollY;
-    const parallaxRate = scrolled * 0.4;
-    heroSlides.forEach(function(slide) {
-      slide.style.transform = 'translateY(' + parallaxRate * 0.3 + 'px) scale(' + (1 + scrolled * 0.0005) + ')';
-    });
-    shapes.forEach(function(shape, i) {
-      shape.style.transform = 'translateY(' + (parallaxRate * (0.2 + i * 0.1)) + 'px)';
-    });
-  }, { passive: true });
+  const v = document.getElementById('heroVideo');
+  if (!v) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (reduce || saveData) return;
+  function start() {
+    v.preload = 'auto';
+    const p = v.play();
+    if (p && p.catch) p.catch(function() {});
+  }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
 })();
 
 // ============== COOKIE CONSENT ==============
@@ -4131,16 +4100,5 @@ window.ARCLeads = (function() {
 })();
 </script>
 
-<script>
-  // the second and third hero frames are only needed seconds in — keep them off the critical path
-  window.addEventListener('load', function() {
-    setTimeout(paintSlides, 400);
-    function paintSlides() {
-      var slides = document.querySelectorAll('.hero-slide');
-      if (slides[1]) slides[1].style.backgroundImage = "url('assets/hero-modern.jpg')";
-      if (slides[2]) slides[2].style.backgroundImage = "url('assets/hero-construction.jpg')";
-    }
-  });
-</script>
 </body>
 </html>

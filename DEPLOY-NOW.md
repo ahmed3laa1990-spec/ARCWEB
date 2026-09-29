@@ -83,7 +83,7 @@ arc-website/
 ├── .gitignore
 ├── assets/
 │   ├── logo.png
-│   ├── hero-skyline.jpg
+│   ├── hero.mp4
 │   ├── partners/
 │   ├── projects/
 │   └── services/
