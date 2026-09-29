@@ -417,9 +417,10 @@ html[dir="ltr"] .hero-layers::before, html:not([data-lang="ar"]) .hero-layers::b
   background: #fff; box-shadow: 0 24px 50px rgba(3,56,86,0.18);
 }
 .hero-proof img { width: 68px; height: 68px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
-.hero-proof .big { direction: ltr; unicode-bidi: isolate; text-align: start; font-family: 'Inter', sans-serif; font-size: 30px; line-height: 1; font-weight: 700; color: var(--navy); }
+.hero-proof .big { direction: ltr; unicode-bidi: isolate; text-align: left; font-family: 'Inter', sans-serif; font-size: 30px; line-height: 1; font-weight: 700; color: var(--navy); }
 .hero-proof .t { font-size: 15px; font-weight: 700; color: var(--navy); margin-top: 4px; }
 .hero-proof .s { font-size: 12.5px; color: #5B7186; margin-top: 2px; }
+html[data-lang="ar"] .hero-proof .big { text-align: right; }
 
 @media (max-width: 1024px) {
   .hero { padding: 130px 0 56px; min-height: auto; }
@@ -2233,8 +2234,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-ar>أرك.. نبني<br><span class="mark-line"><span class="hl">المستقبل</span><svg class="future-mark" viewBox="0 0 100 100" aria-hidden="true"><polygon class="fm-b" points="22,100 100,100 100,22"></polygon><polygon class="fm-a" points="0,100 78,100 78,22"></polygon></svg></span></span>
       </h1>
       <p class="hero-subtitle">
-        <span data-en>Structural, architectural and electromechanical works across the Kingdom, delivered alongside its leading main contractors.</span>
-        <span data-ar>أعمال إنشائية ومعمارية وإلكتروميكانيكية ننفّذها في مشاريع المملكة، بالتعاون مع كبرى شركات المقاولات.</span>
+        <span data-en>Structural, architectural and electromechanical works across the Kingdom, delivered with precision, quality and on time.</span>
+        <span data-ar>أعمال إنشائية ومعمارية وإلكتروميكانيكية ننفّذها في مشاريع المملكة بدقة وجودة والتزام بالمواعيد.</span>
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-navy">
@@ -2267,7 +2268,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <div>
           <div class="big">+15</div>
           <div class="t"><span data-en>Projects delivered</span><span data-ar>مشروعاً منجزاً</span></div>
-          <div class="s"><span data-en>with Azmeel · Marco · Blocks · Sawaed</span><span data-ar>مع أزميل · ماركو · بلوكس · سواعد</span></div>
+          <div class="s"><span data-en>across the Kingdom</span><span data-ar>في أنحاء المملكة</span></div>
         </div>
       </a>
     </div>
