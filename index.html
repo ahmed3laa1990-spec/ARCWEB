@@ -1663,8 +1663,9 @@ html[data-lang="ar"] .founder-quote { padding-left: 0; padding-right: 30px; }
 html[data-lang="ar"] .founder-quote::before { left: auto; right: -10px; }
 
 /* ====== TIMELINE ====== */
+/* One gold line, five stops, read in the page's direction. */
 .timeline-section {
-  padding: 120px 0;
+  padding: 96px 0 104px;
   background: var(--navy-dark);
   color: #fff;
   position: relative;
@@ -1673,66 +1674,50 @@ html[data-lang="ar"] .founder-quote::before { left: auto; right: -10px; }
 .timeline-section .section-title { color: #fff; }
 .timeline-section .section-subtitle { color: rgba(255,255,255,0.7); }
 .timeline {
-  max-width: 1000px;
-  margin: 60px auto 0;
+  margin: 56px 0 0;
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
+  list-style: none;
+  padding: 0;
 }
 .timeline::before {
+  /* the line runs through the stops */
   content: '';
   position: absolute;
-  left: 50%; top: 0; bottom: 0;
-  width: 2px;
-  background: rgba(246,184,15,0.3);
-  transform: translateX(-50%);
+  top: 55px; inset-inline: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(246,184,15,0.25), var(--gold) 50%, rgba(246,184,15,0.25));
 }
-.timeline-item {
-  position: relative;
-  margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: 1fr 80px 1fr;
-  gap: 30px;
-  align-items: center;
-}
+.timeline-item { position: relative; display: flex; flex-direction: column; }
 .timeline-item .year {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
   color: var(--gold);
-  text-align: center;
-  background: var(--navy-dark);
-  padding: 8px 0;
-  position: relative;
-  z-index: 2;
+  height: 40px;
 }
-.timeline-item .year::before {
-  content: '';
-  position: absolute;
-  left: 50%; top: 50%;
-  width: 16px; height: 16px;
-  background: var(--gold);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 4px var(--navy-dark), 0 0 20px var(--gold);
+.timeline-item .dot {
+  width: 16px; height: 16px; margin: 8px 0 26px;
+  border-radius: 50%; box-sizing: border-box;
+  background: var(--navy-dark); border: 3px solid var(--gold);
+  position: relative; z-index: 1;
 }
-.timeline-content {
-  padding: 24px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(246,184,15,0.2);
-  border-radius: 16px;
-  transition: all 0.3s;
-}
-.timeline-content:hover { border-color: var(--gold); transform: translateY(-3px); }
-.timeline-content h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--gold-light); }
-.timeline-content p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
-.timeline-item:nth-child(odd) .timeline-content:first-child { display: none; }
-.timeline-item:nth-child(odd) > div:last-child { grid-column: 3; }
-.timeline-item:nth-child(even) > div:last-child { display: none; }
-.timeline-item:nth-child(even) > div:first-child { grid-column: 1; text-align: right; }
-@media (max-width: 768px) {
-  .timeline::before { left: 28px; }
-  .timeline-item { grid-template-columns: 60px 1fr; gap: 16px; }
-  .timeline-item .year { grid-column: 1; text-align: left; font-size: 18px; }
-  .timeline-item > div:not(.year) { grid-column: 2; display: block !important; text-align: left !important; }
+.timeline-item:last-child .dot { background: var(--gold); box-shadow: 0 0 0 6px rgba(246,184,15,0.18); }
+.timeline-content h4 { font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; color: #fff; }
+.timeline-content p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.65; }
+.timeline-content .reg { color: var(--gold-light); font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.02em; }
+@media (max-width: 900px) {
+  /* vertical on narrow screens, line on the reading side */
+  .timeline { grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
+  .timeline::before { top: 8px; bottom: 8px; inset-inline: 7px auto; width: 2px; height: auto;
+    background: linear-gradient(180deg, rgba(246,184,15,0.35), var(--gold)); }
+  .timeline-item { display: grid; grid-template-columns: 16px 1fr; column-gap: 20px; padding-bottom: 30px; }
+  .timeline-item .dot { grid-column: 1; grid-row: 1 / span 2; margin: 4px 0 0; }
+  .timeline-item .year { grid-column: 2; font-size: 22px; height: auto; margin-bottom: 8px; }
+  .timeline-content { grid-column: 2; }
 }
 
 /* ====== NEWSLETTER ====== */
@@ -2725,48 +2710,48 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       </h2>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item reveal">
+    <ol class="timeline">
+      <li class="timeline-item reveal">
+        <div class="year">2019</div>
+        <span class="dot" aria-hidden="true"></span>
         <div class="timeline-content">
-          <h4><span data-en>ARC Founded</span><span data-ar>تأسيس ARC</span></h4>
+          <h4><span data-en>ARC Founded</span><span data-ar>تأسيس أرك</span></h4>
           <p><span data-en>Started as a specialized contracting firm in Riyadh with a vision to redefine quality.</span><span data-ar>بدأنا كشركة مقاولات متخصصة في الرياض برؤية لإعادة تعريف الجودة.</span></p>
         </div>
-        <div class="year">2019</div>
-        <div></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div></div>
+      </li>
+      <li class="timeline-item reveal">
         <div class="year">2020</div>
+        <span class="dot" aria-hidden="true"></span>
         <div class="timeline-content">
           <h4><span data-en>Specialist Contracting Work</span><span data-ar>أعمال المقاولات المتخصصة</span></h4>
           <p><span data-en>Delivering mechanical and electrical scopes as a specialist subcontractor to established main contractors.</span><span data-ar>تنفيذ الأعمال الميكانيكية والكهربائية كمقاول متخصص لدى شركات مقاولات رئيسية.</span></p>
         </div>
-      </div>
-      <div class="timeline-item reveal">
+      </li>
+      <li class="timeline-item reveal">
+        <div class="year">2021</div>
+        <span class="dot" aria-hidden="true"></span>
         <div class="timeline-content">
           <h4><span data-en>Expanding Nationwide</span><span data-ar>التوسّع على مستوى الوطن</span></h4>
           <p><span data-en>Work extended beyond Riyadh — Jubail University, Al Kharj and Al Qunfudhah.</span><span data-ar>امتداد الأعمال خارج الرياض — جامعة الجبيل والخرج والقنفذة.</span></p>
         </div>
-        <div class="year">2021</div>
-        <div></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div></div>
+      </li>
+      <li class="timeline-item reveal">
         <div class="year">2023</div>
+        <span class="dot" aria-hidden="true"></span>
         <div class="timeline-content">
           <h4><span data-en>Ark Hom for General Contracting</span><span data-ar>شركة أرك هوم للمقاولات العامة</span></h4>
-          <p><span data-en>Commercial registration 1010874676 issued; Riyadh Chamber membership registered.</span><span data-ar>إصدار السجل التجاري رقم 1010874676 وتسجيل العضوية في غرفة الرياض.</span></p>
+          <p><span data-en>Commercial registration <span class="reg">1010874676</span> issued; Riyadh Chamber membership registered.</span><span data-ar>إصدار السجل التجاري رقم <span class="reg">1010874676</span> وتسجيل العضوية في غرفة الرياض.</span></p>
         </div>
-      </div>
-      <div class="timeline-item reveal">
+      </li>
+      <li class="timeline-item reveal">
+        <div class="year">2026</div>
+        <span class="dot" aria-hidden="true"></span>
         <div class="timeline-content">
           <h4><span data-en>40+ Projects Delivered</span><span data-ar>أكثر من 40 مشروعاً منفّذاً</span></h4>
-          <p><span data-en>Architectural, mechanical and electrical scopes across hospitals, hospitality, residential and sports facilities.</span><span data-ar>أعمال معمارية وميكانيكية وكهربائية في المستشفيات والضيافة والمشاريع السكنية والمنشآت الرياضية.</span></p>
+          <p><span data-en>Structural, architectural and electromechanical scopes across hospitals, hospitality, residential and sports facilities.</span><span data-ar>أعمال إنشائية ومعمارية وإلكتروميكانيكية في المستشفيات والضيافة والمشاريع السكنية والمنشآت الرياضية.</span></p>
         </div>
-        <div class="year">2026</div>
-        <div></div>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 

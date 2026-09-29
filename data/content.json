@@ -1233,7 +1233,7 @@
     "timeline.3": {
       "section": "timeline",
       "en": "ARC Founded",
-      "ar": "تأسيس ARC"
+      "ar": "تأسيس أرك"
     },
     "timeline.4": {
       "section": "timeline",
@@ -1267,8 +1267,8 @@
     },
     "timeline.10": {
       "section": "timeline",
-      "en": "Commercial registration 1010874676 issued; Riyadh Chamber membership registered.",
-      "ar": "إصدار السجل التجاري رقم 1010874676 وتسجيل العضوية في غرفة الرياض."
+      "en": "Commercial registration <span class=\"reg\">1010874676</span> issued; Riyadh Chamber membership registered.",
+      "ar": "إصدار السجل التجاري رقم <span class=\"reg\">1010874676</span> وتسجيل العضوية في غرفة الرياض."
     },
     "timeline.11": {
       "section": "timeline",
@@ -1277,8 +1277,8 @@
     },
     "timeline.12": {
       "section": "timeline",
-      "en": "Architectural, mechanical and electrical scopes across hospitals, hospitality, residential and sports facilities.",
-      "ar": "أعمال معمارية وميكانيكية وكهربائية في المستشفيات والضيافة والمشاريع السكنية والمنشآت الرياضية."
+      "en": "Structural, architectural and electromechanical scopes across hospitals, hospitality, residential and sports facilities.",
+      "ar": "أعمال إنشائية ومعمارية وإلكتروميكانيكية في المستشفيات والضيافة والمشاريع السكنية والمنشآت الرياضية."
     },
     "section.10": {
       "section": "section",
