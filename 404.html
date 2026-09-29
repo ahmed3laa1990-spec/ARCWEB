@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 — Page Not Found | ARC Construction</title>
   <meta name="robots" content="noindex">
-  <link rel="icon" href="/assets/logo.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #0E2A47 0%, #081B30 100%);
+      background: linear-gradient(135deg, #033856 0%, #02243A 100%);
       color: #fff;
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
@@ -21,8 +22,8 @@
     body::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(244,180,0,0.15), transparent 50%),
-                  radial-gradient(circle at 70% 70%, rgba(244,180,0,0.08), transparent 50%);
+      background: radial-gradient(circle at 30% 30%, rgba(246,184,15,0.15), transparent 50%),
+                  radial-gradient(circle at 70% 70%, rgba(246,184,15,0.08), transparent 50%);
       pointer-events: none;
     }
     .container {
@@ -32,17 +33,15 @@
       z-index: 1;
     }
     .logo {
-      width: 80px; height: 80px;
+      width: 200px; height: auto;
       margin: 0 auto 32px;
       display: block;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
     }
     h1 {
       font-size: clamp(80px, 18vw, 160px);
       font-weight: 900;
       line-height: 1;
-      background: linear-gradient(135deg, #F4B400 0%, #FFD54F 100%);
+      background: linear-gradient(135deg, #F6B80F 0%, #FFD35A 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -74,12 +73,12 @@
       transition: all 0.3s;
     }
     .btn-primary {
-      background: #F4B400; color: #0E2A47;
+      background: #F6B80F; color: #033856;
     }
     .btn-primary:hover {
-      background: #FFD54F;
+      background: #FFD35A;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(244,180,0,0.3);
+      box-shadow: 0 8px 20px rgba(246,184,15,0.3);
     }
     .btn-ghost {
       background: transparent;
@@ -98,7 +97,7 @@
       color: rgba(255,255,255,0.5);
     }
     .helpful a {
-      color: #F4B400;
+      color: #F6B80F;
       text-decoration: none;
       margin: 0 8px;
     }
@@ -107,7 +106,7 @@
 </head>
 <body>
   <div class="container">
-    <img src="/assets/logo.png" alt="ARC" class="logo">
+    <img src="/assets/logo-reverse.svg" alt="ARC" class="logo">
     <h1>404</h1>
     <h2>Page Not Found · الصفحة غير موجودة</h2>
     <p>
