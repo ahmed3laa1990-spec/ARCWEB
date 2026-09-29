@@ -49,7 +49,7 @@
   "identifier":{"@type":"PropertyValue","name":"Commercial Registration","value":"1010874676"},
   "areaServed": {"@type":"Country","name":"Saudi Arabia"},
   "address": [
-    {"@type":"PostalAddress","streetAddress":"Sheikh Salman bin Hamad Al Khalifa, Al-Malaz","addressLocality":"Riyadh","postalCode":"13518","addressCountry":"SA"}
+    {"@type":"PostalAddress","streetAddress":"2411 Abbad Ibn Hunaif St., Al-Malaz","addressLocality":"Riyadh","postalCode":"12831","addressCountry":"SA"}
   ],
   "openingHours": "Sa-Th 09:00-17:00",
   "priceRange": "$$$",
@@ -486,7 +486,7 @@ html[data-lang="ar"] .hero-proof .big { text-align: right; }
   background: linear-gradient(135deg, var(--navy), var(--navy-dark));
   box-shadow: var(--shadow-lg);
 }
-.about-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+.about-visual img { width: 100%; height: 100%; object-fit: cover; }
 .about-visual::after {
   content: '';
   position: absolute; inset: 0;
@@ -618,10 +618,43 @@ html[data-lang="ar"] .hero-proof .big { text-align: right; }
   align-items: center;
 }
 @media (max-width: 968px) { .vision-grid { grid-template-columns: 1fr; gap: 50px; } }
-.vision-visual {
+.vision-visual { position: relative; }
+.ksa-card {
   position: relative;
-  aspect-ratio: 1;
-  display: flex; align-items: center; justify-content: center;
+  padding: 36px 30px 24px;
+  background:
+    linear-gradient(#EDF1F5 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, #EDF1F5 1px, transparent 1px) 0 0 / 32px 32px,
+    #fff;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+}
+.ksa-map { width: 100%; height: auto; display: block; direction: ltr; }
+.ksa-land { fill: #E9EEF3; stroke: var(--navy); stroke-width: 1.4; stroke-linejoin: round; }
+.map-route { fill: none; stroke: var(--gold); stroke-width: 2; stroke-dasharray: 5 6; opacity: 0.9; }
+.map-pin-pulse { fill: var(--gold); opacity: 0.35; transform-origin: center; transform-box: fill-box; animation: mapPulse 2.4s ease-out infinite; }
+.map-pin-dot { fill: var(--navy); stroke: var(--gold); stroke-width: 2.5; }
+@keyframes mapPulse { 0% { transform: scale(0.6); opacity: 0.7; } 100% { transform: scale(2.8); opacity: 0; } }
+.map-label { fill: var(--navy); font-family: 'Tajawal', 'Inter', sans-serif; font-size: 15px; font-weight: 700; }
+.map-label-main { font-size: 17px; font-weight: 800; }
+.ksa-card .map-label:not(.map-label-main) { text-anchor: end; }
+.ksa-card .map-label:last-of-type { text-anchor: start; }
+.ksa-caption { margin-top: 8px; text-align: center; font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.vision-emblem.is-badge {
+  position: absolute; top: -34px; inset-inline-end: -26px;
+  width: 132px; max-width: none;
+  animation: none;
+  box-shadow: 0 16px 40px rgba(246,184,15,0.35);
+}
+.vision-emblem.is-badge::before { inset: 9px; }
+.vision-emblem.is-badge .num { font-size: 36px; }
+.vision-emblem.is-badge .label { font-size: 10px; margin-top: 2px; letter-spacing: 0.25em; }
+html[data-lang="ar"] .vision-emblem.is-badge .label { letter-spacing: 0; font-size: 13px; }
+@media (max-width: 600px) {
+  .ksa-card { padding: 28px 14px 18px; }
+  .vision-emblem.is-badge { width: 96px; top: -24px; inset-inline-end: -8px; }
+  .vision-emblem.is-badge .num { font-size: 26px; }
 }
 .vision-emblem {
   position: relative;
@@ -677,32 +710,6 @@ html[data-lang="ar"] .hero-proof .big { text-align: right; }
 @keyframes rotate-slow {
   to { transform: rotate(360deg); }
 }
-/* Floating mini badges around emblem */
-.vision-orbit {
-  position: absolute;
-  inset: 0;
-  animation: rotate-slow 25s linear infinite reverse;
-  pointer-events: none;
-}
-.vision-orbit span {
-  position: absolute;
-  padding: 8px 14px;
-  background: #fff;
-  border: 1.5px solid var(--gold);
-  border-radius: 50px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--navy);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  box-shadow: 0 8px 20px rgba(3,56,86,0.10);
-  white-space: nowrap;
-}
-.vision-orbit span:nth-child(1) { top: 5%; left: 50%; transform: translateX(-50%); }
-.vision-orbit span:nth-child(2) { top: 50%; right: -10%; transform: translateY(-50%); }
-.vision-orbit span:nth-child(3) { bottom: 5%; left: 50%; transform: translateX(-50%); }
-.vision-orbit span:nth-child(4) { top: 50%; left: -10%; transform: translateY(-50%); }
-
 .vision-content h2 {
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 800;
@@ -714,39 +721,18 @@ html[data-lang="ar"] .hero-proof .big { text-align: right; }
 .vision-content > p {
   font-size: 17px;
   color: var(--text-secondary);
-  margin-bottom: 32px;
-  max-width: 580px;
+  margin-bottom: 28px;
+  max-width: 600px;
 }
-.vision-pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 32px;
+.vision-contrib { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+.vision-contrib li {
+  display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 18px; align-items: baseline;
+  padding: 15px 0; border-bottom: 1px solid var(--border);
 }
-@media (max-width: 600px) { .vision-pillars { grid-template-columns: 1fr; } }
-.vision-pillar {
-  padding: 24px 20px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: all 0.3s;
-}
-.vision-pillar:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-.vision-pillar .icon {
-  width: 40px; height: 40px;
-  background: rgba(246,184,15,0.12);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 12px;
-}
-.vision-pillar .icon svg { width: 20px; height: 20px; stroke: var(--gold-dark); fill: none; stroke-width: 2; }
-.vision-pillar h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-.vision-pillar p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-
+.vision-contrib .sector { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); font-size: 15.5px; }
+.vision-contrib .sector::before { content: ''; width: 8px; height: 8px; background: var(--gold); flex-shrink: 0; }
+.vision-contrib .proj { color: var(--text-secondary); font-size: 14.5px; }
+@media (max-width: 600px) { .vision-contrib li { grid-template-columns: 1fr; gap: 4px; } }
 /* ====== SERVICES ====== */
 /* Three layers of a building on one gold line, then the standalone
    supporting services. Each layer links to its projects. */
@@ -976,45 +962,25 @@ html[data-lang="ar"] .project-card:hover .more { transform: translateX(-4px); }
   margin-bottom: 40px;
   font-weight: 700;
 }
-.partners-ticker {
-  direction: ltr;
-  overflow: hidden;
-  position: relative;
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+.partners-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px;
 }
-.partners-track {
-  direction: ltr;
-  display: flex; gap: 28px;
-  animation: ticker 30s linear infinite;
-  width: max-content;
-  align-items: center;
-}
+@media (max-width: 1024px) { .partners-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
 .partner-item {
   height: 84px;
-  width: 150px;
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px 18px;
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
-.partner-item:hover {
-  border-color: rgba(246,184,15,0.45);
-  box-shadow: var(--shadow);
-  transform: translateY(-3px);
-}
-.partner-item img {
-  max-height: 100%; max-width: 100%; width: auto; height: auto;
-  object-fit: contain;
-  filter: grayscale(0.25) opacity(0.9);
-  transition: filter 0.3s;
-}
-.partner-item:hover img { filter: grayscale(0) opacity(1); }
-@keyframes ticker { to { transform: translateX(-50%); } }
-html[data-lang="ar"] .partners-track { animation-direction: reverse; }
+.partner-item:hover { border-color: rgba(246,184,15,0.45); box-shadow: var(--shadow); transform: translateY(-3px); }
+.partner-item img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.partner-word { font-size: 15px; font-weight: 800; color: var(--navy); text-align: center; line-height: 1.3; letter-spacing: 0.02em; }
+html[data-lang="ar"] .partner-word { letter-spacing: 0; font-size: 16px; }
 
 /* ====== TEAM ====== */
 /* ====== ORGANISATION (team section) ====== */
@@ -1297,44 +1263,6 @@ html[data-lang="ar"] .testimonial-card::before { right: auto; left: 28px; }
 }
 .branch-card .direction:hover { gap: 12px; color: var(--navy); }
 
-.contact-cta {
-  background: linear-gradient(135deg, var(--navy), var(--navy-dark));
-  border-radius: 28px;
-  padding: 70px 50px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-  box-shadow: var(--shadow-lg);
-}
-.contact-cta::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -10%;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(246,184,15,0.30), transparent 70%);
-  filter: blur(80px);
-}
-.contact-cta::after {
-  content: '';
-  position: absolute;
-  bottom: -50%; right: -10%;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(246,184,15,0.18), transparent 70%);
-  filter: blur(80px);
-}
-.contact-cta > * { position: relative; z-index: 2; }
-.contact-cta h3 {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  margin-bottom: 16px;
-  color: #fff;
-}
-.contact-cta h3 .text-gold { color: var(--gold); }
-.contact-cta p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 36px; }
-.contact-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.contact-cta .btn-outline { color: #fff; border-color: rgba(255,255,255,0.3); }
-.contact-cta .btn-outline:hover { background: #fff; color: var(--navy); border-color: #fff; }
 
 /* ====== FOOTER ====== */
 .site-footer {
@@ -1453,60 +1381,6 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
 
 /* ====== MAGNETIC BUTTONS ====== */
 .btn-magnetic { transition: transform 0.2s ease-out; }
-
-/* ====== SAUDI MAP ====== */
-.saudi-map-wrap {
-  margin-top: 40px;
-  padding: 30px;
-  background: linear-gradient(135deg, #fff, #F7F9FC);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-}
-.saudi-map-wrap::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 70% 50%, rgba(246,184,15,0.08), transparent 60%);
-  pointer-events: none;
-}
-.saudi-map-svg {
-  width: 100%;
-  max-width: 460px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  position: relative;
-}
-.saudi-map-svg path {
-  fill: var(--bg-soft);
-  stroke: var(--navy);
-  stroke-width: 1.5;
-  transition: fill 0.5s;
-}
-.saudi-map-svg:hover path { fill: rgba(246,184,15,0.08); }
-.map-pin {
-  cursor: pointer;
-  transform-origin: center bottom;
-}
-.map-pin-pulse {
-  fill: var(--gold);
-  opacity: 0.4;
-  animation: mapPulse 2s ease-out infinite;
-  transform-origin: center;
-}
-@keyframes mapPulse {
-  0% { transform: scale(0.5); opacity: 0.8; }
-  100% { transform: scale(3); opacity: 0; }
-}
-.map-pin-dot { fill: var(--gold-dark); }
-.map-pin-label {
-  fill: var(--navy);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  text-anchor: middle;
-}
 
 /* ====== PROJECT MODAL (Lightbox) ====== */
 .project-modal {
@@ -2377,7 +2251,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <img src="assets/services/construction.jpg" alt="Construction" onerror="this.style.opacity=0">
+        <img src="assets/projects/samhan-hotel-g2.jpg" alt="ARC crew installing chilled-water pipework at Samhan Heritage Hotel" loading="lazy">
         <div class="about-badge">
           <div class="big"><span data-years>7</span>+</div>
           <div class="desc">
@@ -2394,8 +2268,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span data-ar>هندسة <em>التميّز</em> لعصر سعودي جديد.</span>
         </h2>
         <p>
-          <span data-en>From MEP installations to architectural finishes, we deliver every scope with quality, precision and on-time execution.</span>
-          <span data-ar>من التمديدات الكهروميكانيكية إلى التشطيبات المعمارية، نُنجز كل نطاق عمل بجودة ودقّة وتسليم في الموعد.</span>
+          <span data-en>From the structure to the systems and the architectural finish, we deliver every scope with quality, precision and on-time execution.</span>
+          <span data-ar>من الهيكل الإنشائي إلى التمديدات الإلكتروميكانيكية والتشطيبات المعمارية، نُنجز كل نطاق عمل بجودة ودقّة وتسليم في الموعد.</span>
         </p>
         <p>
           <span data-en>Aligned with Vision 2030, our teams have worked on projects such as Roshn&rsquo;s Sedra villas, Boulevard City and Samhan Heritage Hotel in Diriyah.</span>
@@ -2420,7 +2294,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
             <div>
               <strong><span data-en>Safety-First Culture</span><span data-ar>ثقافة السلامة أولاً</span></strong>
-              <span><span data-en>OSHA-aligned protocols, continuous training, zero shortcuts.</span><span data-ar>بروتوكولات OSHA، تدريب مستمر، صفر اختصارات.</span></span>
+              <span><span data-en>A safety programme and continuous training for our crews on every site.</span><span data-ar>برنامج سلامة وتدريب مستمر لفرقنا في كل موقع.</span></span>
             </div>
           </li>
         </ul>
@@ -2486,80 +2360,50 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <div class="container">
     <div class="vision-grid">
       <div class="vision-visual reveal">
-        <div class="vision-emblem">
-          <div class="vision-emblem-inner">
-            <span class="num">2030</span>
-            <span class="label" data-en>Vision</span>
-            <span class="label" data-ar>رؤية</span>
-            <span class="kingdom" data-en>Kingdom of Saudi Arabia</span>
-            <span class="kingdom" data-ar>المملكة العربية السعودية</span>
+        <div class="ksa-card">
+          <svg class="ksa-map" viewBox="0 0 520 428" role="img" aria-label="Map of Saudi Arabia with ARC project locations">
+            <path class="ksa-land" d="M60.8 184.0L60.2 184.0L58.4 182.2L57.5 180.8L56.4 180.0L51.8 178.2L51.1 177.0L51.9 175.9L52.3 177.0L53.2 177.7L57.0 179.3L61.3 182.8L62.1 183.2L60.8 184.0ZM184.4 414.5L186.2 414.7L185.5 413.8L185.3 413.4L186.2 412.2L188.8 414.7L188.7 417.7L188.5 418.4L187.8 417.7L187.3 417.1L187.1 416.4L186.4 415.7L183.8 416.2L182.2 415.4L179.9 412.8L179.2 411.0L180.2 410.7L181.3 409.8L181.9 408.4L181.3 406.9L182.7 407.1L183.4 408.6L183.5 412.1L183.8 412.8L183.4 413.6L184.4 414.5ZM427.2 353.9L421.4 354.7L415.9 355.5L409.7 356.5L402.1 357.6L396.3 358.4L387.7 359.7L380.0 360.8L372.8 361.9L365.6 362.9L359.4 363.8L355.8 364.9L351.5 367.2L344.8 370.7L338.1 374.3L334.7 376.2L331.0 381.0L329.2 383.4L325.8 387.8L323.2 391.1L320.3 395.0L318.9 398.6L316.9 404.0L315.2 405.4L312.3 407.1L309.7 408.4L305.6 408.2L303.3 404.8L300.8 401.3L299.5 399.9L298.5 399.8L294.4 400.3L289.4 400.8L283.6 400.2L276.9 399.5L270.6 398.9L267.4 398.5L263.3 396.2L262.3 395.7L261.1 395.6L256.3 395.5L251.4 395.5L246.5 396.2L241.9 395.9L237.1 396.4L235.3 397.2L233.5 397.2L232.3 398.0L231.3 398.3L230.0 397.6L228.5 397.8L226.3 397.2L224.8 395.7L223.5 394.4L222.1 393.7L220.5 393.3L219.1 393.2L217.4 394.0L216.3 394.8L213.6 397.4L213.5 398.3L214.8 399.9L214.3 400.6L212.7 401.5L212.3 404.0L212.0 405.3L211.8 408.5L212.5 411.0L213.4 412.0L213.5 413.1L213.0 415.2L211.5 415.9L210.5 418.0L209.8 418.9L208.6 420.0L204.1 423.7L203.8 421.6L202.4 418.4L202.3 416.2L201.6 413.9L200.4 412.2L198.1 410.5L197.9 408.0L196.2 405.6L194.0 403.7L192.7 400.1L191.8 395.4L186.0 389.1L178.6 383.4L176.4 380.1L172.7 373.5L170.8 368.3L165.9 362.3L165.8 360.0L165.0 357.2L163.8 354.1L163.2 351.6L158.3 340.7L156.7 339.0L155.3 336.6L154.9 334.7L154.5 333.7L151.1 331.9L147.8 327.3L138.0 320.1L133.2 319.4L129.5 316.8L126.7 313.4L123.7 307.6L118.4 301.3L114.1 292.3L115.5 289.0L115.4 286.8L114.0 282.9L112.5 279.9L111.4 277.1L112.3 273.1L112.6 268.5L113.5 266.1L114.1 263.5L113.3 258.2L111.8 255.4L112.0 253.5L110.3 252.6L108.9 250.5L110.3 250.5L107.8 247.7L106.8 246.1L105.9 242.2L104.6 239.3L100.7 232.5L98.8 228.4L94.5 223.1L89.8 219.2L87.0 217.5L85.6 215.9L83.1 215.8L80.5 213.4L78.6 213.4L76.4 213.0L73.7 208.6L71.4 204.4L67.5 199.0L68.5 197.5L69.6 195.2L69.1 192.2L68.5 190.2L66.8 186.4L61.2 177.1L59.8 175.8L57.4 174.2L56.0 170.1L55.3 166.5L51.4 164.8L45.0 151.8L41.1 147.2L39.6 144.1L35.3 139.1L33.2 134.1L28.7 129.5L24.8 121.5L19.0 113.4L16.4 112.0L10.4 111.5L7.8 110.9L5.4 112.6L5.3 110.4L6.9 107.3L9.2 100.9L9.7 95.2L13.4 78.4L18.5 79.2L22.8 80.0L29.0 81.0L35.5 82.1L39.3 82.7L40.5 82.5L45.8 78.3L50.5 74.6L53.3 70.1L56.0 65.6L57.2 64.7L61.4 63.9L68.1 62.6L74.6 61.3L75.1 60.9L76.6 57.3L78.6 52.9L79.0 52.4L79.4 51.9L84.2 49.4L87.0 47.9L82.9 43.4L79.1 39.1L74.8 34.4L71.2 30.7L65.7 25.1L62.2 21.5L68.4 19.8L75.1 17.9L82.0 16.1L90.2 13.8L96.6 12.0L106.2 9.4L110.8 8.1L111.7 7.8L115.3 4.6L120.7 5.5L128.9 6.9L136.7 8.1L145.0 9.6L147.8 10.8L155.7 15.3L161.0 18.2L167.0 21.6L174.6 25.8L179.8 28.7L186.5 32.4L191.7 36.7L198.3 42.1L205.5 48.0L211.4 52.6L219.7 58.9L227.8 65.2L235.7 71.3L242.1 76.2L250.0 82.4L250.7 82.6L258.8 83.3L269.7 84.3L280.6 85.2L290.5 86.1L294.8 85.2L299.4 85.8L305.7 86.6L309.5 87.1L316.7 88.0L318.9 92.1L319.6 94.9L320.3 97.7L322.4 100.2L327.3 100.1L331.6 100.1L337.0 100.0L341.3 100.0L342.6 102.4L343.2 104.9L345.7 110.8L349.3 115.5L350.1 117.1L350.7 119.7L350.1 120.6L349.8 121.7L352.5 124.2L356.9 126.4L358.6 126.9L360.5 127.9L359.0 129.3L361.6 132.7L364.6 136.2L367.8 136.9L372.2 142.2L378.7 145.5L382.7 150.0L382.4 150.1L381.1 149.6L379.7 149.0L379.3 149.5L379.3 151.4L379.7 153.6L381.8 155.5L383.6 156.8L384.3 159.4L382.8 164.9L382.4 164.9L381.4 164.4L380.4 164.3L379.8 164.6L381.1 168.6L382.2 171.7L383.7 174.1L384.9 177.6L385.9 179.1L390.2 182.9L391.4 186.0L392.6 191.9L395.2 195.1L396.7 197.7L398.6 199.8L399.9 202.7L401.6 205.0L402.6 205.5L403.9 205.7L405.6 205.7L407.6 205.2L409.8 204.6L411.6 205.7L413.3 205.6L413.5 206.7L412.4 208.1L410.9 211.7L413.0 212.3L414.9 212.6L416.4 213.2L417.2 213.2L417.2 213.9L417.3 217.4L417.8 218.7L418.7 219.8L420.0 221.6L421.3 223.3L422.7 225.1L424.0 226.8L425.3 228.5L426.7 230.3L428.0 232.0L429.3 233.8L430.7 235.5L432.1 237.3L433.4 239.0L434.7 240.7L436.1 242.5L437.4 244.2L438.7 246.0L440.0 247.7L441.2 249.1L443.2 249.4L443.9 249.5L445.7 249.7L448.5 250.2L452.3 250.6L456.6 251.2L461.5 251.9L466.8 252.6L472.2 253.3L477.6 254.0L482.8 254.7L487.7 255.4L492.2 256.0L495.8 256.5L498.7 256.9L500.5 257.1L501.2 257.2L503.1 257.5L503.4 257.4L505.1 255.2L506.8 258.2L508.3 260.7L510.3 264.2L512.5 267.8L514.6 271.3L516.1 273.9L515.3 276.6L514.5 279.6L513.6 282.5L512.6 285.4L511.7 288.4L510.9 291.3L510.0 294.3L509.1 297.2L508.2 300.2L507.3 303.1L506.4 306.1L505.5 309.0L504.7 311.9L503.8 314.9L502.8 317.9L501.9 320.8L501.1 323.7L500.0 327.3L497.4 328.2L493.3 329.7L489.1 331.2L484.9 332.8L480.7 334.3L476.5 335.9L472.4 337.4L468.2 338.9L464.0 340.4L459.8 342.0L455.6 343.5L451.5 345.0L447.3 346.5L443.1 348.1L438.9 349.6L434.8 351.1L430.6 352.6L427.2 353.9ZM53.4 175.2L53.1 175.6L52.1 174.6L52.1 172.6L53.0 171.4L52.9 173.0L53.4 174.6L53.4 175.2Z"></path>
+            <path class="map-route" d="M299.4 202.4 Q335.1 100.7 370.8 140.7"></path>
+            <path class="map-route" d="M299.4 202.4 Q230.8 162.4 162.3 350.3"></path>
+            <g class="map-pin" transform="translate(370.8 140.7)"><circle class="map-pin-pulse" r="9" style="animation-delay:-0.6s"></circle><circle class="map-pin-dot" r="5.5"></circle></g>
+            <g class="map-pin" transform="translate(162.3 350.3)"><circle class="map-pin-pulse" r="9" style="animation-delay:-1.1s"></circle><circle class="map-pin-dot" r="5.5"></circle></g>
+            <g class="map-pin" transform="translate(313.5 216.8)"><circle class="map-pin-pulse" r="9" style="animation-delay:-0.3s"></circle><circle class="map-pin-dot" r="5.5"></circle></g>
+            <g class="map-pin" transform="translate(295.7 201.1)"><circle class="map-pin-pulse" r="9" style="animation-delay:-0.9s"></circle><circle class="map-pin-dot" r="5.5"></circle></g>
+            <g class="map-pin" transform="translate(299.4 202.4)"><circle class="map-pin-pulse" r="9" style="animation-delay:0s"></circle><circle class="map-pin-dot" r="5.5"></circle></g>
+            <text class="map-label map-label-main" x="313.4" y="190.4"><tspan data-en>Riyadh · Diriyah · Al Kharj</tspan><tspan data-ar>الرياض · الدرعية · الخرج</tspan></text>
+            <text class="map-label" x="358.8" y="128.7"><tspan data-en>Jubail</tspan><tspan data-ar>الجبيل</tspan></text>
+            <text class="map-label" x="176.3" y="354.3"><tspan data-en>Al Qunfudhah</tspan><tspan data-ar>القنفذة</tspan></text>
+          </svg>
+          <div class="vision-emblem is-badge" aria-hidden="true">
+            <div class="vision-emblem-inner">
+              <span class="num">2030</span>
+              <span class="label"><span data-en>Vision</span><span data-ar>رؤية</span></span>
+            </div>
           </div>
-        </div>
-        <div class="vision-orbit">
-          <span>Roshn</span>
-          <span>NEOM</span>
-          <span>Diriyah</span>
-          <span>Red Sea</span>
+          <p class="ksa-caption"><span data-en>Cities where our crews have delivered</span><span data-ar>مدن نفّذت فيها فرقنا أعمالها</span></p>
         </div>
       </div>
 
       <div class="vision-content reveal">
         <span class="eyebrow">
-          <span data-en>Aligned with Vision 2030</span>
-          <span data-ar>متماشون مع رؤية 2030</span>
+          <span data-en>Contributing to Vision 2030</span>
+          <span data-ar>نساهم في رؤية 2030</span>
         </span>
         <h2 style="margin-top: 20px;">
-          <span data-en>Partnering with the <em>Kingdom's transformation</em>.</span>
-          <span data-ar>شركاء في <em>تحوّل المملكة</em>.</span>
+          <span data-en>Building what <em>Vision 2030</em> sets out.</span>
+          <span data-ar>نبني ما ترسمه <em>رؤية 2030</em>.</span>
         </h2>
         <p>
-          <span data-en>ARC contributes to the giga-projects shaping Saudi Arabia's future — from sustainable housing to world-class entertainment destinations, infrastructure that strengthens communities, and architecture that reflects national identity.</span>
-          <span data-ar>تُساهم أرك في المشاريع الكبرى التي ترسم مستقبل المملكة — من الإسكان المستدام إلى الوجهات الترفيهية العالمية، والبنية التحتية التي تُقوّي المجتمعات، والعمارة التي تعكس الهوية الوطنية.</span>
+          <span data-en>ARC contributes to the goals of Saudi Vision 2030 by delivering structural, architectural and electromechanical works on projects in housing, tourism, healthcare, education and quality of life.</span>
+          <span data-ar>تساهم أرك في تحقيق مستهدفات رؤية المملكة 2030 بتنفيذ الأعمال الإنشائية والمعمارية والإلكتروميكانيكية في مشاريع الإسكان والسياحة والصحة والتعليم وجودة الحياة.</span>
         </p>
-        <div class="saudi-map-wrap">
-          <svg class="saudi-map-svg" viewBox="0 0 500 460" xmlns="http://www.w3.org/2000/svg">
-            <!-- Saudi Arabia outline (simplified) -->
-            <path d="M 130 90 L 180 75 L 250 65 L 320 60 L 380 75 L 410 110 L 425 160 L 440 200 L 445 250 L 430 295 L 410 340 L 380 380 L 340 400 L 290 410 L 240 405 L 200 395 L 170 370 L 145 330 L 125 280 L 110 230 L 105 180 L 115 130 Z"/>
-            <!-- Riyadh pin -->
-            <g class="map-pin" transform="translate(280, 220)">
-              <circle class="map-pin-pulse" r="12"/>
-              <circle class="map-pin-pulse" r="12" style="animation-delay: -0.5s"/>
-              <circle class="map-pin-dot" r="6"/>
-              <text class="map-pin-label" y="-14"><tspan data-en>Riyadh</tspan><tspan data-ar>الرياض</tspan></text>
-            </g>
-            <!-- Al Qunfudhah pin -->
-            <g class="map-pin" transform="translate(168, 318)">
-              <circle class="map-pin-pulse" r="12" style="animation-delay: -0.7s"/>
-              <circle class="map-pin-pulse" r="12" style="animation-delay: -1.2s"/>
-              <circle class="map-pin-dot" r="6"/>
-              <text class="map-pin-label" y="-14"><tspan data-en>Al Qunfudhah</tspan><tspan data-ar>القنفذة</tspan></text>
-            </g>
-            <!-- Jubail pin -->
-            <g class="map-pin" transform="translate(372, 162)">
-              <circle class="map-pin-pulse" r="12" style="animation-delay: -1s"/>
-              <circle class="map-pin-pulse" r="12" style="animation-delay: -1.5s"/>
-              <circle class="map-pin-dot" r="6"/>
-              <text class="map-pin-label" y="-14"><tspan data-en>Jubail</tspan><tspan data-ar>الجبيل</tspan></text>
-            </g>
-          </svg>
-        </div>
-        <div class="vision-pillars">
-          <div class="vision-pillar">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <h4><span data-en>Vibrant Society</span><span data-ar>مجتمع حيوي</span></h4>
-            <p><span data-en>Inclusive communities & cultural heritage</span><span data-ar>مجتمعات شاملة وتراث ثقافي</span></p>
-          </div>
-          <div class="vision-pillar">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-            <h4><span data-en>Thriving Economy</span><span data-ar>اقتصاد مزدهر</span></h4>
-            <p><span data-en>Diversified growth & infrastructure</span><span data-ar>نموّ متنوّع وبنية تحتية</span></p>
-          </div>
-          <div class="vision-pillar">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-            <h4><span data-en>Ambitious Nation</span><span data-ar>وطن طموح</span></h4>
-            <p><span data-en>World-class delivery & excellence</span><span data-ar>تنفيذ عالمي وتميّز</span></p>
-          </div>
-        </div>
+        <ul class="vision-contrib">
+          <li><span class="sector"><span data-en>Housing</span><span data-ar>الإسكان</span></span><span class="proj"><span data-en>Roshn Villas — Sedra</span><span data-ar>فلل روشن — سدرة</span></span></li>
+          <li><span class="sector"><span data-en>Tourism &amp; heritage</span><span data-ar>السياحة والتراث</span></span><span class="proj"><span data-en>Samhan Heritage Hotel, Diriyah</span><span data-ar>فندق سمحان التراثي، الدرعية</span></span></li>
+          <li><span class="sector"><span data-en>Healthcare</span><span data-ar>الرعاية الصحية</span></span><span class="proj"><span data-en>Al Hammadi Hospital · Suleiman Al Habib Hospital</span><span data-ar>مستشفى الحمادي · مستشفى سليمان الحبيب</span></span></li>
+          <li><span class="sector"><span data-en>Education</span><span data-ar>التعليم</span></span><span class="proj"><span data-en>Jubail University student housing</span><span data-ar>سكن طلاب جامعة الجبيل</span></span></li>
+          <li><span class="sector"><span data-en>Quality of life</span><span data-ar>جودة الحياة والترفيه</span></span><span class="proj"><span data-en>Boulevard City · Boulevard Hall · Al Kharj courts</span><span data-ar>بوليفارد سيتي · بوليفارد هول · ملاعب الخرج</span></span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -2928,46 +2772,23 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 <section class="partners-section">
   <div class="container">
     <div class="partners-label">
-      <span data-en>Partners &amp; main contractors we deliver with</span>
-      <span data-ar>شركاؤنا والمقاولون الرئيسيون الذين ننفّذ معهم</span>
+      <span data-en>Main contractors and clients on our delivered projects</span>
+      <span data-ar>مقاولون رئيسيون وجهات نفّذنا معها مشاريعنا</span>
     </div>
-  </div>
-  <div class="partners-ticker">
-    <div class="partners-track">
-      <div class="partner-item"><img src="assets/partners/marco.png" alt="MARCO" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/rac.png" alt="Riyadh Airports Company" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/gcam.png" alt="GCAM" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/awtad-alfahd.png" alt="Awtad Alfahd Contracting" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/riyadh-municipality.png" alt="Riyadh Region Municipality" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/ministry-finance.png" alt="Ministry of Finance" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/ministry-justice.png" alt="Ministry of Justice" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/ministry-sports.png" alt="Ministry of Sports" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/othaim.png" alt="Othaim" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/biban.png" alt="BIBAN" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/stc.png" alt="stc" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/mobily.png" alt="Mobily" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/proline.png" alt="Proline International" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/masah.png" alt="MASAH Specialized Construction" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/blocks.png" alt="BLOCKS" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/etimad.png" alt="Etimad" loading="lazy" width="300" height="300"></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="partner-item"><img src="assets/partners/marco.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/rac.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/gcam.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/awtad-alfahd.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/riyadh-municipality.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/ministry-finance.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/ministry-justice.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/ministry-sports.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/othaim.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/biban.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/stc.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/mobily.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/proline.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/masah.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/blocks.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-      <div class="partner-item"><img src="assets/partners/etimad.png" alt="" aria-hidden="true" loading="lazy" width="300" height="300"></div>
-    </div>
+    <ul class="partners-grid">
+      <li class="partner-item"><img src="assets/partners/marco.png" alt="MARCO" loading="lazy"></li>
+      <li class="partner-item"><img src="assets/partners/blocks.png" alt="BLOCKS Group" loading="lazy"></li>
+      <li class="partner-item"><img src="assets/partners/masah.png" alt="MASAH Specialized Construction" loading="lazy"></li>
+      <li class="partner-item"><img src="assets/partners/awtad-alfahd.png" alt="Awtad Alfahd Contracting" loading="lazy"></li>
+      <li class="partner-item"><img src="assets/partners/ministry-justice.png" alt="Ministry of Justice" loading="lazy"></li>
+      <li class="partner-item partner-word"><span data-en>AZMEEL</span><span data-ar>أزميل</span></li>
+      <li class="partner-item partner-word"><span data-en>SAWAED</span><span data-ar>سواعد</span></li>
+      <li class="partner-item partner-word"><span data-en>BCC</span><span data-ar>الإنشاء والتعمير</span></li>
+      <li class="partner-item partner-word"><span data-en>HAWA Dynamics</span><span data-ar>هوا ديناميكس</span></li>
+      <li class="partner-item partner-word"><span data-en>Three Palms Group</span><span data-ar>مجموعة النخلات الثلاث</span></li>
+      <li class="partner-item partner-word"><span data-en>Hodood Al-Kamal</span><span data-ar>حدود الكمال</span></li>
+      <li class="partner-item partner-word"><span data-en>2C Fitness</span><span data-ar>2C Fitness</span></li>
+    </ul>
   </div>
 </section>
 
@@ -3074,7 +2895,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       <div class="cred-card reveal">
         <span class="cred-label"><span data-en>Head Office</span><span data-ar>المقر الرئيسي</span></span>
         <span class="cred-value"><span data-en>Al Malaz, Riyadh</span><span data-ar>الملز، الرياض</span></span>
-        <span class="cred-note"><span data-en>Abaad Ibn Hanif St., Riyadh 12831</span><span data-ar>شارع عباد بن حنيف، الرياض 12831</span></span>
+        <span class="cred-note"><span data-en>2411 Abbad Ibn Hunaif St., Riyadh 12831</span><span data-ar>شارع عباد بن حنيف، 2411، الرياض 12831</span></span>
       </div>
       <div class="cred-card reveal">
         <span class="cred-label"><span data-en>Saudi Contractors Authority</span><span data-ar>الهيئة السعودية للمقاولين</span></span>
@@ -3183,9 +3004,9 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       <div class="branch-card reveal">
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3><span data-en>Riyadh — Head Office</span><span data-ar>الرياض — المقر الرئيسي</span></h3>
-        <p><span data-en>Sheikh Salman bin Hamad Al Khalifa St., Al-Malaz, Riyadh 13518</span><span data-ar>شارع الشيخ سلمان بن حمد آل خليفة، الملز، الرياض 13518</span></p>
+        <p><span data-en>2411 Abbad Ibn Hunaif St., Al-Malaz, Riyadh 12831</span><span data-ar>شارع عباد بن حنيف، 2411 - الملز، الرياض 12831</span></p>
         <p><span class="num-ltr">📞 +966 11 246 6126</span><br><span class="num-ltr">📱 +966 53 414 0415</span></p>
-        <a href="https://maps.app.goo.gl/JW5Wnz7AKkwUS6zL6" target="_blank" rel="noopener" class="direction">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=2411%20Abbad%20Ibn%20Hunaif%20St%2C%20Al%20Malaz%2C%20Riyadh%2012831" target="_blank" rel="noopener" class="direction">
           <span data-en>Get Directions</span><span data-ar>الاتجاهات</span> →
         </a>
       </div>
@@ -3286,25 +3107,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       </form>
     </div>
 
-    <div class="contact-cta reveal">
-      <h3>
-        <span data-en>Ready to build something <span class="text-gold">extraordinary</span>?</span>
-        <span data-ar>جاهز لبناء شيء <span class="text-gold">استثنائي</span>؟</span>
-      </h3>
-      <p>
-        <span data-en>Prefer to talk first? Reach us directly.</span>
-        <span data-ar>تفضّل الحديث أولاً؟ تواصل معنا مباشرة.</span>
-      </p>
-      <div class="contact-cta-actions">
-        <a href="mailto:info@byarcsa.com" class="btn btn-primary">
-          <span data-en>Email Us</span><span data-ar>راسلنا</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-        </a>
-        <a href="https://wa.me/966534140415?text=Hello%20ARC%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-outline">
-          <span data-en>WhatsApp</span><span data-ar>واتساب</span>
-        </a>
-      </div>
-    </div>
   </div>
 </section>
 

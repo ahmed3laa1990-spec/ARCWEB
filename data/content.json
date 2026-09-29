@@ -717,8 +717,8 @@
     },
     "about.4": {
       "section": "about",
-      "en": "From MEP installations to architectural finishes, we deliver every scope with quality, precision and on-time execution.",
-      "ar": "من التمديدات الكهروميكانيكية إلى التشطيبات المعمارية، نُنجز كل نطاق عمل بجودة ودقّة وتسليم في الموعد."
+      "en": "From the structure to the systems and the architectural finish, we deliver every scope with quality, precision and on-time execution.",
+      "ar": "من الهيكل الإنشائي إلى التمديدات الإلكتروميكانيكية والتشطيبات المعمارية، نُنجز كل نطاق عمل بجودة ودقّة وتسليم في الموعد."
     },
     "about.5": {
       "section": "about",
@@ -752,8 +752,8 @@
     },
     "about.11": {
       "section": "about",
-      "en": "OSHA-aligned protocols, continuous training, zero shortcuts.",
-      "ar": "بروتوكولات OSHA، تدريب مستمر، صفر اختصارات."
+      "en": "A safety programme and continuous training for our crews on every site.",
+      "ar": "برنامج سلامة وتدريب مستمر لفرقنا في كل موقع."
     },
     "section.1": {
       "section": "section",
@@ -807,73 +807,93 @@
     },
     "vision.1": {
       "section": "vision",
-      "en": "Vision",
-      "ar": "رؤية"
+      "en": "Riyadh · Diriyah · Al Kharj",
+      "ar": "الرياض · الدرعية · الخرج"
     },
     "vision.2": {
-      "section": "vision",
-      "en": "Kingdom of Saudi Arabia",
-      "ar": "المملكة العربية السعودية"
-    },
-    "vision.3": {
-      "section": "vision",
-      "en": "Aligned with Vision 2030",
-      "ar": "متماشون مع رؤية 2030"
-    },
-    "vision.4": {
-      "section": "vision",
-      "en": "Partnering with the <em>Kingdom's transformation</em>.",
-      "ar": "شركاء في <em>تحوّل المملكة</em>."
-    },
-    "vision.5": {
-      "section": "vision",
-      "en": "ARC contributes to the giga-projects shaping Saudi Arabia's future — from sustainable housing to world-class entertainment destinations, infrastructure that strengthens communities, and architecture that reflects national identity.",
-      "ar": "تُساهم أرك في المشاريع الكبرى التي ترسم مستقبل المملكة — من الإسكان المستدام إلى الوجهات الترفيهية العالمية، والبنية التحتية التي تُقوّي المجتمعات، والعمارة التي تعكس الهوية الوطنية."
-    },
-    "vision.6": {
-      "section": "vision",
-      "en": "Riyadh",
-      "ar": "الرياض"
-    },
-    "vision.7": {
-      "section": "vision",
-      "en": "Al Qunfudhah",
-      "ar": "القنفذة"
-    },
-    "vision.8": {
       "section": "vision",
       "en": "Jubail",
       "ar": "الجبيل"
     },
+    "vision.3": {
+      "section": "vision",
+      "en": "Al Qunfudhah",
+      "ar": "القنفذة"
+    },
+    "vision.4": {
+      "section": "vision",
+      "en": "Vision",
+      "ar": "رؤية"
+    },
+    "vision.5": {
+      "section": "vision",
+      "en": "Cities where our crews have delivered",
+      "ar": "مدن نفّذت فيها فرقنا أعمالها"
+    },
+    "vision.6": {
+      "section": "vision",
+      "en": "Contributing to Vision 2030",
+      "ar": "نساهم في رؤية 2030"
+    },
+    "vision.7": {
+      "section": "vision",
+      "en": "Building what <em>Vision 2030</em> sets out.",
+      "ar": "نبني ما ترسمه <em>رؤية 2030</em>."
+    },
+    "vision.8": {
+      "section": "vision",
+      "en": "ARC contributes to the goals of Saudi Vision 2030 by delivering structural, architectural and electromechanical works on projects in housing, tourism, healthcare, education and quality of life.",
+      "ar": "تساهم أرك في تحقيق مستهدفات رؤية المملكة 2030 بتنفيذ الأعمال الإنشائية والمعمارية والإلكتروميكانيكية في مشاريع الإسكان والسياحة والصحة والتعليم وجودة الحياة."
+    },
     "vision.9": {
       "section": "vision",
-      "en": "Vibrant Society",
-      "ar": "مجتمع حيوي"
+      "en": "Housing",
+      "ar": "الإسكان"
     },
     "vision.10": {
       "section": "vision",
-      "en": "Inclusive communities & cultural heritage",
-      "ar": "مجتمعات شاملة وتراث ثقافي"
+      "en": "Roshn Villas — Sedra",
+      "ar": "فلل روشن — سدرة"
     },
     "vision.11": {
       "section": "vision",
-      "en": "Thriving Economy",
-      "ar": "اقتصاد مزدهر"
+      "en": "Tourism &amp; heritage",
+      "ar": "السياحة والتراث"
     },
     "vision.12": {
       "section": "vision",
-      "en": "Diversified growth & infrastructure",
-      "ar": "نموّ متنوّع وبنية تحتية"
+      "en": "Samhan Heritage Hotel, Diriyah",
+      "ar": "فندق سمحان التراثي، الدرعية"
     },
     "vision.13": {
       "section": "vision",
-      "en": "Ambitious Nation",
-      "ar": "وطن طموح"
+      "en": "Healthcare",
+      "ar": "الرعاية الصحية"
     },
     "vision.14": {
       "section": "vision",
-      "en": "World-class delivery & excellence",
-      "ar": "تنفيذ عالمي وتميّز"
+      "en": "Al Hammadi Hospital · Suleiman Al Habib Hospital",
+      "ar": "مستشفى الحمادي · مستشفى سليمان الحبيب"
+    },
+    "vision.15": {
+      "section": "vision",
+      "en": "Education",
+      "ar": "التعليم"
+    },
+    "vision.16": {
+      "section": "vision",
+      "en": "Jubail University student housing",
+      "ar": "سكن طلاب جامعة الجبيل"
+    },
+    "vision.17": {
+      "section": "vision",
+      "en": "Quality of life",
+      "ar": "جودة الحياة والترفيه"
+    },
+    "vision.18": {
+      "section": "vision",
+      "en": "Boulevard City · Boulevard Hall · Al Kharj courts",
+      "ar": "بوليفارد سيتي · بوليفارد هول · ملاعب الخرج"
     },
     "services.1": {
       "section": "services",
@@ -1397,8 +1417,43 @@
     },
     "section.10": {
       "section": "section",
-      "en": "Partners &amp; main contractors we deliver with",
-      "ar": "شركاؤنا والمقاولون الرئيسيون الذين ننفّذ معهم"
+      "en": "Main contractors and clients on our delivered projects",
+      "ar": "مقاولون رئيسيون وجهات نفّذنا معها مشاريعنا"
+    },
+    "section.11": {
+      "section": "section",
+      "en": "AZMEEL",
+      "ar": "أزميل"
+    },
+    "section.12": {
+      "section": "section",
+      "en": "SAWAED",
+      "ar": "سواعد"
+    },
+    "section.13": {
+      "section": "section",
+      "en": "BCC",
+      "ar": "الإنشاء والتعمير"
+    },
+    "section.14": {
+      "section": "section",
+      "en": "HAWA Dynamics",
+      "ar": "هوا ديناميكس"
+    },
+    "section.15": {
+      "section": "section",
+      "en": "Three Palms Group",
+      "ar": "مجموعة النخلات الثلاث"
+    },
+    "section.16": {
+      "section": "section",
+      "en": "Hodood Al-Kamal",
+      "ar": "حدود الكمال"
+    },
+    "section.17": {
+      "section": "section",
+      "en": "2C Fitness",
+      "ar": "2C Fitness"
     },
     "team.1": {
       "section": "team",
@@ -1582,8 +1637,8 @@
     },
     "credentials.17": {
       "section": "credentials",
-      "en": "Abaad Ibn Hanif St., Riyadh 12831",
-      "ar": "شارع عباد بن حنيف، الرياض 12831"
+      "en": "2411 Abbad Ibn Hunaif St., Riyadh 12831",
+      "ar": "شارع عباد بن حنيف، 2411، الرياض 12831"
     },
     "credentials.18": {
       "section": "credentials",
@@ -1737,8 +1792,8 @@
     },
     "contact.4": {
       "section": "contact",
-      "en": "Sheikh Salman bin Hamad Al Khalifa St., Al-Malaz, Riyadh 13518",
-      "ar": "شارع الشيخ سلمان بن حمد آل خليفة، الملز، الرياض 13518"
+      "en": "2411 Abbad Ibn Hunaif St., Al-Malaz, Riyadh 12831",
+      "ar": "شارع عباد بن حنيف، 2411 - الملز، الرياض 12831"
     },
     "contact.5": {
       "section": "contact",
@@ -1850,42 +1905,22 @@
       "en": "Your details are only used to prepare a reply. We do not share them.",
       "ar": "بياناتك تُستخدم فقط لإعداد الرد. لا نشاركها مع أي جهة."
     },
-    "contact.27": {
-      "section": "contact",
-      "en": "Ready to build something <span class=\"text-gold\">extraordinary</span>?",
-      "ar": "جاهز لبناء شيء <span class=\"text-gold\">استثنائي</span>؟"
-    },
-    "contact.28": {
-      "section": "contact",
-      "en": "Prefer to talk first? Reach us directly.",
-      "ar": "تفضّل الحديث أولاً؟ تواصل معنا مباشرة."
-    },
-    "contact.29": {
-      "section": "contact",
-      "en": "Email Us",
-      "ar": "راسلنا"
-    },
-    "contact.30": {
-      "section": "contact",
-      "en": "WhatsApp",
-      "ar": "واتساب"
-    },
-    "section.11": {
+    "section.18": {
       "section": "section",
       "en": "Let&rsquo;s Talk",
       "ar": "تواصل معنا"
     },
-    "section.12": {
+    "section.19": {
       "section": "section",
       "en": "Planning a project? We&rsquo;d like to hear about it.",
       "ar": "لديك مشروع؟ يسعدنا أن نسمع عنه."
     },
-    "section.13": {
+    "section.20": {
       "section": "section",
       "en": "Leave your name and mobile number and our team will call you.",
       "ar": "اترك اسمك ورقم جوالك وسيتصل بك فريقنا."
     },
-    "section.14": {
+    "section.21": {
       "section": "section",
       "en": "Call Me Back ➜",
       "ar": "اتصلوا بي ➜"
