@@ -3780,7 +3780,10 @@ window.ARCLeads = (function() {
     h.textContent = (ar ? 'شكراً لك، ' : 'Thank you, ') + name;
     const p = document.createElement('p');
     p.style.cssText = 'color:var(--navy);opacity:0.8;font-size:14px;';
-    p.textContent = ar ? 'سيتصل بك فريقنا على ' + phone : 'Our team will call you on ' + phone;
+    // the number is isolated LTR so it does not read backwards inside Arabic text
+    const num = document.createElement('bdi');
+    num.dir = 'ltr'; num.textContent = phone;
+    p.append(ar ? 'سيتصل بك فريقنا على ' : 'Our team will call you on ', num);
     box.appendChild(tick); box.appendChild(h); box.appendChild(p);
     form.replaceChildren(box);
   });
