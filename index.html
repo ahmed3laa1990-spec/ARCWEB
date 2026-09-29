@@ -38,23 +38,6 @@
 }
 </script>
 
-<!-- Heavy libraries are fetched on demand (see loadLib below), not on page load -->
-<script>
-  window.__libs = {};
-  window.loadLib = function(url) {
-    if (window.__libs[url]) return window.__libs[url];
-    window.__libs[url] = new Promise(function(res, rej) {
-      var t = document.createElement('script');
-      t.src = url; t.async = true;
-      t.onload = res; t.onerror = rej;
-      document.head.appendChild(t);
-    });
-    return window.__libs[url];
-  };
-  window.THREE_URL = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-  window.JSPDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-</script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -1334,13 +1317,6 @@ html[data-lang="ar"] .testimonial-card::before { right: auto; left: 28px; }
 .live-pill .time { font-weight: 700; font-family: 'Space Grotesk', monospace; color: var(--gold-dark); }
 .live-pill .status { color: var(--text-secondary); font-weight: 600; }
 
-/* ====== PARTICLES ====== */
-.particles-canvas {
-  position: absolute; inset: 0; z-index: 1;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
 /* ====== SECTION NAVIGATOR ====== */
 .section-nav {
   position: fixed;
@@ -1442,428 +1418,6 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
   font-weight: 700;
   text-anchor: middle;
 }
-
-/* ====== COST CALCULATOR ====== */
-.calc-section {
-  padding: 120px 0;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-.calc-section::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 80% 20%, rgba(244,180,0,0.15), transparent 50%);
-  pointer-events: none;
-}
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 50px;
-  align-items: center;
-  position: relative;
-}
-@media (max-width: 968px) { .calc-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-.calc-info h2 {
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #fff;
-  line-height: 1.15;
-}
-.calc-info h2 .gold { color: var(--gold); }
-.calc-info > p { color: rgba(255,255,255,0.75); font-size: 17px; margin-bottom: 24px; max-width: 480px; }
-.calc-info .note {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 14px;
-  background: rgba(244,180,0,0.15);
-  border: 1px solid rgba(244,180,0,0.3);
-  border-radius: 50px;
-  font-size: 12px;
-  color: var(--gold-light);
-  font-weight: 600;
-}
-.calc-card {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 24px;
-  padding: 36px;
-}
-.calc-field {
-  margin-bottom: 24px;
-}
-.calc-field label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-.calc-types {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-.calc-type {
-  padding: 12px 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1.5px solid rgba(255,255,255,0.10);
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.75);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s;
-}
-.calc-type:hover { border-color: var(--gold); color: #fff; }
-.calc-type.active {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  border-color: var(--gold);
-  color: var(--navy);
-  font-weight: 800;
-}
-.calc-slider {
-  width: 100%;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-  outline: none;
-}
-.calc-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 24px; height: 24px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #fff;
-  box-shadow: 0 4px 12px rgba(244,180,0,0.4);
-}
-.calc-slider::-moz-range-thumb {
-  width: 24px; height: 24px;
-  background: var(--gold);
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #fff;
-}
-.calc-value {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 10px;
-  font-size: 13px; color: rgba(255,255,255,0.7);
-}
-.calc-value .current {
-  font-family: 'Space Grotesk', monospace;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--gold);
-}
-.calc-result {
-  margin-top: 24px;
-  padding: 24px;
-  background: linear-gradient(135deg, rgba(244,180,0,0.15), rgba(244,180,0,0.05));
-  border: 1.5px solid rgba(244,180,0,0.4);
-  border-radius: 16px;
-  text-align: center;
-}
-.calc-result .label {
-  font-size: 12px;
-  color: rgba(255,255,255,0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.calc-result .amount {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 42px;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.calc-result .disclaimer {
-  font-size: 11px;
-  color: rgba(255,255,255,0.55);
-  margin-top: 10px;
-}
-
-/* ====== 3D SKYLINE SECTION ====== */
-.skyline-section {
-  position: relative;
-  padding: 0;
-  height: 90vh;
-  min-height: 600px;
-  background: linear-gradient(180deg, #0A0E1F 0%, #131933 60%, var(--navy-dark) 100%);
-  overflow: hidden;
-}
-#skylineCanvas {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  display: block;
-}
-.skyline-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  padding: 24px;
-  text-align: center;
-}
-.skyline-overlay .eyebrow {
-  background: rgba(244,180,0,0.15);
-  border-color: rgba(244,180,0,0.4);
-  color: var(--gold-light);
-  pointer-events: all;
-}
-.skyline-overlay h2 {
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 22px 0 18px;
-  max-width: 900px;
-}
-.skyline-overlay h2 .gold {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.skyline-overlay p {
-  color: rgba(255,255,255,0.75);
-  font-size: 17px;
-  max-width: 580px;
-  margin-bottom: 26px;
-}
-.skyline-controls {
-  display: flex; gap: 12px;
-  pointer-events: all;
-}
-.skyline-btn {
-  padding: 12px 24px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(20px);
-  border: 1.5px solid rgba(244,180,0,0.3);
-  color: #fff;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.skyline-btn:hover {
-  background: var(--gold);
-  color: var(--navy);
-  border-color: var(--gold);
-  transform: translateY(-2px);
-}
-.skyline-credit {
-  position: absolute;
-  bottom: 20px; right: 24px;
-  z-index: 3;
-  font-size: 10px;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-/* ====== CONFIGURATOR ====== */
-.configurator-section {
-  padding: 120px 0;
-  background: linear-gradient(135deg, #fff 0%, var(--bg-soft) 100%);
-  position: relative;
-}
-.config-wizard {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 28px;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-.config-progress {
-  display: flex;
-  padding: 24px 32px;
-  background: var(--navy);
-  gap: 8px;
-}
-.config-step-dot {
-  flex: 1;
-  height: 4px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 2px;
-  transition: background 0.4s;
-  position: relative;
-}
-.config-step-dot.active { background: var(--gold); }
-.config-step-dot.completed { background: var(--gold); }
-
-.config-body { padding: 40px 32px; min-height: 420px; }
-.config-step { display: none; animation: fadeInStep 0.4s; }
-.config-step.active { display: block; }
-@keyframes fadeInStep { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-.config-step .step-label {
-  font-size: 12px;
-  color: var(--gold-dark);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 8px;
-}
-.config-step .step-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-.config-step .step-desc {
-  color: var(--text-secondary);
-  font-size: 15px;
-  margin-bottom: 28px;
-}
-
-.config-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-@media (max-width: 600px) {
-  .config-options { grid-template-columns: repeat(2, 1fr); }
-}
-.config-option {
-  padding: 20px 14px;
-  background: #fff;
-  border: 2px solid var(--border);
-  border-radius: 16px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s;
-}
-.config-option:hover { border-color: var(--gold); transform: translateY(-3px); }
-.config-option.selected {
-  background: linear-gradient(135deg, rgba(244,180,0,0.12), rgba(244,180,0,0.03));
-  border-color: var(--gold);
-  box-shadow: 0 8px 20px rgba(244,180,0,0.15);
-}
-.config-option .emoji { font-size: 32px; margin-bottom: 8px; }
-.config-option .name { font-weight: 700; font-size: 13px; color: var(--navy); }
-.config-option .price { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
-
-.config-input {
-  width: 100%;
-  padding: 14px 18px;
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
-  font-size: 15px;
-  font-family: inherit;
-  margin-bottom: 14px;
-  transition: border-color 0.3s;
-}
-.config-input:focus { outline: none; border-color: var(--gold); }
-
-.config-slider-wrap {
-  padding: 24px 0;
-}
-.config-slider-wrap .current {
-  text-align: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 48px;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 18px;
-}
-.config-slider-wrap .current span { color: var(--gold-dark); font-size: 22px; }
-
-.config-summary {
-  background: linear-gradient(135deg, var(--navy), var(--navy-dark));
-  color: #fff;
-  border-radius: 16px;
-  padding: 28px;
-  margin-bottom: 20px;
-}
-.config-summary h4 {
-  font-size: 13px;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-.config-summary-row {
-  display: flex; justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-  font-size: 14px;
-}
-.config-summary-row:last-child { border-bottom: none; }
-.config-summary-row .label { color: rgba(255,255,255,0.7); }
-.config-summary-row .value { font-weight: 700; color: #fff; }
-.config-summary .total {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 2px solid var(--gold);
-  display: flex; justify-content: space-between; align-items: baseline;
-}
-.config-summary .total .label { font-size: 13px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.1em; }
-.config-summary .total .amount {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--gold);
-}
-
-.config-nav {
-  display: flex; justify-content: space-between;
-  padding: 24px 32px;
-  border-top: 1px solid var(--border);
-  background: var(--bg-soft);
-}
-.config-btn {
-  padding: 12px 26px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: 1.5px solid transparent;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.config-btn-prev {
-  background: transparent;
-  color: var(--text-secondary);
-  border-color: var(--border);
-}
-.config-btn-prev:hover { color: var(--navy); border-color: var(--navy); }
-.config-btn-prev:disabled { opacity: 0.4; cursor: not-allowed; }
-.config-btn-next {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--navy);
-  box-shadow: var(--shadow-gold);
-}
-.config-btn-next:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(244,180,0,0.5); }
-.config-btn-pdf {
-  background: var(--navy);
-  color: var(--gold);
-}
-.config-btn-pdf:hover { background: var(--navy-dark); }
 
 /* ====== PROJECT MODAL (Lightbox) ====== */
 .project-modal {
@@ -2252,6 +1806,7 @@ html[data-lang="ar"] .founder-quote::before { left: auto; right: -10px; }
   background: #fff;
 }
 .newsletter-form input::placeholder { color: rgba(14,42,71,0.5); }
+.newsletter-form input[aria-invalid="true"] { border-color: #C62828; background: #fff; }
 .newsletter-form button {
   width: 100%;
   padding: 16px;
@@ -2364,17 +1919,6 @@ html[data-lang="ar"] .founder-quote::before { left: auto; right: -10px; }
   cursor: pointer;
 }
 
-/* ====== 3D TILT EFFECT ====== */
-.tilt-card {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: transform 0.3s var(--easing);
-}
-.tilt-card .tilt-inner {
-  transform: translateZ(0);
-  transition: transform 0.3s var(--easing);
-}
-
 /* ====== TYPING ANIMATION ====== */
 .typing-text {
   display: inline-block;
@@ -2417,6 +1961,12 @@ html[data-lang="ar"] .cookie-consent { padding: 10px 18px 10px 10px; }
   transition: background 0.2s;
 }
 .cookie-consent .accept-btn:hover { background: var(--gold-light); }
+/* on phones, leave the WhatsApp corner free */
+@media (max-width: 600px) {
+  .cookie-consent { left: 12px; right: 88px; width: auto; max-width: none; transform: translateY(200%); }
+  .cookie-consent.show { transform: translateY(0); }
+  html[data-lang="ar"] .cookie-consent { left: 88px; right: 12px; }
+}
 
 /* ====== MAP EMBED ====== */
 .branch-map {
@@ -2511,7 +2061,7 @@ html[data-lang="ar"] .cookie-consent { padding: 10px 18px 10px 10px; }
 /* WCAG 2.5.8 asks for 44x44 CSS px of tappable area on pointer-coarse devices. */
 @media (hover: none), (pointer: coarse) {
   .footer-links a, .footer-col a, .footer-social a,
-  .job-card a, .filter-btn, .config-btn, .lang-toggle,
+  .job-card a, .filter-btn, .lang-toggle,
   .accept-btn, .modal-close, .employee-portal, .direction,
   .nav-link, .mobile-nav a {
     min-height: 44px;
@@ -2600,15 +2150,10 @@ html[data-lang="ar"] .back-to-top { right: auto; left: 24px; }
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 10px 30px rgba(37,211,102,0.4);
   transition: all 0.3s var(--easing);
-  animation: pulseWA 2s ease-in-out infinite;
 }
 html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
-.whatsapp-float:hover { transform: scale(1.1) rotate(-8deg); }
+.whatsapp-float:hover { transform: scale(1.06); }
 .whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
-@keyframes pulseWA {
-  0%, 100% { box-shadow: 0 10px 30px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 10px 30px rgba(37,211,102,0.4), 0 0 0 16px rgba(37,211,102,0.10); }
-}
 
 /* ====== REVEAL ANIMATIONS ====== */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--easing), transform 0.8s var(--easing); }
@@ -2686,7 +2231,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
   </div>
-  <canvas class="particles-canvas" id="particlesCanvas"></canvas>
   <div class="shape shape-1"></div>
   <div class="shape shape-2"></div>
   <div class="shape shape-3"></div>
@@ -2698,12 +2242,12 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-ar>المملكة العربية السعودية · رؤية 2030</span>
       </span>
       <h1 class="hero-title h-display">
-        <span data-en>Building the<br><span class="accent">Kingdom</span>'s Future</span>
+        <span data-en>Building the<br><span class="accent">Kingdom&rsquo;s</span> Future</span>
         <span data-ar>نبني مستقبل<br><span class="accent">المملكة</span></span>
       </h1>
       <p class="hero-subtitle">
-        <span data-en>ARC is a leading contracting company delivering exceptional construction, design, and infrastructure projects across Saudi Arabia. Delivering architectural, mechanical and electrical scopes alongside the Kingdom&rsquo;s leading main contractors since 2019.</span>
-        <span data-ar>شركة ارك للمقاولات الرائدة في تنفيذ مشاريع البناء والتصميم والبنية التحتية في جميع أنحاء المملكة العربية السعودية. ننفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019.</span>
+        <span data-en>ARC is a Saudi contracting company delivering architectural, mechanical and electrical works alongside the Kingdom&rsquo;s leading main contractors since 2019.</span>
+        <span data-ar>شركة أرك للمقاولات شركة سعودية تنفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019.</span>
       </p>
       <div class="live-pill">
         <span class="dot"></span>
@@ -2776,12 +2320,12 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
           <span data-ar>هندسة <em>التميّز</em> لعصر سعودي جديد.</span>
         </h2>
         <p>
-          <span data-en>From foundations to finishes, we deliver large-scale contracting projects with uncompromising quality, precision, and on-time execution.</span>
-          <span data-ar>من الأساسات إلى التشطيبات، نُنجز مشاريع المقاولات الكبرى بجودة لا تتنازل، ودقّة وتسليم في الوقت.</span>
+          <span data-en>From MEP installations to architectural finishes, we deliver every scope with quality, precision and on-time execution.</span>
+          <span data-ar>من التمديدات الكهروميكانيكية إلى التشطيبات المعمارية، نُنجز كل نطاق عمل بجودة ودقّة وتسليم في الموعد.</span>
         </p>
         <p>
-          <span data-en>Aligned with Vision 2030, we partner with the Kingdom's most ambitious developers — Roshn, Diriyah Gate, Boulevard — to shape iconic destinations.</span>
-          <span data-ar>متماشين مع رؤية 2030، نشارك أهم المطوّرين في المملكة — روشن، بوابة الدرعية، البوليفارد — في صياغة وجهات استثنائية.</span>
+          <span data-en>Aligned with Vision 2030, our teams have worked on projects such as Roshn&rsquo;s Sedra villas, Boulevard City and Samhan Heritage Hotel in Diriyah.</span>
+          <span data-ar>انسجاماً مع رؤية 2030، شاركت فرقنا في مشاريع مثل فلل روشن في سدرة وبوليفارد سيتي وفندق سمحان التراثي في الدرعية.</span>
         </p>
         <ul class="about-features">
           <li>
@@ -3511,83 +3055,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   </div>
 </section>
 
-<!-- ====== COST CALCULATOR ====== -->
-<section class="calc-section" id="calculator">
-  <div class="container">
-    <div class="calc-grid">
-      <div class="calc-info reveal">
-        <span class="eyebrow" style="background: rgba(244,180,0,0.15); border-color: rgba(244,180,0,0.4); color: var(--gold-light);">
-          <span data-en>Project Cost Estimator</span>
-          <span data-ar>حاسبة تكلفة المشروع</span>
-        </span>
-        <h2 style="margin-top: 20px;">
-          <span data-en>Get an <span class="gold">instant estimate</span> for your project.</span>
-          <span data-ar>احصل على <span class="gold">تقدير فوري</span> لمشروعك.</span>
-        </h2>
-        <p>
-          <span data-en>Adjust the type, size, and finish quality to see a real-time estimate. Submit your details for a precise quote within 24 hours.</span>
-          <span data-ar>اختر النوع والمساحة ومستوى التشطيب لترى تقديراً فورياً. أرسل تفاصيلك لتلقّي عرض دقيق خلال 24 ساعة.</span>
-        </p>
-        <span class="note">
-          <span data-en>✦ Approximate range — final pricing after site visit</span>
-          <span data-ar>✦ تقدير تقريبي — السعر النهائي بعد المعاينة</span>
-        </span>
-      </div>
-
-      <div class="calc-card reveal">
-        <div class="calc-field">
-          <label><span data-en>Project Type</span><span data-ar>نوع المشروع</span></label>
-          <div class="calc-types" id="calcTypes">
-            <button class="calc-type active" type="button" data-rate="2200" data-type="villa">
-              <span data-en>🏠 Villa</span><span data-ar>🏠 فيلا</span>
-            </button>
-            <button class="calc-type" type="button" data-rate="3000" data-type="office">
-              <span data-en>🏢 Office</span><span data-ar>🏢 مكتب</span>
-            </button>
-            <button class="calc-type" type="button" data-rate="1500" data-type="warehouse">
-              <span data-en>🏭 Warehouse</span><span data-ar>🏭 مستودع</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="calc-field">
-          <label><span data-en>Area (m²)</span><span data-ar>المساحة (متر²)</span></label>
-          <input type="range" class="calc-slider" id="calcArea" aria-label="Project area in square metres / مساحة المشروع بالمتر المربع" min="100" max="2000" step="50" value="400">
-          <div class="calc-value">
-            <span><span data-en>Size</span><span data-ar>الحجم</span></span>
-            <span><span class="current" id="calcAreaValue">400</span> m²</span>
-          </div>
-        </div>
-
-        <div class="calc-field">
-          <label><span data-en>Finish Quality</span><span data-ar>مستوى التشطيب</span></label>
-          <input type="range" class="calc-slider" id="calcFinish" aria-label="Finish level / مستوى التشطيب" min="1" max="3" step="1" value="2">
-          <div class="calc-value">
-            <span id="calcFinishLabel"><span data-en>Premium</span><span data-ar>فاخر</span></span>
-            <span><span class="current" id="calcFinishMultiplier">×1.0</span></span>
-          </div>
-        </div>
-
-        <div class="calc-result">
-          <div class="label">
-            <span data-en>Estimated Cost</span>
-            <span data-ar>التكلفة التقديرية</span>
-          </div>
-          <div class="amount" id="calcAmount">SAR 880,000</div>
-          <a href="#contact" class="btn btn-primary" style="margin-top: 14px; padding: 12px 28px; font-size: 12px;">
-            <span data-en>Get Detailed Quote</span><span data-ar>احصل على عرض مفصّل</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <div class="disclaimer">
-            <span data-en>* Estimate range ±15%. Excludes land, permits, design fees.</span>
-            <span data-ar>* النطاق ±15%. لا يشمل الأرض والتراخيص ورسوم التصميم.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ====== CONTACT ====== -->
 <section class="section contact-section" id="contact">
   <div class="container">
@@ -3727,207 +3194,31 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   </div>
 </section>
 
-<!-- ====== 3D SKYLINE ====== -->
-<section class="skyline-section" id="skyline">
-  <canvas id="skylineCanvas"></canvas>
-  <div class="skyline-overlay">
-    <span class="eyebrow">
-      <span data-en>Interactive 3D Vision</span>
-      <span data-ar>رؤية ثلاثية الأبعاد تفاعلية</span>
-    </span>
-    <h2>
-      <span data-en>Witness the Kingdom <span class="gold">rising</span>.</span>
-      <span data-ar>شاهد المملكة <span class="gold">ترتفع</span>.</span>
-    </h2>
-    <p>
-      <span data-en>An interactive 3D representation of the urban transformation we're a part of. Drag to rotate · click to rebuild.</span>
-      <span data-ar>تمثيل ثلاثي الأبعاد تفاعلي للتحوّل العمراني الذي نشارك فيه. اسحب للدوران · انقر لإعادة البناء.</span>
-    </p>
-    <div class="skyline-controls">
-      <button class="skyline-btn" id="skylineRebuild" type="button">
-        <span data-en>↻ Rebuild City</span><span data-ar>↻ أعد البناء</span>
-      </button>
-      <button class="skyline-btn" id="skylineToggle" type="button">
-        <span data-en>⏸ Pause Rotation</span><span data-ar>⏸ إيقاف الدوران</span>
-      </button>
-    </div>
-  </div>
-  <div class="skyline-credit">Built with WebGL · Three.js</div>
-</section>
-
-<!-- ====== BUILD CONFIGURATOR ====== -->
-<section class="configurator-section" id="configurator">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">
-        <span data-en>Project Configurator</span><span data-ar>معالج المشروع</span>
-      </span>
-      <h2 class="section-title">
-        <span data-en>Build your <span class="gold">dream project</span> in 5 steps.</span>
-        <span data-ar>صمّم <span class="gold">مشروع أحلامك</span> في 5 خطوات.</span>
-      </h2>
-      <p class="section-subtitle">
-        <span data-en>Answer a few questions and download a PDF with your custom estimate. Our team will follow up within 24 hours.</span>
-        <span data-ar>أجب عن بضعة أسئلة واحصل على تقدير مخصص بصيغة PDF. سيتواصل فريقنا خلال 24 ساعة.</span>
-      </p>
-    </div>
-
-    <div class="config-wizard reveal">
-      <div class="config-progress" id="configProgress">
-        <div class="config-step-dot active"></div>
-        <div class="config-step-dot"></div>
-        <div class="config-step-dot"></div>
-        <div class="config-step-dot"></div>
-        <div class="config-step-dot"></div>
-      </div>
-
-      <div class="config-body">
-        <!-- STEP 1: Project Type -->
-        <div class="config-step active" data-step="1">
-          <div class="step-label"><span data-en>Step 1 of 5</span><span data-ar>الخطوة 1 من 5</span></div>
-          <div class="step-title"><span data-en>What are we building?</span><span data-ar>ماذا نبني؟</span></div>
-          <div class="step-desc"><span data-en>Select the project type.</span><span data-ar>اختر نوع المشروع.</span></div>
-          <div class="config-options">
-            <div class="config-option selected" data-value="Villa" data-rate="2200">
-              <div class="emoji">🏠</div><div class="name"><span data-en>Villa</span><span data-ar>فيلا</span></div><div class="price">SAR 2,200/m²</div>
-            </div>
-            <div class="config-option" data-value="Office Tower" data-rate="3000">
-              <div class="emoji">🏢</div><div class="name"><span data-en>Office</span><span data-ar>مكتب</span></div><div class="price">SAR 3,000/m²</div>
-            </div>
-            <div class="config-option" data-value="Warehouse" data-rate="1500">
-              <div class="emoji">🏭</div><div class="name"><span data-en>Warehouse</span><span data-ar>مستودع</span></div><div class="price">SAR 1,500/m²</div>
-            </div>
-            <div class="config-option" data-value="Compound" data-rate="2500">
-              <div class="emoji">🏘️</div><div class="name"><span data-en>Compound</span><span data-ar>مجمع</span></div><div class="price">SAR 2,500/m²</div>
-            </div>
-            <div class="config-option" data-value="Restaurant" data-rate="3500">
-              <div class="emoji">🍽️</div><div class="name"><span data-en>Restaurant</span><span data-ar>مطعم</span></div><div class="price">SAR 3,500/m²</div>
-            </div>
-            <div class="config-option" data-value="Clinic" data-rate="3800">
-              <div class="emoji">🏥</div><div class="name"><span data-en>Clinic</span><span data-ar>عيادة</span></div><div class="price">SAR 3,800/m²</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 2: Size -->
-        <div class="config-step" data-step="2">
-          <div class="step-label"><span data-en>Step 2 of 5</span><span data-ar>الخطوة 2 من 5</span></div>
-          <div class="step-title"><span data-en>How big?</span><span data-ar>ما الحجم؟</span></div>
-          <div class="step-desc"><span data-en>Adjust the total built-up area.</span><span data-ar>عدّل المساحة الإجمالية للبناء.</span></div>
-          <div class="config-slider-wrap">
-            <div class="current"><span id="configSizeValue">400</span> <span>m²</span></div>
-            <input type="range" class="calc-slider" id="configSize" aria-label="Project size in square metres / حجم المشروع بالمتر المربع" min="100" max="3000" step="50" value="400" style="background: var(--border);">
-          </div>
-        </div>
-
-        <!-- STEP 3: Location -->
-        <div class="config-step" data-step="3">
-          <div class="step-label"><span data-en>Step 3 of 5</span><span data-ar>الخطوة 3 من 5</span></div>
-          <div class="step-title"><span data-en>Where?</span><span data-ar>أين الموقع؟</span></div>
-          <div class="step-desc"><span data-en>Project location.</span><span data-ar>موقع المشروع.</span></div>
-          <div class="config-options">
-            <div class="config-option selected" data-value="Riyadh" data-multiplier="1.0">
-              <div class="emoji">📍</div><div class="name">Riyadh</div><div class="price">Standard rate</div>
-            </div>
-            <div class="config-option" data-value="Jeddah" data-multiplier="1.05">
-              <div class="emoji">📍</div><div class="name">Jeddah</div><div class="price">+5%</div>
-            </div>
-            <div class="config-option" data-value="Dammam" data-multiplier="1.08">
-              <div class="emoji">📍</div><div class="name">Dammam</div><div class="price">+8%</div>
-            </div>
-            <div class="config-option" data-value="NEOM" data-multiplier="1.25">
-              <div class="emoji">🚀</div><div class="name">NEOM</div><div class="price">+25%</div>
-            </div>
-            <div class="config-option" data-value="Diriyah" data-multiplier="1.15">
-              <div class="emoji">🏛️</div><div class="name">Diriyah</div><div class="price">+15%</div>
-            </div>
-            <div class="config-option" data-value="Other" data-multiplier="1.10">
-              <div class="emoji">📌</div><div class="name"><span data-en>Other</span><span data-ar>أخرى</span></div><div class="price">+10%</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 4: Finish Quality -->
-        <div class="config-step" data-step="4">
-          <div class="step-label"><span data-en>Step 4 of 5</span><span data-ar>الخطوة 4 من 5</span></div>
-          <div class="step-title"><span data-en>What level of finish?</span><span data-ar>أي مستوى تشطيب؟</span></div>
-          <div class="step-desc"><span data-en>Choose your quality tier.</span><span data-ar>اختر مستوى الجودة.</span></div>
-          <div class="config-options" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="config-option" data-value="Standard" data-multiplier="0.8">
-              <div class="emoji">⚪</div><div class="name"><span data-en>Standard</span><span data-ar>قياسي</span></div><div class="price">-20%</div>
-            </div>
-            <div class="config-option selected" data-value="Premium" data-multiplier="1.0">
-              <div class="emoji">⭐</div><div class="name"><span data-en>Premium</span><span data-ar>فاخر</span></div><div class="price">Base</div>
-            </div>
-            <div class="config-option" data-value="Luxury" data-multiplier="1.4">
-              <div class="emoji">💎</div><div class="name"><span data-en>Luxury</span><span data-ar>سوبر فاخر</span></div><div class="price">+40%</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 5: Contact Info -->
-        <div class="config-step" data-step="5">
-          <div class="step-label"><span data-en>Step 5 of 5</span><span data-ar>الخطوة 5 من 5</span></div>
-          <div class="step-title"><span data-en>Your details</span><span data-ar>بياناتك</span></div>
-          <div class="step-desc"><span data-en>We'll send the full proposal within 24 hours.</span><span data-ar>سنرسل العرض الكامل خلال 24 ساعة.</span></div>
-          <input type="text" class="config-input" id="configName" placeholder="Full Name / الاسم الكامل" aria-label="Full name / الاسم الكامل" required>
-          <input type="email" class="config-input" id="configEmail" placeholder="Email / البريد الإلكتروني" aria-label="Email address / البريد الإلكتروني" required>
-          <input type="tel" class="config-input" id="configPhone" placeholder="Phone +966 / رقم الجوال" aria-label="Phone number / رقم الجوال" required>
-
-          <div class="config-summary" id="configSummary">
-            <h4><span data-en>Project Summary</span><span data-ar>ملخّص المشروع</span></h4>
-            <div class="config-summary-row"><span class="label" data-en>Type</span><span class="label" data-ar>النوع</span><span class="value" id="summaryType">Villa</span></div>
-            <div class="config-summary-row"><span class="label" data-en>Size</span><span class="label" data-ar>المساحة</span><span class="value" id="summarySize">400 m²</span></div>
-            <div class="config-summary-row"><span class="label" data-en>Location</span><span class="label" data-ar>الموقع</span><span class="value" id="summaryLocation">Riyadh</span></div>
-            <div class="config-summary-row"><span class="label" data-en>Quality</span><span class="label" data-ar>الجودة</span><span class="value" id="summaryQuality">Premium</span></div>
-            <div class="total">
-              <span class="label"><span data-en>Estimated Cost</span><span data-ar>التكلفة التقديرية</span></span>
-              <span class="amount" id="summaryAmount">SAR 880,000</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="config-nav">
-        <button class="config-btn config-btn-prev" id="configPrev" type="button" disabled>
-          ← <span data-en>Previous</span><span data-ar>السابق</span>
-        </button>
-        <button class="config-btn config-btn-next" id="configNext" type="button">
-          <span data-en>Next</span><span data-ar>التالي</span> →
-        </button>
-        <button class="config-btn config-btn-pdf" id="configPdf" type="button" style="display: none;">
-          📄 <span data-en>Download PDF</span><span data-ar>تحميل PDF</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ====== NEWSLETTER ====== -->
 <section class="newsletter-section">
   <div class="container">
     <div class="newsletter-card reveal">
       <div class="newsletter-content">
-        <span class="lead-magnet">★ <span data-en>Free 50-Page Guide</span><span data-ar>دليل مجاني 50 صفحة</span></span>
+        <span class="lead-magnet"><span data-en>Let&rsquo;s Talk</span><span data-ar>تواصل معنا</span></span>
         <h3 style="margin-top:14px;">
-          <span data-en>The Complete Villa Building Guide for Saudi Arabia</span>
-          <span data-ar>الدليل الكامل لبناء فيلا في المملكة</span>
+          <span data-en>Planning a project? We&rsquo;d like to hear about it.</span>
+          <span data-ar>لديك مشروع؟ يسعدنا أن نسمع عنه.</span>
         </h3>
         <p>
-          <span data-en>Materials, permits, costs, timelines, and pro tips — everything we wish we'd known. Get it free in your inbox.</span>
-          <span data-ar>المواد، التراخيص، التكاليف، المدد، نصائح المحترفين — كل ما تمنيّنا معرفته. احصل عليه مجاناً في بريدك.</span>
+          <span data-en>Leave your name and mobile number and our team will call you.</span>
+          <span data-ar>اترك اسمك ورقم جوالك وسيتصل بك فريقنا.</span>
         </p>
       </div>
-      <form class="newsletter-form" id="newsletterForm">
+      <form class="newsletter-form" id="newsletterForm" novalidate>
         <div class="field">
-          <input type="text" id="nlName" placeholder="Your Name / اسمك" aria-label="Your name / اسمك" required>
+          <input type="text" id="nlName" autocomplete="name" placeholder="Your Name / اسمك" aria-label="Your name / اسمك" required>
         </div>
         <div class="field">
-          <input type="email" id="nlEmail" placeholder="Email address / البريد الإلكتروني" aria-label="Email address / البريد الإلكتروني" required>
+          <input type="tel" id="nlPhone" inputmode="tel" autocomplete="tel" placeholder="Mobile / رقم الجوال" aria-label="Mobile number / رقم الجوال" required>
         </div>
         <button type="submit">
-          <span data-en>Send Me The Guide ➜</span>
-          <span data-ar>أرسل لي الدليل ➜</span>
+          <span data-en>Call Me Back ➜</span>
+          <span data-ar>اتصلوا بي ➜</span>
         </button>
       </form>
     </div>
@@ -3943,8 +3234,8 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       <div class="footer-brand">
         <a href="#home" class="logo"><img src="assets/logo.png" alt="ARC"></a>
         <p>
-          <span data-en>Building Saudi Arabia's iconic destinations with precision, quality, and integrity since 2017.</span>
-          <span data-ar>نبني وجهات المملكة الأيقونية بدقة وجودة ونزاهة منذ 2017.</span>
+          <span data-en>Architectural, mechanical and electrical contracting across Saudi Arabia since 2019.</span>
+          <span data-ar>مقاولات معمارية وميكانيكية وكهربائية في أنحاء المملكة منذ 2019.</span>
         </p>
         <div class="footer-social">
           <a href="https://x.com/byarcsa" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></a>
@@ -4042,7 +3333,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <a href="#vision" data-label="Vision 2030"></a>
   <a href="#services" data-label="Services"></a>
   <a href="#projects" data-label="Projects"></a>
-  <a href="#calculator" data-label="Estimate"></a>
   <a href="#team" data-label="Team"></a>
   <a href="#contact" data-label="Contact"></a>
 </nav>
@@ -4200,426 +3490,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     });
   }, { threshold: 0.4 });
   counters.forEach(function(c) { observer.observe(c); });
-})();
-
-// ============== 3D SKYLINE (Three.js) ==============
-(function() {
-  function initSkyline() {
-    const canvas = document.getElementById('skylineCanvas');
-    if (!canvas) return;
-    if (typeof THREE === 'undefined') {
-      // fetch the 600 KB library only once the section is actually approaching
-      const io = new IntersectionObserver(function(entries) {
-        if (!entries[0].isIntersecting) return;
-        io.disconnect();
-        window.loadLib(window.THREE_URL).then(initSkyline).catch(function() {
-          canvas.style.display = 'none';
-        });
-      }, { rootMargin: '400px' });
-      io.observe(canvas);
-      return;
-    }
-
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x0A0E1F, 30, 120);
-
-    const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    camera.position.set(40, 35, 50);
-    camera.lookAt(0, 8, 0);
-
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
-
-    // Lights
-    const ambient = new THREE.AmbientLight(0xffffff, 0.35);
-    scene.add(ambient);
-    const dirLight = new THREE.DirectionalLight(0xF4B400, 1.2);
-    dirLight.position.set(20, 30, 10);
-    scene.add(dirLight);
-    const dirLight2 = new THREE.DirectionalLight(0x4a90e2, 0.5);
-    dirLight2.position.set(-20, 20, -10);
-    scene.add(dirLight2);
-
-    // Ground
-    const groundGeo = new THREE.PlaneGeometry(200, 200);
-    const groundMat = new THREE.MeshLambertMaterial({ color: 0x131933 });
-    const ground = new THREE.Mesh(groundGeo, groundMat);
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = 0;
-    scene.add(ground);
-
-    // Grid
-    const grid = new THREE.GridHelper(200, 40, 0x244068, 0x1a2444);
-    grid.position.y = 0.01;
-    scene.add(grid);
-
-    // Buildings group
-    const buildings = new THREE.Group();
-    scene.add(buildings);
-
-    function buildCity() {
-      // Clear
-      while (buildings.children.length) buildings.remove(buildings.children[0]);
-
-      const navy = 0x1E3A5F;
-      const gold = 0xF4B400;
-      const white = 0xE5E9F0;
-
-      const positions = [
-        { x: 0,   z: 0,   w: 4, h: 18, d: 4, c: gold, s: 'tower' },
-        { x: -8,  z: 2,   w: 5, h: 12, d: 5, c: navy, s: 'box' },
-        { x: 8,   z: -3,  w: 6, h: 22, d: 6, c: navy, s: 'tower' },
-        { x: -14, z: -6,  w: 4, h: 9,  d: 4, c: navy, s: 'box' },
-        { x: 14,  z: 8,   w: 5, h: 15, d: 5, c: gold, s: 'box' },
-        { x: -3,  z: -10, w: 7, h: 26, d: 7, c: navy, s: 'tower' },
-        { x: 4,   z: 12,  w: 4, h: 10, d: 4, c: white, s: 'box' },
-        { x: -10, z: 11,  w: 3, h: 7,  d: 3, c: navy, s: 'box' },
-        { x: 17,  z: -10, w: 4, h: 13, d: 4, c: white, s: 'box' },
-        { x: -18, z: 5,   w: 5, h: 16, d: 5, c: gold, s: 'box' },
-        { x: 11,  z: 18,  w: 3, h: 8,  d: 3, c: navy, s: 'box' },
-        { x: -8,  z: -15, w: 4, h: 11, d: 4, c: navy, s: 'box' }
-      ];
-
-      positions.forEach(function(p, idx) {
-        const targetH = p.h;
-        const geo = new THREE.BoxGeometry(p.w, targetH, p.d);
-        const mat = new THREE.MeshLambertMaterial({
-          color: p.c,
-          emissive: p.c === gold ? 0x402d00 : 0x000000
-        });
-        const b = new THREE.Mesh(geo, mat);
-        b.position.set(p.x, targetH / 2, p.z);
-        b.userData.targetH = targetH;
-        b.userData.targetY = targetH / 2;
-        // Start hidden
-        b.position.y = -targetH / 2;
-        b.scale.y = 0.01;
-        buildings.add(b);
-
-        // Roof accent
-        if (p.s === 'tower') {
-          const accGeo = new THREE.BoxGeometry(p.w * 0.4, 1.5, p.d * 0.4);
-          const accMat = new THREE.MeshLambertMaterial({ color: gold, emissive: 0x664c00 });
-          const acc = new THREE.Mesh(accGeo, accMat);
-          acc.position.set(p.x, targetH + 0.75, p.z);
-          acc.userData.parent = b;
-          buildings.add(acc);
-        }
-
-        // Animate rise
-        const delay = idx * 110;
-        setTimeout(function() {
-          const start = performance.now();
-          const duration = 1100;
-          function step(now) {
-            const t = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - t, 4);
-            b.scale.y = 0.01 + eased * 0.99;
-            b.position.y = (b.userData.targetH / 2) * b.scale.y;
-            if (t < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-        }, delay);
-      });
-
-      // Particles in sky
-      const particleGeo = new THREE.BufferGeometry();
-      const particleCount = 200;
-      const posArr = new Float32Array(particleCount * 3);
-      for (let i = 0; i < particleCount; i++) {
-        posArr[i * 3] = (Math.random() - 0.5) * 100;
-        posArr[i * 3 + 1] = Math.random() * 40 + 15;
-        posArr[i * 3 + 2] = (Math.random() - 0.5) * 100;
-      }
-      particleGeo.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
-      const particleMat = new THREE.PointsMaterial({
-        color: 0xF4B400,
-        size: 0.15,
-        transparent: true,
-        opacity: 0.7
-      });
-      const particles = new THREE.Points(particleGeo, particleMat);
-      buildings.add(particles);
-    }
-
-    buildCity();
-
-    let rotating = true;
-    let dragging = false;
-    let dragStart = { x: 0, theta: 0 };
-    let cameraTheta = Math.atan2(camera.position.x, camera.position.z);
-    let cameraRadius = Math.sqrt(camera.position.x * camera.position.x + camera.position.z * camera.position.z);
-
-    canvas.addEventListener('mousedown', function(e) {
-      dragging = true; dragStart.x = e.clientX; dragStart.theta = cameraTheta;
-    });
-    canvas.addEventListener('mousemove', function(e) {
-      if (!dragging) return;
-      cameraTheta = dragStart.theta - (e.clientX - dragStart.x) * 0.005;
-    });
-    window.addEventListener('mouseup', function() { dragging = false; });
-    canvas.addEventListener('touchstart', function(e) {
-      dragging = true; dragStart.x = e.touches[0].clientX; dragStart.theta = cameraTheta;
-    }, { passive: true });
-    canvas.addEventListener('touchmove', function(e) {
-      if (!dragging) return;
-      cameraTheta = dragStart.theta - (e.touches[0].clientX - dragStart.x) * 0.005;
-    }, { passive: true });
-    window.addEventListener('touchend', function() { dragging = false; });
-
-    function animate() {
-      if (rotating && !dragging) cameraTheta += 0.0015;
-      camera.position.x = Math.sin(cameraTheta) * cameraRadius;
-      camera.position.z = Math.cos(cameraTheta) * cameraRadius;
-      camera.lookAt(0, 8, 0);
-      renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    function resize() {
-      camera.aspect = canvas.clientWidth / canvas.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
-    }
-    window.addEventListener('resize', resize);
-
-    document.getElementById('skylineRebuild').addEventListener('click', function() {
-      buildCity();
-    });
-    document.getElementById('skylineToggle').addEventListener('click', function() {
-      rotating = !rotating;
-      const html = document.documentElement;
-      const isAr = html.getAttribute('data-lang') === 'ar';
-      this.innerHTML = rotating
-        ? (isAr ? '<span data-ar>⏸ إيقاف الدوران</span>' : '<span data-en>⏸ Pause Rotation</span>')
-        : (isAr ? '<span data-ar>▶ تشغيل الدوران</span>' : '<span data-en>▶ Resume Rotation</span>');
-    });
-  }
-  if (document.readyState === 'complete') initSkyline();
-  else window.addEventListener('load', initSkyline);
-})();
-
-// ============== BUILD CONFIGURATOR (with PDF) ==============
-(function() {
-  const wizard = document.querySelector('.config-wizard');
-  if (!wizard) return;
-
-  const steps = wizard.querySelectorAll('.config-step');
-  const dots = wizard.querySelectorAll('.config-step-dot');
-  const prevBtn = document.getElementById('configPrev');
-  const nextBtn = document.getElementById('configNext');
-  const pdfBtn = document.getElementById('configPdf');
-  let current = 0;
-
-  const data = {
-    type: { value: 'Villa', rate: 2200 },
-    size: 400,
-    location: { value: 'Riyadh', multiplier: 1.0 },
-    quality: { value: 'Premium', multiplier: 1.0 },
-    name: '', email: '', phone: ''
-  };
-
-  function selectOption(stepEl, key, dataValueAttr, dataRateAttr) {
-    stepEl.querySelectorAll('.config-option').forEach(function(opt) {
-      opt.addEventListener('click', function() {
-        stepEl.querySelectorAll('.config-option').forEach(function(o) { o.classList.remove('selected'); });
-        opt.classList.add('selected');
-        const val = opt.getAttribute('data-value');
-        const rate = +opt.getAttribute('data-rate') || +opt.getAttribute('data-multiplier');
-        if (key === 'type') { data.type.value = val; data.type.rate = rate; }
-        else if (key === 'location') { data.location.value = val; data.location.multiplier = rate; }
-        else if (key === 'quality') { data.quality.value = val; data.quality.multiplier = rate; }
-        updateSummary();
-      });
-    });
-  }
-
-  selectOption(steps[0], 'type');
-  selectOption(steps[2], 'location');
-  selectOption(steps[3], 'quality');
-
-  const sizeSlider = document.getElementById('configSize');
-  const sizeValue = document.getElementById('configSizeValue');
-  sizeSlider.addEventListener('input', function() {
-    data.size = +sizeSlider.value;
-    sizeValue.textContent = data.size;
-    updateSummary();
-  });
-
-  function calcTotal() {
-    return Math.round(data.size * data.type.rate * data.location.multiplier * data.quality.multiplier / 1000) * 1000;
-  }
-
-  function updateSummary() {
-    document.getElementById('summaryType').textContent = data.type.value;
-    document.getElementById('summarySize').textContent = data.size + ' m²';
-    document.getElementById('summaryLocation').textContent = data.location.value;
-    document.getElementById('summaryQuality').textContent = data.quality.value;
-    document.getElementById('summaryAmount').textContent = 'SAR ' + calcTotal().toLocaleString('en-US');
-  }
-
-  function showStep(idx) {
-    steps.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
-    dots.forEach(function(d, i) {
-      d.classList.toggle('active', i === idx);
-      d.classList.toggle('completed', i < idx);
-    });
-    prevBtn.disabled = idx === 0;
-    if (idx === steps.length - 1) {
-      nextBtn.style.display = 'none';
-      pdfBtn.style.display = 'inline-flex';
-    } else {
-      nextBtn.style.display = 'inline-flex';
-      pdfBtn.style.display = 'none';
-    }
-    current = idx;
-  }
-
-  nextBtn.addEventListener('click', function() {
-    if (current < steps.length - 1) showStep(current + 1);
-    if (current === steps.length - 1) updateSummary();
-  });
-  prevBtn.addEventListener('click', function() {
-    if (current > 0) showStep(current - 1);
-  });
-
-  pdfBtn.addEventListener('click', function() {
-    data.name = document.getElementById('configName').value || 'Client';
-    data.email = document.getElementById('configEmail').value || '';
-    data.phone = document.getElementById('configPhone').value || '';
-    if (!data.email || !data.phone) {
-      alert(document.documentElement.getAttribute('data-lang') === 'ar'
-        ? 'الرجاء إدخال بريد إلكتروني ورقم جوال'
-        : 'Please enter email and phone');
-      return;
-    }
-    generatePDF();
-  });
-
-  function generatePDF() {
-    if (typeof window.jspdf === 'undefined') {
-      // fetch the library the first time someone actually asks for a PDF
-      window.loadLib(window.JSPDF_URL).then(generatePDF).catch(function() {
-        alert(document.documentElement.getAttribute('data-lang') === 'ar'
-          ? 'تعذّر تجهيز ملف PDF، حاول مرة أخرى'
-          : 'Could not prepare the PDF, please try again');
-      });
-      return;
-    }
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    const navy = [14, 42, 71];
-    const gold = [244, 180, 0];
-
-    // Header
-    doc.setFillColor.apply(doc, navy);
-    doc.rect(0, 0, 210, 40, 'F');
-    doc.setFillColor.apply(doc, gold);
-    doc.rect(0, 38, 210, 2, 'F');
-
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(22);
-    doc.setFont('helvetica', 'bold');
-    doc.text('ARC CONSTRUCTION', 105, 18, { align: 'center' });
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.text('Project Proposal · Saudi Arabia', 105, 28, { align: 'center' });
-
-    // Date
-    const today = new Date();
-    doc.setTextColor(120, 120, 120);
-    doc.setFontSize(9);
-    doc.text('Date: ' + today.toLocaleDateString('en-GB'), 20, 50);
-    doc.text('Ref: ARC-' + Date.now().toString().slice(-6), 190, 50, { align: 'right' });
-
-    // Client Info
-    doc.setTextColor.apply(doc, navy);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Prepared For', 20, 65);
-    doc.setDrawColor.apply(doc, gold);
-    doc.line(20, 67, 60, 67);
-
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'normal');
-    doc.text(data.name, 20, 76);
-    doc.text(data.email, 20, 83);
-    doc.text(data.phone, 20, 90);
-
-    // Project Details box
-    doc.setFillColor(247, 249, 252);
-    doc.rect(20, 100, 170, 70, 'F');
-
-    doc.setTextColor.apply(doc, navy);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Project Specification', 28, 112);
-
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'normal');
-    const detailY = 122;
-    const lineH = 10;
-    const items = [
-      ['Project Type', data.type.value],
-      ['Total Area', data.size + ' m²'],
-      ['Location', data.location.value],
-      ['Finish Quality', data.quality.value]
-    ];
-    items.forEach(function(item, i) {
-      doc.setTextColor(100, 100, 100);
-      doc.text(item[0], 28, detailY + i * lineH);
-      doc.setTextColor.apply(doc, navy);
-      doc.setFont('helvetica', 'bold');
-      doc.text(item[1], 110, detailY + i * lineH);
-      doc.setFont('helvetica', 'normal');
-    });
-
-    // Cost
-    doc.setFillColor.apply(doc, navy);
-    doc.rect(20, 180, 170, 35, 'F');
-    doc.setFillColor.apply(doc, gold);
-    doc.rect(20, 180, 4, 35, 'F');
-
-    doc.setTextColor.apply(doc, gold);
-    doc.setFontSize(10);
-    doc.text('ESTIMATED PROJECT COST', 30, 192);
-
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(28);
-    doc.setFont('helvetica', 'bold');
-    doc.text('SAR ' + calcTotal().toLocaleString('en-US'), 30, 207);
-
-    // Disclaimer
-    doc.setTextColor(120, 120, 120);
-    doc.setFontSize(8);
-    doc.setFont('helvetica', 'normal');
-    doc.text('* Estimate ±15%. Excludes land, permits, design fees. A site visit is required for accurate pricing.', 20, 225);
-
-    // Next steps
-    doc.setTextColor.apply(doc, navy);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Next Steps', 20, 240);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.text('1. Our team will contact you within 24 hours', 20, 250);
-    doc.text('2. We schedule a free site consultation', 20, 257);
-    doc.text('3. You receive a detailed final proposal', 20, 264);
-
-    // Footer
-    doc.setFillColor.apply(doc, navy);
-    doc.rect(0, 275, 210, 22, 'F');
-    doc.setTextColor.apply(doc, gold);
-    doc.setFontSize(9);
-    doc.text('ARC Construction · Riyadh, Saudi Arabia · byarcsa.com', 105, 284, { align: 'center' });
-    doc.setTextColor(220, 220, 220);
-    doc.setFontSize(8);
-    doc.text('info@byarcsa.com · +966 53 414 0415 · byarcsa.com', 105, 290, { align: 'center' });
-
-    doc.save('ARC-Proposal-' + data.name.replace(/\s+/g, '-') + '.pdf');
-  }
 })();
 
 // ============== BEFORE/AFTER SLIDER ==============
@@ -4861,7 +3731,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     { icon: '🔧', label: 'Mechanical (HVAC)', section: 'Services', target: '#services' },
     { icon: '📍', label: 'Riyadh Office', section: 'Contact', target: '#contact' },
 
-    { icon: '🧮', label: 'Cost Calculator', section: 'Tools', target: '#calculator' },
     { icon: '💼', label: 'Open Positions / Careers', section: 'Jobs', target: '#careers' },
     { icon: '🇸🇦', label: 'Vision 2030 Alignment', section: 'About', target: '#vision' },
     { icon: '👥', label: 'Our Team', section: 'About', target: '#team' }
@@ -4896,10 +3765,26 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   });
 })();
 
-// ============== NEWSLETTER FORM ==============
-(function() {
-  const form = document.getElementById('newsletterForm');
-  if (!form) return;
+// ============== LEAD STORE ==============
+// Shared by the quote form and the call-back box.
+window.ARCLeads = (function() {
+  // Publishable key — it is meant to ship in the page. Row level security
+  // lets it insert a lead and nothing else; it cannot read anyone back.
+  const SB_URL = 'https://cavojuqysdabhnidhhqa.supabase.co';
+  const SB_KEY = 'sb_publishable_ktAw1dC0J7udqhUR1R7eug_I1GArH91';
+  const isAr = function() { return document.documentElement.getAttribute('data-lang') === 'ar'; };
+
+  // Saudi mobile: 05xxxxxxxx, 5xxxxxxxx, +9665xxxxxxxx, 009665xxxxxxxx
+  function normalisePhone(raw) {
+    const digits = (raw || '').replace(/[^\d]/g, '');
+    if (/^9665\d{8}$/.test(digits)) return '+' + digits;
+    if (/^009665\d{8}$/.test(digits)) return '+' + digits.slice(2);
+    if (/^05\d{8}$/.test(digits)) return '+966' + digits.slice(1);
+    if (/^5\d{8}$/.test(digits)) return '+966' + digits;
+    if (digits.length >= 8 && digits.length <= 15) return '+' + digits;   // non-Saudi, keep as given
+    return null;
+  }
+
   /**
    * Store the enquiry before handing the visitor to WhatsApp or mail.
    * Without this the lead is lost whenever someone never presses send in
@@ -4907,7 +3792,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
    * deliberately fire-and-forget with a short timeout.
    */
   function record(d) {
-    if (!window.fetch || !SB_URL) return Promise.resolve(false);
+    if (!window.fetch) return Promise.resolve(false);
     const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
     if (ctrl) setTimeout(function () { ctrl.abort(); }, 6000);
     return fetch(SB_URL + '/rest/v1/leads', {
@@ -4934,26 +3819,38 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     }).then(function (r) { return r.ok; }).catch(function () { return false; });
   }
 
+  return { record: record, normalisePhone: normalisePhone, isAr: isAr };
+})();
+
+// ============== CALL-BACK BOX ==============
+(function() {
+  const form = document.getElementById('newsletterForm');
+  if (!form) return;
+  const L = window.ARCLeads;
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = document.getElementById('nlName').value;
-    const email = document.getElementById('nlEmail').value;
-    if (!name || !email) return;
+    const nameEl = document.getElementById('nlName');
+    const phoneEl = document.getElementById('nlPhone');
+    const name = nameEl.value.trim();
+    const phone = L.normalisePhone(phoneEl.value);
+    if (name.length < 2) { nameEl.setAttribute('aria-invalid', 'true'); nameEl.focus(); return; }
+    if (!phone) { phoneEl.setAttribute('aria-invalid', 'true'); phoneEl.focus(); return; }
+    L.record({ name: name, phone: phone, details: 'Call-back request from the website' });
+    const ar = L.isAr();
     const box = document.createElement('div');
     box.style.cssText = 'text-align:center;padding:30px;';
     const tick = document.createElement('div');
     tick.style.cssText = 'font-size:48px;margin-bottom:14px;'; tick.textContent = '✓';
     const h = document.createElement('h4');
     h.style.cssText = 'color:var(--navy);margin-bottom:8px;';
-    h.textContent = (document.documentElement.getAttribute('data-lang') === 'ar' ? 'شكراً لك، ' : 'Thank you, ') + name;
+    h.textContent = (ar ? 'شكراً لك، ' : 'Thank you, ') + name;
     const p = document.createElement('p');
     p.style.cssText = 'color:var(--navy);opacity:0.8;font-size:14px;';
-    p.textContent = document.documentElement.getAttribute('data-lang') === 'ar'
-      ? 'سنتواصل معك على ' + email
-      : 'We will be in touch at ' + email;
+    p.textContent = ar ? 'سيتصل بك فريقنا على ' + phone : 'Our team will call you on ' + phone;
     box.appendChild(tick); box.appendChild(h); box.appendChild(p);
     form.replaceChildren(box);
   });
+  form.addEventListener('input', function(e) { e.target.removeAttribute('aria-invalid'); });
 })();
 
 // ============== LIVE RIYADH TIME ==============
@@ -4980,64 +3877,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   }
   updateTime();
   setInterval(updateTime, 30000);
-})();
-
-// ============== PARTICLES ==============
-(function() {
-  const canvas = document.getElementById('particlesCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let w, h;
-
-  function resize() {
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  for (let i = 0; i < 40; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.3 - 0.1,
-      r: Math.random() * 2.5 + 0.5,
-      o: Math.random() * 0.6 + 0.2
-    });
-  }
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
-    particles.forEach(function(p) {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > w) p.vx *= -1;
-      if (p.y < 0 || p.y > h) p.vy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(244,180,0,' + p.o + ')';
-      ctx.fill();
-    });
-    // Draw lines between close particles
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 100) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = 'rgba(244,180,0,' + (0.2 * (1 - dist/100)) + ')';
-          ctx.lineWidth = 0.6;
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(animate);
-  }
-  animate();
 })();
 
 // ============== SECTION NAVIGATOR ==============
@@ -5076,80 +3915,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     });
     btn.addEventListener('mouseleave', function() {
       btn.style.transform = '';
-    });
-  });
-})();
-
-// ============== COST CALCULATOR ==============
-(function() {
-  const types = document.querySelectorAll('.calc-type');
-  const areaSlider = document.getElementById('calcArea');
-  const finishSlider = document.getElementById('calcFinish');
-  const areaValue = document.getElementById('calcAreaValue');
-  const finishLabel = document.getElementById('calcFinishLabel');
-  const finishMultiplier = document.getElementById('calcFinishMultiplier');
-  const amount = document.getElementById('calcAmount');
-  if (!types.length || !areaSlider || !amount) return;
-
-  const html = document.documentElement;
-  const isAr = function() { return html.getAttribute('data-lang') === 'ar'; };
-
-  let selectedRate = 2200;
-
-  const finishLabels = {
-    1: { en: 'Standard', ar: 'قياسي', mult: 0.8 },
-    2: { en: 'Premium', ar: 'فاخر', mult: 1.0 },
-    3: { en: 'Luxury', ar: 'سوبر فاخر', mult: 1.4 }
-  };
-
-  function format(n) {
-    return n.toLocaleString('en-US');
-  }
-
-  function calc() {
-    const area = +areaSlider.value;
-    const finish = finishLabels[+finishSlider.value];
-    const total = Math.round(area * selectedRate * finish.mult / 1000) * 1000;
-    areaValue.textContent = area;
-    finishLabel.querySelector('[data-en]').textContent = finish.en;
-    finishLabel.querySelector('[data-ar]').textContent = finish.ar;
-    finishMultiplier.textContent = '×' + finish.mult.toFixed(1);
-    const prefix = isAr() ? '' : 'SAR ';
-    const suffix = isAr() ? ' ر.س' : '';
-    amount.textContent = prefix + format(total) + suffix;
-  }
-
-  types.forEach(function(t) {
-    t.addEventListener('click', function() {
-      types.forEach(function(x) { x.classList.remove('active'); });
-      t.classList.add('active');
-      selectedRate = +t.getAttribute('data-rate');
-      calc();
-    });
-  });
-
-  areaSlider.addEventListener('input', calc);
-  finishSlider.addEventListener('input', calc);
-  calc();
-})();
-
-// ============== 3D TILT ==============
-(function() {
-  if (window.matchMedia('(hover: none), (max-width: 1024px)').matches) return;
-  const cards = document.querySelectorAll('.service-card, .stat-card');
-  cards.forEach(function(card) {
-    card.addEventListener('mousemove', function(e) {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rotateX = ((y - cy) / cy) * -6;
-      const rotateY = ((x - cx) / cx) * 6;
-      card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-8px)';
-    });
-    card.addEventListener('mouseleave', function() {
-      card.style.transform = '';
     });
   });
 })();
@@ -5224,11 +3989,9 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
   const WHATSAPP = '966534140415';
   const EMAIL = 'info@byarcsa.com';
-  // Publishable key — it is meant to ship in the page. Row level security
-  // lets it insert a lead and nothing else; it cannot read anyone back.
-  const SB_URL = 'https://cavojuqysdabhnidhhqa.supabase.co';
-  const SB_KEY = 'sb_publishable_ktAw1dC0J7udqhUR1R7eug_I1GArH91';
-  const isAr = function() { return document.documentElement.getAttribute('data-lang') === 'ar'; };
+  const record = window.ARCLeads.record;
+  const normalisePhone = window.ARCLeads.normalisePhone;
+  const isAr = window.ARCLeads.isAr;
   const errBox = document.getElementById('qfError');
 
   const F = {
@@ -5249,17 +4012,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   function clearError() {
     errBox.hidden = true;
     Object.values(F).forEach(function(el) { if (el) el.removeAttribute('aria-invalid'); });
-  }
-
-  // Saudi mobile: 05xxxxxxxx, 5xxxxxxxx, +9665xxxxxxxx, 009665xxxxxxxx
-  function normalisePhone(raw) {
-    const digits = (raw || '').replace(/[^\d]/g, '');
-    if (/^9665\d{8}$/.test(digits)) return '+' + digits;
-    if (/^009665\d{8}$/.test(digits)) return '+' + digits.slice(2);
-    if (/^05\d{8}$/.test(digits)) return '+966' + digits.slice(1);
-    if (/^5\d{8}$/.test(digits)) return '+966' + digits;
-    if (digits.length >= 8 && digits.length <= 15) return '+' + digits;   // non-Saudi, keep as given
-    return null;
   }
 
   function validate() {

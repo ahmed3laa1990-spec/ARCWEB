@@ -36,10 +36,10 @@ new-site/
 ## ✅ مزايا الموقع
 
 **13 قسم متكامل:**
-Hero سينمائي · About · Vision 2030 · Stats · Services · Projects · Before/After · Timeline · Partners ticker · Team · Testimonials · Calculator · WebGL Skyline 3D · Build Configurator · Newsletter · Contact · Footer
+Hero سينمائي · About · Vision 2030 · Stats · Services · Projects · Before/After · Timeline · Partners ticker · Team · Testimonials · Newsletter · Contact · Footer
 
 **ميزات تقنية:**
-ثنائي اللغة (EN/AR) · Responsive كامل · Animations · Counter animations · Project filter · Smooth scroll · Active nav highlighting · Mobile menu · Glassmorphism · Gradient mesh · Floating shapes · Partners ticker · SEO-optimized · WebGL Skyline 3D · PDF Configurator · Voice Tour · Achievement system · Konami Code easter egg · Predictive search · بوابة موظفين
+ثنائي اللغة (EN/AR) · Responsive كامل · Animations · Counter animations · Project filter · Smooth scroll · Active nav highlighting · Mobile menu · Glassmorphism · Gradient mesh · Floating shapes · Partners ticker · SEO-optimized · Predictive search · بوابة موظفين
 
 ---
 

@@ -36,10 +36,7 @@ const SECTION_AR = {
   credentials: 'السجلات الموثّقة',
   careers: 'الوظائف',
   blog: 'المدوّنة (مخفية حالياً)',
-  calculator: 'حاسبة التكلفة',
   contact: 'التواصل وطلب عرض السعر',
-  skyline: 'المجسّم ثلاثي الأبعاد',
-  configurator: 'مكوّن المشروع',
   footer: 'تذييل الموقع',
   section: 'أقسام أخرى'
 };

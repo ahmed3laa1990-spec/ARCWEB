@@ -637,13 +637,13 @@
     },
     "home.2": {
       "section": "home",
-      "en": "Building the<br><span class=\"accent\">Kingdom</span>'s Future",
+      "en": "Building the<br><span class=\"accent\">Kingdom&rsquo;s</span> Future",
       "ar": "نبني مستقبل<br><span class=\"accent\">المملكة</span>"
     },
     "home.3": {
       "section": "home",
-      "en": "ARC is a leading contracting company delivering exceptional construction, design, and infrastructure projects across Saudi Arabia. Delivering architectural, mechanical and electrical scopes alongside the Kingdom&rsquo;s leading main contractors since 2019.",
-      "ar": "شركة ارك للمقاولات الرائدة في تنفيذ مشاريع البناء والتصميم والبنية التحتية في جميع أنحاء المملكة العربية السعودية. ننفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019."
+      "en": "ARC is a Saudi contracting company delivering architectural, mechanical and electrical works alongside the Kingdom&rsquo;s leading main contractors since 2019.",
+      "ar": "شركة أرك للمقاولات شركة سعودية تنفّذ الأعمال المعمارية والميكانيكية والكهربائية بالتعاون مع كبرى شركات المقاولات في المملكة منذ 2019."
     },
     "home.4": {
       "section": "home",
@@ -707,13 +707,13 @@
     },
     "about.4": {
       "section": "about",
-      "en": "From foundations to finishes, we deliver large-scale contracting projects with uncompromising quality, precision, and on-time execution.",
-      "ar": "من الأساسات إلى التشطيبات، نُنجز مشاريع المقاولات الكبرى بجودة لا تتنازل، ودقّة وتسليم في الوقت."
+      "en": "From MEP installations to architectural finishes, we deliver every scope with quality, precision and on-time execution.",
+      "ar": "من التمديدات الكهروميكانيكية إلى التشطيبات المعمارية، نُنجز كل نطاق عمل بجودة ودقّة وتسليم في الموعد."
     },
     "about.5": {
       "section": "about",
-      "en": "Aligned with Vision 2030, we partner with the Kingdom's most ambitious developers — Roshn, Diriyah Gate, Boulevard — to shape iconic destinations.",
-      "ar": "متماشين مع رؤية 2030، نشارك أهم المطوّرين في المملكة — روشن، بوابة الدرعية، البوليفارد — في صياغة وجهات استثنائية."
+      "en": "Aligned with Vision 2030, our teams have worked on projects such as Roshn&rsquo;s Sedra villas, Boulevard City and Samhan Heritage Hotel in Diriyah.",
+      "ar": "انسجاماً مع رؤية 2030، شاركت فرقنا في مشاريع مثل فلل روشن في سدرة وبوليفارد سيتي وفندق سمحان التراثي في الدرعية."
     },
     "about.6": {
       "section": "about",
@@ -1585,81 +1585,6 @@
       "en": "Materials and techniques to reduce environmental impact.",
       "ar": "مواد وتقنيات لتقليل الأثر البيئي."
     },
-    "calculator.1": {
-      "section": "calculator",
-      "en": "Project Cost Estimator",
-      "ar": "حاسبة تكلفة المشروع"
-    },
-    "calculator.2": {
-      "section": "calculator",
-      "en": "Get an <span class=\"gold\">instant estimate</span> for your project.",
-      "ar": "احصل على <span class=\"gold\">تقدير فوري</span> لمشروعك."
-    },
-    "calculator.3": {
-      "section": "calculator",
-      "en": "Adjust the type, size, and finish quality to see a real-time estimate. Submit your details for a precise quote within 24 hours.",
-      "ar": "اختر النوع والمساحة ومستوى التشطيب لترى تقديراً فورياً. أرسل تفاصيلك لتلقّي عرض دقيق خلال 24 ساعة."
-    },
-    "calculator.4": {
-      "section": "calculator",
-      "en": "✦ Approximate range — final pricing after site visit",
-      "ar": "✦ تقدير تقريبي — السعر النهائي بعد المعاينة"
-    },
-    "calculator.5": {
-      "section": "calculator",
-      "en": "Project Type",
-      "ar": "نوع المشروع"
-    },
-    "calculator.6": {
-      "section": "calculator",
-      "en": "🏠 Villa",
-      "ar": "🏠 فيلا"
-    },
-    "calculator.7": {
-      "section": "calculator",
-      "en": "🏢 Office",
-      "ar": "🏢 مكتب"
-    },
-    "calculator.8": {
-      "section": "calculator",
-      "en": "🏭 Warehouse",
-      "ar": "🏭 مستودع"
-    },
-    "calculator.9": {
-      "section": "calculator",
-      "en": "Area (m²)",
-      "ar": "المساحة (متر²)"
-    },
-    "calculator.10": {
-      "section": "calculator",
-      "en": "Size",
-      "ar": "الحجم"
-    },
-    "calculator.11": {
-      "section": "calculator",
-      "en": "Finish Quality",
-      "ar": "مستوى التشطيب"
-    },
-    "calculator.12": {
-      "section": "calculator",
-      "en": "Premium",
-      "ar": "فاخر"
-    },
-    "calculator.13": {
-      "section": "calculator",
-      "en": "Estimated Cost",
-      "ar": "التكلفة التقديرية"
-    },
-    "calculator.14": {
-      "section": "calculator",
-      "en": "Get Detailed Quote",
-      "ar": "احصل على عرض مفصّل"
-    },
-    "calculator.15": {
-      "section": "calculator",
-      "en": "* Estimate range ±15%. Excludes land, permits, design fees.",
-      "ar": "* النطاق ±15%. لا يشمل الأرض والتراخيص ورسوم التصميم."
-    },
     "contact.1": {
       "section": "contact",
       "en": "Get In Touch",
@@ -1810,240 +1735,30 @@
       "en": "WhatsApp",
       "ar": "واتساب"
     },
-    "skyline.1": {
-      "section": "skyline",
-      "en": "Interactive 3D Vision",
-      "ar": "رؤية ثلاثية الأبعاد تفاعلية"
-    },
-    "skyline.2": {
-      "section": "skyline",
-      "en": "Witness the Kingdom <span class=\"gold\">rising</span>.",
-      "ar": "شاهد المملكة <span class=\"gold\">ترتفع</span>."
-    },
-    "skyline.3": {
-      "section": "skyline",
-      "en": "An interactive 3D representation of the urban transformation we're a part of. Drag to rotate · click to rebuild.",
-      "ar": "تمثيل ثلاثي الأبعاد تفاعلي للتحوّل العمراني الذي نشارك فيه. اسحب للدوران · انقر لإعادة البناء."
-    },
-    "skyline.4": {
-      "section": "skyline",
-      "en": "↻ Rebuild City",
-      "ar": "↻ أعد البناء"
-    },
-    "skyline.5": {
-      "section": "skyline",
-      "en": "⏸ Pause Rotation",
-      "ar": "⏸ إيقاف الدوران"
-    },
-    "configurator.1": {
-      "section": "configurator",
-      "en": "Project Configurator",
-      "ar": "معالج المشروع"
-    },
-    "configurator.2": {
-      "section": "configurator",
-      "en": "Build your <span class=\"gold\">dream project</span> in 5 steps.",
-      "ar": "صمّم <span class=\"gold\">مشروع أحلامك</span> في 5 خطوات."
-    },
-    "configurator.3": {
-      "section": "configurator",
-      "en": "Answer a few questions and download a PDF with your custom estimate. Our team will follow up within 24 hours.",
-      "ar": "أجب عن بضعة أسئلة واحصل على تقدير مخصص بصيغة PDF. سيتواصل فريقنا خلال 24 ساعة."
-    },
-    "configurator.4": {
-      "section": "configurator",
-      "en": "Step 1 of 5",
-      "ar": "الخطوة 1 من 5"
-    },
-    "configurator.5": {
-      "section": "configurator",
-      "en": "What are we building?",
-      "ar": "ماذا نبني؟"
-    },
-    "configurator.6": {
-      "section": "configurator",
-      "en": "Select the project type.",
-      "ar": "اختر نوع المشروع."
-    },
-    "configurator.7": {
-      "section": "configurator",
-      "en": "Villa",
-      "ar": "فيلا"
-    },
-    "configurator.8": {
-      "section": "configurator",
-      "en": "Office",
-      "ar": "مكتب"
-    },
-    "configurator.9": {
-      "section": "configurator",
-      "en": "Warehouse",
-      "ar": "مستودع"
-    },
-    "configurator.10": {
-      "section": "configurator",
-      "en": "Compound",
-      "ar": "مجمع"
-    },
-    "configurator.11": {
-      "section": "configurator",
-      "en": "Restaurant",
-      "ar": "مطعم"
-    },
-    "configurator.12": {
-      "section": "configurator",
-      "en": "Clinic",
-      "ar": "عيادة"
-    },
-    "configurator.13": {
-      "section": "configurator",
-      "en": "Step 2 of 5",
-      "ar": "الخطوة 2 من 5"
-    },
-    "configurator.14": {
-      "section": "configurator",
-      "en": "How big?",
-      "ar": "ما الحجم؟"
-    },
-    "configurator.15": {
-      "section": "configurator",
-      "en": "Adjust the total built-up area.",
-      "ar": "عدّل المساحة الإجمالية للبناء."
-    },
-    "configurator.16": {
-      "section": "configurator",
-      "en": "Step 3 of 5",
-      "ar": "الخطوة 3 من 5"
-    },
-    "configurator.17": {
-      "section": "configurator",
-      "en": "Where?",
-      "ar": "أين الموقع؟"
-    },
-    "configurator.18": {
-      "section": "configurator",
-      "en": "Project location.",
-      "ar": "موقع المشروع."
-    },
-    "configurator.19": {
-      "section": "configurator",
-      "en": "Other",
-      "ar": "أخرى"
-    },
-    "configurator.20": {
-      "section": "configurator",
-      "en": "Step 4 of 5",
-      "ar": "الخطوة 4 من 5"
-    },
-    "configurator.21": {
-      "section": "configurator",
-      "en": "What level of finish?",
-      "ar": "أي مستوى تشطيب؟"
-    },
-    "configurator.22": {
-      "section": "configurator",
-      "en": "Choose your quality tier.",
-      "ar": "اختر مستوى الجودة."
-    },
-    "configurator.23": {
-      "section": "configurator",
-      "en": "Standard",
-      "ar": "قياسي"
-    },
-    "configurator.24": {
-      "section": "configurator",
-      "en": "Premium",
-      "ar": "فاخر"
-    },
-    "configurator.25": {
-      "section": "configurator",
-      "en": "Luxury",
-      "ar": "سوبر فاخر"
-    },
-    "configurator.26": {
-      "section": "configurator",
-      "en": "Step 5 of 5",
-      "ar": "الخطوة 5 من 5"
-    },
-    "configurator.27": {
-      "section": "configurator",
-      "en": "Your details",
-      "ar": "بياناتك"
-    },
-    "configurator.28": {
-      "section": "configurator",
-      "en": "We'll send the full proposal within 24 hours.",
-      "ar": "سنرسل العرض الكامل خلال 24 ساعة."
-    },
-    "configurator.29": {
-      "section": "configurator",
-      "en": "Project Summary",
-      "ar": "ملخّص المشروع"
-    },
-    "configurator.30": {
-      "section": "configurator",
-      "en": "Type",
-      "ar": "النوع"
-    },
-    "configurator.31": {
-      "section": "configurator",
-      "en": "Size",
-      "ar": "المساحة"
-    },
-    "configurator.32": {
-      "section": "configurator",
-      "en": "Location",
-      "ar": "الموقع"
-    },
-    "configurator.33": {
-      "section": "configurator",
-      "en": "Quality",
-      "ar": "الجودة"
-    },
-    "configurator.34": {
-      "section": "configurator",
-      "en": "Estimated Cost",
-      "ar": "التكلفة التقديرية"
-    },
-    "configurator.35": {
-      "section": "configurator",
-      "en": "Previous",
-      "ar": "السابق"
-    },
-    "configurator.36": {
-      "section": "configurator",
-      "en": "Next",
-      "ar": "التالي"
-    },
-    "configurator.37": {
-      "section": "configurator",
-      "en": "Download PDF",
-      "ar": "تحميل PDF"
-    },
     "section.11": {
       "section": "section",
-      "en": "Free 50-Page Guide",
-      "ar": "دليل مجاني 50 صفحة"
+      "en": "Let&rsquo;s Talk",
+      "ar": "تواصل معنا"
     },
     "section.12": {
       "section": "section",
-      "en": "The Complete Villa Building Guide for Saudi Arabia",
-      "ar": "الدليل الكامل لبناء فيلا في المملكة"
+      "en": "Planning a project? We&rsquo;d like to hear about it.",
+      "ar": "لديك مشروع؟ يسعدنا أن نسمع عنه."
     },
     "section.13": {
       "section": "section",
-      "en": "Materials, permits, costs, timelines, and pro tips — everything we wish we'd known. Get it free in your inbox.",
-      "ar": "المواد، التراخيص، التكاليف، المدد، نصائح المحترفين — كل ما تمنيّنا معرفته. احصل عليه مجاناً في بريدك."
+      "en": "Leave your name and mobile number and our team will call you.",
+      "ar": "اترك اسمك ورقم جوالك وسيتصل بك فريقنا."
     },
     "section.14": {
       "section": "section",
-      "en": "Send Me The Guide ➜",
-      "ar": "أرسل لي الدليل ➜"
+      "en": "Call Me Back ➜",
+      "ar": "اتصلوا بي ➜"
     },
     "footer.1": {
       "section": "footer",
-      "en": "Building Saudi Arabia's iconic destinations with precision, quality, and integrity since 2017.",
-      "ar": "نبني وجهات المملكة الأيقونية بدقة وجودة ونزاهة منذ 2017."
+      "en": "Architectural, mechanical and electrical contracting across Saudi Arabia since 2019.",
+      "ar": "مقاولات معمارية وميكانيكية وكهربائية في أنحاء المملكة منذ 2019."
     },
     "footer.2": {
       "section": "footer",
