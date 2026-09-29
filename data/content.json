@@ -61,12 +61,12 @@
         "ar": "شملت الأعمال الميكانيكية تركيب أنظمة التدفئة وتكييف الهواء (شيلر) ومكافحة الحرائق، بما في ذلك تركيب أنابيب المياه المبردة وعزلها والتوصيلات اللازمة لتشغيل الشيلر مع اختبار وتشغيل النظام. كما شملت تركيب دكت الوحدات الخاصة بالتدفئة وتكييف الهواء والتخطيط للنظام واختباره وضبطه لضمان الكفاءة المثلى."
       },
       "alt": "Samhan Heritage Hotel, Diriyah",
-      "heroWidth": 1000,
-      "heroHeight": 561,
+      "heroWidth": 600,
+      "heroHeight": 800,
       "images": [
+        "samhan-hotel-g2.jpg",
         "samhan-hotel-hero.jpg",
         "samhan-hotel-g1.jpg",
-        "samhan-hotel-g2.jpg",
         "samhan-hotel-g3.jpg"
       ],
       "ariaLabel": "Samhan Heritage Hotel"
@@ -97,11 +97,11 @@
         "ar": "شملت الأعمال الكهربائية تركيب ألواح الكيبل تراي وتوصيل الأسلاك والمفاتيح بالإضافة إلى تثبيت أنظمة الإضاءة، كما تم تصميم وتركيب نظام صرف مياه المطر لتجنب تجمعات المياه وضمان سلامة المنطقة."
       },
       "alt": "Boulevard Hall, Riyadh",
-      "heroWidth": 1000,
-      "heroHeight": 481,
+      "heroWidth": 800,
+      "heroHeight": 450,
       "images": [
-        "boulevard-hall-hero.jpg",
         "boulevard-hall-g1.jpg",
+        "boulevard-hall-hero.jpg",
         "boulevard-hall-g2.jpg"
       ],
       "ariaLabel": "Boulevard Hall"
@@ -204,11 +204,11 @@
         "ar": "قامت الشركة بتنفيذ أعمال البنية التحتية لشبكة الصرف الصحي داخل سكن الطلاب بجامعة الجبيل، متضمنة إنشاء وتمديد الشبكات الداخلية وفق أعلى المواصفات الفنية والمعايير الهندسية المعتمدة. كما شملت الأعمال تنفيذ شبكة محطة التبريد (الشيلر) بكفاءة عالية، بما يضمن تكامل الأنظمة واستدامة الأداء."
       },
       "alt": "Jubail University campus",
-      "heroWidth": 1000,
-      "heroHeight": 626,
+      "heroWidth": 479,
+      "heroHeight": 640,
       "images": [
-        "jubail-university-hero.jpg",
         "jubail-university-g1.jpg",
+        "jubail-university-hero.jpg",
         "jubail-university-g2.jpg"
       ],
       "ariaLabel": "Jubail University",
@@ -278,12 +278,12 @@
         "ar": "شاركت شركة أرك في تنفيذ مجموعة شاملة من الأعمال الميكانيكية المتقدمة ضمن مشروع فيلل روشن، بالتعاون مع شركة الإنشاء والتعمير كمقاول رئيسي. تضمنت الأعمال تركيب دكت الهواء ووحدات التكييف ومراوح التهوية لجميع الفلل ضمن المشروع."
       },
       "alt": "Roshn Sedra villas",
-      "heroWidth": 1000,
-      "heroHeight": 705,
+      "heroWidth": 480,
+      "heroHeight": 640,
       "images": [
+        "roshn-villas-g2.jpg",
         "roshn-villas-hero.jpg",
-        "roshn-villas-g1.jpg",
-        "roshn-villas-g2.jpg"
+        "roshn-villas-g1.jpg"
       ],
       "ariaLabel": "Roshn Villas, Sedra"
     },
