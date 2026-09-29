@@ -2147,35 +2147,15 @@
     },
     "footer.22": {
       "section": "footer",
-      "en": "You found a secret!",
-      "ar": "اكتشفت سرّاً!"
+      "en": "We use cookies to improve your experience.",
+      "ar": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك."
     },
     "footer.23": {
-      "section": "footer",
-      "en": "Use this code for 10% off your next project consultation.",
-      "ar": "استخدم هذا الكود للحصول على 10% خصم على استشارة مشروعك القادم."
-    },
-    "footer.24": {
-      "section": "footer",
-      "en": "Mention this code when you contact us",
-      "ar": "اذكر هذا الكود عند التواصل معنا"
-    },
-    "footer.25": {
-      "section": "footer",
-      "en": "Achievement Unlocked",
-      "ar": "إنجاز مفتوح"
-    },
-    "footer.26": {
-      "section": "footer",
-      "en": "This site uses cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.",
-      "ar": "يستخدم هذا الموقع ملفات تعريف الارتباط لتحسين تجربتك. باستمرار التصفّح، فإنك توافق على استخدامنا لها."
-    },
-    "footer.27": {
       "section": "footer",
       "en": "Accept",
       "ar": "موافق"
     },
-    "footer.28": {
+    "footer.24": {
       "section": "footer",
       "en": "' + en + '",
       "ar": "' + ar + '"

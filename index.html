@@ -1386,50 +1386,6 @@ html[data-lang="ar"] .section-nav a::before { right: auto; left: 24px; }
 html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) translateX(4px); }
 @media (max-width: 1100px) { .section-nav { display: none; } }
 
-/* ====== LIVE ACTIVITY FEED ====== */
-.live-feed {
-  position: fixed;
-  bottom: 24px; left: 24px;
-  z-index: 88;
-  max-width: 340px;
-  padding: 14px 18px;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: var(--shadow-lg);
-  display: flex; align-items: center; gap: 12px;
-  transform: translateY(150%);
-  transition: transform 0.6s var(--easing), opacity 0.4s;
-  cursor: pointer;
-}
-html[data-lang="ar"] .live-feed { left: auto; right: 24px; }
-.live-feed.visible { transform: translateY(0); }
-.live-feed.hidden { opacity: 0; pointer-events: none; }
-.feed-icon {
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  font-size: 18px;
-}
-.feed-content { flex: 1; min-width: 0; }
-.feed-title { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-.feed-text { font-size: 11px; color: var(--text-secondary); line-height: 1.4; }
-.feed-close {
-  width: 20px; height: 20px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-muted);
-  font-size: 16px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.feed-close:hover { color: var(--navy); }
-@media (max-width: 600px) {
-  .live-feed { bottom: 96px; left: 12px; right: 12px; max-width: none; }
-}
-
 /* ====== MAGNETIC BUTTONS ====== */
 .btn-magnetic { transition: transform 0.2s ease-out; }
 
@@ -2079,8 +2035,17 @@ html[data-lang="ar"] .live-feed { left: auto; right: 24px; }
   aspect-ratio: 4/5;
   border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 30%, rgba(255,255,255,0.14), transparent 70%),
+    linear-gradient(180deg, #1B3A5C 0%, var(--navy) 55%, var(--navy-dark) 100%);
   box-shadow: var(--shadow-lg);
+}
+.founder-photo img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.35));
 }
 .founder-photo::after {
   content: 'CEO';
@@ -2302,112 +2267,6 @@ html[data-lang="ar"] .founder-quote::before { left: auto; right: -10px; }
 }
 .newsletter-form button:hover { background: var(--navy-dark); transform: translateY(-2px); }
 
-/* ====== ACHIEVEMENTS BADGE POPUP ====== */
-.achievement-popup {
-  position: fixed;
-  top: 24px; right: 24px;
-  z-index: 9100;
-  background: linear-gradient(135deg, var(--navy), var(--navy-dark));
-  color: #fff;
-  border: 2px solid var(--gold);
-  border-radius: 16px;
-  padding: 16px 20px;
-  display: flex; align-items: center; gap: 14px;
-  min-width: 280px;
-  box-shadow: 0 20px 50px rgba(244,180,0,0.4);
-  transform: translateY(-150%);
-  transition: transform 0.5s var(--easing);
-}
-html[data-lang="ar"] .achievement-popup { right: auto; left: 24px; }
-.achievement-popup.show { transform: translateY(0); }
-.achievement-popup .badge {
-  width: 48px; height: 48px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px;
-  flex-shrink: 0;
-}
-.achievement-popup .info { flex: 1; }
-.achievement-popup .label { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; }
-.achievement-popup .title { font-size: 14px; font-weight: 700; margin-top: 2px; }
-
-/* ====== VOICE TOUR ====== */
-.voice-tour {
-  position: fixed;
-  bottom: 100px; left: 24px;
-  z-index: 88;
-  width: 56px; height: 56px;
-  background: var(--navy);
-  color: var(--gold);
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s var(--easing);
-  box-shadow: var(--shadow-lg);
-}
-html[data-lang="ar"] .voice-tour { left: auto; right: 24px; }
-.voice-tour:hover { background: var(--gold); color: var(--navy); transform: scale(1.1); }
-.voice-tour svg { width: 24px; height: 24px; }
-.voice-tour.playing { background: var(--gold); color: var(--navy); animation: voicePulse 1.5s ease-in-out infinite; }
-@keyframes voicePulse {
-  0%, 100% { box-shadow: 0 10px 30px rgba(244,180,0,0.4); }
-  50% { box-shadow: 0 10px 30px rgba(244,180,0,0.4), 0 0 0 20px rgba(244,180,0,0.10); }
-}
-@media (max-width: 600px) { .voice-tour { display: none; } }
-
-/* ====== KONAMI EASTER EGG ====== */
-.konami-reward {
-  position: fixed; inset: 0;
-  z-index: 10000;
-  background: rgba(14,42,71,0.95);
-  backdrop-filter: blur(20px);
-  display: none;
-  align-items: center; justify-content: center;
-  padding: 24px;
-}
-.konami-reward.show { display: flex; animation: fadeIn 0.5s; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.konami-content {
-  background: #fff;
-  border-radius: 28px;
-  padding: 50px 40px;
-  text-align: center;
-  max-width: 500px;
-  position: relative;
-  animation: konamiZoom 0.6s var(--easing);
-}
-@keyframes konamiZoom {
-  from { transform: scale(0.5) rotate(-10deg); opacity: 0; }
-  to { transform: scale(1) rotate(0); opacity: 1; }
-}
-.konami-content .emoji { font-size: 80px; margin-bottom: 20px; animation: bounceIn 1s ease infinite; }
-@keyframes bounceIn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-.konami-content h3 { font-size: 28px; color: var(--navy); margin-bottom: 12px; }
-.konami-content p { color: var(--text-secondary); margin-bottom: 24px; }
-.konami-content .code-box {
-  display: inline-block;
-  padding: 12px 24px;
-  background: var(--navy);
-  color: var(--gold);
-  border-radius: 12px;
-  font-family: 'Space Grotesk', monospace;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  margin: 14px 0;
-}
-.konami-close {
-  position: absolute;
-  top: 16px; right: 16px;
-  width: 32px; height: 32px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  font-size: 24px;
-  color: var(--text-muted);
-}
-
 /* ====== PREDICTIVE SEARCH ====== */
 .search-trigger {
   width: 44px; height: 44px;
@@ -2505,36 +2364,6 @@ html[data-lang="ar"] .voice-tour { left: auto; right: 24px; }
   cursor: pointer;
 }
 
-/* ====== CUSTOM CURSOR ====== */
-.custom-cursor {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.15s ease-out;
-  mix-blend-mode: difference;
-}
-.cursor-dot {
-  width: 8px; height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-.cursor-outline {
-  width: 36px; height: 36px;
-  border: 2px solid var(--gold);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.25s var(--easing), width 0.25s, height 0.25s, opacity 0.25s;
-  opacity: 0.6;
-}
-.cursor-outline.hover-link {
-  transform: translate(-50%, -50%) scale(1.8);
-  background: rgba(244,180,0,0.2);
-}
-@media (hover: none), (max-width: 1024px) {
-  .custom-cursor { display: none; }
-}
-
 /* ====== 3D TILT EFFECT ====== */
 .tilt-card {
   transform-style: preserve-3d;
@@ -2560,38 +2389,34 @@ html[data-lang="ar"] .voice-tour { left: auto; right: 24px; }
 /* ====== COOKIE CONSENT ====== */
 .cookie-consent {
   position: fixed;
-  bottom: 24px; left: 50%;
-  transform: translateX(-50%) translateY(150%);
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%) translateY(200%);
   z-index: 95;
-  max-width: 560px;
-  width: calc(100% - 48px);
-  padding: 20px 24px;
-  background: var(--navy);
+  max-width: 440px;
+  width: calc(100% - 32px);
+  padding: 10px 10px 10px 18px;
+  background: rgba(14,42,71,0.96);
   color: #fff;
-  border: 1px solid rgba(244,180,0,0.3);
-  border-radius: 16px;
-  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-  box-shadow: 0 30px 80px rgba(14,42,71,0.3);
-  transition: transform 0.5s var(--easing);
+  border-radius: 12px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 12px 32px rgba(14,42,71,0.25);
+  transition: transform 0.4s var(--easing);
 }
+html[data-lang="ar"] .cookie-consent { padding: 10px 18px 10px 10px; }
 .cookie-consent.show { transform: translateX(-50%) translateY(0); }
-.cookie-consent p { font-size: 13px; flex: 1; min-width: 200px; line-height: 1.5; color: rgba(255,255,255,0.85); }
+.cookie-consent p { font-size: 12.5px; flex: 1; line-height: 1.5; color: rgba(255,255,255,0.85); margin: 0; }
 .cookie-consent .accept-btn {
-  padding: 10px 22px;
+  padding: 8px 18px;
   background: var(--gold);
   color: var(--navy);
-  border-radius: 50px;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12.5px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.3s;
+  flex-shrink: 0;
+  transition: background 0.2s;
 }
-.cookie-consent .accept-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-@media (max-width: 600px) {
-  .cookie-consent { width: calc(100% - 32px); padding: 16px; }
-}
+.cookie-consent .accept-btn:hover { background: var(--gold-light); }
 
 /* ====== MAP EMBED ====== */
 .branch-map {
@@ -3015,7 +2840,7 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <div class="container">
     <div class="founder-grid">
       <div class="founder-photo reveal">
-        <img src="assets/team/ceo.jpg" alt="Executive Director, ARC Construction" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:inherit;">
+        <img src="assets/team/ceo.webp" alt="Executive Director, ARC Construction" width="1000" height="1250" loading="lazy" decoding="async">
       </div>
       <div class="founder-content reveal">
         <span class="eyebrow"><span data-en>From The CEO</span><span data-ar>كلمة الرئيس التنفيذي</span></span>
@@ -4177,11 +4002,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   </div>
 </footer>
 
-<!-- Voice Tour Button -->
-<button class="voice-tour" id="voiceTour" type="button" aria-label="Voice tour">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/></svg>
-</button>
-
 <!-- Project Modal -->
 <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
@@ -4206,33 +4026,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   </div>
 </div>
 
-<!-- Konami Reward -->
-<div class="konami-reward" id="konamiReward">
-  <div class="konami-content">
-    <span class="konami-close" id="konamiClose">×</span>
-    <div class="emoji">🎉</div>
-    <h3><span data-en>You found a secret!</span><span data-ar>اكتشفت سرّاً!</span></h3>
-    <p>
-      <span data-en>Use this code for 10% off your next project consultation.</span>
-      <span data-ar>استخدم هذا الكود للحصول على 10% خصم على استشارة مشروعك القادم.</span>
-    </p>
-    <div class="code-box">ARC2030</div>
-    <p style="font-size: 12px; color: var(--text-muted);">
-      <span data-en>Mention this code when you contact us</span>
-      <span data-ar>اذكر هذا الكود عند التواصل معنا</span>
-    </p>
-  </div>
-</div>
-
-<!-- Achievement Popup -->
-<div class="achievement-popup" id="achievementPopup">
-  <div class="badge" id="achievementIcon">🏆</div>
-  <div class="info">
-    <div class="label"><span data-en>Achievement Unlocked</span><span data-ar>إنجاز مفتوح</span></div>
-    <div class="title" id="achievementTitle">Explorer</div>
-  </div>
-</div>
-
 <!-- Search Overlay -->
 <div class="search-overlay" id="searchOverlay">
   <span class="search-close" id="searchClose">×</span>
@@ -4254,25 +4047,11 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   <a href="#contact" data-label="Contact"></a>
 </nav>
 
-<!-- Live Activity Feed -->
-<div class="live-feed" id="liveFeed">
-  <div class="feed-icon" id="feedIcon">🏗️</div>
-  <div class="feed-content">
-    <div class="feed-title" id="feedTitle">Project Update</div>
-    <div class="feed-text" id="feedText">Loading...</div>
-  </div>
-  <div class="feed-close" id="feedClose">×</div>
-</div>
-
-<!-- Custom Cursor -->
-<div class="custom-cursor cursor-dot" id="cursorDot"></div>
-<div class="custom-cursor cursor-outline" id="cursorOutline"></div>
-
 <!-- Cookie Consent -->
 <div class="cookie-consent" id="cookieConsent">
   <p>
-    <span data-en>This site uses cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.</span>
-    <span data-ar>يستخدم هذا الموقع ملفات تعريف الارتباط لتحسين تجربتك. باستمرار التصفّح، فإنك توافق على استخدامنا لها.</span>
+    <span data-en>We use cookies to improve your experience.</span>
+    <span data-ar>نستخدم ملفات تعريف الارتباط لتحسين تجربتك.</span>
   </p>
   <button class="accept-btn" id="cookieAccept" type="button">
     <span data-en>Accept</span><span data-ar>موافق</span>
@@ -4608,7 +4387,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
 
     document.getElementById('skylineRebuild').addEventListener('click', function() {
       buildCity();
-      unlockAchievement('builder', '🏙️', 'City Builder');
     });
     document.getElementById('skylineToggle').addEventListener('click', function() {
       rotating = !rotating;
@@ -4718,7 +4496,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
       return;
     }
     generatePDF();
-    unlockAchievement('configurator', '📋', 'Project Configured');
   });
 
   function generatePDF() {
@@ -5042,7 +4819,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     closeBtn.focus();
-    if (window.unlockAchievement) unlockAchievement('explorer', '🔍', 'Project Explorer');
   }
 
   document.querySelectorAll('.project-card[data-project]').forEach(function(card) {
@@ -5062,57 +4838,6 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
     document.body.style.overflow = '';
     if (lastFocus) lastFocus.focus();
   }
-})();
-
-// ============== ACHIEVEMENT SYSTEM ==============
-window.unlockAchievement = (function() {
-  const popup = document.getElementById('achievementPopup');
-  const icon = document.getElementById('achievementIcon');
-  const title = document.getElementById('achievementTitle');
-  if (!popup) return function(){};
-  const unlocked = {};
-  try { Object.assign(unlocked, JSON.parse(localStorage.getItem('arc-achievements') || '{}')); } catch(e) {}
-  return function(id, ico, name) {
-    if (unlocked[id]) return;
-    unlocked[id] = true;
-    try { localStorage.setItem('arc-achievements', JSON.stringify(unlocked)); } catch(e) {}
-    icon.textContent = ico;
-    title.textContent = name;
-    popup.classList.add('show');
-    setTimeout(function() { popup.classList.remove('show'); }, 4000);
-  };
-})();
-
-// Unlock on scroll
-let firstScroll = true;
-window.addEventListener('scroll', function() {
-  if (firstScroll && window.scrollY > 300) {
-    firstScroll = false;
-    setTimeout(function() { unlockAchievement('scroller', '🚀', 'First Steps Taken'); }, 800);
-  }
-  if (window.scrollY > document.body.scrollHeight - window.innerHeight - 200) {
-    unlockAchievement('finisher', '🏆', 'Reached The Footer!');
-  }
-}, { passive: true });
-
-// ============== KONAMI CODE ==============
-(function() {
-  const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-  let position = 0;
-  const reward = document.getElementById('konamiReward');
-  const closeBtn = document.getElementById('konamiClose');
-  document.addEventListener('keydown', function(e) {
-    if (e.key === sequence[position] || e.key.toLowerCase() === sequence[position]) {
-      position++;
-      if (position === sequence.length) {
-        reward.classList.add('show');
-        unlockAchievement('konami', '🎮', 'Konami Master');
-        position = 0;
-      }
-    } else { position = 0; }
-  });
-  if (closeBtn) closeBtn.addEventListener('click', function() { reward.classList.remove('show'); });
-  reward.addEventListener('click', function(e) { if (e.target === reward) reward.classList.remove('show'); });
 })();
 
 // ============== PREDICTIVE SEARCH ==============
@@ -5154,7 +4879,6 @@ window.addEventListener('scroll', function() {
     overlay.classList.add('active');
     setTimeout(function() { input.focus(); }, 100);
     render('');
-    unlockAchievement('searcher', '🔍', 'Curious Explorer');
   });
   closeBtn.addEventListener('click', function() { overlay.classList.remove('active'); });
   overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('active'); });
@@ -5169,40 +4893,6 @@ window.addEventListener('scroll', function() {
   results.addEventListener('click', function(e) {
     const link = e.target.closest('.search-result');
     if (link) overlay.classList.remove('active');
-  });
-})();
-
-// ============== VOICE TOUR ==============
-(function() {
-  const btn = document.getElementById('voiceTour');
-  if (!btn || !('speechSynthesis' in window)) {
-    if (btn) btn.style.display = 'none';
-    return;
-  }
-  let speaking = false;
-  const html = document.documentElement;
-
-  const scripts = {
-    en: 'Welcome to ARC Construction. We are a Saudi contracting company established in 2019, delivering architectural, mechanical and electrical works across the Kingdom. We have completed more than fifteen projects alongside main contractors such as Azmeel, Marco, Blocks, Masah and Sawaed, including Samhan Heritage Hotel, Jubail University student housing, Al Hammadi Hospital and Boulevard City. Explore our projects, and reach out to start building together.',
-    ar: 'مرحباً بكم في شركة أرك للمقاولات. نحن شركة مقاولات سعودية تأسست عام ألفين وتسعة عشر، ننفّذ الأعمال المعمارية والميكانيكية والكهربائية في أنحاء المملكة. أنجزنا أكثر من خمسة عشر مشروعاً بالتعاون مع مقاولين رئيسيين مثل أزميل وماركو وبلوكس ومساح وسواعد، من بينها فندق سمحان التراثي وسكن طلاب جامعة الجبيل ومستشفى الحمادي وبوليفارد سيتي. استعرض مشاريعنا وتواصل معنا لنبني معاً.'
-  };
-
-  btn.addEventListener('click', function() {
-    if (speaking) {
-      window.speechSynthesis.cancel();
-      btn.classList.remove('playing');
-      speaking = false;
-      return;
-    }
-    const lang = html.getAttribute('data-lang') || 'en';
-    const utter = new SpeechSynthesisUtterance(scripts[lang]);
-    utter.lang = lang === 'ar' ? 'ar-SA' : 'en-US';
-    utter.rate = 0.95;
-    utter.onend = function() { btn.classList.remove('playing'); speaking = false; };
-    window.speechSynthesis.speak(utter);
-    btn.classList.add('playing');
-    speaking = true;
-    unlockAchievement('listener', '🎧', 'Audio Explorer');
   });
 })();
 
@@ -5263,7 +4953,6 @@ window.addEventListener('scroll', function() {
       : 'We will be in touch at ' + email;
     box.appendChild(tick); box.appendChild(h); box.appendChild(p);
     form.replaceChildren(box);
-    unlockAchievement('subscriber', '📩', 'Newsletter Subscriber');
   });
 })();
 
@@ -5374,59 +5063,6 @@ window.addEventListener('scroll', function() {
   }, { passive: true });
 })();
 
-// ============== LIVE ACTIVITY FEED ==============
-(function() {
-  const feed = document.getElementById('liveFeed');
-  const icon = document.getElementById('feedIcon');
-  const title = document.getElementById('feedTitle');
-  const text = document.getElementById('feedText');
-  const close = document.getElementById('feedClose');
-  if (!feed) return;
-
-  const html = document.documentElement;
-  const isAr = function() { return html.getAttribute('data-lang') === 'ar'; };
-
-  const updates = [
-    { icon: '🏨', titleEn: 'Samhan Heritage Hotel', titleAr: 'فندق سمحان التراثي', textEn: 'Chiller, chilled-water piping and fire-fighting systems', textAr: 'الشيلر وأنابيب المياه المبردة وأنظمة مكافحة الحريق' },
-    { icon: '🎓', titleEn: 'Jubail University', titleAr: 'جامعة الجبيل', textEn: 'Sewage network and chiller network for student housing', textAr: 'شبكة الصرف الصحي وشبكة التبريد لسكن الطلاب' },
-    { icon: '🏥', titleEn: 'Al Hammadi Hospital · Al Olaya', titleAr: 'مستشفى الحمادي · العليا', textEn: 'Electrical, fire protection, chilled water and ductwork', textAr: 'الكهرباء ومكافحة الحريق والمياه المبردة والدكت' },
-    { icon: '⚡', titleEn: 'Boulevard Hall', titleAr: 'بوليفارد هول', textEn: 'Cable trays, lighting systems and rainwater drainage', textAr: 'الكيبل تراي وأنظمة الإضاءة وتصريف مياه الأمطار' },
-    { icon: '🏘️', titleEn: 'Roshn Villas · Sedra', titleAr: 'فيلل روشن · سدرة', textEn: 'Air ducts, AC units and ventilation fans', textAr: 'دكت الهواء ووحدات التكييف ومراوح التهوية' },
-    { icon: '🎾', titleEn: 'Al Kharj Stadiums', titleAr: 'ملاعب الخرج', textEn: 'Padel and tennis court construction', textAr: 'إنشاء ملاعب البادل والتنس' },
-    { icon: '🔧', titleEn: 'Periodic Inspection Station', titleAr: 'محطة الفحص الدوري', textEn: 'Electromechanical works, Al Qunfudhah', textAr: 'أعمال الإلكتروميكانيكال بالقنفذة' }
-  ];
-
-  let idx = 0;
-  function showNext() {
-    const u = updates[idx % updates.length];
-    icon.textContent = u.icon;
-    title.textContent = isAr() ? u.titleAr : u.titleEn;
-    text.textContent = isAr() ? u.textAr : u.textEn;
-    idx++;
-  }
-
-  // Show first one after a delay
-  setTimeout(function() {
-    showNext();
-    feed.classList.add('visible');
-  }, 4000);
-
-  // Rotate every 8 seconds
-  setInterval(function() {
-    if (feed.classList.contains('hidden') || !feed.classList.contains('visible')) return;
-    feed.style.opacity = '0';
-    setTimeout(function() {
-      showNext();
-      feed.style.opacity = '1';
-    }, 300);
-  }, 8000);
-
-  close.addEventListener('click', function(e) {
-    e.stopPropagation();
-    feed.classList.add('hidden');
-  });
-})();
-
 // ============== MAGNETIC BUTTONS ==============
 (function() {
   if (window.matchMedia('(hover: none), (max-width: 1024px)').matches) return;
@@ -5497,37 +5133,6 @@ window.addEventListener('scroll', function() {
   calc();
 })();
 
-// ============== CUSTOM CURSOR ==============
-(function() {
-  if (window.matchMedia('(hover: none), (max-width: 1024px)').matches) return;
-  const dot = document.getElementById('cursorDot');
-  const outline = document.getElementById('cursorOutline');
-  if (!dot || !outline) return;
-  let mouseX = 0, mouseY = 0;
-  let outlineX = 0, outlineY = 0;
-
-  document.addEventListener('mousemove', function(e) {
-    mouseX = e.clientX; mouseY = e.clientY;
-    dot.style.left = mouseX + 'px';
-    dot.style.top = mouseY + 'px';
-  });
-
-  function animate() {
-    outlineX += (mouseX - outlineX) * 0.18;
-    outlineY += (mouseY - outlineY) * 0.18;
-    outline.style.left = outlineX + 'px';
-    outline.style.top = outlineY + 'px';
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  // Hover effect on interactive elements
-  document.querySelectorAll('a, button, .service-card, .project-card, .team-card, .stat-card, .branch-card, .filter-btn, .blog-card, .job-card, .testimonial-card').forEach(function(el) {
-    el.addEventListener('mouseenter', function() { outline.classList.add('hover-link'); });
-    el.addEventListener('mouseleave', function() { outline.classList.remove('hover-link'); });
-  });
-})();
-
 // ============== 3D TILT ==============
 (function() {
   if (window.matchMedia('(hover: none), (max-width: 1024px)').matches) return;
@@ -5574,7 +5179,7 @@ window.addEventListener('scroll', function() {
   let accepted = false;
   try { accepted = localStorage.getItem('arc-cookies') === 'accepted'; } catch(e) {}
   if (!accepted) {
-    setTimeout(function() { banner.classList.add('show'); }, 1500);
+    setTimeout(function() { banner.classList.add('show'); }, 3000);
   }
   acceptBtn.addEventListener('click', function() {
     try { localStorage.setItem('arc-cookies', 'accepted'); } catch(e) {}
@@ -5723,7 +5328,6 @@ window.addEventListener('scroll', function() {
           : 'Your mail app is open with the request filled in — press send and it reaches us. If it did not open, write to info@byarcsa.com.');
     box.appendChild(tick); box.appendChild(h); box.appendChild(p);
     form.replaceChildren(box);
-    if (window.unlockAchievement) unlockAchievement('quote', '📝', 'Quote Requested');
   }
 
   form.addEventListener('submit', function(e) {
