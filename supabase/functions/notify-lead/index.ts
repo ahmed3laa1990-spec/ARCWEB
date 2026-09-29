@@ -3,9 +3,11 @@
 // Called by the leads_notify trigger (migration 0003) through pg_net, not by
 // browsers, so JWT verification is off and a shared secret guards it instead.
 //
-// Secrets (supabase secrets set ...):
-//   RESEND_API_KEY   Resend API key
-//   WEBHOOK_SECRET   same value as app_secrets.lead_notify_secret
+// Secrets (Edge Functions → Secrets):
+//   RESEND_API_KEY   Resend API key (the only one that must be set by hand)
+//   WEBHOOK_SECRET   optional; by default the function reads
+//                    app_secrets.lead_notify_secret with its service role,
+//                    the same row the trigger sends
 //   NOTIFY_TO        optional, comma-separated; default info@byarcsa.com
 //   NOTIFY_FROM      optional; default "ARC Website <leads@byarcsa.com>"
 
@@ -93,10 +95,28 @@ function render(l: Lead) {
   return { subject, html, text };
 }
 
+let cachedSecret: string | null = null;
+
+async function webhookSecret(): Promise<string | null> {
+  const fromEnv = Deno.env.get("WEBHOOK_SECRET");
+  if (fromEnv) return fromEnv;
+  if (cachedSecret) return cachedSecret;
+  const url = Deno.env.get("SUPABASE_URL");
+  const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!url || !key) return null;
+  const r = await fetch(`${url}/rest/v1/app_secrets?key=eq.lead_notify_secret&select=value`, {
+    headers: { apikey: key, Authorization: `Bearer ${key}` },
+  });
+  if (!r.ok) return null;
+  const rows = await r.json();
+  cachedSecret = rows?.[0]?.value ?? null;
+  return cachedSecret;
+}
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") return new Response("method not allowed", { status: 405 });
 
-  const secret = Deno.env.get("WEBHOOK_SECRET");
+  const secret = await webhookSecret();
   if (!secret || req.headers.get("x-webhook-secret") !== secret) {
     return new Response("forbidden", { status: 403 });
   }

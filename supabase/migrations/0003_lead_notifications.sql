@@ -2,11 +2,9 @@
 -- After every insert into public.leads, pg_net posts the row to the
 -- notify-lead Edge Function, which sends the email through Resend.
 --
--- The function URL and the shared secret live in app_secrets (staff-only),
--- not in this file:
---   lead_notify_url     https://cavojuqysdabhnidhhqa.supabase.co/functions/v1/notify-lead
---   lead_notify_secret  same value as the function's WEBHOOK_SECRET
--- Until both rows exist the trigger does nothing.
+-- The function URL and a random shared secret are stored in app_secrets
+-- (staff-only). The function reads the same row with its service role, so
+-- the only thing set by hand is RESEND_API_KEY on the function.
 -- Safe to re-run.
 
 create extension if not exists pg_net with schema extensions;
@@ -46,3 +44,8 @@ drop trigger if exists leads_notify on public.leads;
 create trigger leads_notify
   after insert on public.leads
   for each row execute function public.notify_new_lead();
+
+insert into public.app_secrets (key, value) values
+  ('lead_notify_url', 'https://cavojuqysdabhnidhhqa.supabase.co/functions/v1/notify-lead'),
+  ('lead_notify_secret', encode(gen_random_bytes(32), 'hex'))
+on conflict (key) do nothing;

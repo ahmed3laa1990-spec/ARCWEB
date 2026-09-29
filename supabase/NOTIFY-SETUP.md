@@ -2,26 +2,22 @@
 
 كل طلب جديد في جدول `leads` (نموذج عرض السعر أو "اتصلوا بي") يرسل إيميلاً فورياً إلى `info@byarcsa.com`.
 
-الأجزاء:
-- `functions/notify-lead/index.ts` — دالة ترسل الإيميل عبر Resend.
-- `migrations/0003_lead_notifications.sql` — مشغّل (trigger) يستدعي الدالة بعد كل طلب.
+- `functions/notify-lead/index.ts` — الدالة (منشورة على المشروع arcweb، Verify JWT مُطفأ).
+- `migrations/0003_lead_notifications.sql` — المشغّل وكلمة السر المشتركة (مُطبّق).
 
-## خطوات التفعيل (مرة واحدة)
+## الإعداد المتبقي
+أضف في Supabase ← Edge Functions ← Secrets:
+- `RESEND_API_KEY` = مفتاح Resend
 
-1. **Resend**: أنشئ حساباً على resend.com، أضف الدومين `byarcsa.com` وأضف سجلات DNS التي يطلبها، ثم أنشئ API Key.
-2. **أسرار الدالة** (Supabase ← Edge Functions ← Secrets):
-   - `RESEND_API_KEY` = مفتاح Resend
-   - `WEBHOOK_SECRET` = كلمة سر طويلة عشوائية
-   - اختياري: `NOTIFY_TO` (أكثر من بريد مفصولة بفاصلة)، `NOTIFY_FROM`
-3. **نشر الدالة** `notify-lead` مع إيقاف "Verify JWT".
-4. **تشغيل** `migrations/0003_lead_notifications.sql` في SQL Editor.
-5. **ربط المشغّل بالدالة** في SQL Editor:
-   ```sql
-   insert into public.app_secrets (key, value) values
-     ('lead_notify_url', 'https://cavojuqysdabhnidhhqa.supabase.co/functions/v1/notify-lead'),
-     ('lead_notify_secret', '<نفس WEBHOOK_SECRET>')
-   on conflict (key) do update set value = excluded.value;
-   ```
-6. أرسل طلباً تجريبياً من الموقع وتأكد من وصول الإيميل.
+اختياري: `NOTIFY_TO` (عدة عناوين مفصولة بفاصلة)، `NOTIFY_FROM` (الافتراضي `ARC Website <leads@byarcsa.com>`).
 
-إذا فشل الإرسال لأي سبب يبقى الطلب محفوظاً في اللوحة، فالتنبيه لا يمكن أن يُضيّع طلباً.
+## التشخيص
+ردود الدالة تُحفظ في `net._http_response`:
+```sql
+select id, created, status_code, left(content::text, 120) from net._http_response order by id desc limit 5;
+```
+- 200 `sent` = وصل الإيميل إلى Resend
+- 500 `RESEND_API_KEY not set` = المفتاح غير مُضاف
+- 502 `send failed` = رفض Resend (راجع Logs الدالة: الدومين غير موثّق أو المفتاح خاطئ)
+
+إذا فشل الإرسال لأي سبب يبقى الطلب محفوظاً في اللوحة.
