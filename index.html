@@ -1513,15 +1513,16 @@ html[data-lang="ar"] .section-nav a:hover::before { transform: translateY(-50%) 
 }
 .ba-slider {
   position: relative;
-  max-width: 900px;
+  max-width: 860px;
   margin: 50px auto 0;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   border-radius: 20px;
   overflow: hidden;
   cursor: ew-resize;
   user-select: none;
   box-shadow: var(--shadow-lg);
 }
+.ba-slider:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .ba-before, .ba-after { position: absolute; inset: 0; }
 .ba-before img, .ba-after img { width: 100%; height: 100%; object-fit: cover; }
 .ba-after {
@@ -2697,13 +2698,13 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
         <span data-ar>شاهد <span class="gold">التحوّل</span>.</span>
       </h2>
       <p class="section-subtitle">
-        <span data-en>Periodic Inspection Station, Al Qunfudhah — drag the slider from steel frame erection to the completed building.</span>
-        <span data-ar>محطة الفحص الدوري بالقنفذة — اسحب الشريط من مرحلة تركيب الهيكل الحديدي إلى المبنى المكتمل.</span>
+        <span data-en>Blocks Co offices — drag the slider from exposed ducts and block walls to the finished workspace.</span>
+        <span data-ar>مكاتب شركة بلوكس — اسحب الشريط من مرحلة التمديدات والجدران الخام إلى المكتب المكتمل.</span>
       </p>
     </div>
-    <div class="ba-slider" id="baSlider">
-      <div class="ba-before"><img src="assets/projects/qunfudhah-station-hero.jpg" alt="Periodic Inspection Station, Al Qunfudhah — steel frame erection" loading="lazy"></div>
-      <div class="ba-after"><img src="assets/projects/qunfudhah-station-g1.jpg" alt="Periodic Inspection Station, Al Qunfudhah — completed building" loading="lazy"></div>
+    <div class="ba-slider" id="baSlider" tabindex="0" role="slider" aria-label="Before / after — قبل / بعد" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <div class="ba-before"><img src="assets/projects/blocks-offices-g2.jpg" alt="Blocks Co offices — ducts and block walls during works" loading="lazy"></div>
+      <div class="ba-after"><img src="assets/projects/blocks-offices-g1.jpg" alt="Blocks Co offices — the finished workspace" loading="lazy" style="object-position: center 38%"></div>
       <div class="ba-label ba-label-before"><span data-en>Before</span><span data-ar>قبل</span></div>
       <div class="ba-label ba-label-after"><span data-en>After</span><span data-ar>بعد</span></div>
       <div class="ba-handle"></div>
@@ -3488,14 +3489,24 @@ html[data-lang="ar"] .whatsapp-float { right: auto; left: 24px; }
   const after = slider.querySelector('.ba-after');
   const handle = slider.querySelector('.ba-handle');
   let isDragging = false;
+  let current = 50;
 
+  function set(pct) {
+    current = Math.max(0, Math.min(100, pct));
+    after.style.clipPath = 'inset(0 0 0 ' + current + '%)';
+    handle.style.left = current + '%';
+    slider.setAttribute('aria-valuenow', Math.round(current));
+  }
   function move(x) {
     const rect = slider.getBoundingClientRect();
-    let pct = ((x - rect.left) / rect.width) * 100;
-    pct = Math.max(0, Math.min(100, pct));
-    after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
-    handle.style.left = pct + '%';
+    set(((x - rect.left) / rect.width) * 100);
   }
+  slider.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') { set(current - 5); e.preventDefault(); }
+    else if (e.key === 'ArrowRight') { set(current + 5); e.preventDefault(); }
+    else if (e.key === 'Home') { set(0); e.preventDefault(); }
+    else if (e.key === 'End') { set(100); e.preventDefault(); }
+  });
 
   slider.addEventListener('mousedown', function(e) { isDragging = true; move(e.clientX); });
   window.addEventListener('mousemove', function(e) { if (isDragging) move(e.clientX); });
